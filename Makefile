@@ -58,11 +58,10 @@ test:
 
 install:
 	bash install.sh
-    make sync
+	make sync
 
-
-sync:
-    git pull
-    poetry run autonomy packages sync
+ sync:
+	git pull
+	poetry run autonomy packages sync
 
 all: fmt lint test hashes
