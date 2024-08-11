@@ -19,17 +19,15 @@
 
 """This module contains the shared state for the abci skill of ComponentLoadingAbciApp."""
 
-from aea.skills.base import Model
 from typing import Any, Dict
-from packages.valory.skills.abstract_round_abci.models import BaseParams
-from packages.valory.skills.abstract_round_abci.models import (
-    BenchmarkTool as BaseBenchmarkTool,
-)
-from packages.valory.skills.abstract_round_abci.models import Requests as BaseRequests
-from packages.valory.skills.abstract_round_abci.models import (
-    SharedState as BaseSharedState,
-)
+
+from aea.skills.base import Model
+
 from packages.eightballer.skills.ui_loader_abci.rounds import ComponentLoadingAbciApp, Event
+from packages.valory.skills.abstract_round_abci.models import BaseParams
+from packages.valory.skills.abstract_round_abci.models import BenchmarkTool as BaseBenchmarkTool
+from packages.valory.skills.abstract_round_abci.models import Requests as BaseRequests
+from packages.valory.skills.abstract_round_abci.models import SharedState as BaseSharedState
 
 
 class SharedState(BaseSharedState):
@@ -39,14 +37,16 @@ class SharedState(BaseSharedState):
 
 
 class UserInterfaceClientStrategy(Model):
+    """This class represents a user interface client strategy."""
+
     clients: Dict[str, Any] = {}
     handlers: list = []
     behaviours: list = []
     routes: dict = {}
 
+
 class UserInterfaceLoaderParams(BaseParams):
     """Keep the current params of the skill."""
-
 
     def __init__(self, *args: Any, **kwargs: Any) -> None:
         """Initialize the parameters' object."""
@@ -54,18 +54,16 @@ class UserInterfaceLoaderParams(BaseParams):
         user_interface_config = kwargs.get("user_interface")
         self.user_interface_enabled = user_interface_config.get('enabled', False)
         if self.user_interface_enabled:
-            custom_component_name = user_interface_config.get('custom_component',)
+            custom_component_name = user_interface_config.get(
+                'custom_component',
+            )
             self.user_interface_name = custom_component_name
         super().__init__(*args, **kwargs)
 
     def setup(self) -> None:
         """Set up."""
         super().setup()
-        ComponentLoadingAbciApp.event_to_timeout[
-            Event.ROUND_TIMEOUT
-        ] = self.context.params.round_timeout_seconds
-
-
+        ComponentLoadingAbciApp.event_to_timeout[Event.ROUND_TIMEOUT] = self.context.params.round_timeout_seconds
 
 
 Params = UserInterfaceLoaderParams

@@ -19,33 +19,20 @@
 
 """This package contains the tests for rounds of ComponentLoading."""
 
-from typing import Any, Type, Dict, List, Callable, Hashable, Mapping
 from dataclasses import dataclass, field
+from typing import Any, Callable, Dict, Hashable, List, Mapping, Type
 
 import pytest
 
-from packages.eightballer.skills.ui_loader_abci.payloads import (
-    ErrorPayload,
-    HealthcheckPayload,
-    SetupPayload,
-)
 from packages.eightballer.skills.ui_loader_abci.rounds import (
-    AbstractRound,
-    Event,
-    SynchronizedData,
     ErrorRound,
+    Event,
     HealthcheckRound,
     SetupRound,
+    SynchronizedData,
 )
-from packages.valory.skills.abstract_round_abci.base import (
-    BaseTxPayload,
-)
-from packages.valory.skills.abstract_round_abci.test_tools.rounds import (
-    BaseRoundTestClass,
-    BaseOnlyKeeperSendsRoundTest,
-    BaseCollectDifferentUntilThresholdRoundTest,
-    BaseCollectSameUntilThresholdRoundTest,
- )
+from packages.valory.skills.abstract_round_abci.base import AbstractRound, BaseTxPayload
+from packages.valory.skills.abstract_round_abci.test_tools.rounds import BaseRoundTestClass
 
 
 @dataclass
@@ -82,7 +69,7 @@ class BaseComponentLoadingRoundTest(BaseRoundTestClass):
         )
 
         self._complete_run(
-            self._test_round(
+            self._test_round(  # pylint: disable=E1101
                 test_round=test_round,
                 round_payloads=test_case.payloads,
                 synchronized_data_update_fn=lambda sync_data, _: sync_data.update(**test_case.final_data),
@@ -98,7 +85,6 @@ class TestErrorRound(BaseComponentLoadingRoundTest):
 
     round_class = ErrorRound
 
-    # TODO: provide test cases
     @pytest.mark.parametrize("test_case", [])
     def test_run(self, test_case: RoundTestCase) -> None:
         """Run tests."""
@@ -111,7 +97,6 @@ class TestHealthcheckRound(BaseComponentLoadingRoundTest):
 
     round_class = HealthcheckRound
 
-    # TODO: provide test cases
     @pytest.mark.parametrize("test_case", [])
     def test_run(self, test_case: RoundTestCase) -> None:
         """Run tests."""
@@ -124,10 +109,8 @@ class TestSetupRound(BaseComponentLoadingRoundTest):
 
     round_class = SetupRound
 
-    # TODO: provide test cases
     @pytest.mark.parametrize("test_case", [])
     def test_run(self, test_case: RoundTestCase) -> None:
         """Run tests."""
 
         self.run_test(test_case)
-

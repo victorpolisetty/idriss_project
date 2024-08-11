@@ -9,21 +9,21 @@ description: The UI Loader ABCI skill is responsible for loading the UI componen
 license: Apache-2.0
 aea_version: '>=1.0.0, <2.0.0'
 fingerprint:
-  __init__.py: bafybeib4t4ay6kfjokq3cydparpzs4zllyl2yujvfsbc24xogwyxsswaqy
+  __init__.py: bafybeic6qfeiarqudbrqebdzopx2cxv7ld6gyjszzebq53yeszwhwzyz5u
   abci_spec.yaml: bafybeig6ffhlqu4w23dwjl7r46hfc63t6vfzr5d7owc2ffcosdrzlfaieu
-  behaviours.py: bafybeicehpzd3jojlx6gjoho4xhaupsrap44qonte2kctwsuhxf3xsvury
-  dialogues.py: bafybeifdajekrdwyx3cow2vwqpgtdnsgej6ccbrivqj2udv2b3dwhx3wmu
-  handlers.py: bafybeicn3fubc6tkxcr7fvyuvqtrli2tgw2fsofebrzpbk64rg64pfxvgu
-  models.py: bafybeicknmlpdmrb7ganz5m6pn4oo7a3fyrb7wk3mxbr7voxhooikej77m
-  payloads.py: bafybeicejrehsaagpwct6bozr7jh73gyx7ewkipk3z7d3khgqejcn5ze6y
-  rounds.py: bafybeigbweow6w7wvuumznohbsqtwajbi2hzec7g36nyir3et2r6srifsa
-  tests/__init__.py: bafybeifigp64li3j3yidpan5arc27etm3jytadjsckjaidrem57hst73ry
-  tests/test_behaviours.py: bafybeicyhiityyw7sm7hs34gbrtv6dxg3xaxkoos5qy65qe4p2rqdksopq
+  behaviours.py: bafybeihrljucspgwkxinlylyvel2isdxlobpdzpguyhu74b3dqofk5z76u
+  dialogues.py: bafybeig5eza5x3iqkceh47vup3ilahbb255nzha2bt2fkurbmfmu63jhe4
+  handlers.py: bafybeidc3ivqcp6vumx6f6ctpbnhkbirus4pzpiazgeqr3xf7nspakp5om
+  models.py: bafybeia42qa4wa4cbnsmvgkbz5r5s4rn4g75peq7hhzymmgamiytvlznue
+  payloads.py: bafybeihlb2vwuvpuwrvog2vfyuhzuq7i6ef36epa3im52a3sftlsj4g5qe
+  rounds.py: bafybeignyi6rrdux43k54qm2ampundcuwbdg5fliits3hxcekjt2qm4qy4
+  tests/__init__.py: bafybeidlhllgpf65xwk357wukpguuaz6hxhkyh7dwplv2xkxlrlk4b7zty
+  tests/test_behaviours.py: bafybeifwvtkof7yuyj26d42o26js5mh3mfnwmft2kjcgoj5na4huyx2lsm
   tests/test_dialogues.py: bafybeieb67vvwpslksvuz2sdbftfhfg74cekbqrp7ekjsmwz3wzxf45cjy
-  tests/test_handlers.py: bafybeiakecl6tla4mfouc4mlewhgkc5byrolpcuexqpn2ldqocb2rwllra
-  tests/test_models.py: bafybeiezkamcwuopvqjbabebhpn4r3bfeuvnys3lnwl4hfwgrs6ser4dui
-  tests/test_payloads.py: bafybeif4df4xp6fermdnrfrsfg65elcizdrlulup5s2gp7zjno54vnxt6m
-  tests/test_rounds.py: bafybeidpomywlubf7pneukvvemspagazkpomy2xscqkn7p7r4gs5dzmh6i
+  tests/test_handlers.py: bafybeifqtzxifou3qaihsdi75vkqzfvhgxb6jgurciexb26sqm4ukw4vj4
+  tests/test_models.py: bafybeihxr6qiimkbe66tnnwek46ciejd5usdljwu7rc4decvy6hmtkf3ei
+  tests/test_payloads.py: bafybeieh5tvzzqsem27sbmhledqvehgtzpkeoaxmrmlv2fakk6ps2mwchm
+  tests/test_rounds.py: bafybeidydejp3xkycc2fzctkit7mprm2dut6qvdakd7ulisqnzu2odoedu
 fingerprint_ignore_patterns: []
 connections: []
 contracts: []

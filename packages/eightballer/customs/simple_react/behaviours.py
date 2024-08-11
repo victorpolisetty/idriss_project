@@ -1,8 +1,11 @@
-
+"""
+Behaviours for the simple react skill.
+"""
 import os
-from typing import Optional, cast
-from aea.skills.base import Behaviour
 from pathlib import Path
+from typing import Optional, cast
+
+from aea.skills.base import Behaviour
 
 from packages.eightballer.protocols.websockets.message import WebsocketsMessage
 from packages.eightballer.skills.ui_loader_abci.models import UserInterfaceClientStrategy
@@ -13,6 +16,7 @@ class LogReadingBehaviour(Behaviour):
 
     lines: int = 0
     client_to_lines: dict = {}
+    log_file: str = ""
 
     @property
     def strategy(self) -> Optional[str]:
@@ -27,7 +31,6 @@ class LogReadingBehaviour(Behaviour):
         self.lines = 0
         self.client_to_lines = {}
         self.log_file = os.environ.get("LOG_FILE", "log.txt")
-
 
     def send_message(self, data, dialogue):
         """

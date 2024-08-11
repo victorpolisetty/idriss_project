@@ -24,4 +24,3 @@ import packages.eightballer.skills.ui_loader_abci.handlers  # noqa
 
 def test_import() -> None:
     """Test that the 'handlers.py' of the ComponentLoading can be imported."""
-
