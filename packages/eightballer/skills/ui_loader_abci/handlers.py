@@ -138,10 +138,10 @@ class UserInterfaceHttpHandler(BaseHandler):
         else:
             content = routes.get(path, None)
         # we want to extract the path from the url
-        self.context.logger.info("Received request for path: {}".format(path))
+        self.context.logger.info("Received request for path: {path}")
 
         if path is None or content is None:
-            self.context.logger.warning("Context not found for path: {}".format(path))
+            self.context.logger.warning("Context not found for path: {path}")
             content = b"Not found!"
         # as we are serving the frontend, we need to set the headers accordingly
         # X-Content-Type-Options: nosniff
@@ -200,11 +200,11 @@ class UserInterfaceWsHandler(UserInterfaceHttpHandler):
             return self._handle_disconnect(message, dialogue)
         # it is an existing dialogue
         if dialogue is None:
-            self.context.logger.error("Could not locate dialogue for message={}".format(message))
+            self.context.logger.error("Could not locate dialogue for message={message}")
             return None
         if message.performative == WebsocketsMessage.Performative.SEND:
             return self._handle_send(message, dialogue)
-        self.context.logger.warning("Cannot handle websockets message of performative={}".format(message.performative))
+        self.context.logger.warning("Cannot handle websockets message of performative={message.performative}")
         return None
 
     def _handle_disconnect(self, message: Message, dialogue: WebsocketsDialogue) -> None:
@@ -213,7 +213,7 @@ class UserInterfaceWsHandler(UserInterfaceHttpHandler):
 
         :param message: the message
         """
-        self.context.logger.info("Handling disconnect message in skill: {}".format(message))
+        self.context.logger.info("Handling disconnect message in skill: {message}")
         ws_dialogues_to_connections = {v.incomplete_dialogue_label: k for k, v in self.strategy.clients.items()}
         if dialogue.incomplete_dialogue_label in ws_dialogues_to_connections:
             del self.strategy.clients[ws_dialogues_to_connections[dialogue.incomplete_dialogue_label]]
@@ -233,7 +233,7 @@ class UserInterfaceWsHandler(UserInterfaceHttpHandler):
         for handler_func in self.strategy.handlers:
             response_data = handler_func.handle(message)
             if response_data is not None:
-                self.context.logger.info("Handling message in skill: {}".format(message.data))
+                self.context.logger.info("Handling message in skill: {message.data}")
                 response_message = dialogue.reply(
                     performative=WebsocketsMessage.Performative.SEND,
                     target_message=dialogue.last_message,
@@ -254,7 +254,7 @@ class UserInterfaceWsHandler(UserInterfaceHttpHandler):
         dialogue: WebsocketsDialogue = self.websocket_dialogues.get_dialogue(message)
 
         if dialogue is not None:
-            self.context.logger.debug("Already have a dialogue for message={}".format(message))
+            self.context.logger.debug("Already have a dialogue for message={message}")
             return
         else:
             client_reference = message.url
@@ -264,7 +264,7 @@ class UserInterfaceWsHandler(UserInterfaceHttpHandler):
                 success=True,
                 target_message=message,
             )
-            self.context.logger.info("Handling connect message in skill: {}".format(client_reference))
+            self.context.logger.info("Handling connect message in skill: {client_reference}")
             self.strategy.clients[client_reference] = dialogue
             self.context.outbox.put_message(message=response_msg)
 
