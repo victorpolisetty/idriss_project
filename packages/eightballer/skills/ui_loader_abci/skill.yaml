@@ -13,7 +13,7 @@ fingerprint:
   abci_spec.yaml: bafybeig6ffhlqu4w23dwjl7r46hfc63t6vfzr5d7owc2ffcosdrzlfaieu
   behaviours.py: bafybeihrljucspgwkxinlylyvel2isdxlobpdzpguyhu74b3dqofk5z76u
   dialogues.py: bafybeig5eza5x3iqkceh47vup3ilahbb255nzha2bt2fkurbmfmu63jhe4
-  handlers.py: bafybeia5ib3v442loh532hnrhhk3wn4bazpipmgnt4knkd772rz4ytbqyy
+  handlers.py: bafybeidc3ivqcp6vumx6f6ctpbnhkbirus4pzpiazgeqr3xf7nspakp5om
   models.py: bafybeia42qa4wa4cbnsmvgkbz5r5s4rn4g75peq7hhzymmgamiytvlznue
   payloads.py: bafybeihlb2vwuvpuwrvog2vfyuhzuq7i6ef36epa3im52a3sftlsj4g5qe
   rounds.py: bafybeignyi6rrdux43k54qm2ampundcuwbdg5fliits3hxcekjt2qm4qy4
@@ -23,7 +23,7 @@ fingerprint:
   tests/test_handlers.py: bafybeifqtzxifou3qaihsdi75vkqzfvhgxb6jgurciexb26sqm4ukw4vj4
   tests/test_models.py: bafybeihxr6qiimkbe66tnnwek46ciejd5usdljwu7rc4decvy6hmtkf3ei
   tests/test_payloads.py: bafybeieh5tvzzqsem27sbmhledqvehgtzpkeoaxmrmlv2fakk6ps2mwchm
-  tests/test_rounds.py: bafybeihdhq2dcl2anehh2dhfj36yaagmvphdlevh75mzflbksyxgdrh4m4
+  tests/test_rounds.py: bafybeidydejp3xkycc2fzctkit7mprm2dut6qvdakd7ulisqnzu2odoedu
 fingerprint_ignore_patterns: []
 connections: []
 contracts: []

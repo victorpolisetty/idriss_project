@@ -11,6 +11,7 @@ fingerprint:
   build/index.html: bafybeigyjfv75r7fnd7mw63vbidusohzopzyz47c5nmc3tiak5yh22gbfi
   handlers.py: bafybeiceam66wmevwc5irfygdvaxaxllxaeetyegciazyxur7veybcpd24
   openapi3_spec.yaml: bafybeiagdbghwj4t4o7uctojvtkjp7i6zxpwu6dltjsawcaeuteyipftty
+  tests/test_custom.py: bafybeia43db42ya22mcdq5hzx6crksda72vtk2sodfgwhq2aprdcbhaodu
 fingerprint_ignore_patterns: []
 dependencies: {}
 api_spec: open_api3_spec.yaml

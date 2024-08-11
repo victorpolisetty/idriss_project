@@ -25,14 +25,13 @@ from typing import Any, Callable, Dict, Hashable, List, Mapping, Type
 import pytest
 
 from packages.eightballer.skills.ui_loader_abci.rounds import (
-    AbstractRound,
     ErrorRound,
     Event,
     HealthcheckRound,
     SetupRound,
     SynchronizedData,
 )
-from packages.valory.skills.abstract_round_abci.base import BaseTxPayload
+from packages.valory.skills.abstract_round_abci.base import AbstractRound, BaseTxPayload
 from packages.valory.skills.abstract_round_abci.test_tools.rounds import BaseRoundTestClass
 
 
