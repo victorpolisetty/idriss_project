@@ -164,7 +164,8 @@ main() {
 
     echo "Installation completed successfully!"
     echo 'Initializing the author and remote for aea'
-    poetry run aea init --remote --author ci > /dev/null || exit 1
+    poetry run aea init --remote > /dev/null || exit 1
+    poetry run autonomy packages sync > /dev/null || exit 1
     echo 'Done initializing the author and remote for aea'
     echo 'Setting up the .env file from .env.example'
     set_env_file

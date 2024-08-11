@@ -58,7 +58,6 @@ test:
 
 install:
 	bash install.sh
-	make sync
 
  sync:
 	git pull
