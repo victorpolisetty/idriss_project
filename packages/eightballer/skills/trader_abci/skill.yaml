@@ -1,0 +1,276 @@
+name: trader_abci
+author: eightballer
+version: 0.1.0
+type: skill
+description: This skill implements the trader skill for an AEA.
+license: Apache-2.0
+aea_version: '>=1.0.0, <2.0.0'
+fingerprint:
+  README.md: bafybeiab4xgadptz4mhvno4p6xvkh7p4peg7iuhotabydriu74dmj6ljga
+  __init__.py: bafybeidcolmxxhxjfdeyv5xj54zwgf7vrin4j3he26oe4wzkr3o3fftq7i
+  behaviours.py: bafybeihoze4fcz7fatdywq4wmuw5qvcafdh6b7d66lpdbcvqtxniam6bte
+  composition.py: bafybeibdm34q46jqw4ug4tnqrvfvu6nxfku44vjgqwdkuoro5pl4t64zjq
+  dialogues.py: bafybeid6urxuyla4isp6npofthxcqepa7dkewukfw7wpja6job37gg53yy
+  fsm_specification.yaml: bafybeigwqrxxah3c55ome4qffl7ck53hrk2uencz3lym6unfof6qakeqoe
+  handlers.py: bafybeidfmh4xu7ak5hpeizienjh26phtem4mefievpxr6xtlpxyyo2x7xa
+  models.py: bafybeieffcjefrsbtovsofcqav3xhzg47nryuo2jmamrvvd5yd34k3c6fi
+fingerprint_ignore_patterns: []
+connections: []
+contracts: []
+protocols: []
+skills:
+- eightballer/ui_loader_abci:0.1.0:bafybeiaul65cr7f3gxdjzyylidxtil65gfv3t2fdoc2hqwfq2bgzrcq5h4
+- valory/abstract_round_abci:0.1.0:bafybeih3enhagoql7kzpeyzzu2scpkif6y3ubakpralfnwxcvxexdyvy5i
+- valory/decision_maker_abci:0.1.0:bafybeid4txlxu6ig7o3r6ufrsbegnjzsnunmrr5ozy6lv54yzvx6eg5vey
+- valory/registration_abci:0.1.0:bafybeiek7zcsxbucjwzgqfftafhfrocvc7q4yxllh2q44jeemsjxg3rcfm
+- valory/reset_pause_abci:0.1.0:bafybeidw4mbx3os3hmv7ley7b3g3gja7ydpitr7mxbjpwzxin2mzyt5yam
+behaviours:
+  main:
+    args: {}
+    class_name: TraderConsensusBehaviour
+handlers:
+  abci:
+    args: {}
+    class_name: TraderHandler
+  contract_api:
+    args: {}
+    class_name: ContractApiHandler
+  http:
+    args: {}
+    class_name: HttpHandler
+  ipfs:
+    args: {}
+    class_name: IpfsHandler
+  ledger_api:
+    args: {}
+    class_name: LedgerApiHandler
+  signing:
+    args: {}
+    class_name: SigningHandler
+  tendermint:
+    args: {}
+    class_name: TendermintHandler
+  user_interface_http:
+    args: {}
+    class_name: UserInterfaceHttpHandler
+  user_interface_ws:
+    args: {}
+    class_name: UserInterfaceWsHandler
+models:
+  abci_dialogues:
+    args: {}
+    class_name: AbciDialogues
+  benchmark_tool:
+    args:
+      log_dir: /logs
+    class_name: BenchmarkTool
+  contract_api_dialogues:
+    args: {}
+    class_name: ContractApiDialogues
+  http_dialogues:
+    args: {}
+    class_name: HttpDialogues
+  ipfs_dialogues:
+    args: {}
+    class_name: IpfsDialogues
+  ledger_api_dialogues:
+    args: {}
+    class_name: LedgerApiDialogues
+  params:
+    args:
+      abt_error_mult: 5
+      agent_balance_threshold: 10000000000000000
+      agent_registry_address: null
+      average_block_time: 5
+      bet_threshold: 100000000000000000
+      blacklisting_duration: 3600
+      cleanup_history_depth: 1
+      cleanup_history_depth_current: null
+      conditional_tokens_address: '0xCeAfDD6bc0bEF976fdCd1112955828E00543c0Ce'
+      contract_timeout: 300.0
+      creator_per_subgraph:
+        omen_subgraph: []
+      disable_trading: false
+      drand_public_key: 868f005eb8e6e4ca0a47c8a77ceaa5309a47978a7c71bc5cce96366b5d7a569937c529eeda66c7293784a9402801af31
+      dust_threshold: 10000000000000
+      event_filtering_batch_size: 5000
+      file_hash_to_strategies_json:
+      - - hash
+        - - strategy_name
+      finalize_timeout: 60.0
+      genesis_config:
+        genesis_time: '2022-05-20T16:00:21.735122717Z'
+        chain_id: chain-c4daS1
+        consensus_params:
+          block:
+            max_bytes: '22020096'
+            max_gas: '-1'
+            time_iota_ms: '1000'
+          evidence:
+            max_age_num_blocks: '100000'
+            max_age_duration: '172800000000000'
+            max_bytes: '1048576'
+          validator:
+            pub_key_types:
+            - ed25519
+          version: {}
+        voting_power: '10'
+      history_check_timeout: 1205
+      init_fallback_gas: 0
+      ipfs_address: https://gateway.autonolas.tech/ipfs/
+      irrelevant_tools:
+      - openai-text-davinci-002
+      - openai-text-davinci-003
+      - openai-gpt-3.5-turbo
+      - openai-gpt-4
+      - stabilityai-stable-diffusion-v1-5
+      - stabilityai-stable-diffusion-xl-beta-v2-2-2
+      - stabilityai-stable-diffusion-512-v2-1
+      - stabilityai-stable-diffusion-768-v2-1
+      keeper_allowed_retries: 3
+      keeper_timeout: 30.0
+      languages:
+      - en_US
+      light_slash_unit_amount: 5000000000000000
+      max_attempts: 10
+      max_filtering_retries: 6
+      max_healthcheck: 120
+      mech_chain_id: gnosis
+      mech_contract_address: '0x77af31de935740567cf4ff1986d04b2c964a786a'
+      mech_request_price: null
+      mech_to_subscription_params:
+      - - base_url
+        - https://marketplace-api.gnosis.nevermined.app/api/v1/metadata/assets/ddo
+      - - did
+        - did:nv:0ea01d5de3b34e3792db825f2a5f5595c393c68b19fd5efdacd00fcc63a53483
+      - - escrow_payment_condition_address
+        - '0x9dDC4F1Ea5b94C138A23b60EC48c0d01d172629a'
+      - - lock_payment_condition_address
+        - '0xDE85A368Ee6f374d236500d176814365370778dA'
+      - - transfer_nft_condition_address
+        - '0xbBa4A25262745a55f020D0a3E9a82c25bb6F4979'
+      - - token_address
+        - '0xa30DE8C6aC39B825192e5F1FADe0770332D279A8'
+      - - order_address
+        - '0xc7751eff5396a846e7bc83ac31d3cb7d37cb49e4'
+      - - nft_amount
+        - '100'
+      - - payment_token
+        - '0x0000000000000000000000000000000000000000'
+      - - order_address
+        - '0xc7751eff5396a846e7bc83ac31d3cb7d37cb49e4'
+      - - price
+        - '1000000000000000000'
+      mech_wrapped_native_token_address: '0xe91D153E0b41518A2Ce8Dd3D7944Fa863463a97d'
+      minimum_batch_size: 500
+      multisend_address: '0x0000000000000000000000000000000000000000'
+      multisend_batch_size: 1
+      on_chain_service_id: null
+      opening_margin: 300
+      policy_epsilon: 0.1
+      prompt_template: With the given question "@{question}" and the `yes` option
+        represented by `@{yes}` and the `no` option represented by `@{no}`, what are
+        the respective probabilities of `p_yes` and `p_no` occurring?
+      realitio_address: '0x79e32aE03fb27B07C89c0c568F80287C01ca2E57'
+      realitio_proxy_address: '0xAB16D643bA051C11962DA645f74632d3130c81E2'
+      redeem_round_timeout: 3600.0
+      redeeming_batch_size: 5
+      reduce_factor: 0.25
+      refill_check_interval: 10
+      request_retry_delay: 1.0
+      request_timeout: 10.0
+      reset_pause_duration: 10
+      reset_tendermint_after: 2
+      retry_attempts: 400
+      retry_timeout: 3
+      round_timeout_seconds: 350.0
+      sample_bets_closing_days: 10
+      serious_slash_unit_amount: 8000000000000000
+      service_id: trader
+      service_registry_address: null
+      setup:
+        all_participants:
+        - '0x0000000000000000000000000000000000000000'
+        safe_contract_address: '0x0000000000000000000000000000000000000000'
+        consensus_threshold: null
+      share_tm_config_on_startup: false
+      slash_cooldown_hours: 3
+      slash_threshold_amount: 10000000000000000
+      sleep_time: 5
+      slippage: 0.01
+      slot_count: 2
+      staking_contract_address: '0x2Ef503950Be67a98746F484DA0bBAdA339DF3326'
+      stop_trading_if_staking_kpi_met: true
+      store_path: /data/
+      strategies_kwargs:
+      - - bet_kelly_fraction
+        - 1.0
+      - - floor_balance
+        - 500000000000000000
+      - - bet_amount_per_threshold
+        - 0.0: 0
+          0.1: 0
+          0.2: 0
+          0.3: 0
+          0.4: 0
+          0.5: 0
+          0.6: 0
+          0.7: 0
+          0.8: 0
+          0.9: 0
+          1.0: 0
+      tendermint_check_sleep_delay: 3
+      tendermint_com_url: http://localhost:8080
+      tendermint_max_retries: 5
+      tendermint_p2p_url: localhost:26656
+      tendermint_url: http://localhost:26657
+      termination_from_block: 0
+      termination_sleep: 900
+      tool_punishment_multiplier: 1
+      trading_strategy: strategy_name
+      tx_timeout: 10.0
+      use_fallback_strategy: true
+      use_nevermined: true
+      use_slashing: false
+      use_subgraph_for_redeeming: true
+      use_termination: false
+      user_interface:
+        enabled: true
+        custom_component: null
+      validate_timeout: 1205
+    class_name: TraderParams
+  randomness_api:
+    args:
+      api_id: cloudflare
+      headers: {}
+      method: GET
+      parameters: {}
+      response_key: null
+      response_type: dict
+      retries: 5
+      url: https://drand.cloudflare.com/public/latest
+    class_name: RandomnessApi
+  requests:
+    args: {}
+    class_name: Requests
+  signing_dialogues:
+    args: {}
+    class_name: SigningDialogues
+  state:
+    args: {}
+    class_name: SharedState
+  tendermint_dialogues:
+    args: {}
+    class_name: TendermintDialogues
+  user_interface_client_strategy:
+    args: {}
+    class_name: UserInterfaceClientStrategy
+  user_interface_http_dialogues:
+    args: {}
+    class_name: UserInterfaceHttpDialogues
+  user_interface_ws_dialogues:
+    args: {}
+    class_name: UserInterfaceWsDialogues
+dependencies: {}
+is_abstract: false
+customs: []

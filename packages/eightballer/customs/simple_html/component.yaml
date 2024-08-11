@@ -1,0 +1,23 @@
+name: simple_html
+author: eightballer
+version: 0.1.0
+type: custom
+description: Simple HTML frontend to act as a template for the frontend ABCI loader.
+license: Apache-2.0
+aea_version: '>=1.0.0, <2.0.0'
+fingerprint:
+  __init__.py: bafybeiglvv5vambb4mkkuhsttcrxewn52tkqbgxsn5vy5lfwuibcl2d4ny
+  behaviours.py: bafybeicmurqr56pse6hvgs2g4l4x6mthsw5ory23p6s67ant4pqckkvn6q
+  build/index.html: bafybeigyjfv75r7fnd7mw63vbidusohzopzyz47c5nmc3tiak5yh22gbfi
+  handlers.py: bafybeibgcafbdogrm6oezh3izkviwfyzjc7kqapm6cpepmokj734ye5p3a
+  openapi3_spec.yaml: bafybeiagdbghwj4t4o7uctojvtkjp7i6zxpwu6dltjsawcaeuteyipftty
+fingerprint_ignore_patterns: []
+dependencies: {}
+api_spec: open_api3_spec.yaml
+frontend_dir: build
+behaviours:
+- class_name: LogReadingBehaviour
+  args: {}
+handlers:
+- class_name: PingPongHandler
+  args: {}

@@ -1,0 +1,169 @@
+name: ui_loader_abci
+author: eightballer
+version: 0.1.0
+type: skill
+description: The UI Loader ABCI skill is responsible for loading the UI components
+  from from the custom components and then serving them to the user interface. The
+  skill enables bidirectional communication between the user interface and the ABCI
+  application through the use of websockets and http connections.
+license: Apache-2.0
+aea_version: '>=1.0.0, <2.0.0'
+fingerprint:
+  __init__.py: bafybeib4t4ay6kfjokq3cydparpzs4zllyl2yujvfsbc24xogwyxsswaqy
+  abci_spec.yaml: bafybeig6ffhlqu4w23dwjl7r46hfc63t6vfzr5d7owc2ffcosdrzlfaieu
+  behaviours.py: bafybeicehpzd3jojlx6gjoho4xhaupsrap44qonte2kctwsuhxf3xsvury
+  dialogues.py: bafybeifdajekrdwyx3cow2vwqpgtdnsgej6ccbrivqj2udv2b3dwhx3wmu
+  handlers.py: bafybeicn3fubc6tkxcr7fvyuvqtrli2tgw2fsofebrzpbk64rg64pfxvgu
+  models.py: bafybeicknmlpdmrb7ganz5m6pn4oo7a3fyrb7wk3mxbr7voxhooikej77m
+  payloads.py: bafybeicejrehsaagpwct6bozr7jh73gyx7ewkipk3z7d3khgqejcn5ze6y
+  rounds.py: bafybeigbweow6w7wvuumznohbsqtwajbi2hzec7g36nyir3et2r6srifsa
+  tests/__init__.py: bafybeifigp64li3j3yidpan5arc27etm3jytadjsckjaidrem57hst73ry
+  tests/test_behaviours.py: bafybeicyhiityyw7sm7hs34gbrtv6dxg3xaxkoos5qy65qe4p2rqdksopq
+  tests/test_dialogues.py: bafybeieb67vvwpslksvuz2sdbftfhfg74cekbqrp7ekjsmwz3wzxf45cjy
+  tests/test_handlers.py: bafybeiakecl6tla4mfouc4mlewhgkc5byrolpcuexqpn2ldqocb2rwllra
+  tests/test_models.py: bafybeiezkamcwuopvqjbabebhpn4r3bfeuvnys3lnwl4hfwgrs6ser4dui
+  tests/test_payloads.py: bafybeif4df4xp6fermdnrfrsfg65elcizdrlulup5s2gp7zjno54vnxt6m
+  tests/test_rounds.py: bafybeidpomywlubf7pneukvvemspagazkpomy2xscqkn7p7r4gs5dzmh6i
+fingerprint_ignore_patterns: []
+connections: []
+contracts: []
+protocols:
+- eightballer/http:0.1.0:bafybeibels7dv7ucflaeniwifbisvkegm5vrarrr5ctkcqebg4t7onba6a
+- eightballer/websockets:0.1.0:bafybeigegu5iypibbhpxlvgyv7tfbof6jd7ufbmsxbe4l47wbdu3hop67e
+skills:
+- valory/abstract_round_abci:0.1.0:bafybeih3enhagoql7kzpeyzzu2scpkif6y3ubakpralfnwxcvxexdyvy5i
+behaviours:
+  main:
+    args: {}
+    class_name: ComponentLoadingRoundBehaviour
+handlers:
+  abci:
+    args: {}
+    class_name: ABCIHandler
+  contract_api:
+    args: {}
+    class_name: ContractApiHandler
+  http:
+    args: {}
+    class_name: HttpHandler
+  user_interface_http:
+    args: {}
+    class_name: UserInterfaceHttpHandler
+  user_interface_ws:
+    args: {}
+    class_name: UserInterfaceWsHandler
+  ipfs:
+    args: {}
+    class_name: IpfsHandler
+  ledger_api:
+    args: {}
+    class_name: LedgerApiHandler
+  signing:
+    args: {}
+    class_name: SigningHandler
+  tendermint:
+    args: {}
+    class_name: TendermintHandler
+models:
+  abci_dialogues:
+    args: {}
+    class_name: AbciDialogues
+  benchmark_tool:
+    args:
+      log_dir: /logs
+    class_name: BenchmarkTool
+  contract_api_dialogues:
+    args: {}
+    class_name: ContractApiDialogues
+  http_dialogues:
+    args: {}
+    class_name: HttpDialogues
+  user_interface_http_dialogues:
+    args: {}
+    class_name: UserInterfaceHttpDialogues
+  user_interface_ws_dialogues:
+    args: {}
+    class_name: UserInterfaceWsDialogues
+  user_interface_client_strategy:
+    args: {}
+    class_name: UserInterfaceClientStrategy
+  ipfs_dialogues:
+    args: {}
+    class_name: IpfsDialogues
+  ledger_api_dialogues:
+    args: {}
+    class_name: LedgerApiDialogues
+  params:
+    args:
+      user_interface:
+        enabled: false
+        custom_component: null
+        http_enabled: true
+        ws_enabled: true
+      cleanup_history_depth: 1
+      cleanup_history_depth_current: null
+      drand_public_key: 868f005eb8e6e4ca0a47c8a77ceaa5309a47978a7c71bc5cce96366b5d7a569937c529eeda66c7293784a9402801af31
+      finalize_timeout: 60.0
+      genesis_config:
+        chain_id: chain-c4daS1
+        consensus_params:
+          block:
+            max_bytes: '22020096'
+            max_gas: '-1'
+            time_iota_ms: '1000'
+          evidence:
+            max_age_duration: '172800000000000'
+            max_age_num_blocks: '100000'
+            max_bytes: '1048576'
+          validator:
+            pub_key_types:
+            - ed25519
+          version: {}
+        genesis_time: '2022-05-20T16:00:21.735122717Z'
+        voting_power: '10'
+      history_check_timeout: 1205
+      ipfs_domain_name: null
+      keeper_allowed_retries: 3
+      keeper_timeout: 30.0
+      max_attempts: 10
+      max_healthcheck: 120
+      on_chain_service_id: null
+      request_retry_delay: 1.0
+      request_timeout: 10.0
+      reset_pause_duration: 10
+      reset_tendermint_after: 2
+      retry_attempts: 400
+      retry_timeout: 3
+      round_timeout_seconds: 30.0
+      service_id: component_loading
+      service_registry_address: null
+      setup:
+        all_participants:
+        - '0x0000000000000000000000000000000000000000'
+        consensus_threshold: null
+        safe_contract_address: '0x0000000000000000000000000000000000000000'
+      share_tm_config_on_startup: false
+      sleep_time: 1
+      tendermint_check_sleep_delay: 3
+      tendermint_com_url: http://localhost:8080
+      tendermint_max_retries: 5
+      tendermint_p2p_url: localhost:26656
+      tendermint_url: http://localhost:26657
+      tx_timeout: 10.0
+      validate_timeout: 1205
+    class_name: Params
+  requests:
+    args: {}
+    class_name: Requests
+  signing_dialogues:
+    args: {}
+    class_name: SigningDialogues
+  state:
+    args: {}
+    class_name: SharedState
+  tendermint_dialogues:
+    args: {}
+    class_name: TendermintDialogues
+dependencies: {}
+is_abstract: true
+customs: []
