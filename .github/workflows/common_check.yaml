@@ -26,7 +26,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     env:
       PYTHONPATH: .
-      PYTHONWARNINGS=: ignore
+      PYTHONWARNINGS: ignore
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-python@v4
