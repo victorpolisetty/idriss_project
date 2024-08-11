@@ -1,10 +1,10 @@
 {
     "dev": {
-        "custom/eightballer/simple_react/0.1.0": "bafybeihsrmtov3kkgdkrslzdifmy7rz6t4wzg4gypoehik7unlvv4vggpa",
-        "custom/eightballer/simple_html/0.1.0": "bafybeifbwovndpuooedoh32atuvmwgwrpn2vdcjvm2qs3lo34lqpmdwm2i",
-        "skill/eightballer/ui_loader_abci/0.1.0": "bafybeibzi4dyjkhjx2l46lwevzluyl5m74zuknz5zkn4ozjgze3wasaicu",
-        "skill/eightballer/trader_abci/0.1.0": "bafybeieq4eebapvlfecgknfqvrf3tr2vbylprxh7ayrbk2lyltm3yntiwu",
-        "agent/eightballer/frontend_agent/0.1.0": "bafybeigs3o6kbxxsr2njno4ywegbnzcpx6abxtekhfzaaiqxneylbnjaaq"
+        "custom/eightballer/simple_react/0.1.0": "bafybeiaprwhm2yj4o7rfnyrnquk7tljl3ro3mlwasnihnyml23dmiq3yyq",
+        "custom/eightballer/simple_html/0.1.0": "bafybeiaaojefvviuqe4woyscdwfnywjjtql5nzip6sycc45zxr2s4xkwta",
+        "skill/eightballer/ui_loader_abci/0.1.0": "bafybeienigatmpipnwolwrojkcrfihoddyx6nitn43avu4igndw3jejxte",
+        "skill/eightballer/trader_abci/0.1.0": "bafybeiddnsnenur5mxtswdvuorvi7rmyemvbkdvlx3xqjkc4yudl3aihf4",
+        "agent/eightballer/frontend_agent/0.1.0": "bafybeiba6nldoss4u7csphw2yc4or7ksclterof6rotz5siaozooyvhrta"
     },
     "third_party": {
         "protocol/eightballer/http/0.1.0": "bafybeibels7dv7ucflaeniwifbisvkegm5vrarrr5ctkcqebg4t7onba6a",
@@ -34,9 +34,7 @@
         "connection/valory/ipfs/0.1.0": "bafybeihndk6hohj3yncgrye5pw7b7w2kztj3avby5u5mfk2fpjh7hqphii",
         "skill/valory/abstract_abci/0.1.0": "bafybeihat4giyc4bz6zopvahcj4iw53356pbtwfn7p4d5yflwly2qhahum",
         "skill/valory/abstract_round_abci/0.1.0": "bafybeih3enhagoql7kzpeyzzu2scpkif6y3ubakpralfnwxcvxexdyvy5i",
-        "skill/valory/staking_abci/0.1.0": "bafybeicsydq6fdansf7qrmrygzchl3h6rtkdw5rmx2jyrwecj4laj5nehy",
         "skill/valory/registration_abci/0.1.0": "bafybeiek7zcsxbucjwzgqfftafhfrocvc7q4yxllh2q44jeemsjxg3rcfm",
-        "skill/valory/termination_abci/0.1.0": "bafybeihq6qtbwt6i53ayqym63vhjexkcppy26gguzhhjqywfmiuqghvv44",
         "skill/valory/reset_pause_abci/0.1.0": "bafybeidw4mbx3os3hmv7ley7b3g3gja7ydpitr7mxbjpwzxin2mzyt5yam"
     }
 }

@@ -6,12 +6,12 @@ description: Simple HTML frontend to act as a template for the frontend ABCI loa
 license: Apache-2.0
 aea_version: '>=1.0.0, <2.0.0'
 fingerprint:
-  __init__.py: bafybeih4oyyzgld4vqtbub6zrcrrfofbhmhbr37rvoxuhzchn3bhhjs7za
+  __init__.py: bafybeie3a4f2zzoofzbe6yy6rivj7qtj4kye6qrl74kgfvs3gm3zrczwx4
   behaviours.py: bafybeihfs4x26mq2ahhqfexnntjkhihktpeq6yidjgw5mghdstxotdcfva
   build/index.html: bafybeigyjfv75r7fnd7mw63vbidusohzopzyz47c5nmc3tiak5yh22gbfi
   handlers.py: bafybeiceam66wmevwc5irfygdvaxaxllxaeetyegciazyxur7veybcpd24
   openapi3_spec.yaml: bafybeiagdbghwj4t4o7uctojvtkjp7i6zxpwu6dltjsawcaeuteyipftty
-  tests/test_custom.py: bafybeia43db42ya22mcdq5hzx6crksda72vtk2sodfgwhq2aprdcbhaodu
+  tests/test_custom.py: bafybeidafbtgi6v6gnvlkaxiyocgebdkrgcfzoj4j27zsfjbjjviaio6li
 fingerprint_ignore_patterns: []
 dependencies: {}
 api_spec: open_api3_spec.yaml

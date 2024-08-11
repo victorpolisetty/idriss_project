@@ -127,7 +127,7 @@ class HealthcheckBehaviour(ComponentLoadingBaseBehaviour):
             yield from self.wait_until_round_end()
         self.set_done()
 
-    def _check_ui_health(self) -> Generator[Any, Any, EventType]:
+    def _check_ui_health(self) -> Generator[Any, Any, Event]:
         """Check the health of the UI."""
         status = HttpStatus.OK
         if status is HttpStatus.OK:
