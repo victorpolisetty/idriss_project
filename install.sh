@@ -163,12 +163,14 @@ main() {
     install_poetry_deps
 
     echo "Installation completed successfully!"
-    echo 'Initializing the author and remote for aea'
+
+    echo 'Initializing the author and remote for aea and syncing packages...'
     author=$(cat ~/.aea/cli_config.yaml | yq -r '.author') || author="ci"
-    poetry run aea init --remote --$author > /dev/null || exit 1
+    poetry run aea init --remote --author $author > /dev/null || exit 1
     poetry run autonomy packages sync > /dev/null || exit 1
-    echo 'Done initializing the author and remote for aea'
-    echo 'Setting up the .env file from .env.example'
+    echo 'Done initializing the author and remote for aea using the author: ' $author
+    echo 'To change the author, run the command;
+    `poetry run aea init --remote --author <author>`'
     set_env_file
     echo '🎉You are ready to BUILD!🚀'
 }
