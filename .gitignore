@@ -63,4 +63,3 @@ packages/eightballer/protocols/websockets
 packages/eightballer/connections/http_client
 packages/eightballer/connections/http_server
 packages/eightballer/connections/websocket_server
-frontend_agent
