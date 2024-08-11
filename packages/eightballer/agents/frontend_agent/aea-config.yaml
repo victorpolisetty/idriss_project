@@ -45,8 +45,8 @@ protocols:
 - valory/ledger_api:1.0.0:bafybeihdk6psr4guxmbcrc26jr2cbgzpd5aljkqvpwo64bvaz7tdti2oni
 - valory/tendermint:0.1.0:bafybeig4mi3vmlv5zpbjbfuzcgida6j5f2nhrpedxicmrrfjweqc5r7cra
 skills:
-- eightballer/trader_abci:0.1.0:bafybeighoaz5eygnfb7g5u2dcx65uwi6yqswuldr4ajk6tge5rpixcsp64
-- eightballer/ui_loader_abci:0.1.0:bafybeiaul65cr7f3gxdjzyylidxtil65gfv3t2fdoc2hqwfq2bgzrcq5h4
+- eightballer/trader_abci:0.1.0:bafybeie3wyajt53rwu34cmk3zduzg3o7zvmljopu5y3zimzqxghjxglape
+- eightballer/ui_loader_abci:0.1.0:bafybeibzi4dyjkhjx2l46lwevzluyl5m74zuknz5zkn4ozjgze3wasaicu
 - valory/abstract_abci:0.1.0:bafybeihat4giyc4bz6zopvahcj4iw53356pbtwfn7p4d5yflwly2qhahum
 - valory/abstract_round_abci:0.1.0:bafybeih3enhagoql7kzpeyzzu2scpkif6y3ubakpralfnwxcvxexdyvy5i
 - valory/check_stop_trading_abci:0.1.0:bafybeidyc5fvw5wosbc3anxxxog5b67cfmvrsrltjh3cfllye3bb43r3z4
@@ -60,8 +60,8 @@ skills:
 - valory/transaction_settlement_abci:0.1.0:bafybeigtzlk4uakmd54rxnznorcrstsr52kta474lgrnvx5ovr546vj7sq
 - valory/tx_settlement_multiplexer_abci:0.1.0:bafybeifssqoybhgmuz6gwylkayajmzn763qsv6uqduzhe4ynbgnrteb7jq
 customs:
-- eightballer/simple_html:0.1.0:bafybeie2n63vfi3mjxgschcyoft7qt7cpqwhtap3hhlzxz5nan7wwpwxwy
-- eightballer/simple_react:0.1.0:bafybeidbk7jig33qqxrvt24inhz6ruzwzuxzrqunlnz7l4ltyof2ieqoky
+- eightballer/simple_html:0.1.0:bafybeigcsxttainlvmedbd34y6cxrmsfetqyrjrwncfzpcksjwcubxpjeu
+- eightballer/simple_react:0.1.0:bafybeicai2qp6kp4z53h4ogjpitmfiqy5q3xjhzde4ju74ym4tmmwzpx34
 default_ledger: ethereum
 required_ledgers:
 - ethereum

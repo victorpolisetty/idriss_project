@@ -89,6 +89,9 @@ class UserInterfaceHttpHandler(BaseHandler):
         return False
 
     def is_websocket_request(self, message: UiHttpMessage) -> bool:
+        """
+        Check if the request is a websocket request using the headers.
+        """
         if "Upgrade: websocket" in message.headers:
             return True
         return False
@@ -101,17 +104,19 @@ class UserInterfaceHttpHandler(BaseHandler):
             dialogue.incomplete_dialogue_label.get_incomplete_version().dialogue_reference[0]
         ] = dialogue
         self.context.logger.debug(f"Total clients: {len(self.strategy.clients)}")
+        self.context.logger.debug(f"Handling websocket request in skill: {message.dialogue_reference}")
 
     def handle_api_request(self, message: UiHttpMessage, dialogue) -> bytes:
         """
         Handle the api request.
         """
+        self.context.logger.info(f"Received api route request: {message.url} from {dialogue.incomplete_dialogue_label}")
         parts = message.url.split("/")
         headers = "Content-Type: application/json; charset=utf-8\n"
         data = {}
         if len(parts) < 4:
             # in a later iteration we should return the open-api spec here.
-            return headers, json.dumps(content).encode("utf-8")
+            return headers, json.dumps(data).encode("utf-8")
 
         if parts[-1] == "agent-info":
             data = {
@@ -127,6 +132,7 @@ class UserInterfaceHttpHandler(BaseHandler):
         """
         Handle the frontend request.
         """
+        del dialogue
 
         routes = self.strategy.routes
         path = "/".join(message.url.split("/")[3:])
@@ -213,7 +219,7 @@ class UserInterfaceWsHandler(UserInterfaceHttpHandler):
 
         :param message: the message
         """
-        self.context.logger.info("Handling disconnect message in skill: {message}")
+        self.context.logger.info(f"Handling disconnect message in skill: {message}")
         ws_dialogues_to_connections = {v.incomplete_dialogue_label: k for k, v in self.strategy.clients.items()}
         if dialogue.incomplete_dialogue_label in ws_dialogues_to_connections:
             del self.strategy.clients[ws_dialogues_to_connections[dialogue.incomplete_dialogue_label]]
@@ -253,20 +259,19 @@ class UserInterfaceWsHandler(UserInterfaceHttpHandler):
 
         dialogue: WebsocketsDialogue = self.websocket_dialogues.get_dialogue(message)
 
-        if dialogue is not None:
+        if dialogue:
             self.context.logger.debug("Already have a dialogue for message={message}")
             return
-        else:
-            client_reference = message.url
-            dialogue = self.websocket_dialogues.update(message)
-            response_msg = dialogue.reply(
-                performative=WebsocketsMessage.Performative.CONNECTION_ACK,
-                success=True,
-                target_message=message,
-            )
-            self.context.logger.info("Handling connect message in skill: {client_reference}")
-            self.strategy.clients[client_reference] = dialogue
-            self.context.outbox.put_message(message=response_msg)
+        client_reference = message.url
+        dialogue = self.websocket_dialogues.update(message)
+        response_msg = dialogue.reply(
+            performative=WebsocketsMessage.Performative.CONNECTION_ACK,
+            success=True,
+            target_message=message,
+        )
+        self.context.logger.info("Handling connect message in skill: {client_reference}")
+        self.strategy.clients[client_reference] = dialogue
+        self.context.outbox.put_message(message=response_msg)
 
 
 ABCIHandler = BaseABCIRoundHandler

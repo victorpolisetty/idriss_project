@@ -24,7 +24,7 @@ else
     aea -s add-key ethereum 
 fi
 # install any agent deps
-# aea -s install
+aea -s install
 
 # issue certificates for agent peer-to-peer communications
 if [ ! -f ../certs ]; then
