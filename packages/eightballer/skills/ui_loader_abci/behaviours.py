@@ -31,7 +31,6 @@ from typing import Any, Generator, Optional, Set, Type, cast
 
 import yaml
 
-from packages.eightballer.skills.trader_abci.models import EventType
 from packages.eightballer.skills.ui_loader_abci.models import Params, UserInterfaceClientStrategy
 from packages.eightballer.skills.ui_loader_abci.rounds import (
     ComponentLoadingAbciApp,
@@ -183,7 +182,7 @@ class SetupBehaviour(ComponentLoadingBaseBehaviour):
 
     # here we load the UI from the custom parameter passed in the setup payload
 
-    def load_ui(self, directory) -> Generator[Any, Any, EventType]:
+    def load_ui(self, directory) -> Generator[Any, Any, Event]:
         """Load the UI from the setup_data."""
         self.context.logger.info(f"Generating routes for the UI in {directory}...")
         self.strategy.routes = self.generate_routes(directory)

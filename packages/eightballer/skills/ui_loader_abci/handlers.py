@@ -89,6 +89,9 @@ class UserInterfaceHttpHandler(BaseHandler):
         return False
 
     def is_websocket_request(self, message: UiHttpMessage) -> bool:
+        """
+        Check if the request is a websocket request.
+        """
         if "Upgrade: websocket" in message.headers:
             return True
         return False
@@ -100,7 +103,7 @@ class UserInterfaceHttpHandler(BaseHandler):
         self.strategy.clients[
             dialogue.incomplete_dialogue_label.get_incomplete_version().dialogue_reference[0]
         ] = dialogue
-        self.context.logger.debug(f"Total clients: {len(self.strategy.clients)}")
+        self.context.logger.debug(f"Total clients: {len(self.strategy.clients)} current: {dialogue} msg: {message}")
 
     def handle_api_request(self, message: UiHttpMessage, dialogue) -> bytes:
         """

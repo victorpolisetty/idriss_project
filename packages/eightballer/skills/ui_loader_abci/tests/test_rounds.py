@@ -70,7 +70,7 @@ class BaseComponentLoadingRoundTest(BaseRoundTestClass):
         )
 
         self._complete_run(
-            self._test_round(  # type: ignore
+            self._test_round(  # pylint: disable=E1101
                 test_round=test_round,
                 round_payloads=test_case.payloads,
                 synchronized_data_update_fn=lambda sync_data, _: sync_data.update(**test_case.final_data),
