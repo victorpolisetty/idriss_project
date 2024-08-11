@@ -136,7 +136,6 @@ function install_poetry_deps() {
     echo "Installing package dependencies via poetry..."
     echo "Using poetry executable: $poetry_executable"
     poetry install 
-    pip install poetry-plugin-dotenv
     echo "Checking if aea is installed"
     poetry run aea --version
     echo "Done installing dependencies"
