@@ -17,22 +17,14 @@
 
 ## Getting Started
 
-### Installation
-
-Install `visualisation_station` with pip:
-
-```shell
-pip install visualisation_station
-```
-
-### Setup for Development
+### Installation and Setup for Development
 
 If you're looking to contribute or develop with `visualisation_station`, get the source code and set up the environment:
 
 ```shell
-git clone https://github.com/ci/visualisation_station
+git clone https://github.com/StationsStation/visualisation_station
 cd visualisation_station
-poetry install && poetry shell
+make install
 ```
 
 ## Commands

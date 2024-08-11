@@ -38,7 +38,7 @@ jobs:
           virtualenvs-path: ~/my-custom-path
           installer-parallel: true
 
-      - name: Install Packages
+      - name: Install Project
         run: |
             make install
 
