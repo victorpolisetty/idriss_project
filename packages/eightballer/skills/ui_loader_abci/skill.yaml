@@ -11,9 +11,9 @@ aea_version: '>=1.0.0, <2.0.0'
 fingerprint:
   __init__.py: bafybeic6qfeiarqudbrqebdzopx2cxv7ld6gyjszzebq53yeszwhwzyz5u
   abci_spec.yaml: bafybeig6ffhlqu4w23dwjl7r46hfc63t6vfzr5d7owc2ffcosdrzlfaieu
-  behaviours.py: bafybeihrljucspgwkxinlylyvel2isdxlobpdzpguyhu74b3dqofk5z76u
+  behaviours.py: bafybeihaacjallxfevfphiehxljviafhbjry73j5y5v74vnn2myhwcu2eu
   dialogues.py: bafybeig5eza5x3iqkceh47vup3ilahbb255nzha2bt2fkurbmfmu63jhe4
-  handlers.py: bafybeidc3ivqcp6vumx6f6ctpbnhkbirus4pzpiazgeqr3xf7nspakp5om
+  handlers.py: bafybeifxcdgwrmd72ibjetggi4zpete4rslmitkd5adgycezjqitlhalfq
   models.py: bafybeia42qa4wa4cbnsmvgkbz5r5s4rn4g75peq7hhzymmgamiytvlznue
   payloads.py: bafybeihlb2vwuvpuwrvog2vfyuhzuq7i6ef36epa3im52a3sftlsj4g5qe
   rounds.py: bafybeignyi6rrdux43k54qm2ampundcuwbdg5fliits3hxcekjt2qm4qy4

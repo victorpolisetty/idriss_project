@@ -26,6 +26,7 @@ open-aea-cli-ipfs = "==1.55.0"
 open-aea-test-autonomy = "==0.15.2"
 open-autonomy = "==0.15.2"
 autonomy-dev = {extras = ["all"], version = ">=0.2.64,<=0.2.68"}
+pytz = "==2022.2.1"
 
 
 [tool.poetry.dev-dependencies]

@@ -59,4 +59,8 @@ test:
 install:
 	bash install.sh
 
+ sync:
+	git pull
+	poetry run autonomy packages sync
+
 all: fmt lint test hashes

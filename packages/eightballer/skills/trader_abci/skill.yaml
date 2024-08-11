@@ -12,17 +12,16 @@ fingerprint:
   composition.py: bafybeicyyjo4o7bi6fswybnjqztbvjalg2yvwsa3jwzabsqxxkktjhub3q
   dialogues.py: bafybeifuhobr25rqhuuylah57aew5htzgnsbrfnwjauwwqghdtuq7vef7a
   fsm_specification.yaml: bafybeigwqrxxah3c55ome4qffl7ck53hrk2uencz3lym6unfof6qakeqoe
-  handlers.py: bafybeie2a4wnqvgr6rcrr7s3mznhan3zq2lhtmmrtfvb3modrmqvpzcel4
+  handlers.py: bafybeihi5ygluukvenqv4mbl7vw7oq7eowop2vhmqt5uzqghg4ii5xxbda
   models.py: bafybeiazilllqyvkhhgbw4yq26ujk5hfbhdokxcafvrbkvqyemvykrxsne
-  tests/test_custom.py: bafybeia43db42ya22mcdq5hzx6crksda72vtk2sodfgwhq2aprdcbhaodu
+  tests/test_custom.py: bafybeidafbtgi6v6gnvlkaxiyocgebdkrgcfzoj4j27zsfjbjjviaio6li
 fingerprint_ignore_patterns: []
 connections: []
 contracts: []
 protocols: []
 skills:
-- eightballer/ui_loader_abci:0.1.0:bafybeibzi4dyjkhjx2l46lwevzluyl5m74zuknz5zkn4ozjgze3wasaicu
+- eightballer/ui_loader_abci:0.1.0:bafybeienigatmpipnwolwrojkcrfihoddyx6nitn43avu4igndw3jejxte
 - valory/abstract_round_abci:0.1.0:bafybeih3enhagoql7kzpeyzzu2scpkif6y3ubakpralfnwxcvxexdyvy5i
-- valory/decision_maker_abci:0.1.0:bafybeid4txlxu6ig7o3r6ufrsbegnjzsnunmrr5ozy6lv54yzvx6eg5vey
 - valory/registration_abci:0.1.0:bafybeiek7zcsxbucjwzgqfftafhfrocvc7q4yxllh2q44jeemsjxg3rcfm
 - valory/reset_pause_abci:0.1.0:bafybeidw4mbx3os3hmv7ley7b3g3gja7ydpitr7mxbjpwzxin2mzyt5yam
 behaviours:

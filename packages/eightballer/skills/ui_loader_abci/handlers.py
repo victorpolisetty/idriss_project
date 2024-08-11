@@ -103,6 +103,7 @@ class UserInterfaceHttpHandler(BaseHandler):
         self.strategy.clients[
             dialogue.incomplete_dialogue_label.get_incomplete_version().dialogue_reference[0]
         ] = dialogue
+
         self.context.logger.debug(f"Total clients: {len(self.strategy.clients)}")
         self.context.logger.debug(f"Handling websocket request in skill: {message.dialogue_reference}")
 
