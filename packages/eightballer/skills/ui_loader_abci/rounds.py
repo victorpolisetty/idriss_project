@@ -20,24 +20,17 @@
 """This package contains the rounds of ComponentLoadingAbciApp."""
 
 from enum import Enum
-from typing import Dict, FrozenSet, List, Optional, Set, Tuple, cast
+from typing import Dict, FrozenSet, Optional, Set, Tuple
 
+from packages.eightballer.skills.ui_loader_abci.payloads import ErrorPayload, HealthcheckPayload, SetupPayload
 from packages.valory.skills.abstract_round_abci.base import (
     AbciApp,
     AbciAppTransitionFunction,
-    AbstractRound,
     AppState,
     BaseSynchronizedData,
     CollectSameUntilThresholdRound,
     DegenerateRound,
     EventToTimeout,
-    get_name,
-)
-
-from packages.eightballer.skills.ui_loader_abci.payloads import (
-    ErrorPayload,
-    HealthcheckPayload,
-    SetupPayload,
 )
 
 
@@ -60,19 +53,16 @@ class SynchronizedData(BaseSynchronizedData):
     def error_data(self) -> Optional[ErrorPayload]:
         """Return the error data."""
         return str(self.db.get_strict("error_data"))
-    
+
     @property
     def setup_data(self) -> Optional[SetupPayload]:
         """Return the setup data."""
         return str(self.db.get_strict("setup_data"))
-    
+
     @property
     def healthcheck_data(self) -> Optional[HealthcheckPayload]:
         """Return the healthcheck data."""
         return str(self.db.get_strict("healthcheck_data"))
-
-    
-
 
 
 class BaseRound(CollectSameUntilThresholdRound):
@@ -82,15 +72,13 @@ class BaseRound(CollectSameUntilThresholdRound):
     payload_attribute = None
     synchronized_data_class = SynchronizedData
 
-
     def end_block(self) -> Optional[Tuple[BaseSynchronizedData, Enum]]:
         """Process the end of the block."""
 
         if not self.threshold_reached:
             return None
         state = self.synchronized_data.update(
-            synchronized_data_class=self.synchronized_data_class,
-            **{self.payload_attribute: self.most_voted_payload}
+            synchronized_data_class=self.synchronized_data_class, **{self.payload_attribute: self.most_voted_payload}
         )
         return state, Event.DONE
 
@@ -103,15 +91,12 @@ class ErrorRound(BaseRound):
     synchronized_data_class = SynchronizedData
 
 
-
-
 class HealthcheckRound(BaseRound):
     """HealthcheckRound"""
 
     payload_class = HealthcheckPayload
     synchronized_data_class = SynchronizedData
     payload_attribute = "healthcheck_data"
-
 
 
 class SetupRound(BaseRound):
@@ -132,25 +117,17 @@ class ComponentLoadingAbciApp(AbciApp[Event]):
     initial_round_cls: AppState = SetupRound
     initial_states: Set[AppState] = {HealthcheckRound, SetupRound}
     transition_function: AbciAppTransitionFunction = {
-        SetupRound: {
-            Event.DONE: HealthcheckRound,
-            Event.ERROR: ErrorRound
-        },
-        HealthcheckRound: {
-            Event.DONE: DoneRound,
-            Event.ERROR: ErrorRound
-        },
-        ErrorRound: {
-            Event.DONE: SetupRound
-        },
-        DoneRound: {}
+        SetupRound: {Event.DONE: HealthcheckRound, Event.ERROR: ErrorRound},
+        HealthcheckRound: {Event.DONE: DoneRound, Event.ERROR: ErrorRound},
+        ErrorRound: {Event.DONE: SetupRound},
+        DoneRound: {},
     }
     final_states: Set[AppState] = {DoneRound}
     event_to_timeout: EventToTimeout = {}
     cross_period_persisted_keys: FrozenSet[str] = frozenset()
     db_pre_conditions: Dict[AppState, Set[str]] = {
         HealthcheckRound: set([]),
-    	SetupRound: set([]),
+        SetupRound: set([]),
     }
     db_post_conditions: Dict[AppState, Set[str]] = {
         DoneRound: set([]),

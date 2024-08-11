@@ -19,18 +19,12 @@
 
 """This package contains round behaviours of ComponentLoadingAbciApp."""
 
+from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any, Dict, Hashable, Optional, Type
-from dataclasses import dataclass, field
 
 import pytest
 
-from packages.valory.skills.abstract_round_abci.base import AbciAppDB
-from packages.valory.skills.abstract_round_abci.behaviours import (
-    AbstractRoundBehaviour,
-    BaseBehaviour,
-    make_degenerate_behaviour,
-)
 from packages.eightballer.skills.ui_loader_abci.behaviours import (
     ComponentLoadingBaseBehaviour,
     ComponentLoadingRoundBehaviour,
@@ -38,20 +32,10 @@ from packages.eightballer.skills.ui_loader_abci.behaviours import (
     HealthcheckBehaviour,
     SetupBehaviour,
 )
-from packages.eightballer.skills.ui_loader_abci.rounds import (
-    SynchronizedData,
-    DegenerateRound,
-    Event,
-    ComponentLoadingAbciApp,
-    DoneRound,
-    ErrorRound,
-    HealthcheckRound,
-    SetupRound,
-)
-
-from packages.valory.skills.abstract_round_abci.test_tools.base import (
-    FSMBehaviourBaseCase,
-)
+from packages.eightballer.skills.ui_loader_abci.rounds import Event, SynchronizedData
+from packages.valory.skills.abstract_round_abci.base import AbciAppDB
+from packages.valory.skills.abstract_round_abci.behaviours import BaseBehaviour
+from packages.valory.skills.abstract_round_abci.test_tools.base import FSMBehaviourBaseCase
 
 
 @dataclass
@@ -105,53 +89,40 @@ class BaseComponentLoadingTest(FSMBehaviourBaseCase):
 class TestErrorBehaviour(BaseComponentLoadingTest):
     """Tests ErrorBehaviour"""
 
-    # TODO: set next_behaviour_class
     behaviour_class: Type[BaseBehaviour] = ErrorBehaviour
     next_behaviour_class: Type[BaseBehaviour] = ...
 
-    # TODO: provide test cases
     @pytest.mark.parametrize("test_case", [])
     def test_run(self, test_case: BehaviourTestCase) -> None:
         """Run tests."""
 
         self.fast_forward(test_case.initial_data)
-        # TODO: mock the necessary calls
-        # self.mock_ ...
         self.complete(test_case.event)
 
 
 class TestHealthcheckBehaviour(BaseComponentLoadingTest):
     """Tests HealthcheckBehaviour"""
 
-    # TODO: set next_behaviour_class
     behaviour_class: Type[BaseBehaviour] = HealthcheckBehaviour
     next_behaviour_class: Type[BaseBehaviour] = ...
 
-    # TODO: provide test cases
     @pytest.mark.parametrize("test_case", [])
     def test_run(self, test_case: BehaviourTestCase) -> None:
         """Run tests."""
 
         self.fast_forward(test_case.initial_data)
-        # TODO: mock the necessary calls
-        # self.mock_ ...
         self.complete(test_case.event)
 
 
 class TestSetupBehaviour(BaseComponentLoadingTest):
     """Tests SetupBehaviour"""
 
-    # TODO: set next_behaviour_class
     behaviour_class: Type[BaseBehaviour] = SetupBehaviour
     next_behaviour_class: Type[BaseBehaviour] = ...
 
-    # TODO: provide test cases
     @pytest.mark.parametrize("test_case", [])
     def test_run(self, test_case: BehaviourTestCase) -> None:
         """Run tests."""
 
         self.fast_forward(test_case.initial_data)
-        # TODO: mock the necessary calls
-        # self.mock_ ...
         self.complete(test_case.event)
-

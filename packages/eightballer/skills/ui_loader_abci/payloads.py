@@ -28,19 +28,19 @@ from packages.valory.skills.abstract_round_abci.base import BaseTxPayload
 @dataclass(frozen=True)
 class ErrorPayload(BaseTxPayload):
     """Represent a transaction payload for the ErrorRound."""
+
     error_data: Optional[str]
 
 
 @dataclass(frozen=True)
 class HealthcheckPayload(BaseTxPayload):
     """Represent a transaction payload for the HealthcheckRound."""
+
     health_data: Optional[str]
 
 
 @dataclass(frozen=True)
 class SetupPayload(BaseTxPayload):
     """Represent a transaction payload for the SetupRound."""
+
     setup_data: Optional[str]
-
-
-

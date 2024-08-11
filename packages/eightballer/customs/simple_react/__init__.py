@@ -18,5 +18,3 @@
 # ------------------------------------------------------------------------------
 
 """This module contains a custom package."""
-
-from . import handlers, behaviours
