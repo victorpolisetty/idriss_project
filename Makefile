@@ -59,7 +59,7 @@ test:
 install:
 	bash install.sh
 
- sync:
+sync:
 	git pull
 	poetry run autonomy packages sync
 
