@@ -4,7 +4,7 @@
         "custom/eightballer/simple_html/0.1.0": "bafybeiaaojefvviuqe4woyscdwfnywjjtql5nzip6sycc45zxr2s4xkwta",
         "skill/eightballer/ui_loader_abci/0.1.0": "bafybeihw54umaulbsfkbrbex7upgt2a7fqejywlkeyfvx5unkqu6srdvbq",
         "skill/eightballer/trader_abci/0.1.0": "bafybeial3ztphjpbfczixz3azm6m72jxnourhwk7766m4kaye6o4idoiki",
-        "agent/eightballer/frontend_agent/0.1.0": "bafybeih74cmzx26sq7o2dbah6tv66db427uhrex37plnboduk77bymcbyq"
+        "agent/eightballer/frontend_agent/0.1.0": "bafybeifeizvl6ysudfwzghujtn22sfa3lxn7mf7bz7x6z5ehw7c43rmh2u"
     },
     "third_party": {
         "protocol/eightballer/http/0.1.0": "bafybeibels7dv7ucflaeniwifbisvkegm5vrarrr5ctkcqebg4t7onba6a",
@@ -22,7 +22,6 @@
         "contract/valory/gnosis_safe/0.1.0": "bafybeiho6sbfts3zk3mftrngw37d5qnlvkqtnttt3fzexmcwkeevhu4wwi",
         "contract/valory/multisend/0.1.0": "bafybeig5byt5urg2d2bsecufxe5ql7f4mezg3mekfleeh32nmuusx66p4y",
         "contract/valory/erc20/0.1.0": "bafybeib7ctk3deleyxayrqvropewefr2muj4kcqe3t3wscak25bjmxnqwe",
-        "contract/valory/service_staking_token/0.1.0": "bafybeid44l7qekvkwkvmfl4kcqchnaktttacp7lbx464mzqqs5cnefj35e",
         "contract/valory/agent_registry/0.1.0": "bafybeignghdk7oqvyg722gz66tbuj2vj4vkatguj4b6lf5fqzqxkktcke4",
         "connection/eightballer/http_client/0.1.0": "bafybeid4cwamevng2ufyflcrerm6xyp5rjby2lbo2ulybqlik44g3aslni",
         "connection/eightballer/http_server/0.1.0": "bafybeib27byea6hwpt2fh2tt4t7jbn34r56hc654r365vipbktecfh4qsy",
