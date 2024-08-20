@@ -32,7 +32,9 @@ from packages.eightballer.skills.ui_loader_abci.rounds import (
     SynchronizedData,
 )
 from packages.valory.skills.abstract_round_abci.base import AbstractRound, BaseTxPayload
-from packages.valory.skills.abstract_round_abci.test_tools.rounds import BaseRoundTestClass
+from packages.valory.skills.abstract_round_abci.test_tools.rounds import (
+    BaseRoundTestClass,
+)
 
 
 @dataclass
@@ -72,7 +74,9 @@ class BaseComponentLoadingRoundTest(BaseRoundTestClass):
             self._test_round(  # pylint: disable=E1101
                 test_round=test_round,
                 round_payloads=test_case.payloads,
-                synchronized_data_update_fn=lambda sync_data, _: sync_data.update(**test_case.final_data),
+                synchronized_data_update_fn=lambda sync_data, _: sync_data.update(
+                    **test_case.final_data
+                ),
                 synchronized_data_attr_checks=test_case.synchronized_data_attr_checks,
                 exit_event=test_case.event,
                 **test_case.kwargs,  # varies per BaseRoundTestClass child
