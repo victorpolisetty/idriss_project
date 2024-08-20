@@ -3526,19 +3526,19 @@ docs = ["sphinx"]
 
 [[package]]
 name = "python-socketio"
-version = "5.9.0"
+version = "5.11.3"
 description = "Socket.IO server and client for Python"
 category = "main"
 optional = false
-python-versions = ">=3.6"
+python-versions = ">=3.8"
 files = [
-    {file = "python-socketio-5.9.0.tar.gz", hash = "sha256:dc42735f65534187f381fde291ebf620216a4960001370f32de940229b2e7f8f"},
-    {file = "python_socketio-5.9.0-py3-none-any.whl", hash = "sha256:c20f12e4ed0cba57581af26bbeea9998bc2eeebb3b952fa92493a1e051cfe9dc"},
+    {file = "python_socketio-5.11.3-py3-none-any.whl", hash = "sha256:2a923a831ff70664b7c502df093c423eb6aa93c1ce68b8319e840227a26d8b69"},
+    {file = "python_socketio-5.11.3.tar.gz", hash = "sha256:194af8cdbb7b0768c2e807ba76c7abc288eb5bb85559b7cddee51a6bc7a65737"},
 ]
 
 [package.dependencies]
 bidict = ">=0.21.0"
-python-engineio = ">=4.7.0"
+python-engineio = ">=4.8.0"
 
 [package.extras]
 asyncio-client = ["aiohttp (>=3.4)"]
@@ -4753,4 +4753,4 @@ doc = []
 [metadata]
 lock-version = "2.0"
 python-versions = "<3.12,>=3.9"
-content-hash = "3aaeaa9585e993dd8ef1b1ae5118b591611f178a3d2b137f4e683c534989ac61"
+content-hash = "b77cb6cb21fd88fbc5b9e695dea79f21ef92cb1f15ad02e240ff548ac4dcbfc9"
