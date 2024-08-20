@@ -23,11 +23,18 @@ from typing import Any, Dict
 
 from aea.skills.base import Model
 
-from packages.eightballer.skills.ui_loader_abci.rounds import ComponentLoadingAbciApp, Event
+from packages.eightballer.skills.ui_loader_abci.rounds import (
+    ComponentLoadingAbciApp,
+    Event,
+)
 from packages.valory.skills.abstract_round_abci.models import BaseParams
-from packages.valory.skills.abstract_round_abci.models import BenchmarkTool as BaseBenchmarkTool
+from packages.valory.skills.abstract_round_abci.models import (
+    BenchmarkTool as BaseBenchmarkTool,
+)
 from packages.valory.skills.abstract_round_abci.models import Requests as BaseRequests
-from packages.valory.skills.abstract_round_abci.models import SharedState as BaseSharedState
+from packages.valory.skills.abstract_round_abci.models import (
+    SharedState as BaseSharedState,
+)
 
 
 class SharedState(BaseSharedState):
@@ -52,10 +59,10 @@ class UserInterfaceLoaderParams(BaseParams):
         """Initialize the parameters' object."""
         # this is a mapping from a prediction market spec's attribute to the creators we want to take into account
         user_interface_config = kwargs.get("user_interface")
-        self.user_interface_enabled = user_interface_config.get('enabled', False)
+        self.user_interface_enabled = user_interface_config.get("enabled", False)
         if self.user_interface_enabled:
             custom_component_name = user_interface_config.get(
-                'custom_component',
+                "custom_component",
             )
             self.user_interface_name = custom_component_name
         super().__init__(*args, **kwargs)
@@ -63,7 +70,9 @@ class UserInterfaceLoaderParams(BaseParams):
     def setup(self) -> None:
         """Set up."""
         super().setup()
-        ComponentLoadingAbciApp.event_to_timeout[Event.ROUND_TIMEOUT] = self.context.params.round_timeout_seconds
+        ComponentLoadingAbciApp.event_to_timeout[Event.ROUND_TIMEOUT] = (
+            self.context.params.round_timeout_seconds
+        )
 
 
 Params = UserInterfaceLoaderParams

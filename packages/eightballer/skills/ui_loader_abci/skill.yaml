@@ -11,25 +11,25 @@ aea_version: '>=1.0.0, <2.0.0'
 fingerprint:
   __init__.py: bafybeic6qfeiarqudbrqebdzopx2cxv7ld6gyjszzebq53yeszwhwzyz5u
   abci_spec.yaml: bafybeig6ffhlqu4w23dwjl7r46hfc63t6vfzr5d7owc2ffcosdrzlfaieu
-  behaviours.py: bafybeihaacjallxfevfphiehxljviafhbjry73j5y5v74vnn2myhwcu2eu
-  dialogues.py: bafybeig5eza5x3iqkceh47vup3ilahbb255nzha2bt2fkurbmfmu63jhe4
-  handlers.py: bafybeifxcdgwrmd72ibjetggi4zpete4rslmitkd5adgycezjqitlhalfq
-  models.py: bafybeia42qa4wa4cbnsmvgkbz5r5s4rn4g75peq7hhzymmgamiytvlznue
+  behaviours.py: bafybeidjlw5qa2iqzqjraikujep4rivpdpusn5mvxkoujfxoufx4gbq7eq
+  dialogues.py: bafybeigkx6rok7etuvgl4q4qn3nzlzkm75nisxe3kkldumboj5e2de7qya
+  handlers.py: bafybeiavzshewkpymggwssaqw5qsjraw4xhoydqxccff7dc23o5amgu3qe
+  models.py: bafybeidscmncmycnywveskebom5kxc3hjptdthhqvurzvdujhhc5eoiktq
   payloads.py: bafybeihlb2vwuvpuwrvog2vfyuhzuq7i6ef36epa3im52a3sftlsj4g5qe
-  rounds.py: bafybeignyi6rrdux43k54qm2ampundcuwbdg5fliits3hxcekjt2qm4qy4
+  rounds.py: bafybeifjzofmowtbavb6rnu4v7j5brrgfhgisl6zoinacrxpvclx743qem
   tests/__init__.py: bafybeidlhllgpf65xwk357wukpguuaz6hxhkyh7dwplv2xkxlrlk4b7zty
-  tests/test_behaviours.py: bafybeifwvtkof7yuyj26d42o26js5mh3mfnwmft2kjcgoj5na4huyx2lsm
+  tests/test_behaviours.py: bafybeifwxr6hzx5wyreubeskmqeuxqj3toqqwx5kedljmxlayx4tx2enia
   tests/test_dialogues.py: bafybeieb67vvwpslksvuz2sdbftfhfg74cekbqrp7ekjsmwz3wzxf45cjy
   tests/test_handlers.py: bafybeifqtzxifou3qaihsdi75vkqzfvhgxb6jgurciexb26sqm4ukw4vj4
   tests/test_models.py: bafybeihxr6qiimkbe66tnnwek46ciejd5usdljwu7rc4decvy6hmtkf3ei
   tests/test_payloads.py: bafybeieh5tvzzqsem27sbmhledqvehgtzpkeoaxmrmlv2fakk6ps2mwchm
-  tests/test_rounds.py: bafybeidydejp3xkycc2fzctkit7mprm2dut6qvdakd7ulisqnzu2odoedu
+  tests/test_rounds.py: bafybeihwoojys5ssbrcqtovfirmmjoiih6hbgyx6634rih753dkq5dpu6u
 fingerprint_ignore_patterns: []
 connections: []
 contracts: []
 protocols:
-- eightballer/http:0.1.0:bafybeibels7dv7ucflaeniwifbisvkegm5vrarrr5ctkcqebg4t7onba6a
-- eightballer/websockets:0.1.0:bafybeigegu5iypibbhpxlvgyv7tfbof6jd7ufbmsxbe4l47wbdu3hop67e
+- eightballer/http:0.1.0:bafybeieoom2ajzvurwsjbivx23dwilarfzkihgqpgqp43ypowpr5xdyjr4
+- eightballer/websockets:0.1.0:bafybeihoiyzxc3ikhgty54snlu7djyn34dcqcuqppnf5zajuabc4ecgxwm
 skills:
 - valory/abstract_round_abci:0.1.0:bafybeibovsktd3uxur45nrcomq5shcn46cgxd5idmhxbmjhg32c5abyqim
 behaviours:

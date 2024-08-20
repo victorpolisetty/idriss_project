@@ -1,6 +1,7 @@
 """
 Behaviours for the simple react skill.
 """
+
 import os
 from pathlib import Path
 from typing import Optional, cast
@@ -8,7 +9,9 @@ from typing import Optional, cast
 from aea.skills.base import Behaviour
 
 from packages.eightballer.protocols.websockets.message import WebsocketsMessage
-from packages.eightballer.skills.ui_loader_abci.models import UserInterfaceClientStrategy
+from packages.eightballer.skills.ui_loader_abci.models import (
+    UserInterfaceClientStrategy,
+)
 
 
 class LogReadingBehaviour(Behaviour):
@@ -21,7 +24,9 @@ class LogReadingBehaviour(Behaviour):
     @property
     def strategy(self) -> Optional[str]:
         """Get the strategy."""
-        return cast(UserInterfaceClientStrategy, self.context.user_interface_client_strategy)
+        return cast(
+            UserInterfaceClientStrategy, self.context.user_interface_client_strategy
+        )
 
     def setup(self):
         """

@@ -22,7 +22,11 @@
 from enum import Enum
 from typing import Dict, FrozenSet, Optional, Set, Tuple
 
-from packages.eightballer.skills.ui_loader_abci.payloads import ErrorPayload, HealthcheckPayload, SetupPayload
+from packages.eightballer.skills.ui_loader_abci.payloads import (
+    ErrorPayload,
+    HealthcheckPayload,
+    SetupPayload,
+)
 from packages.valory.skills.abstract_round_abci.base import (
     AbciApp,
     AbciAppTransitionFunction,
@@ -78,7 +82,8 @@ class BaseRound(CollectSameUntilThresholdRound):
         if not self.threshold_reached:
             return None
         state = self.synchronized_data.update(
-            synchronized_data_class=self.synchronized_data_class, **{self.payload_attribute: self.most_voted_payload}
+            synchronized_data_class=self.synchronized_data_class,
+            **{self.payload_attribute: self.most_voted_payload},
         )
         return state, Event.DONE
 
