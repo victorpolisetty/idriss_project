@@ -133,11 +133,19 @@ class UserInterfaceHttpHandler(BaseHandler):
         """Handle the api request."""
         self.context.logger.info(f"Received api route request: {message.url}")
 
-        path_parts = urlparse(message.url).path.strip("/").split("/")[1:]  # Remove 'api'
-        endpoint = "_".join(part.replace("-", "_") for part in path_parts)
-        handler_method_name = f"handle_{message.method.lower()}_{endpoint}"
+        parsed_url = urlparse(message.url)
+        path_parts = parsed_url.path.strip("/").split("/")
 
-        self.context.logger.info(f"Looking for handler method: {handler_method_name}")
+        if len(path_parts) < 2 or path_parts[0] != "api":
+            return "Content-Type: application/json\n", json.dumps({"error": "Invalid API route"}).encode("utf-8")
+
+        resource = path_parts[1]
+        operation = message.method.lower()
+
+        handler_method_name = f"handle_{operation}_{resource}"
+
+        if len(path_parts) > 2:
+            handler_method_name += "_" + "_".join(path_parts[2:])
 
         for handler in self.strategy.handlers:
             if hasattr(handler, handler_method_name):
