@@ -133,28 +133,35 @@ class UserInterfaceHttpHandler(BaseHandler):
         """Handle the api request."""
         self.context.logger.info(f"Received api route request: {message.url}")
 
-        parsed_url = urlparse(message.url)
-        path_parts = parsed_url.path.strip("/").split("/")
-
-        if len(path_parts) < 2 or path_parts[0] != "api":
-            return "Content-Type: application/json\n", json.dumps({"error": "Invalid API route"}).encode("utf-8")
-
-        resource = path_parts[1]
-        operation = message.method.lower()
-
-        handler_method_name = f"handle_{operation}_{resource}"
-
-        if len(path_parts) > 2:
-            handler_method_name += "_" + "_".join(path_parts[2:])
-
         for handler in self.strategy.handlers:
-            if hasattr(handler, handler_method_name):
-                self.context.logger.info(f"Found handler method in {handler.__class__.__name__}")
-                result = getattr(handler, handler_method_name)(message)
+            result = handler.handle(message)
+            if result is not None:
                 return "Content-Type: application/json\n", json.dumps(result).encode("utf-8")
 
-        self.context.logger.warning(f"No handler found for: {handler_method_name}")
+        # If no handler processed the request
         return "Content-Type: application/json\n", json.dumps({"error": "Not Found"}).encode("utf-8")
+        # parsed_url = urlparse(message.url)
+        # path_parts = parsed_url.path.strip("/").split("/")
+
+        # if len(path_parts) < 2 or path_parts[0] != "api":
+        #     return "Content-Type: application/json\n", json.dumps({"error": "Invalid API route"}).encode("utf-8")
+
+        # resource = path_parts[1]
+        # operation = message.method.lower()
+
+        # handler_method_name = f"handle_{operation}_{resource}"
+
+        # if len(path_parts) > 2:
+        #     handler_method_name += "_" + "_".join(path_parts[2:])
+
+        # for handler in self.strategy.handlers:
+        #     if hasattr(handler, handler_method_name):
+        #         self.context.logger.info(f"Found handler method in {handler.__class__.__name__}")
+        #         result = getattr(handler, handler_method_name)(message)
+        #         return "Content-Type: application/json\n", json.dumps(result).encode("utf-8")
+
+        # self.context.logger.warning(f"No handler found for: {handler_method_name}")
+        # return "Content-Type: application/json\n", json.dumps({"error": "Not Found"}).encode("utf-8")
 
     def handle_frontend_request(self, message: UiHttpMessage, dialogue) -> bytes:
         """Handle the frontend request."""
