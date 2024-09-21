@@ -146,7 +146,7 @@ models:
     args:
       user_interface:
         enabled: true
-        custom_component: eightballer/simple_react
+        custom_component: eightballer/simple_html
       setup:
         all_participants: ${list:["0x0000000000000000000000000000000000000000"]}
         consensus_threshold: ${int:null}
