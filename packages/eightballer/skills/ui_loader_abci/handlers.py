@@ -56,6 +56,11 @@ from packages.valory.skills.abstract_round_abci.handlers import (
     TendermintHandler as BaseTendermintHandler,
 )
 
+
+DEFAULT_ENCODING = "utf-8"
+ERROR_RESPONSE = {"error": "Not Found"}
+CONTENT_TYPE_JSON = "Content-Type: application/json"
+
 @dataclass
 class ApiResponse:
     """Api response."""
@@ -154,12 +159,12 @@ class UserInterfaceHttpHandler(BaseHandler):
             result = handler.handle(message)
             self.context.logger.debug(f"Received result: {result}")
             if result is not None:
-                headers = "Content-Type: application/json"
-                content = json.dumps(result.content).encode("utf-8")
+                headers = CONTENT_TYPE_JSON
+                content = json.dumps(result.content).encode(DEFAULT_ENCODING)
                 return ApiResponse(headers, content, result.status_code, result.status_text)
 
-        headers = "Content-Type: application/json"
-        content = json.dumps({"error": "Not Found"}).encode("utf-8")
+        headers = CONTENT_TYPE_JSON
+        content = json.dumps(ERROR_RESPONSE).encode(DEFAULT_ENCODING)
         return ApiResponse(headers, content, 404, "Not Found")
 
     def handle_frontend_request(self, message: UiHttpMessage, dialogue) -> bytes:
