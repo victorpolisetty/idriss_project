@@ -9,6 +9,13 @@ description: Enables augmentation of the agents using a meta-framework for the c
   the OLAS ecosystem. Includes a template for HTML, and React custom components.
 aea_version: '>=1.0.0, <2.0.0'
 fingerprint:
+  tests/.pytest_cache/.gitignore: bafybeibrpk3xxqrmgsj3vqq75t4gr7qam2bs5njip6sk7mzz56skwc7ydu
+  tests/.pytest_cache/CACHEDIR.TAG: bafybeiezngzmvefos2bjynwuepoajjhfippta52cw2ae6gobhvy23j5qgm
+  tests/.pytest_cache/README.md: bafybeiacchqprleso5khz3wzc6lqafwipb4q6axwiisocruiubctvff47y
+  tests/.pytest_cache/v/cache/lastfailed: bafybeic5pxpcost7ndjitqg7ynd7hnfwpehgvrrexl7s2amaknq7tnqmai
+  tests/.pytest_cache/v/cache/nodeids: bafybeihluudajg6y5qalxu4zjg6fhg5lduhnjvfyvhuwud2u6l4gse6gz4
+  tests/.pytest_cache/v/cache/stepwise: bafybeidohhysvjqyajhuw2otvtfpswexy7nrdpnpsmkfa3zjitlso2usnq
+  tests/.pytest_cache/v/randomly_seed: bafybeicxii3b7xlumgruijxzhhg4pdiwleorn3bqxwljqpcn6vdywbdufu
   tests/test_agent.py: bafybeif7mgwjhwznpy3melde4twzsfbxvrmue74qa5sgdhl3boar4xvndi
 fingerprint_ignore_patterns: []
 connections:
@@ -38,8 +45,8 @@ protocols:
 - valory/ledger_api:1.0.0:bafybeihdk6psr4guxmbcrc26jr2cbgzpd5aljkqvpwo64bvaz7tdti2oni
 - valory/tendermint:0.1.0:bafybeig4mi3vmlv5zpbjbfuzcgida6j5f2nhrpedxicmrrfjweqc5r7cra
 skills:
-- eightballer/trader_abci:0.1.0:bafybeibpcmthrgdprtj7bjrec6fftxzbcy4m4jaohhk45zvydxdxxv5pwm
-- eightballer/ui_loader_abci:0.1.0:bafybeigncg2sj5ybponqnv3cyutgcjfcll3cbuz3hbdjxyvk4hu3rws6u4
+- eightballer/trader_abci:0.1.0:bafybeibvmddma7hk7rk5qvq23jbi4r4uhhytxbedb3dwlgbuqipt4riaoy
+- eightballer/ui_loader_abci:0.1.0:bafybeicyeblc66ocx74zcumxoekurvx6conk2ttvrisunzjql46cgv4xoy
 - valory/abstract_abci:0.1.0:bafybeihu2bcgjk2tqjiq2zhk3uogtfszqn4osvdt7ho3fubdpdj4jgdfjm
 - valory/abstract_round_abci:0.1.0:bafybeibovsktd3uxur45nrcomq5shcn46cgxd5idmhxbmjhg32c5abyqim
 - valory/registration_abci:0.1.0:bafybeicnth5q4httefsusywx3zrrq4al47owvge72dqf2fziruicq6hqta
