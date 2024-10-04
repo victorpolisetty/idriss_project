@@ -21,8 +21,6 @@
 
 import json
 from typing import Optional, cast
-from urllib.parse import urlparse
-from dataclasses import dataclass
 from aea.protocols.base import Message
 
 from packages.eightballer.protocols.http.message import HttpMessage as UiHttpMessage
@@ -60,14 +58,6 @@ from packages.valory.skills.abstract_round_abci.handlers import (
 DEFAULT_ENCODING = "utf-8"
 ERROR_RESPONSE = {"error": "Not Found"}
 CONTENT_TYPE_JSON = "Content-Type: application/json"
-
-@dataclass
-class ApiResponse:
-    """Api response."""
-    headers: dict[str, str]
-    content: bytes
-    status_code: int
-    status_text: str
 
 
 class BaseHandler(BaseHttpHandler):
@@ -110,12 +100,8 @@ class UserInterfaceHttpHandler(BaseHandler):
         if self.is_api_route(message.url):
             api_response = self.handle_api_request(message, dialogue)
             return self.send_api_http_response(
-                message,
+                api_response,
                 dialogue,
-                api_response.headers,
-                api_response.content,
-                api_response.status_code,
-                api_response.status_text
             )
         elif self.is_websocket_request(message):
             return self.handle_websocket_request(message, dialogue)
@@ -150,7 +136,7 @@ class UserInterfaceHttpHandler(BaseHandler):
             f"Handling websocket request in skill: {message.dialogue_reference}"
         )
 
-    def handle_api_request(self, message: UiHttpMessage, dialogue) -> ApiResponse:
+    def handle_api_request(self, message: UiHttpMessage, dialogue) -> UiHttpMessage:
         """Handle the api request."""
         self.context.logger.debug(f"Received api route request: {message.url}")
         self.context.logger.debug(f"Received dialogue: {dialogue}")
@@ -161,11 +147,25 @@ class UserInterfaceHttpHandler(BaseHandler):
             if result is not None:
                 headers = CONTENT_TYPE_JSON
                 content = json.dumps(result.content).encode(DEFAULT_ENCODING)
-                return ApiResponse(headers, content, result.status_code, result.status_text)
+                return UiHttpMessage(
+                    performative=UiHttpMessage.Performative.RESPONSE,
+                    status_code=result.status_code,
+                    status_text=result.status_text,
+                    headers=headers,
+                    version=message.version,
+                    body=content
+                )
 
         headers = CONTENT_TYPE_JSON
         content = json.dumps(ERROR_RESPONSE).encode(DEFAULT_ENCODING)
-        return ApiResponse(headers, content, 404, "Not Found")
+        return UiHttpMessage(
+            performative=UiHttpMessage.Performative.RESPONSE,
+            status_code=404,
+            headers=headers,
+            version=message.version,
+            status_text="Not Found",
+            body=content,
+        )
 
     def handle_frontend_request(self, message: UiHttpMessage, dialogue) -> bytes:
         """Handle the frontend request."""
@@ -224,18 +224,17 @@ class UserInterfaceHttpHandler(BaseHandler):
         self.context.outbox.put_message(message=response_msg)
 
     def send_api_http_response(
-        self, message: UiHttpMessage, dialogue, headers: str, content: bytes, status_code: int, status_text: str
-    ) -> None:
+        self, message: UiHttpMessage, dialogue) -> None:
         """Send the api http response."""
-        cors_headers = self.get_headers(headers)
+        cors_headers = self.get_headers(message.headers)
         response_msg = dialogue.reply(
             performative=UiHttpMessage.Performative.RESPONSE,
             target_message=message,
-            status_code=status_code,
+            status_code=message.status_code,
             headers=cors_headers,
             version=message.version,
-            status_text=status_text,
-            body=content,
+            status_text=message.status_text,
+            body=message.body,
         )
         self.context.outbox.put_message(message=response_msg)
 
