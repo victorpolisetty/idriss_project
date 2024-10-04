@@ -21,6 +21,7 @@
 
 import json
 from typing import Optional, cast
+
 from aea.protocols.base import Message
 
 from packages.eightballer.protocols.http.message import HttpMessage as UiHttpMessage
@@ -53,7 +54,6 @@ from packages.valory.skills.abstract_round_abci.handlers import (
 from packages.valory.skills.abstract_round_abci.handlers import (
     TendermintHandler as BaseTendermintHandler,
 )
-
 
 DEFAULT_ENCODING = "utf-8"
 ERROR_RESPONSE = {"error": "Not Found"}
@@ -141,6 +141,8 @@ class UserInterfaceHttpHandler(BaseHandler):
         self.context.logger.debug(f"Received api route request: {message.url}")
         self.context.logger.debug(f"Received dialogue: {dialogue}")
 
+        parts = message.url.split("/")
+
         for handler in self.strategy.handlers:
             result = handler.handle(message)
             self.context.logger.debug(f"Received result: {result}")
@@ -153,8 +155,27 @@ class UserInterfaceHttpHandler(BaseHandler):
                     status_text=result.status_text,
                     headers=headers,
                     version=message.version,
-                    body=content
+                    body=content,
                 )
+
+        if parts[-1] == "agent-info":
+            data = {
+                "service-id": self.context.params.on_chain_service_id,
+                "safe-address": self.context.params.setup_params[
+                    "safe_contract_address"
+                ],
+                "agent-address": self.context.agent_address,
+                "agent-status": "active" if self.context.is_active else "inactive",
+            }
+            content = json.dumps(data).encode(DEFAULT_ENCODING)
+            return UiHttpMessage(
+                performative=UiHttpMessage.Performative.RESPONSE,
+                status_code=200,
+                status_text="OK",
+                headers=CONTENT_TYPE_JSON,
+                version=message.version,
+                body=content,
+            )
 
         headers = CONTENT_TYPE_JSON
         content = json.dumps(ERROR_RESPONSE).encode(DEFAULT_ENCODING)
@@ -223,8 +244,7 @@ class UserInterfaceHttpHandler(BaseHandler):
         )
         self.context.outbox.put_message(message=response_msg)
 
-    def send_api_http_response(
-        self, message: UiHttpMessage, dialogue) -> None:
+    def send_api_http_response(self, message: UiHttpMessage, dialogue) -> None:
         """Send the api http response."""
         cors_headers = self.get_headers(message.headers)
         response_msg = dialogue.reply(
@@ -237,6 +257,7 @@ class UserInterfaceHttpHandler(BaseHandler):
             body=message.body,
         )
         self.context.outbox.put_message(message=response_msg)
+
 
 class UserInterfaceWsHandler(UserInterfaceHttpHandler):
     """This class scaffolds a handler."""
@@ -258,7 +279,9 @@ class UserInterfaceWsHandler(UserInterfaceHttpHandler):
             return self._handle_disconnect(message, dialogue)
         # it is an existing dialogue
         if dialogue is None:
-            self.context.logger.error(f"Could not locate dialogue for message={message}")
+            self.context.logger.error(
+                f"Could not locate dialogue for message={message}"
+            )
             return None
         if message.performative == WebsocketsMessage.Performative.SEND:
             return self._handle_send(message, dialogue)
