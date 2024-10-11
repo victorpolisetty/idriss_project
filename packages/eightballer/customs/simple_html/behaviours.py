@@ -3,8 +3,8 @@ Behaviours for the simple react skill.
 """
 
 import os
-from typing import Optional, cast
 from pathlib import Path
+from typing import Optional, cast
 
 from aea.skills.base import Behaviour
 
@@ -24,7 +24,9 @@ class LogReadingBehaviour(Behaviour):
     @property
     def strategy(self) -> Optional[str]:
         """Get the strategy."""
-        return cast(UserInterfaceClientStrategy, self.context.user_interface_client_strategy)
+        return cast(
+            UserInterfaceClientStrategy, self.context.user_interface_client_strategy
+        )
 
     def setup(self):
         """

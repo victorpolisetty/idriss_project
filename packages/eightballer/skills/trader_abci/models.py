@@ -21,20 +21,27 @@
 
 from typing import Union, cast
 
-from packages.valory.skills.reset_pause_abci.rounds import Event as ResetPauseEvent
+from packages.eightballer.skills.trader_abci.composition import TraderAbciApp
 from packages.eightballer.skills.ui_loader_abci.models import (
     SharedState as BaseSharedState,
-    UserInterfaceLoaderParams,
+)
+from packages.eightballer.skills.ui_loader_abci.models import (
     UserInterfaceClientStrategy as BaseUserInterfaceClientStrategy,
+)
+from packages.eightballer.skills.ui_loader_abci.models import (
+    UserInterfaceLoaderParams,
 )
 from packages.eightballer.skills.ui_loader_abci.rounds import Event as UIEvent
 from packages.valory.skills.abstract_round_abci.models import (
     ApiSpecs,
-    Requests as BaseRequests,
+)
+from packages.valory.skills.abstract_round_abci.models import (
     BenchmarkTool as BaseBenchmarkTool,
 )
-from packages.eightballer.skills.trader_abci.composition import TraderAbciApp
-
+from packages.valory.skills.abstract_round_abci.models import (
+    Requests as BaseRequests,
+)
+from packages.valory.skills.reset_pause_abci.rounds import Event as ResetPauseEvent
 
 UserInterfaceClientStrategy = BaseUserInterfaceClientStrategy
 
@@ -79,7 +86,9 @@ class SharedState(BaseSharedState):
 
         events = (UIEvent, ResetPauseEvent)
         round_timeout = self.params.round_timeout_seconds
-        round_timeout_overrides = {cast(EventType, event).ROUND_TIMEOUT: round_timeout for event in events}
+        round_timeout_overrides = {
+            cast(EventType, event).ROUND_TIMEOUT: round_timeout for event in events
+        }
         reset_pause_timeout = self.params.reset_pause_duration + MARGIN
         event_to_timeout_overrides: EventToTimeoutMappingType = {
             **round_timeout_overrides,

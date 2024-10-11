@@ -19,8 +19,8 @@
 
 """This package contains a scaffold of a handler."""
 
-import json
 import datetime
+import json
 from typing import Optional, cast
 
 from aea.skills.base import Handler

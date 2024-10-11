@@ -21,19 +21,32 @@
 """This module contains the handlers for the 'trader_abci' skill."""
 
 from packages.eightballer.skills.ui_loader_abci.handlers import (
-    UserInterfaceWsHandler as BaseUserInterfaceWsHandler,
     UserInterfaceHttpHandler as BaseUserInterfaceHttpHandler,
+)
+from packages.eightballer.skills.ui_loader_abci.handlers import (
+    UserInterfaceWsHandler as BaseUserInterfaceWsHandler,
+)
+from packages.valory.skills.abstract_round_abci.handlers import (
+    ABCIRoundHandler,
+)
+from packages.valory.skills.abstract_round_abci.handlers import (
+    ContractApiHandler as BaseContractApiHandler,
 )
 from packages.valory.skills.abstract_round_abci.handlers import (
     HttpHandler as BaseHttpHandler,
-    IpfsHandler as BaseIpfsHandler,
-    SigningHandler as BaseSigningHandler,
-    ABCIRoundHandler,
-    LedgerApiHandler as BaseLedgerApiHandler,
-    TendermintHandler as BaseTendermintHandler,
-    ContractApiHandler as BaseContractApiHandler,
 )
-
+from packages.valory.skills.abstract_round_abci.handlers import (
+    IpfsHandler as BaseIpfsHandler,
+)
+from packages.valory.skills.abstract_round_abci.handlers import (
+    LedgerApiHandler as BaseLedgerApiHandler,
+)
+from packages.valory.skills.abstract_round_abci.handlers import (
+    SigningHandler as BaseSigningHandler,
+)
+from packages.valory.skills.abstract_round_abci.handlers import (
+    TendermintHandler as BaseTendermintHandler,
+)
 
 TraderHandler = ABCIRoundHandler
 HttpHandler = BaseHttpHandler

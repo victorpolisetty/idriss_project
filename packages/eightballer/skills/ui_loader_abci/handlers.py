@@ -25,22 +25,34 @@ from typing import Optional, cast
 from aea.protocols.base import Message
 
 from packages.eightballer.protocols.http.message import HttpMessage as UiHttpMessage
-from packages.eightballer.protocols.websockets.message import WebsocketsMessage
-from packages.eightballer.skills.ui_loader_abci.models import (
-    UserInterfaceClientStrategy,
-)
 from packages.eightballer.protocols.websockets.dialogues import (
     WebsocketsDialogue,
     WebsocketsDialogues,
 )
+from packages.eightballer.protocols.websockets.message import WebsocketsMessage
+from packages.eightballer.skills.ui_loader_abci.models import (
+    UserInterfaceClientStrategy,
+)
+from packages.valory.skills.abstract_round_abci.handlers import (
+    ABCIRoundHandler as BaseABCIRoundHandler,
+)
+from packages.valory.skills.abstract_round_abci.handlers import (
+    ContractApiHandler as BaseContractApiHandler,
+)
 from packages.valory.skills.abstract_round_abci.handlers import (
     HttpHandler as BaseHttpHandler,
+)
+from packages.valory.skills.abstract_round_abci.handlers import (
     IpfsHandler as BaseIpfsHandler,
-    SigningHandler as BaseSigningHandler,
-    ABCIRoundHandler as BaseABCIRoundHandler,
+)
+from packages.valory.skills.abstract_round_abci.handlers import (
     LedgerApiHandler as BaseLedgerApiHandler,
+)
+from packages.valory.skills.abstract_round_abci.handlers import (
+    SigningHandler as BaseSigningHandler,
+)
+from packages.valory.skills.abstract_round_abci.handlers import (
     TendermintHandler as BaseTendermintHandler,
-    ContractApiHandler as BaseContractApiHandler,
 )
 
 DEFAULT_ENCODING = "utf-8"
@@ -57,7 +69,9 @@ class BaseHandler(BaseHttpHandler):
     @property
     def strategy(self) -> Optional[str]:
         """Get the strategy."""
-        return cast(UserInterfaceClientStrategy, self.context.user_interface_client_strategy)
+        return cast(
+            UserInterfaceClientStrategy, self.context.user_interface_client_strategy
+        )
 
     def get_headers(self, original_headers: str) -> str:
         """Appends cors headers."""
@@ -78,7 +92,9 @@ class UserInterfaceHttpHandler(BaseHandler):
         message = cast(UiHttpMessage, message)
         dialogue = self.context.user_interface_http_dialogues.update(message)
         if dialogue is None:
-            self.context.logger.error(f"Could not locate dialogue for message={message}")
+            self.context.logger.error(
+                f"Could not locate dialogue for message={message}"
+            )
             return
         self.handle_http_request(message, dialogue)
 
@@ -112,12 +128,16 @@ class UserInterfaceHttpHandler(BaseHandler):
 
     def handle_websocket_request(self, message: UiHttpMessage, dialogue) -> None:
         """Handle the websocket request."""
-        self.strategy.clients[dialogue.incomplete_dialogue_label.get_incomplete_version().dialogue_reference[0]] = (
-            dialogue
-        )
+        self.strategy.clients[
+            dialogue.incomplete_dialogue_label.get_incomplete_version().dialogue_reference[
+                0
+            ]
+        ] = dialogue
 
         self.context.logger.debug(f"Total clients: {len(self.strategy.clients)}")
-        self.context.logger.debug(f"Handling websocket request in skill: {message.dialogue_reference}")
+        self.context.logger.debug(
+            f"Handling websocket request in skill: {message.dialogue_reference}"
+        )
 
     def handle_api_request(self, message: UiHttpMessage, dialogue) -> UiHttpMessage:
         """Handle the api request."""
@@ -269,22 +289,32 @@ class UserInterfaceWsHandler(UserInterfaceHttpHandler):
             return None
         if message.performative == WebsocketsMessage.Performative.SEND:
             return self._handle_send(message, dialogue)
-        self.context.logger.warning(f"Cannot handle websockets message of performative={message.performative}")
+        self.context.logger.warning(
+            f"Cannot handle websockets message of performative={message.performative}"
+        )
         return None
 
-    def _handle_disconnect(self, message: Message, dialogue: WebsocketsDialogue) -> None:
+    def _handle_disconnect(
+        self, message: Message, dialogue: WebsocketsDialogue
+    ) -> None:
         """
         Implement the reaction to an envelope.
 
         :param message: the message
         """
         self.context.logger.info(f"Handling disconnect message in skill: {message}")
-        ws_dialogues_to_connections = {v.incomplete_dialogue_label: k for k, v in self.strategy.clients.items()}
+        ws_dialogues_to_connections = {
+            v.incomplete_dialogue_label: k for k, v in self.strategy.clients.items()
+        }
         if dialogue.incomplete_dialogue_label in ws_dialogues_to_connections:
-            del self.strategy.clients[ws_dialogues_to_connections[dialogue.incomplete_dialogue_label]]
+            del self.strategy.clients[
+                ws_dialogues_to_connections[dialogue.incomplete_dialogue_label]
+            ]
             self.context.logger.info(f"Total clients: {len(self.strategy.clients)}")
         else:
-            self.context.logger.warning(f"Could not find dialogue to disconnect: {dialogue.incomplete_dialogue_label}")
+            self.context.logger.warning(
+                f"Could not find dialogue to disconnect: {dialogue.incomplete_dialogue_label}"
+            )
 
     def _handle_send(self, message: Message, dialogue) -> None:
         """
@@ -328,7 +358,9 @@ class UserInterfaceWsHandler(UserInterfaceHttpHandler):
             success=True,
             target_message=message,
         )
-        self.context.logger.info(f"Handling connect message in skill: {client_reference}")
+        self.context.logger.info(
+            f"Handling connect message in skill: {client_reference}"
+        )
         self.strategy.clients[client_reference] = dialogue
         self.context.outbox.put_message(message=response_msg)
 
