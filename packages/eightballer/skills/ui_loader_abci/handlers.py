@@ -21,7 +21,6 @@
 
 import json
 from typing import Optional, cast
-from urllib.parse import urlparse
 
 from aea.protocols.base import Message
 
@@ -43,6 +42,10 @@ from packages.valory.skills.abstract_round_abci.handlers import (
     TendermintHandler as BaseTendermintHandler,
     ContractApiHandler as BaseContractApiHandler,
 )
+
+DEFAULT_ENCODING = "utf-8"
+ERROR_RESPONSE = {"error": "Not Found"}
+CONTENT_TYPE_JSON = "Content-Type: application/json"
 
 
 DEFAULT_API_HEADERS = "Content-Type: application/json\n"
@@ -82,12 +85,16 @@ class UserInterfaceHttpHandler(BaseHandler):
     def handle_http_request(self, message: UiHttpMessage, dialogue) -> None:
         """We handle the http request to return the necessary files."""
         if self.is_api_route(message.url):
-            headers, content = self.handle_api_request(message, dialogue)
+            api_response = self.handle_api_request(message, dialogue)
+            return self.send_api_http_response(
+                api_response,
+                dialogue,
+            )
         elif self.is_websocket_request(message):
             return self.handle_websocket_request(message, dialogue)
         else:
             headers, content = self.handle_frontend_request(message, dialogue)
-        return self.send_http_response(message, dialogue, headers, content)
+            return self.send_http_response(message, dialogue, headers, content)
 
     def is_api_route(self, url: str) -> bool:
         """Check if the url is an api route."""
@@ -112,17 +119,58 @@ class UserInterfaceHttpHandler(BaseHandler):
         self.context.logger.debug(f"Total clients: {len(self.strategy.clients)}")
         self.context.logger.debug(f"Handling websocket request in skill: {message.dialogue_reference}")
 
-    def handle_api_request(self, message: UiHttpMessage, dialogue) -> tuple[str, bytes]:
+    def handle_api_request(self, message: UiHttpMessage, dialogue) -> UiHttpMessage:
         """Handle the api request."""
-        self.context.logger.info(f"Received api route request: {message.url}")
+        self.context.logger.debug(f"Received api route request: {message.url}")
+        self.context.logger.debug(f"Received dialogue: {dialogue}")
+
+        parts = message.url.split("/")
 
         for handler in self.strategy.handlers:
             message.dialogue = dialogue
             result = handler.handle(message)
+            self.context.logger.debug(f"Received result: {result}")
             if result is not None:
-                return DEFAULT_API_HEADERS, json.dumps(result).encode("utf-8")
+                headers = CONTENT_TYPE_JSON
+                content = json.dumps(result.content).encode(DEFAULT_ENCODING)
+                return UiHttpMessage(
+                    performative=UiHttpMessage.Performative.RESPONSE,
+                    status_code=result.status_code,
+                    status_text=result.status_text,
+                    headers=headers,
+                    version=message.version,
+                    body=content,
+                )
 
-        return DEFAULT_API_HEADERS, json.dumps({"error": "Not Found"}).encode("utf-8")
+        if parts[-1] == "agent-info":
+            data = {
+                "service-id": self.context.params.on_chain_service_id,
+                "safe-address": self.context.params.setup_params[
+                    "safe_contract_address"
+                ],
+                "agent-address": self.context.agent_address,
+                "agent-status": "active" if self.context.is_active else "inactive",
+            }
+            content = json.dumps(data).encode(DEFAULT_ENCODING)
+            return UiHttpMessage(
+                performative=UiHttpMessage.Performative.RESPONSE,
+                status_code=200,
+                status_text="OK",
+                headers=CONTENT_TYPE_JSON,
+                version=message.version,
+                body=content,
+            )
+
+        headers = CONTENT_TYPE_JSON
+        content = json.dumps(ERROR_RESPONSE).encode(DEFAULT_ENCODING)
+        return UiHttpMessage(
+            performative=UiHttpMessage.Performative.RESPONSE,
+            status_code=404,
+            headers=headers,
+            version=message.version,
+            status_text="Not Found",
+            body=content,
+        )
 
     def handle_frontend_request(self, message: UiHttpMessage, dialogue) -> bytes:
         """Handle the frontend request."""
@@ -164,10 +212,10 @@ class UserInterfaceHttpHandler(BaseHandler):
 
         return headers, content
 
-    def send_http_response(self, message: UiHttpMessage, dialogue, headers: str, content: bytes) -> None:
-        """
-        Send the http response.
-        """
+    def send_http_response(
+        self, message: UiHttpMessage, dialogue, headers: str, content: bytes
+    ) -> None:
+        """Send the http response."""
         cors_headers = self.get_headers(headers)
         response_msg = dialogue.reply(
             performative=UiHttpMessage.Performative.RESPONSE,
@@ -177,6 +225,20 @@ class UserInterfaceHttpHandler(BaseHandler):
             version=message.version,
             status_text="OK",
             body=content,
+        )
+        self.context.outbox.put_message(message=response_msg)
+
+    def send_api_http_response(self, message: UiHttpMessage, dialogue) -> None:
+        """Send the api http response."""
+        cors_headers = self.get_headers(message.headers)
+        response_msg = dialogue.reply(
+            performative=UiHttpMessage.Performative.RESPONSE,
+            target_message=message,
+            status_code=message.status_code,
+            headers=cors_headers,
+            version=message.version,
+            status_text=message.status_text,
+            body=message.body,
         )
         self.context.outbox.put_message(message=response_msg)
 
@@ -201,7 +263,9 @@ class UserInterfaceWsHandler(UserInterfaceHttpHandler):
             return self._handle_disconnect(message, dialogue)
         # it is an existing dialogue
         if dialogue is None:
-            self.context.logger.error(f"Could not locate dialogue for message={message}")
+            self.context.logger.error(
+                f"Could not locate dialogue for message={message}"
+            )
             return None
         if message.performative == WebsocketsMessage.Performative.SEND:
             return self._handle_send(message, dialogue)

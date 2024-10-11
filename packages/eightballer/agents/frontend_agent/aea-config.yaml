@@ -39,8 +39,8 @@ protocols:
 - valory/ledger_api:1.0.0:bafybeihdk6psr4guxmbcrc26jr2cbgzpd5aljkqvpwo64bvaz7tdti2oni
 - valory/tendermint:0.1.0:bafybeig4mi3vmlv5zpbjbfuzcgida6j5f2nhrpedxicmrrfjweqc5r7cra
 skills:
-- eightballer/trader_abci:0.1.0:bafybeifkzp33iegmc4nqiak6qjrgr4bt44mz4pmrli2i5qcgjstcut5hsu
-- eightballer/ui_loader_abci:0.1.0:bafybeifdvkpgnjsxf6ntthzbkfplvhfnwuxndswmsvkclata7ajuzjniyi
+- eightballer/trader_abci:0.1.0:bafybeihrhtiqey5itlzgjpwwpdt6q7enh2kuakzh4cfz53ezq25eloywom
+- eightballer/ui_loader_abci:0.1.0:bafybeidyyvy6inm6dariyqxyumio5wsa6qvceos6ndbme3ompbdr5q5md4
 - valory/abstract_abci:0.1.0:bafybeihu2bcgjk2tqjiq2zhk3uogtfszqn4osvdt7ho3fubdpdj4jgdfjm
 - valory/abstract_round_abci:0.1.0:bafybeibovsktd3uxur45nrcomq5shcn46cgxd5idmhxbmjhg32c5abyqim
 - valory/registration_abci:0.1.0:bafybeicnth5q4httefsusywx3zrrq4al47owvge72dqf2fziruicq6hqta
@@ -147,7 +147,7 @@ models:
     args:
       user_interface:
         enabled: true
-        custom_component: eightballer/simple_html
+        custom_component: eightballer/simple_react
       setup:
         all_participants: ${list:["0x0000000000000000000000000000000000000000"]}
         consensus_threshold: ${int:null}

@@ -11,14 +11,14 @@ aea_version: '>=1.0.0, <2.0.0'
 fingerprint:
   __init__.py: bafybeiaw7oxkmuc2oqagxzy4rjzfkkpow5tc24iufvo6vbhkq3jvhafpo4
   abci_spec.yaml: bafybeig6ffhlqu4w23dwjl7r46hfc63t6vfzr5d7owc2ffcosdrzlfaieu
-  behaviours.py: bafybeidf4j45zjhg4l7dbeiah5sgpcrkqr7ey46pz3ryim6u47gwx7mv6a
-  dialogues.py: bafybeidb3iimnpqym7nhuof7dp2xn7dwwyp5jivkvmn7bt6fwv34jyyhxy
-  handlers.py: bafybeic4em4kvc7yoolak32etrfpbxbojkdalvjr72nv7nu5hz5ut5q4ua
-  models.py: bafybeifhdwl6usjfyihrq3daaruks7tq6iathacnef5alvuryyh5ah4dmu
-  payloads.py: bafybeiargfmgvsxn72p7v4l6trmrxsvblhbd535swvrjapfiszz5mb4cvq
-  rounds.py: bafybeibwe7usycnkdvnwsmsv3caiovmk2kivz55rgy6w43s2tfigxh3jty
-  tests/__init__.py: bafybeiccs7cgyonjxryqymbv5kjkgep7iojx74f27fti6npni3zuxu7esi
-  tests/test_behaviours.py: bafybeiekwoncqwkk32moqonb455t5gbblk5kbacluthdctfnb2jcxo4apa
+  behaviours.py: bafybeib5fbuegjlrlr2npdyosmlvsm4keolrslmuxlplp5yevbzea4madu
+  dialogues.py: bafybeigkx6rok7etuvgl4q4qn3nzlzkm75nisxe3kkldumboj5e2de7qya
+  handlers.py: bafybeig5kwjx3zjen36lkrz5y4rv2u5eaworxbfyb57diij35n6d3q5ejm
+  models.py: bafybeidscmncmycnywveskebom5kxc3hjptdthhqvurzvdujhhc5eoiktq
+  payloads.py: bafybeihlb2vwuvpuwrvog2vfyuhzuq7i6ef36epa3im52a3sftlsj4g5qe
+  rounds.py: bafybeifjzofmowtbavb6rnu4v7j5brrgfhgisl6zoinacrxpvclx743qem
+  tests/__init__.py: bafybeidlhllgpf65xwk357wukpguuaz6hxhkyh7dwplv2xkxlrlk4b7zty
+  tests/test_behaviours.py: bafybeifwxr6hzx5wyreubeskmqeuxqj3toqqwx5kedljmxlayx4tx2enia
   tests/test_dialogues.py: bafybeieb67vvwpslksvuz2sdbftfhfg74cekbqrp7ekjsmwz3wzxf45cjy
   tests/test_handlers.py: bafybeifqtzxifou3qaihsdi75vkqzfvhgxb6jgurciexb26sqm4ukw4vj4
   tests/test_models.py: bafybeihxr6qiimkbe66tnnwek46ciejd5usdljwu7rc4decvy6hmtkf3ei
