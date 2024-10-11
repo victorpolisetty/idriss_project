@@ -9,7 +9,8 @@ description: Enables augmentation of the agents using a meta-framework for the c
   the OLAS ecosystem. Includes a template for HTML, and React custom components.
 aea_version: '>=1.0.0, <2.0.0'
 fingerprint:
-  tests/test_agent.py: bafybeif7mgwjhwznpy3melde4twzsfbxvrmue74qa5sgdhl3boar4xvndi
+  tests/__init__.py: bafybeihzyvuskw7vsf6drqqpg7sbttzqruhhl5vvjmbruidmx53nvm4ndq
+  tests/test_agent.py: bafybeiaz6jd4fkjwyuwkzh55fj4l32lg2gtuntxbsijsk7f5qfh7shxvce
 fingerprint_ignore_patterns: []
 connections:
 - eightballer/http_client:0.1.0:bafybeidxqvcgobltkb5rgokakcfo25ntfhlffmpzqap6oid4ttmwbvn4qi
@@ -38,8 +39,8 @@ protocols:
 - valory/ledger_api:1.0.0:bafybeihdk6psr4guxmbcrc26jr2cbgzpd5aljkqvpwo64bvaz7tdti2oni
 - valory/tendermint:0.1.0:bafybeig4mi3vmlv5zpbjbfuzcgida6j5f2nhrpedxicmrrfjweqc5r7cra
 skills:
-- eightballer/trader_abci:0.1.0:bafybeidhl22yhhr3d2qobxabbsthpffng4zq2j3ci4ocbgu3ztufyn3biq
-- eightballer/ui_loader_abci:0.1.0:bafybeieadtbbppml7wpshz6of65isap5hcflmksikpz2okmogxeaegytiu
+- eightballer/trader_abci:0.1.0:bafybeid6uyipjbhsclpinkdchstav4vrtoinvs2gvajklq63kv34rf2hnm
+- eightballer/ui_loader_abci:0.1.0:bafybeigft26gl72uxhjkz4vsbz4a3bhoedqdcbtrllumrsdkiwahluv4ru
 - valory/abstract_abci:0.1.0:bafybeihu2bcgjk2tqjiq2zhk3uogtfszqn4osvdt7ho3fubdpdj4jgdfjm
 - valory/abstract_round_abci:0.1.0:bafybeibovsktd3uxur45nrcomq5shcn46cgxd5idmhxbmjhg32c5abyqim
 - valory/registration_abci:0.1.0:bafybeicnth5q4httefsusywx3zrrq4al47owvge72dqf2fziruicq6hqta

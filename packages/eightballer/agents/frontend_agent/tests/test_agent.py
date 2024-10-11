@@ -11,7 +11,7 @@ from aea_test_autonomy.configurations import ANY_ADDRESS, DEFAULT_REQUESTS_TIMEO
 AGENT_NAME = "frontend_agent"
 AUTHOR = "eightballer"
 VERSION = "0.1.0"
-DEFAULT_LAUNCH_TIMEOUT = 10
+DEFAULT_LAUNCH_TIMEOUT = 30
 LAUNCH_SUCCEED_MESSAGE = "Start processing"
 
 
