@@ -26,7 +26,9 @@ from packages.eightballer.skills.ui_loader_abci.handlers import (
 from packages.eightballer.skills.ui_loader_abci.handlers import (
     UserInterfaceWsHandler as BaseUserInterfaceWsHandler,
 )
-from packages.valory.skills.abstract_round_abci.handlers import ABCIRoundHandler
+from packages.valory.skills.abstract_round_abci.handlers import (
+    ABCIRoundHandler,
+)
 from packages.valory.skills.abstract_round_abci.handlers import (
     ContractApiHandler as BaseContractApiHandler,
 )

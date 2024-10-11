@@ -60,6 +60,9 @@ ERROR_RESPONSE = {"error": "Not Found"}
 CONTENT_TYPE_JSON = "Content-Type: application/json"
 
 
+DEFAULT_API_HEADERS = "Content-Type: application/json\n"
+
+
 class BaseHandler(BaseHttpHandler):
     """Base handler for logging."""
 
@@ -144,6 +147,7 @@ class UserInterfaceHttpHandler(BaseHandler):
         parts = message.url.split("/")
 
         for handler in self.strategy.handlers:
+            message.dialogue = dialogue
             result = handler.handle(message)
             self.context.logger.debug(f"Received result: {result}")
             if result is not None:

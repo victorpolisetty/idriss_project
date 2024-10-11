@@ -19,28 +19,22 @@
 
 """This package contains a scaffold of a handler."""
 
-from typing import Optional, cast
-
 import datetime
 import json
-from aea.skills.base import Handler
-from aea.protocols.base import Message
-from packages.eightballer.protocols.http.message import HttpMessage
-# from packages.eightballer.skills.simple_html.strategy import Strategy
-# from packages.eightballer.skills.simple_html.dialogues import HttpDialogue
+from typing import Optional, cast
 
-from packages.eightballer.skills.ui_loader_abci.handlers import UserInterfaceHttpHandler
+from aea.skills.base import Handler
+
 from packages.eightballer.protocols.http.message import HttpMessage as UiHttpMessage
 
 
 class HttpHandler(Handler):
     """Implements the HTTP handler."""
 
-    SUPPORTED_PROTOCOL = UiHttpMessage.protocol_id  # type: Optional[str]
+    SUPPORTED_PROTOCOL = UiHttpMessage.protocol_id
 
     def setup(self) -> None:
         """Set up the handler."""
-        # self.strategy = cast(Strategy, self.context.strategy)
 
     def teardown(self) -> None:
         """Tear down the handler."""
@@ -52,16 +46,16 @@ class HttpHandler(Handler):
 
     def handle_get(self, message: UiHttpMessage):
         """Handle GET request for /."""
-        return {"root": "simple"}
+
+        return {"ping": message.body}
 
     def handle_get_agent_info(self):
         """Handle GET request for /api/agent-info."""
-        # TODO: Implement GET logic for /api/agent-info
         raise NotImplementedError
 
     def handle_get_mech_events(self, message):
         """Handle GET request for /api/mech-events."""
-        return {"mech_events": "..."}
+        return {"mech_events": message.body}
 
     def handle_unexpected_message(self, message):
         """Handler for unexpected messages."""
