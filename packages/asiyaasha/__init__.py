@@ -18,9 +18,3 @@
 # ------------------------------------------------------------------------------
 
 """This module contains a custom package."""
-
-from packages.asiyaasha.customs.simple_svelte import behaviours as custom_behaviours
-from packages.asiyaasha.customs.simple_svelte import handlers as custom_handlers
-
-behaviours = custom_behaviours
-handlers = custom_handlers
