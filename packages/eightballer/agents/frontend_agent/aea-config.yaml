@@ -10,7 +10,7 @@ description: Enables augmentation of the agents using a meta-framework for the c
 aea_version: '>=1.0.0, <2.0.0'
 fingerprint:
   tests/__init__.py: bafybeihzyvuskw7vsf6drqqpg7sbttzqruhhl5vvjmbruidmx53nvm4ndq
-  tests/test_agent.py: bafybeif7mgwjhwznpy3melde4twzsfbxvrmue74qa5sgdhl3boar4xvndi
+  tests/test_agent.py: bafybeiaz6jd4fkjwyuwkzh55fj4l32lg2gtuntxbsijsk7f5qfh7shxvce
 fingerprint_ignore_patterns: []
 connections:
 - eightballer/http_client:0.1.0:bafybeidxqvcgobltkb5rgokakcfo25ntfhlffmpzqap6oid4ttmwbvn4qi
