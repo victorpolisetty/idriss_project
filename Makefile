@@ -27,7 +27,6 @@ clean-pyc:
 	find . -name '*.pyc' -exec rm -f {} +
 	find . -name '*.pyo' -exec rm -f {} +
 	find . -name '__pycache__' -exec rm -fr {} +
-	find . -name '.DS_Store' -exec rm -fr {} +
 
 .PHONY: clean-test
 clean-test:
@@ -58,8 +57,9 @@ test:
 
 install:
 	bash install.sh
+	poetry run autonomy packages sync
 
-sync:
+ sync:
 	git pull
 	poetry run autonomy packages sync
 

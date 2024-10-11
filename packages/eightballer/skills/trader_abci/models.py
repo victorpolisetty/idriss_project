@@ -19,7 +19,7 @@
 
 """Custom objects for the trader ABCI application."""
 
-from typing import Dict, Type, Union, cast
+from typing import Union, cast
 
 from packages.eightballer.skills.trader_abci.composition import TraderAbciApp
 from packages.eightballer.skills.ui_loader_abci.models import (
@@ -28,22 +28,26 @@ from packages.eightballer.skills.ui_loader_abci.models import (
 from packages.eightballer.skills.ui_loader_abci.models import (
     UserInterfaceClientStrategy as BaseUserInterfaceClientStrategy,
 )
-from packages.eightballer.skills.ui_loader_abci.models import UserInterfaceLoaderParams
+from packages.eightballer.skills.ui_loader_abci.models import (
+    UserInterfaceLoaderParams,
+)
 from packages.eightballer.skills.ui_loader_abci.rounds import Event as UIEvent
-from packages.valory.skills.abstract_round_abci.models import ApiSpecs
+from packages.valory.skills.abstract_round_abci.models import (
+    ApiSpecs,
+)
 from packages.valory.skills.abstract_round_abci.models import (
     BenchmarkTool as BaseBenchmarkTool,
 )
-from packages.valory.skills.abstract_round_abci.models import Requests as BaseRequests
+from packages.valory.skills.abstract_round_abci.models import (
+    Requests as BaseRequests,
+)
 from packages.valory.skills.reset_pause_abci.rounds import Event as ResetPauseEvent
 
 UserInterfaceClientStrategy = BaseUserInterfaceClientStrategy
 
-EventType = Union[
-    Type[UIEvent],
-    Type[ResetPauseEvent],
-]
-EventToTimeoutMappingType = Dict[
+EventType = Union[type[UIEvent], type[ResetPauseEvent]]  # noqa
+
+EventToTimeoutMappingType = dict[
     Union[UIEvent, ResetPauseEvent],
     float,
 ]

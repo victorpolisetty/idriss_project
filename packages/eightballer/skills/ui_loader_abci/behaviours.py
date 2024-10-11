@@ -19,38 +19,38 @@
 
 """This package contains round behaviours of ComponentLoadingAbciApp."""
 
-import sys
-import time
 import importlib
+import sys
 import threading
+import time
 from abc import ABC
 from enum import Enum
 from glob import glob
-from typing import Any, Set, Type, Optional, Generator, cast
 from pathlib import Path
+from typing import Any, Generator, Optional, Set, Type, cast
 
 import yaml
-from packages.valory.skills.abstract_round_abci.base import AbstractRound
+
 from packages.eightballer.skills.ui_loader_abci.models import (
     Params,
     UserInterfaceClientStrategy,
 )
 from packages.eightballer.skills.ui_loader_abci.rounds import (
-    Event,
-    ErrorRound,
-    SetupRound,
-    ErrorPayload,
-    SetupPayload,
-    HealthcheckRound,
-    SynchronizedData,
-    HealthcheckPayload,
     ComponentLoadingAbciApp,
+    ErrorPayload,
+    ErrorRound,
+    Event,
+    HealthcheckPayload,
+    HealthcheckRound,
+    SetupPayload,
+    SetupRound,
+    SynchronizedData,
 )
+from packages.valory.skills.abstract_round_abci.base import AbstractRound
 from packages.valory.skills.abstract_round_abci.behaviours import (
-    BaseBehaviour,
     AbstractRoundBehaviour,
+    BaseBehaviour,
 )
-
 
 DEFAULT_FRONTEND_DIR = "frontend"
 
