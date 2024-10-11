@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # ------------------------------------------------------------------------------
 #
-#   Copyright 2024 Valory AG
+#   Copyright 2024 eightballer
 #
 #   Licensed under the Apache License, Version 2.0 (the "License");
 #   you may not use this file except in compliance with the License.
@@ -17,29 +17,4 @@
 #
 # ------------------------------------------------------------------------------
 
-"""This package contains payload tests for the ComponentLoadingAbciApp."""
-
-from typing import Type, Hashable
-from dataclasses import dataclass
-
-import pytest
-
-from packages.eightballer.skills.ui_loader_abci.payloads import BaseTxPayload
-
-
-@dataclass
-class PayloadTestCase:
-    """PayloadTestCase"""
-
-    name: str
-    payload_cls: Type[BaseTxPayload]
-    content: Hashable
-
-
-@pytest.mark.parametrize("test_case", [])
-def test_payloads(test_case: PayloadTestCase) -> None:
-    """Tests for ComponentLoadingAbciApp payloads"""
-
-    payload = test_case.payload_cls(sender="sender", content=test_case.content)
-    assert payload.sender == "sender"
-    assert payload.from_json(payload.json) == payload
+"""This module contains a custom package."""

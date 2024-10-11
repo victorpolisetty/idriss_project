@@ -30,6 +30,7 @@ from typing import Any, Set, Type, Optional, Generator, cast
 from pathlib import Path
 
 import yaml
+
 from packages.valory.skills.abstract_round_abci.base import AbstractRound
 from packages.eightballer.skills.ui_loader_abci.models import (
     Params,
@@ -149,9 +150,7 @@ class SetupBehaviour(ComponentLoadingBaseBehaviour):
     @property
     def strategy(self) -> Optional[str]:
         """Get the strategy."""
-        return cast(
-            UserInterfaceClientStrategy, self.context.user_interface_client_strategy
-        )
+        return cast(UserInterfaceClientStrategy, self.context.user_interface_client_strategy)
 
     def async_act(self) -> Generator:
         """Do the act, supporting asynchronous execution."""
@@ -165,15 +164,11 @@ class SetupBehaviour(ComponentLoadingBaseBehaviour):
                 self.context.logger.info(f"Loading User Interface: {component_name}")
                 ui_setup_ok = yield from self.load_ui(directory)
                 if config.get("behaviours", False):
-                    ui_behaviours_ok = yield from self.load_behaviours(
-                        author, component_name, directory, config
-                    )
+                    ui_behaviours_ok = yield from self.load_behaviours(author, component_name, directory, config)
                 else:
                     ui_behaviours_ok = Event.DONE
                 if config.get("handlers", False):
-                    ui_handlers_ok = yield from self.load_handlers(
-                        author, component_name, directory, config
-                    )
+                    ui_handlers_ok = yield from self.load_handlers(author, component_name, directory, config)
                 else:
                     ui_handlers_ok = Event.DONE
 
@@ -204,15 +199,8 @@ class SetupBehaviour(ComponentLoadingBaseBehaviour):
         """Load the UI from the setup_data."""
         self.context.logger.info(f"Generating routes for the UI in {directory}...")
         self.strategy.routes = self.generate_routes(directory)
-        self.context.logger.info(
-            f"Routes generated: {len(self.strategy.routes)} routes."
-        )
-        sys.path += [
-            str(
-                Path(__file__).resolve().parent.parent.parent.parent.parent
-                / directory.parent
-            )
-        ]
+        self.context.logger.info(f"Routes generated: {len(self.strategy.routes)} routes.")
+        sys.path += [str(Path(__file__).resolve().parent.parent.parent.parent.parent / directory.parent)]
         self.context.logger.info(f"Added {directory} to the path.")
         if not self.strategy.routes:
             yield Event.ERROR
@@ -241,9 +229,7 @@ class SetupBehaviour(ComponentLoadingBaseBehaviour):
 
     def load_behaviours(self, author, component_name, directory, config) -> bool:
         """Load in the behaviours for the ComponentLoadingRoundBehaviour."""
-        self.context.logger.info(
-            f"Loading behaviours for Author: {author} Component: {component_name} in {directory}"
-        )
+        self.context.logger.info(f"Loading behaviours for Author: {author} Component: {component_name} in {directory}")
 
         def behaviour_runner(behaviour, interval=1):
             # We need to convert this into a Task to executed by the task runner.
@@ -268,14 +254,10 @@ class SetupBehaviour(ComponentLoadingBaseBehaviour):
         self.context.logger.info(f"Behaviour {behaviour} started.")
         yield Event.DONE
 
-    def load_handlers(
-        self, author, component_name, directory, config
-    ) -> Generator[Any, Any, None]:
+    def load_handlers(self, author, component_name, directory, config) -> Generator[Any, Any, None]:
         """Load in the handlers for the ComponentLoadingRoundBehaviour."""
 
-        self.context.logger.info(
-            f"Loading handlers for Author: {author}, Component: {component_name} from {directory}"
-        )
+        self.context.logger.info(f"Loading handlers for Author: {author}, Component: {component_name} from {directory}")
 
         configs = config["handlers"]
         module = dynamic_import(component_name, "handlers")
@@ -284,21 +266,15 @@ class SetupBehaviour(ComponentLoadingBaseBehaviour):
             class_name = handler_config["class_name"]
             handler_kwargs = handler_config.get("kwargs", {})
             handler = getattr(module, class_name)
-            handler = handler(
-                name=class_name, skill_context=self.context, **handler_kwargs
-            )
+            handler = handler(name=class_name, skill_context=self.context, **handler_kwargs)
             self.context.user_interface_client_strategy.handlers.append(handler)
             self.context.logger.info(f"Handler {class_name} loaded.")
 
             handler_methods = [
-                method
-                for method in dir(handler)
-                if callable(getattr(handler, method)) and not method.startswith("__")
+                method for method in dir(handler) if callable(getattr(handler, method)) and not method.startswith("__")
             ]
 
-            self.context.logger.info(
-                f"Methods found in {class_name}: {', '.join(handler_methods)}"
-            )
+            self.context.logger.info(f"Methods found in {class_name}: {', '.join(handler_methods)}")
         yield Event.DONE
 
 

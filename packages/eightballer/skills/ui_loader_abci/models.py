@@ -19,21 +19,19 @@
 
 """This module contains the shared state for the abci skill of ComponentLoadingAbciApp."""
 
-from typing import Any, Dict
+from typing import Any
 
 from aea.skills.base import Model
 
 from packages.eightballer.skills.ui_loader_abci.rounds import (
-    ComponentLoadingAbciApp,
     Event,
+    ComponentLoadingAbciApp,
 )
-from packages.valory.skills.abstract_round_abci.models import BaseParams
 from packages.valory.skills.abstract_round_abci.models import (
-    BenchmarkTool as BaseBenchmarkTool,
-)
-from packages.valory.skills.abstract_round_abci.models import Requests as BaseRequests
-from packages.valory.skills.abstract_round_abci.models import (
+    Requests as BaseRequests,
+    BaseParams,
     SharedState as BaseSharedState,
+    BenchmarkTool as BaseBenchmarkTool,
 )
 
 
@@ -46,7 +44,7 @@ class SharedState(BaseSharedState):
 class UserInterfaceClientStrategy(Model):
     """This class represents a user interface client strategy."""
 
-    clients: Dict[str, Any] = {}
+    clients: dict[str, dict] = {}
     handlers: list = []
     behaviours: list = []
     routes: dict = {}
@@ -70,9 +68,7 @@ class UserInterfaceLoaderParams(BaseParams):
     def setup(self) -> None:
         """Set up."""
         super().setup()
-        ComponentLoadingAbciApp.event_to_timeout[Event.ROUND_TIMEOUT] = (
-            self.context.params.round_timeout_seconds
-        )
+        ComponentLoadingAbciApp.event_to_timeout[Event.ROUND_TIMEOUT] = self.context.params.round_timeout_seconds
 
 
 Params = UserInterfaceLoaderParams
