@@ -1,0 +1,21 @@
+name: idriss_token_finder
+author: victorpolisetty
+version: 0.1.0
+type: custom
+description: A custom frontend interface for analyzing Farcaster data and identifying trading opportunities, integrating with the backend API to generate transaction payloads and manage notifications.
+license: Apache-2.0
+aea_version: '>=1.0.0, <2.0.0'
+fingerprint:
+  __init__.py: bafybeih4oyyzgld4vqtbub6zrcrrfofbhmhbr37rvoxuhzchn3bhhjs7za
+  build/index.html: bafybeidtlac2qbn6oohhyyuvbwz36dqxofyiv7s4tsipwbrsl5mnbn65ga
+  openapi3_spec.yaml: bafybeiagdbghwj4t4o7uctojvtkjp7i6zxpwu6dltjsawcaeuteyipftty
+fingerprint_ignore_patterns: []
+dependencies: {}
+api_spec: openapi3_spec.yaml
+frontend_dir: build
+behaviours:
+-   class_name: LogReadingBehaviour
+    args: {}
+handlers:
+-  class_name: ApiHttpHandler
+   args: {}
