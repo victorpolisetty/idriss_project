@@ -148,7 +148,7 @@ models:
     args:
       user_interface:
         enabled: true
-        custom_component: asiyaasha/simple_svelte
+        custom_component: victorpolisetty/idriss_token_finder
       setup:
         all_participants: ${list:["0x0000000000000000000000000000000000000000"]}
         consensus_threshold: ${int:null}
