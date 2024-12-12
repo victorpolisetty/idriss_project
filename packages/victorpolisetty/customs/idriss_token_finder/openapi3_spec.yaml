@@ -4,11 +4,21 @@ info:
   description: API for an agent that analyzes Farcaster data and generates transaction payloads for relevant buy opportunities.
   version: 1.0.0
 servers:
-  - url: https://api.farcaster-agent.example.com/v1
+  - url: http://0.0.0.0:5555
 paths:
+  /api:
+    get:
+      summary: Returns the main HTML page
+      responses:
+        '200':
+          description: HTML response
+          content:
+            text/html:
+              schema:
+                type: string
   /api/analyze:
     post:
-      summary: Analyze Farcaster data for opportunities
+      summary: Analyze Farcaster data for search results
       description: Analyzes Farcaster posts based on the specified parameters.
       requestBody:
         required: true
@@ -19,11 +29,11 @@ paths:
               properties:
                 query:
                   type: string
-                  description: Natural language query specifying the parameters (e.g., "social coin, <7days old, <10k market cap").
+                  description: Specify what you want to search for (ex: "meme coin")
                 max_results:
                   type: integer
                   description: Maximum number of results to analyze.
-                  default: 50
+                  default: 3
               required:
                 - query
       responses:
@@ -73,83 +83,5 @@ paths:
                           items:
                             type: string
                           description: Mentions in the post.
-        '400':
-          description: Bad request
-  /api/transaction-payload:
-    post:
-      summary: Generate transaction payload
-      description: Creates a transaction payload for identified buy opportunities.
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                opportunities:
-                  type: array
-                  items:
-                    type: object
-                    properties:
-                      post_id:
-                        type: string
-                        description: Unique ID of the analyzed post.
-                      asset:
-                        type: string
-                        description: Asset to be purchased.
-                      quantity:
-                        type: number
-                        description: Quantity to be purchased.
-                      price:
-                        type: number
-                        description: Price per unit of the asset.
-              required:
-                - opportunities
-      responses:
-        '200':
-          description: Transaction payload created
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  transaction_payload:
-                    type: object
-                    description: The generated transaction payload.
-        '400':
-          description: Bad request
-  /api/notifications:
-    post:
-      summary: Send buy opportunity notifications
-      description: Sends notifications to the copy trading UI for buy opportunities.
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                opportunities:
-                  type: array
-                  items:
-                    type: object
-                    properties:
-                      post_id:
-                        type: string
-                        description: Unique ID of the analyzed post.
-                      asset:
-                        type: string
-                        description: Asset to be purchased.
-                      quantity:
-                        type: number
-                        description: Quantity to be purchased.
-                      price:
-                        type: number
-                        description: Price per unit of the asset.
-              required:
-                - opportunities
-      responses:
-        '200':
-          description: Notifications sent successfully
         '400':
           description: Bad request

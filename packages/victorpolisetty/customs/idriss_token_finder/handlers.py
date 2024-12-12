@@ -94,111 +94,18 @@ class ApiHttpHandler(Handler):
             self.context.logger.warning(f"No handler found for {method.upper()} request to {path}")
             return self.handle_unexpected_message(message)
 
-    def handle_post_api_analyze(self, _message: ApiHttpMessage, body):
-        """Handle POST request for /api/analyze."""
-        self.context.logger.debug(f"Request body: {body}")
-        
+    def handle_get_api(self, _message: ApiHttpMessage):
+        """Handle GET request for /api."""
         try:
-            # Parse the incoming request body
-            request_data = json.loads(body.decode("utf-8"))
-            query = request_data.get("query")
-            max_results = request_data.get("max_results", 25)
-            page = request_data.get("page", 0)
-            
-            if not query:
-                raise ValueError("Query parameter is required.")
-            
-            # Define the Searchcaster API endpoint
-            searchcaster_endpoint = "https://searchcaster.xyz/api/search"
-            
-            # Construct the request parameters
-            params = {
-                "text": query,
-                "count": max_results,
-                "page": page,
-            }
-            
-            # Make the HTTP request to Searchcaster
-            response = requests.get(searchcaster_endpoint, params=params)
-            response.raise_for_status()
-            
-            # Parse the response from Searchcaster
-            results = response.json()
-            
-            # Prepare the response body
-            response_body = {
-                "results": [
-                    {
-                        "post_id": cast.get("merkleRoot"),
-                        "text": cast["body"]["data"]["text"],
-                        "username": cast["body"]["username"],
-                        "displayName": cast["meta"]["displayName"],
-                        "engagement": {
-                            "reactions": cast["meta"]["reactions"]["count"],
-                            "recasts": cast["meta"]["recasts"]["count"],
-                            "watches": cast["meta"]["watches"]["count"]
-                        },
-                        "tags": cast["meta"].get("tags", []),
-                        "mentions": cast["meta"].get("mentions", [])
-                    }
-                    for cast in results.get("casts", [])
-                ]
-            }
-            
-            # Return the formatted response
-            return ApiHttpMessage(
-                performative=ApiHttpMessage.Performative.RESPONSE,
-                status_code=200,
-                status_text="OK",
-                headers="Content-Type: application/json",
-                version=message.version,
-                body=json.dumps(response_body).encode("utf-8")
-            )
-        except ValueError as e:
-            self.context.logger.error(f"Error processing request: {str(e)}")
-            return ApiHttpMessage(
-                performative=ApiHttpMessage.Performative.RESPONSE,
-                status_code=400,
-                status_text="Bad Request",
-                headers="Content-Type: application/json",
-                version=message.version,
-                body=json.dumps({"error": str(e)}).encode("utf-8")
-            )
-        except Exception as e:
-            self.context.logger.error(f"Unexpected error: {str(e)}")
-            return ApiHttpMessage(
-                performative=ApiHttpMessage.Performative.RESPONSE,
-                status_code=500,
-                status_text="Internal Server Error",
-                headers="Content-Type: application/json",
-                version=message.version,
-                body=json.dumps({"error": "An internal error occurred"}).encode("utf-8")
-            )
+            result = none_dao.get_all()
 
-    def handle_post_api_transaction_payload(self, _message: ApiHttpMessage, body):
-        """Handle POST request for /api/transaction-payload."""
-        self.context.logger.debug(f"Request body: {body}")
-
-        try:
-            none_body = json.loads(body)
-            result = none_dao.insert(none_body)
-
-            self.context.logger.info("Successfully processed POST request for /api/transaction-payload")
+            self.context.logger.info("Successfully processed GET request for /api")
             self.context.logger.debug(f"Result: {result}")
             return ApiResponse(
                 headers={},
                 content=result,
                 status_code=200,
-                status_text="Transaction payload created"
-            )
-
-        except BadRequestError:
-            self.context.logger.exception("Bad request")
-            return ApiResponse(
-                headers={},
-                content=json.dumps({"error": "Bad request"}).encode("utf-8"),
-                status_code=400,
-                status_text="Bad Request"
+                status_text="HTML response"
             )
 
         except Exception as e:
@@ -210,36 +117,44 @@ class ApiHttpHandler(Handler):
                 status_text="Internal Server Error"
             )
 
-    def handle_post_api_notifications(self, _message: ApiHttpMessage, body):
-        """Handle POST request for /api/notifications."""
-        self.context.logger.debug(f"Request body: {body}")
-
+    def handle_post_api(self, _message: ApiHttpMessage):
+        """Handle GET request for /api."""
         try:
-            # TODO: Implement POST logic for /api/notifications
-            raise NotImplementedError
+            # Call the Searchcaster API with the 'test' parameter
+            searchcaster_endpoint = "https://searchcaster.xyz/api/search"
+            params = {"text": "test", "count": 1}  # Adjust 'count' as needed
 
-            self.context.logger.info("Successfully processed POST request for /api/notifications")
-            self.context.logger.debug(f"Result: {result}")
+            self.context.logger.info(f"Calling Searchcaster API at {searchcaster_endpoint} with params: {params}")
+            response = requests.get(searchcaster_endpoint, params=params)
+
+            # Raise an error if the request failed
+            response.raise_for_status()
+
+            # Parse and log the response
+            result = response.json()
+            self.context.logger.debug(f"Searchcaster API Response: {result}")
+
+            # Return the successful API response
             return ApiResponse(
-                headers={},
-                content=result,
+                headers={"Content-Type": "application/json"},
+                content=json.dumps(result).encode("utf-8"),
                 status_code=200,
-                status_text="Notifications sent successfully"
+                status_text="OK"
             )
 
-        except BadRequestError:
-            self.context.logger.exception("Bad request")
+        except requests.exceptions.RequestException as e:
+            self.context.logger.exception(f"Error calling Searchcaster API: {e}")
             return ApiResponse(
-                headers={},
-                content=json.dumps({"error": "Bad request"}).encode("utf-8"),
-                status_code=400,
-                status_text="Bad Request"
+                headers={"Content-Type": "application/json"},
+                content=json.dumps({"error": "Error calling Searchcaster API"}).encode("utf-8"),
+                status_code=500,
+                status_text="Internal Server Error"
             )
 
         except Exception as e:
             self.context.logger.exception("Unhandled exception")
             return ApiResponse(
-                headers={},
+                headers={"Content-Type": "application/json"},
                 content=json.dumps({"error": str(e)}).encode("utf-8"),
                 status_code=500,
                 status_text="Internal Server Error"
