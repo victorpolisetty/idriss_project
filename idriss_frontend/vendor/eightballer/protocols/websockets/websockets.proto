@@ -1,0 +1,61 @@
+syntax = "proto3";
+
+package aea.eightballer.websockets.v0_1_0;
+
+message WebsocketsMessage{
+
+  // Custom Types
+  message ErrorCode{
+    enum ErrorCodeEnum {
+      UNSUPPORTED_PROTOCOL = 0;
+      DECODING_ERROR = 1;
+      INVALID_MESSAGE = 2;
+      UNSUPPORTED_SKILL = 3;
+      INVALID_DIALOGUE = 4;
+    }
+    ErrorCodeEnum error_code = 1;
+  }
+
+
+  // Performatives and contents
+  message Connect_Performative{
+    string url = 1;
+  }
+
+  message Connection_Ack_Performative{
+    bool success = 1;
+  }
+
+  message Send_Performative{
+    string data = 1;
+  }
+
+  message Receive_Performative{
+    string data = 1;
+  }
+
+  message Disconnect_Performative{
+    string reason = 1;
+    bool reason_is_set = 2;
+  }
+
+  message Disconnect_Ack_Performative{
+    bool success = 1;
+  }
+
+  message Error_Performative{
+    string message = 1;
+    ErrorCode code = 2;
+  }
+
+
+  oneof performative{
+    Connect_Performative connect = 5;
+    Connection_Ack_Performative connection_ack = 6;
+    Disconnect_Performative disconnect = 7;
+    Disconnect_Ack_Performative disconnect_ack = 8;
+    Error_Performative error = 9;
+    Receive_Performative receive = 10;
+    Send_Performative send = 11;
+  }
+}

@@ -1,0 +1,116 @@
+[2024-12-12 22:03:10,116] [WARNING] [idriss_frontend] The kwargs={'abt_error_mult': 5, 'agent_balance_threshold': 10000000000000000, 'agent_registry_address': '0xE49CB081e8d96920C38aA7AB90cb0294ab4Bc8EA', 'average_block_time': 5, 'bet_threshold': 100000000000000000, 'blacklisting_duration': 3600, 'conditional_tokens_address': '0xCeAfDD6bc0bEF976fdCd1112955828E00543c0Ce', 'contract_timeout': 300.0, 'creator_per_subgraph': OrderedDict([('omen_subgraph', ['0x89c5cc945dd550BcFfb72Fe42BfF002429F46Fec'])]), 'disable_trading': False, 'dust_threshold': 10000000000000, 'event_filtering_batch_size': 5000, 'file_hash_to_strategies_json': [['bafybeihufqu2ra7vud4h6g2nwahx7mvdido7ff6prwnib2tdlc4np7dw24', ['bet_amount_per_threshold']], ['bafybeif55cu7cf6znyma7kxus4wxa2doarhau2xmndo57iegshxorivwmq', ['kelly_criterion']]], 'finalize_timeout': 60.0, 'history_check_timeout': 1205, 'init_fallback_gas': 0, 'ipfs_address': 'https://gateway.autonolas.tech/ipfs/', 'irrelevant_tools': ['openai-text-davinci-002', 'openai-text-davinci-003', 'openai-gpt-3.5-turbo', 'openai-gpt-4', 'stabilityai-stable-diffusion-v1-5', 'stabilityai-stable-diffusion-xl-beta-v2-2-2', 'stabilityai-stable-diffusion-512-v2-1', 'stabilityai-stable-diffusion-768-v2-1'], 'keeper_allowed_retries': 3, 'languages': ['en_US'], 'max_filtering_retries': 6, 'mech_chain_id': 'gnosis', 'mech_contract_address': '0x77af31De935740567Cf4fF1986D04B2c964A786a', 'mech_request_price': None, 'mech_to_subscription_params': [['base_url', 'https://marketplace-api.gnosis.nevermined.app/api/v1/metadata/assets/ddo'], ['did', 'did:nv:0ea01d5de3b34e3792db825f2a5f5595c393c68b19fd5efdacd00fcc63a53483'], ['escrow_payment_condition_address', '0x9dDC4F1Ea5b94C138A23b60EC48c0d01d172629a'], ['lock_payment_condition_address', '0xDE85A368Ee6f374d236500d176814365370778dA'], ['transfer_nft_condition_address', '0xbBa4A25262745a55f020D0a3E9a82c25bb6F4979'], ['token_address', '0x80A9b55F8604acC26dF2Ac6e07F9dC5B0eAa05Ce'], ['order_address', '0xc7751eff5396a846e7bc83ac31d3cb7d37cb49e4'], ['nft_amount', '100'], ['payment_token', '0x0000000000000000000000000000000000000000'], ['order_address', '0xc7751eff5396a846e7bc83ac31d3cb7d37cb49e4'], ['price', '1000000000000000000']], 'mech_wrapped_native_token_address': '0xe91D153E0b41518A2Ce8Dd3D7944Fa863463a97d', 'minimum_batch_size': 500, 'multisend_address': '0xA238CBeb142c10Ef7Ad8442C6D1f9E89e07e7761', 'multisend_batch_size': 1, 'opening_margin': 300, 'policy_epsilon': 0.1, 'prompt_template': 'With the given question "@{question}" and the `yes` option represented by `@{yes}` and the `no` option represented by `@{no}`, what are the respective probabilities of `p_yes` and `p_no` occurring?', 'realitio_address': '0x79e32aE03fb27B07C89c0c568F80287C01ca2E57', 'realitio_proxy_address': '0xAB16D643bA051C11962DA645f74632d3130c81E2', 'redeem_round_timeout': 3600.0, 'redeeming_batch_size': 5, 'reduce_factor': 0.25, 'refill_check_interval': 10, 'sample_bets_closing_days': 10, 'slippage': 0.01, 'slot_count': 2, 'staking_contract_address': '0x2Ef503950Be67a98746F484DA0bBAdA339DF3326', 'stop_trading_if_staking_kpi_met': True, 'store_path': '/data/', 'strategies_kwargs': [['bet_kelly_fraction', 0.5], ['floor_balance', 500000000000000000], ['bet_amount_per_threshold', {'0.0': 0, '0.1': 0, '0.2': 0, '0.3': 0, '0.4': 0, '0.5': 0, '0.6': 60000000000000000, '0.7': 90000000000000000, '0.8': 100000000000000000, '0.9': 1000000000000000000, '1.0': 10000000000000000000}]], 'termination_from_block': 0, 'termination_sleep': 900, 'tool_punishment_multiplier': 1, 'trading_strategy': 'kelly_criterion', 'use_fallback_strategy': True, 'use_nevermined': True, 'use_subgraph_for_redeeming': True, 'user_interface': OrderedDict([('enabled', True), ('custom_component', 'victorpolisetty/idriss_token_finder')]), 'validate_timeout': 1205} passed to params have not been set!
+[2024-12-12 22:03:10,284] [INFO] [idriss_frontend] HTTP Server has connected to port: 5555.
+[2024-12-12 22:03:10,286] [INFO] [idriss_frontend] WebSocket Server has connected to port: 5556.
+[2024-12-12 22:03:11,698] [INFO] [idriss_frontend] Connecting to libp2p node acn.staging.autonolas.tech:9005. Attempt 1
+[2024-12-12 22:03:15,893] [INFO] [idriss_frontend] Successfully connected to libp2p node acn.staging.autonolas.tech:9005
+[2024-12-12 22:03:15,896] [INFO] [idriss_frontend] Entered in the 'registration_startup_round' round for period 0
+[2024-12-12 22:03:15,898] [INFO] [idriss_frontend] Start processing messages...
+[2024-12-12 22:03:15,898] [INFO] [idriss_frontend] Entered in the 'registration_startup_behaviour' behaviour
+[2024-12-12 22:03:15,898] [INFO] [idriss_frontend] Synchronizing with Tendermint...
+[2024-12-12 22:03:21,157] [INFO] [idriss_frontend] Received request for path: index.html
+[2024-12-12 22:03:21,158] [WARNING] [idriss_frontend] Context not found for path: index.html
+[2024-12-12 22:03:21,952] [INFO] [idriss_frontend] Received request for path: favicon.ico
+[2024-12-12 22:03:21,952] [WARNING] [idriss_frontend] Context not found for path: favicon.ico
+[2024-12-12 22:03:30,951] [ERROR] [idriss_frontend] Could not synchronize with Tendermint!
+[2024-12-12 22:03:30,952] [INFO] [idriss_frontend] Synchronizing with Tendermint...
+[2024-12-12 22:03:45,993] [ERROR] [idriss_frontend] Could not synchronize with Tendermint!
+[2024-12-12 22:03:45,994] [INFO] [idriss_frontend] Synchronizing with Tendermint...
+[2024-12-12 22:04:01,033] [ERROR] [idriss_frontend] Could not synchronize with Tendermint!
+[2024-12-12 22:04:01,034] [INFO] [idriss_frontend] Synchronizing with Tendermint...
+[2024-12-12 22:04:16,072] [ERROR] [idriss_frontend] Could not synchronize with Tendermint!
+[2024-12-12 22:04:16,073] [INFO] [idriss_frontend] Synchronizing with Tendermint...
+[2024-12-12 22:04:31,109] [ERROR] [idriss_frontend] Could not synchronize with Tendermint!
+[2024-12-12 22:04:31,110] [INFO] [idriss_frontend] Synchronizing with Tendermint...
+[2024-12-12 22:04:46,149] [ERROR] [idriss_frontend] Could not synchronize with Tendermint!
+[2024-12-12 22:04:46,150] [INFO] [idriss_frontend] Synchronizing with Tendermint...
+[2024-12-12 22:05:01,188] [ERROR] [idriss_frontend] Could not synchronize with Tendermint!
+[2024-12-12 22:05:01,189] [INFO] [idriss_frontend] Synchronizing with Tendermint...
+[2024-12-12 22:05:16,225] [ERROR] [idriss_frontend] Could not synchronize with Tendermint!
+[2024-12-12 22:05:16,226] [INFO] [idriss_frontend] Synchronizing with Tendermint...
+[2024-12-12 22:05:31,264] [ERROR] [idriss_frontend] Could not synchronize with Tendermint!
+[2024-12-12 22:05:31,265] [INFO] [idriss_frontend] Synchronizing with Tendermint...
+[2024-12-12 22:05:46,302] [ERROR] [idriss_frontend] Could not synchronize with Tendermint!
+[2024-12-12 22:05:46,303] [INFO] [idriss_frontend] Synchronizing with Tendermint...
+[2024-12-12 22:06:01,341] [ERROR] [idriss_frontend] Could not synchronize with Tendermint!
+[2024-12-12 22:06:01,342] [INFO] [idriss_frontend] Synchronizing with Tendermint...
+[2024-12-12 22:06:16,381] [ERROR] [idriss_frontend] Could not synchronize with Tendermint!
+[2024-12-12 22:06:16,382] [INFO] [idriss_frontend] Synchronizing with Tendermint...
+[2024-12-12 22:06:31,473] [ERROR] [idriss_frontend] Could not synchronize with Tendermint!
+[2024-12-12 22:06:31,475] [INFO] [idriss_frontend] Synchronizing with Tendermint...
+[2024-12-12 22:06:31,856] [INFO] [idriss_frontend] API route detected: http://localhost:5555/api
+[2024-12-12 22:06:32,116] [INFO] [idriss_frontend] Received request for path: favicon.ico
+[2024-12-12 22:06:32,116] [WARNING] [idriss_frontend] Context not found for path: favicon.ico
+[2024-12-12 22:06:46,513] [ERROR] [idriss_frontend] Could not synchronize with Tendermint!
+[2024-12-12 22:06:46,514] [INFO] [idriss_frontend] Synchronizing with Tendermint...
+[2024-12-12 22:06:48,002] [INFO] [idriss_frontend] Handling initial http request for websocket connection from 127.0.0.1
+[2024-12-12 22:06:48,228] [INFO] [idriss_frontend] Handling initial http request for websocket connection from 127.0.0.1
+[2024-12-12 22:07:01,553] [ERROR] [idriss_frontend] Could not synchronize with Tendermint!
+[2024-12-12 22:07:01,554] [INFO] [idriss_frontend] Synchronizing with Tendermint...
+[2024-12-12 22:07:16,592] [ERROR] [idriss_frontend] Could not synchronize with Tendermint!
+[2024-12-12 22:07:16,593] [INFO] [idriss_frontend] Synchronizing with Tendermint...
+[2024-12-12 22:07:31,633] [ERROR] [idriss_frontend] Could not synchronize with Tendermint!
+[2024-12-12 22:07:31,634] [INFO] [idriss_frontend] Synchronizing with Tendermint...
+[2024-12-12 22:07:46,675] [ERROR] [idriss_frontend] Could not synchronize with Tendermint!
+[2024-12-12 22:07:46,676] [INFO] [idriss_frontend] Synchronizing with Tendermint...
+[2024-12-12 22:08:01,712] [ERROR] [idriss_frontend] Could not synchronize with Tendermint!
+[2024-12-12 22:08:01,713] [INFO] [idriss_frontend] Synchronizing with Tendermint...
+[2024-12-12 22:08:16,754] [ERROR] [idriss_frontend] Could not synchronize with Tendermint!
+[2024-12-12 22:08:16,755] [INFO] [idriss_frontend] Synchronizing with Tendermint...
+[2024-12-12 22:08:31,832] [ERROR] [idriss_frontend] Could not synchronize with Tendermint!
+[2024-12-12 22:08:31,840] [INFO] [idriss_frontend] Synchronizing with Tendermint...
+[2024-12-12 22:08:34,826] [INFO] [idriss_frontend] API route detected: http://localhost:5555/api
+[2024-12-12 22:08:35,692] [INFO] [idriss_frontend] API route detected: http://localhost:5555/api
+[2024-12-12 22:08:44,059] [INFO] [idriss_frontend] API route detected: http://localhost:5555/api/analyze
+[2024-12-12 22:08:46,882] [ERROR] [idriss_frontend] Could not synchronize with Tendermint!
+[2024-12-12 22:08:46,883] [INFO] [idriss_frontend] Synchronizing with Tendermint...
+[2024-12-12 22:09:01,921] [ERROR] [idriss_frontend] Could not synchronize with Tendermint!
+[2024-12-12 22:09:01,922] [INFO] [idriss_frontend] Synchronizing with Tendermint...
+[2024-12-12 22:09:16,958] [ERROR] [idriss_frontend] Could not synchronize with Tendermint!
+[2024-12-12 22:09:16,959] [INFO] [idriss_frontend] Synchronizing with Tendermint...
+[2024-12-12 22:09:32,000] [ERROR] [idriss_frontend] Could not synchronize with Tendermint!
+[2024-12-12 22:09:32,001] [INFO] [idriss_frontend] Synchronizing with Tendermint...
+[2024-12-12 22:09:47,037] [ERROR] [idriss_frontend] Could not synchronize with Tendermint!
+[2024-12-12 22:09:47,038] [INFO] [idriss_frontend] Synchronizing with Tendermint...
+[2024-12-12 22:09:57,825] [INFO] [idriss_frontend] HTTP Client has shutdown on port: 8000.
+[2024-12-12 22:09:57,826] [INFO] [idriss_frontend] HTTP Server has shutdown on port: 5555.
+[2024-12-12 22:09:57,826] [INFO] [idriss_frontend] HTTP Server has shutdown on port: 5556.
+[2024-12-12 22:09:57,827] [INFO] [idriss_frontend] HTTP Client has shutdown on port: 8000.
+[2024-12-12 22:09:58,010] [ERROR] [idriss_frontend] exception on node client close
+Traceback (most recent call last):
+  File "/Users/victorpolisetty/olasdev/visualisation_station/idriss_frontend/vendor/valory/connections/p2p_libp2p_client/connection.py", line 501, in disconnect
+    await self._node_client.close()
+  File "/Users/victorpolisetty/olasdev/visualisation_station/idriss_frontend/vendor/valory/connections/p2p_libp2p_client/connection.py", line 268, in close
+    await self.pipe.close()
+  File "/Users/victorpolisetty/.pyenv/versions/3.11.10/lib/python3.11/site-packages/aea/helpers/pipe.py", line 600, in close
+    await self._sock.close()
+  File "/Users/victorpolisetty/.pyenv/versions/3.11.10/lib/python3.11/site-packages/aea/helpers/pipe.py", line 327, in close
+    await self._writer.wait_closed()
+  File "/Users/victorpolisetty/.pyenv/versions/3.11.10/lib/python3.11/asyncio/streams.py", line 364, in wait_closed
+    await self._protocol._get_close_waiter(self)
+  File "/Users/victorpolisetty/.pyenv/versions/3.11.10/lib/python3.11/asyncio/selector_events.py", line 974, in _read_ready__get_buffer
+    nbytes = self._sock.recv_into(buf)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [Errno 54] Connection reset by peer
+[2024-12-12 22:09:58,014] [ERROR] [idriss_frontend] Error while disconnecting <class 'connection_module.P2PLibp2pClientConnection'>: [Errno 54] Connection reset by peer
+Traceback (most recent call last):
+  File "/Users/victorpolisetty/.pyenv/versions/3.11.10/lib/python3.11/site-packages/aea/multiplexer.py", line 454, in _disconnect_all
+    await asyncio.wait_for(
+  File "/Users/victorpolisetty/.pyenv/versions/3.11.10/lib/python3.11/asyncio/tasks.py", line 489, in wait_for
+    return fut.result()
+           ^^^^^^^^^^^^
+  File "/Users/victorpolisetty/.pyenv/versions/3.11.10/lib/python3.11/site-packages/aea/multiplexer.py", line 481, in _disconnect_one
+    await connection.disconnect()
+  File "/Users/victorpolisetty/olasdev/visualisation_station/idriss_frontend/vendor/valory/connections/p2p_libp2p_client/connection.py", line 501, in disconnect
+    await self._node_client.close()
+  File "/Users/victorpolisetty/olasdev/visualisation_station/idriss_frontend/vendor/valory/connections/p2p_libp2p_client/connection.py", line 268, in close
+    await self.pipe.close()
+  File "/Users/victorpolisetty/.pyenv/versions/3.11.10/lib/python3.11/site-packages/aea/helpers/pipe.py", line 600, in close
+    await self._sock.close()
+  File "/Users/victorpolisetty/.pyenv/versions/3.11.10/lib/python3.11/site-packages/aea/helpers/pipe.py", line 327, in close
+    await self._writer.wait_closed()
+  File "/Users/victorpolisetty/.pyenv/versions/3.11.10/lib/python3.11/asyncio/streams.py", line 364, in wait_closed
+    await self._protocol._get_close_waiter(self)
+  File "/Users/victorpolisetty/.pyenv/versions/3.11.10/lib/python3.11/asyncio/selector_events.py", line 974, in _read_ready__get_buffer
+    nbytes = self._sock.recv_into(buf)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [Errno 54] Connection reset by peer

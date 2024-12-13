@@ -1,0 +1,23 @@
+name: websockets
+author: eightballer
+version: 0.1.0
+protocol_specification_id: eightballer/websockets:0.1.0
+type: protocol
+description: A protocol for WebSocket client applications, facilitating two-way communication
+  over WebSocket connections.
+license: Apache-2.0
+aea_version: '>=1.0.0, <2.0.0'
+fingerprint:
+  __init__.py: bafybeifv76dkqrqudve6qzfpm3px77t7dwg2fbk4auxy2xpcgqqbiqoyja
+  custom_types.py: bafybeiapemedpyn2j475bwgkmg73u4eczumjuiovk3oqkn25livp3qv4sy
+  dialogues.py: bafybeiapiu2ifial4yc5kqiq57fdlh2mzzuzkaznmg247ns33sowhuw3qi
+  message.py: bafybeibo2htqvidmjul5f2vj6qzozd5q63ajo6cziq776bj5pdm7vpx6w4
+  serialization.py: bafybeicmhsokifdbxniiito6ef4p35vrrlcnlalwozqgrpyvowetygmlny
+  tests/__init__.py: bafybeig6pzvifwf5i4f7dpaumn7g3jjwodxkw2z7ysijrqlkpvaa4mdjeq
+  tests/test_websockets_dialogues.py: bafybeibiauldgqofjl6r2c7bvuou4a2rbqye3hyn7y52bo6zpszdfaiwzm
+  tests/test_websockets_messages.py: bafybeiaa3exgbpxr3g22lrlqtakcfkmfd33j3cx7vsasz2hacjemxko73y
+  websockets.proto: bafybeieuybxmqbmsiyixz2fgkmjqqrvzgnkkdeurkflogfkerimdnoheyi
+  websockets_pb2.py: bafybeic3mkgc5q3pe2s7kkfnrkne4tugowh7p5rb6oopn4ln6ooixoljfq
+fingerprint_ignore_patterns: []
+dependencies:
+  protobuf: {}
