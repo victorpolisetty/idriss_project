@@ -18,7 +18,7 @@
 
 """This package contains a scaffold of a handler."""
 
-import re
+import requests
 import json
 from dataclasses import dataclass
 from urllib.parse import unquote, urlparse
@@ -117,49 +117,64 @@ class ApiHttpHandler(Handler):
                 status_text="Internal Server Error"
             )
 
-    def handle_post_api(self, _message: ApiHttpMessage):
-        """Handle GET request for /api."""
+    def handle_post_api_analyze(self, message: ApiHttpMessage, body):
+        """Handle POST request for /api/analyze."""
+        self.context.logger.debug(f"Request body: {body}")
+
         try:
-            # Call the Searchcaster API with the 'test' parameter
-            searchcaster_endpoint = "https://searchcaster.xyz/api/search"
-            params = {"text": "test", "count": 1}  # Adjust 'count' as needed
+            # Decode the body from bytes to string and parse it as JSON
+            decoded_body = body.decode('utf-8')
+            body_dict = json.loads(decoded_body)
 
-            self.context.logger.info(f"Calling Searchcaster API at {searchcaster_endpoint} with params: {params}")
-            response = requests.get(searchcaster_endpoint, params=params)
+            # Now you can safely use `.get()` on the dictionary
+            query = body_dict.get("query", "test")  # Default to "test" if 'query' is not in the body
+            max_results = body_dict.get("max_results", 10)
 
-            # Raise an error if the request failed
-            response.raise_for_status()
+            # Prepare the parameters for the SearchCaster API
+            params = {
+                "count": max_results,
+                "text": query,  # Use text search based on the query
+            }
 
-            # Parse and log the response
-            result = response.json()
-            self.context.logger.debug(f"Searchcaster API Response: {result}")
+            # Make the API call to SearchCaster
+            searchcaster_url = "https://searchcaster.xyz/api/search"
+            response = requests.get(searchcaster_url, params=params)
 
-            # Return the successful API response
+            # Check if the response from SearchCaster is successful
+            if response.status_code == 200:
+                result = response.json()  # Assuming the response is JSON
+                self.context.logger.info("Successfully processed POST request for /api/analyze")
+                self.context.logger.debug(f"Result from SearchCaster: {result}")
+
+                return ApiResponse(
+                    headers={},
+                    content=json.dumps(result).encode("utf-8"),
+                    status_code=200,
+                    status_text="Successful analysis"
+                )
+            else:
+                self.context.logger.error(f"Error from SearchCaster API: {response.status_code} - {response.text}")
+                return ApiResponse(
+                    headers={},
+                    content=json.dumps({"error": "Error from SearchCaster API"}).encode("utf-8"),
+                    status_code=500,
+                    status_text="Internal Server Error"
+                )
+
+        except BadRequestError:
+            self.context.logger.exception("Bad request")
             return ApiResponse(
-                headers={"Content-Type": "application/json"},
-                content=json.dumps(result).encode("utf-8"),
-                status_code=200,
-                status_text="OK"
-            )
-
-        except requests.exceptions.RequestException as e:
-            self.context.logger.exception(f"Error calling Searchcaster API: {e}")
-            return ApiResponse(
-                headers={"Content-Type": "application/json"},
-                content=json.dumps({"error": "Error calling Searchcaster API"}).encode("utf-8"),
-                status_code=500,
-                status_text="Internal Server Error"
+                headers={},
+                content=json.dumps({"error": "Bad request"}).encode("utf-8"),
+                status_code=400,
+                status_text="Bad Request"
             )
 
         except Exception as e:
             self.context.logger.exception("Unhandled exception")
             return ApiResponse(
-                headers={"Content-Type": "application/json"},
+                headers={},
                 content=json.dumps({"error": str(e)}).encode("utf-8"),
                 status_code=500,
                 status_text="Internal Server Error"
             )
-
-    def handle_unexpected_message(self, message):
-        """Handler for unexpected messages."""
-        self.context.logger.info(f"Received unexpected message: {message}")

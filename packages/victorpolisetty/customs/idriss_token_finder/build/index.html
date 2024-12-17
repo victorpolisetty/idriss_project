@@ -23,16 +23,20 @@
     <script>
         function callAnalyze() {
             const payload = {
-                query: "test",
-                max_results: 10
+                query: "test",  // You can change this query parameter as needed
+                max_results: 2
             };
 
-            fetch('/api/analyze', {
+            // Stringify the payload to send as plain text
+            const formData = JSON.stringify(payload);
+
+            // Send the request as text/plain
+            fetch('http://0.0.0.0:5555/api/analyze', {
                 method: 'POST',
                 headers: {
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'text/plain'  // Set Content-Type to text/plain
                 },
-                body: JSON.stringify(payload)
+                body: formData  // Send the stringified payload
             })
             .then(response => {
                 if (!response.ok) {

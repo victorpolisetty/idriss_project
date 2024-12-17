@@ -29,7 +29,7 @@ paths:
               properties:
                 query:
                   type: string
-                  description: Specify what you want to search for (ex: "meme coin")
+                  description: Specify what you want to search for. For example, memecoin.
                 max_results:
                   type: integer
                   description: Maximum number of results to analyze.
@@ -85,3 +85,11 @@ paths:
                           description: Mentions in the post.
         '400':
           description: Bad request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    description: Explanation of the error (e.g., missing `query`).
