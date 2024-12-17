@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farcaster Agent</title>
+    <style>
+        #response {
+            margin-top: 20px;
+            white-space: pre-wrap;
+            background-color: #f4f4f4;
+            padding: 10px;
+            border: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to the Farcaster Agent!</h1>
+    <p>This is a simple HTML page served from your server.</p>
+    <button id="call-analyze" onclick="callAnalyze()">Call /api/analyze</button>
+    <div id="response">Response will appear here...</div>
+
+    <script>
+        function callAnalyze() {
+            const payload = {
+                query: "test",  // You can change this query parameter as needed
+                max_results: 2
+            };
+
+            // Stringify the payload to send as plain text
+            const formData = JSON.stringify(payload);
+
+            // Send the request as text/plain
+            fetch('http://0.0.0.0:5555/api/analyze', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'text/plain'  // Set Content-Type to text/plain
+                },
+                body: formData  // Send the stringified payload
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+                return response.json();
+            })
+            .then(data => {
+                const responseDiv = document.getElementById('response');
+                responseDiv.textContent = JSON.stringify(data, null, 2);
+            })
+            .catch(error => {
+                const responseDiv = document.getElementById('response');
+                responseDiv.textContent = `Error: ${error.message}`;
+            });
+        }
+    </script>
+</body>
+</html>

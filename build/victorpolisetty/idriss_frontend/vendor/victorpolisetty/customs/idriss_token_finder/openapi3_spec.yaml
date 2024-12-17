@@ -1,0 +1,95 @@
+openapi: 3.0.0
+info:
+  title: Farcaster Agent API
+  description: API for an agent that analyzes Farcaster data and generates transaction payloads for relevant buy opportunities.
+  version: 1.0.0
+servers:
+  - url: http://0.0.0.0:5555
+paths:
+  /api:
+    get:
+      summary: Returns the main HTML page
+      responses:
+        '200':
+          description: HTML response
+          content:
+            text/html:
+              schema:
+                type: string
+  /api/analyze:
+    post:
+      summary: Analyze Farcaster data for search results
+      description: Analyzes Farcaster posts based on the specified parameters.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                query:
+                  type: string
+                  description: Specify what you want to search for. For example, memecoin.
+                max_results:
+                  type: integer
+                  description: Maximum number of results to analyze.
+                  default: 3
+              required:
+                - query
+      responses:
+        '200':
+          description: Successful analysis
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  results:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        post_id:
+                          type: string
+                          description: Unique ID of the analyzed post.
+                        text:
+                          type: string
+                          description: Content of the post.
+                        username:
+                          type: string
+                          description: Username of the post author.
+                        displayName:
+                          type: string
+                          description: Display name of the post author.
+                        engagement:
+                          type: object
+                          properties:
+                            reactions:
+                              type: integer
+                              description: Number of reactions to the post.
+                            recasts:
+                              type: integer
+                              description: Number of recasts of the post.
+                            watches:
+                              type: integer
+                              description: Number of watches of the post.
+                        tags:
+                          type: array
+                          items:
+                            type: string
+                          description: Tags associated with the post.
+                        mentions:
+                          type: array
+                          items:
+                            type: string
+                          description: Mentions in the post.
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    description: Explanation of the error (e.g., missing `query`).

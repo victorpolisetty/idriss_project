@@ -141,7 +141,7 @@ type: skill
 models:
   benchmark_tool:
     args:
-      log_dir: ${str:/benchmarks}
+      log_dir: ${str:/tmp/logs}
   params:
     args:
       user_interface:

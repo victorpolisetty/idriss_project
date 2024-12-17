@@ -1,0 +1,33 @@
+name: websocket_server
+author: eightballer
+version: 0.1.0
+type: connection
+description: The scaffold connection provides a scaffold for a connection to be implemented
+  by the developer.
+license: Apache-2.0
+aea_version: '>=1.0.0, <2.0.0'
+fingerprint:
+  __init__.py: bafybeibebl36eaaewytw3b75m6k6drk5bldooxf4lhcbcfi4nmyuiwrcny
+  connection.py: bafybeicbxfguilr6y3ecuxgshej6ar2rwp4ytjdkghmgvpmtnewxexk6za
+  readme.md: bafybeihg5yfzgqvg5ngy7r2o5tfeqnelx2ffxw4po5hmheqjfhumpmxpoq
+  tests/__init__.py: bafybeiewlnh2eycgprywqi54fy766qorufe4qpjip4son4zvebwtut3p2m
+  tests/data/petstore_sim.yaml: bafybeiaekkfxljlv57uviz4ug6isdqbzsnuxpsgy3dvhzh22daql3xh2i4
+  tests/test_ws_server.py: bafybeibc5pko3ldlewwxd44pvvzsq3k4ijhquo3q7td7cw6icq2c7uybvm
+fingerprint_ignore_patterns: []
+connections:
+- eightballer/http_server:0.1.0:bafybeid7u7cx2smnb3iz6zs6gt3k4ijwevm6yqqfo4pmziqoubl2p52ele
+protocols:
+- eightballer/http:0.1.0:bafybeieoom2ajzvurwsjbivx23dwilarfzkihgqpgqp43ypowpr5xdyjr4
+- eightballer/websockets:0.1.0:bafybeihoiyzxc3ikhgty54snlu7djyn34dcqcuqppnf5zajuabc4ecgxwm
+class_name: WebSocketServerConnection
+config:
+  host: 0.0.0.0
+  port: 8080
+  target_skill_id: eightballer/websocket_server:0.1.0
+excluded_protocols: []
+restricted_to_protocols: []
+dependencies:
+  python-socketio:
+    version: '>=5.9.0'
+is_abstract: false
+cert_requests: []
