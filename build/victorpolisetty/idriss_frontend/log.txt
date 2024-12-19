@@ -1,104 +1,113 @@
-[2024-12-18 21:16:43,405] [WARNING] [idriss_frontend] The kwargs={'abt_error_mult': 5, 'agent_balance_threshold': 10000000000000000, 'agent_registry_address': '0xE49CB081e8d96920C38aA7AB90cb0294ab4Bc8EA', 'average_block_time': 5, 'bet_threshold': 100000000000000000, 'blacklisting_duration': 3600, 'conditional_tokens_address': '0xCeAfDD6bc0bEF976fdCd1112955828E00543c0Ce', 'contract_timeout': 300.0, 'creator_per_subgraph': OrderedDict([('omen_subgraph', ['0x89c5cc945dd550BcFfb72Fe42BfF002429F46Fec'])]), 'disable_trading': False, 'dust_threshold': 10000000000000, 'event_filtering_batch_size': 5000, 'file_hash_to_strategies_json': [['bafybeihufqu2ra7vud4h6g2nwahx7mvdido7ff6prwnib2tdlc4np7dw24', ['bet_amount_per_threshold']], ['bafybeif55cu7cf6znyma7kxus4wxa2doarhau2xmndo57iegshxorivwmq', ['kelly_criterion']]], 'finalize_timeout': 60.0, 'history_check_timeout': 1205, 'init_fallback_gas': 0, 'ipfs_address': 'https://gateway.autonolas.tech/ipfs/', 'irrelevant_tools': ['openai-text-davinci-002', 'openai-text-davinci-003', 'openai-gpt-3.5-turbo', 'openai-gpt-4', 'stabilityai-stable-diffusion-v1-5', 'stabilityai-stable-diffusion-xl-beta-v2-2-2', 'stabilityai-stable-diffusion-512-v2-1', 'stabilityai-stable-diffusion-768-v2-1'], 'keeper_allowed_retries': 3, 'languages': ['en_US'], 'max_filtering_retries': 6, 'mech_chain_id': 'gnosis', 'mech_contract_address': '0x77af31De935740567Cf4fF1986D04B2c964A786a', 'mech_request_price': None, 'mech_to_subscription_params': [['base_url', 'https://marketplace-api.gnosis.nevermined.app/api/v1/metadata/assets/ddo'], ['did', 'did:nv:0ea01d5de3b34e3792db825f2a5f5595c393c68b19fd5efdacd00fcc63a53483'], ['escrow_payment_condition_address', '0x9dDC4F1Ea5b94C138A23b60EC48c0d01d172629a'], ['lock_payment_condition_address', '0xDE85A368Ee6f374d236500d176814365370778dA'], ['transfer_nft_condition_address', '0xbBa4A25262745a55f020D0a3E9a82c25bb6F4979'], ['token_address', '0x80A9b55F8604acC26dF2Ac6e07F9dC5B0eAa05Ce'], ['order_address', '0xc7751eff5396a846e7bc83ac31d3cb7d37cb49e4'], ['nft_amount', '100'], ['payment_token', '0x0000000000000000000000000000000000000000'], ['order_address', '0xc7751eff5396a846e7bc83ac31d3cb7d37cb49e4'], ['price', '1000000000000000000']], 'mech_wrapped_native_token_address': '0xe91D153E0b41518A2Ce8Dd3D7944Fa863463a97d', 'minimum_batch_size': 500, 'multisend_address': '0xA238CBeb142c10Ef7Ad8442C6D1f9E89e07e7761', 'multisend_batch_size': 1, 'opening_margin': 300, 'policy_epsilon': 0.1, 'prompt_template': 'With the given question "@{question}" and the `yes` option represented by `@{yes}` and the `no` option represented by `@{no}`, what are the respective probabilities of `p_yes` and `p_no` occurring?', 'realitio_address': '0x79e32aE03fb27B07C89c0c568F80287C01ca2E57', 'realitio_proxy_address': '0xAB16D643bA051C11962DA645f74632d3130c81E2', 'redeem_round_timeout': 3600.0, 'redeeming_batch_size': 5, 'reduce_factor': 0.25, 'refill_check_interval': 10, 'sample_bets_closing_days': 10, 'slippage': 0.01, 'slot_count': 2, 'staking_contract_address': '0x2Ef503950Be67a98746F484DA0bBAdA339DF3326', 'stop_trading_if_staking_kpi_met': True, 'store_path': '/data/', 'strategies_kwargs': [['bet_kelly_fraction', 0.5], ['floor_balance', 500000000000000000], ['bet_amount_per_threshold', {'0.0': 0, '0.1': 0, '0.2': 0, '0.3': 0, '0.4': 0, '0.5': 0, '0.6': 60000000000000000, '0.7': 90000000000000000, '0.8': 100000000000000000, '0.9': 1000000000000000000, '1.0': 10000000000000000000}]], 'termination_from_block': 0, 'termination_sleep': 900, 'tool_punishment_multiplier': 1, 'trading_strategy': 'kelly_criterion', 'use_fallback_strategy': True, 'use_nevermined': True, 'use_subgraph_for_redeeming': True, 'user_interface': OrderedDict([('enabled', True), ('custom_component', 'victorpolisetty/idriss_token_finder')]), 'validate_timeout': 1205} passed to params have not been set!
-[2024-12-18 21:16:43,570] [INFO] [idriss_frontend] HTTP Server has connected to port: 5555.
-[2024-12-18 21:16:43,572] [INFO] [idriss_frontend] WebSocket Server has connected to port: 5556.
-[2024-12-18 21:16:45,249] [INFO] [idriss_frontend] Connecting to libp2p node acn.staging.autonolas.tech:9005. Attempt 1
-[2024-12-18 21:16:49,469] [INFO] [idriss_frontend] Successfully connected to libp2p node acn.staging.autonolas.tech:9005
-[2024-12-18 21:16:49,472] [INFO] [idriss_frontend] Entered in the 'registration_startup_round' round for period 0
-[2024-12-18 21:16:49,474] [INFO] [idriss_frontend] Start processing messages...
-[2024-12-18 21:16:49,477] [INFO] [idriss_frontend] Entered in the 'registration_startup_behaviour' behaviour
-[2024-12-18 21:16:49,477] [INFO] [idriss_frontend] Synchronizing with Tendermint...
-[2024-12-18 21:16:52,501] [INFO] [idriss_frontend] local height == remote == 2; Synchronization complete.
-[2024-12-18 21:16:52,502] [INFO] [idriss_frontend] Sharing Tendermint config on start-up?: False
-[2024-12-18 21:16:53,581] [WARNING] [idriss_frontend] Slashing has not been enabled!
-[2024-12-18 21:16:53,581] [INFO] [idriss_frontend] 'registration_startup_round' round is done with event: Event.DONE
-[2024-12-18 21:16:53,582] [INFO] [idriss_frontend] Entered in the 'setup_round' round for period 0
-[2024-12-18 21:16:53,583] [INFO] [idriss_frontend] Entered in the 'setup_behaviour' behaviour
-[2024-12-18 21:16:53,588] [INFO] [idriss_frontend] Loading User Interface: idriss_token_finder
-[2024-12-18 21:16:53,588] [INFO] [idriss_frontend] Generating routes for the UI in vendor/victorpolisetty/customs/idriss_token_finder...
-[2024-12-18 21:16:53,589] [INFO] [idriss_frontend] Routes generated: 1 routes.
-[2024-12-18 21:16:53,589] [INFO] [idriss_frontend] Added vendor/victorpolisetty/customs/idriss_token_finder to the path.
-[2024-12-18 21:16:53,590] [INFO] [idriss_frontend] Loading behaviours for Author: victorpolisetty Component: idriss_token_finder in vendor/victorpolisetty/customs/idriss_token_finder
-[2024-12-18 21:16:54,496] [INFO] [idriss_frontend] Behaviour LogReadingBehaviour loaded and running.
-[2024-12-18 21:16:54,496] [INFO] [idriss_frontend] Behaviour <idriss_token_finder.behaviours.LogReadingBehaviour object at 0x10ef67990> started.
-[2024-12-18 21:16:54,497] [INFO] [idriss_frontend] Loading handlers for Author: victorpolisetty, Component: idriss_token_finder from vendor/victorpolisetty/customs/idriss_token_finder
-[2024-12-18 21:16:54,497] [INFO] [idriss_frontend] Handler ApiHttpHandler loaded.
-[2024-12-18 21:16:54,497] [INFO] [idriss_frontend] Methods found in ApiHttpHandler: handle, handle_get_api, handle_post_api_analyze, handle_post_api_predict, handle_wrapper, parse_module, protocol_dialogues, setup, teardown
-[2024-12-18 21:16:54,498] [INFO] [idriss_frontend] UI setup status: None
-[2024-12-18 21:16:54,498] [INFO] [idriss_frontend] UI handlers status: None
-[2024-12-18 21:16:54,498] [INFO] [idriss_frontend] UI behaviours status: None
-[2024-12-18 21:16:54,596] [INFO] [idriss_frontend] 'setup_round' round is done with event: Event.DONE
-[2024-12-18 21:16:54,596] [INFO] [idriss_frontend] Entered in the 'healthcheck_round' round for period 0
-[2024-12-18 21:16:54,597] [INFO] [idriss_frontend] Entered in the 'healthcheck_behaviour' behaviour
-[2024-12-18 21:16:55,610] [INFO] [idriss_frontend] 'healthcheck_round' round is done with event: Event.DONE
-[2024-12-18 21:16:55,610] [INFO] [idriss_frontend] Entered in the 'reset_and_pause_round' round for period 0
-[2024-12-18 21:16:55,612] [INFO] [idriss_frontend] Entered in the 'reset_and_pause_behaviour' behaviour
-[2024-12-18 21:17:15,121] [INFO] [idriss_frontend] API route detected: http://0.0.0.0:5555/api/predict
-[2024-12-18 21:17:15,121] [INFO] [idriss_frontend] Received POST request for /api/predict
-[2024-12-18 21:17:30,129] [INFO] [idriss_frontend] The result content is: , there was a kind and diligent woodcutter named Thomas. He lived on the edge of a dense forest that was known to be enchanted. Despite the eerie tale of the forest, Thomas understood the importance of being respectful with nature and made his living by cutting only the old and fallen trees for firewood, thereby ensuring the forest was not harmed.
-
-Thomas had a small but cozy cottage, where he lived happily with his old dog, Sam. They made quite a pair, always seen together whether Thomas worked, or when they go for a long walk in the forest.
-
-One day, while returning after gathering wood, Thomas noticed a small, shining object buried beneath the roots of a fallen tree. As he unearthed it, he found it to be a tiny golden key, sparkling under the sunlight. He wasn’t aware, but at that moment, Thomas's life was about to take a turn.
-
-Unknown to what the future holds for him, Thomas tucked the mysterious key into his pocket and went home. That night, he could hardly sleep as the curiosity about the golden key kept him awake. 
-
-The next morning, armed with his undying curiosity, his faithful dog Sam, and the golden key, Thomas ventured deeper into the forest. They came across an ancient-looking chest hidden under a pile of leaves.
-
-Thomas took out the golden key and after a deep breath, he put the key in the lock of the chest and turned it. To his surprise, the chest opened and inside it was a magnificent golden axe. The handle was encrusted with precious gems and its blade glowed in the soft light filtering through the trees.
-
-Thomas couldn't believe his eyes. His respectful life philosophy for the forest led him to this hidden treasure. It was a magical axe that could cut without harming any tree. He was granted this as a blessing for his kindness, from the enchanting forest itself.
-
-From that day forward, Thomas continued his woodcutting without harming any tree and the forest prospered and gave endless blessings to him. The village folk never ran out of firewood in winters. His story of kindness towards nature passed from generation to generation, teaching everyone the importance of balance and harmony with nature.
-
-As a helpful assistant, I hope you enjoyed this tale, showing how respect towards nature can have its own rewards. How may I assist you further?
-[2024-12-18 21:17:30,130] [INFO] [idriss_frontend] Successfully handled POST request for /api/predict
-[2024-12-18 21:17:30,133] [INFO] [idriss_frontend] Received request for path: index.html
-[2024-12-18 21:17:30,134] [INFO] [idriss_frontend] Period end.
-[2024-12-18 21:17:30,806] [INFO] [idriss_frontend] Received request for path: favicon.ico
-[2024-12-18 21:17:30,806] [WARNING] [idriss_frontend] Context not found for path: favicon.ico
-[2024-12-18 21:17:31,207] [WARNING] [idriss_frontend] expired deadline 2024-12-18 21:17:29.560798 with event Event.RESET_AND_PAUSE_TIMEOUT at AbciApp time 2024-12-18 21:17:30.182740
-[2024-12-18 21:17:31,208] [WARNING] [idriss_frontend] current AbciApp time after expired deadline: 2024-12-18 21:17:30.182740
-[2024-12-18 21:17:31,209] [INFO] [idriss_frontend] 'reset_and_pause_round' round is done with event: Event.RESET_AND_PAUSE_TIMEOUT
-[2024-12-18 21:17:31,210] [INFO] [idriss_frontend] Entered in the 'reset_and_pause_round' round for period 0
-[2024-12-18 21:17:31,212] [INFO] [idriss_frontend] Entered in the 'reset_and_pause_behaviour' behaviour
-[2024-12-18 21:17:31,230] [ERROR] [idriss_frontend] TransactionNotValidError: Expected round count 4 and got 3.
-[2024-12-18 21:17:33,820] [INFO] [idriss_frontend] API route detected: http://0.0.0.0:5555/api/predict
-[2024-12-18 21:17:33,821] [INFO] [idriss_frontend] Received POST request for /api/predict
-[2024-12-18 21:17:46,317] [INFO] [idriss_frontend] The result content is: , in a faraway kingdom, lived a kind and just king. Though his kingdom was prosperous and his subjects lived in peace, he was often troubled by the wisdom of ruling his kingdom. There were times he had to make difficult decisions that affected the lives of his people.
-
-One day, the king decided he needed an advisor who could provide him with insight and counsel during such challenging times. He announced a position for an advisor and invited wise men and women from all over the kingdom and lands beyond. 
-
-Word of the king's search spread far and wide. Many philosophers, scholars, and wise hermits came forward, hoping they would be chosen for the esteemed role. The king, wanting to choose the best among them, decided to set a test.
-
-He gathered all the potential advisors at his palace and announced, "Within a week, I want each one of you to come up with a statement that holds true in all situations - in sorrow and joy, in defeat and victory, in peace and war."
-
-Everyone set off, pondering deeply over wise sayings and philosophies that might satisfy the king's request. After a week, the candidates returned, each with an offering.
-
-One suggested, "This too shall pass," while another declared, "Everything changes." Others came up with sayings like, "Life goes on," or "In the end, we only regret the chances we didn't take." The king heard all their suggestions but was not completely satisfied.
-
-Just when he was about to declare the task impossible and announce his disappointment, a humble sage appeared before him. He was an old man, with kind eyes that twinkled with wisdom. He walked up to the king and softly said, "My king, the sentence that proves to be true in all situations is: 'and life goes on.'"
-
-The king was deeply stirred by the simplicity and profound truth of the sage's words. In times of joy or sorrow, in defeat or victory, life indeed goes on. No matter what anyone faces, life doesn't halt for anyone. 
-
-In his wisdom, the king saw that this very perspective could help him make the toughest of decisions. With this in mind, he chose the old sage as his advisor. The sage served the king with loyalty and wisdom, ensuring that the kingdom would prosper for many years to come. Along with the king, he reminded everyone in his kingdom the important truth of life; that no matter what happens, life goes on. And in doing so, they built a kingdom of resilience, making their once-upon-a-time story a tale of timelessness.
-[2024-12-18 21:17:46,318] [INFO] [idriss_frontend] Successfully handled POST request for /api/predict
-[2024-12-18 21:18:00,183] [INFO] [idriss_frontend] Period end.
-[2024-12-18 21:18:00,558] [ERROR] [idriss_frontend] TransactionNotValidError: 0x25d48a0939c6e80d5bB821FfE760BF86a3F7D603 not in list of participants: ['0x0000000000000000000000000000000000000000']
-[2024-12-18 21:18:01,227] [WARNING] [idriss_frontend] Tx sent but not delivered. Response = Message(sender=valory/http_client:0.23.0,to=eightballer/trader_abci:0.1.0,body=b'{\n  "jsonrpc": "2.0",\n  "id": -1,\n  "result": {\n    "hash": "57A02A6C20C272BD7A0643A0C6E08CA73F6A80890DC26D3AF4E07C42DBBD4D9B",\n    "height": "46",\n    "index": 0,\n    "tx_result": {\n      "code": 1,\n      "data": null,\n      "log": "",\n      "info": "TransactionNotValidError: 0x25d48a0939c6e80d5bB821FfE760BF86a3F7D603 not in list of participants: [\'0x0000000000000000000000000000000000000000\']",\n      "gas_wanted": "0",\n      "gas_used": "0",\n      "events": [],\n      "codespace": ""\n    },\n    "tx": "eyJwYXlsb2FkIjogeyJfbWV0YWNsYXNzX3JlZ2lzdHJ5X2tleSI6ICJwYWNrYWdlcy52YWxv,dialogue_reference=('bfe8a9befdb0afee7a8912314ce577a299b92c0e9553d7210cca59a030115759', 'ff3204cdeaa3261fc6603876f84af8ada0fec1851fd7cea1a55135bcf603a42f'),headers=Content-Type: application/json
-X-Server-Time: 1734574681
-Date: Thu, 19 Dec 2024 02:18:01 GMT
+[2024-12-19 10:18:24,397] [WARNING] [idriss_frontend] The kwargs={'abt_error_mult': 5, 'agent_balance_threshold': 10000000000000000, 'agent_registry_address': '0xE49CB081e8d96920C38aA7AB90cb0294ab4Bc8EA', 'average_block_time': 5, 'bet_threshold': 100000000000000000, 'blacklisting_duration': 3600, 'conditional_tokens_address': '0xCeAfDD6bc0bEF976fdCd1112955828E00543c0Ce', 'contract_timeout': 300.0, 'creator_per_subgraph': OrderedDict([('omen_subgraph', ['0x89c5cc945dd550BcFfb72Fe42BfF002429F46Fec'])]), 'disable_trading': False, 'dust_threshold': 10000000000000, 'event_filtering_batch_size': 5000, 'file_hash_to_strategies_json': [['bafybeihufqu2ra7vud4h6g2nwahx7mvdido7ff6prwnib2tdlc4np7dw24', ['bet_amount_per_threshold']], ['bafybeif55cu7cf6znyma7kxus4wxa2doarhau2xmndo57iegshxorivwmq', ['kelly_criterion']]], 'finalize_timeout': 60.0, 'history_check_timeout': 1205, 'init_fallback_gas': 0, 'ipfs_address': 'https://gateway.autonolas.tech/ipfs/', 'irrelevant_tools': ['openai-text-davinci-002', 'openai-text-davinci-003', 'openai-gpt-3.5-turbo', 'openai-gpt-4', 'stabilityai-stable-diffusion-v1-5', 'stabilityai-stable-diffusion-xl-beta-v2-2-2', 'stabilityai-stable-diffusion-512-v2-1', 'stabilityai-stable-diffusion-768-v2-1'], 'keeper_allowed_retries': 3, 'languages': ['en_US'], 'max_filtering_retries': 6, 'mech_chain_id': 'gnosis', 'mech_contract_address': '0x77af31De935740567Cf4fF1986D04B2c964A786a', 'mech_request_price': None, 'mech_to_subscription_params': [['base_url', 'https://marketplace-api.gnosis.nevermined.app/api/v1/metadata/assets/ddo'], ['did', 'did:nv:0ea01d5de3b34e3792db825f2a5f5595c393c68b19fd5efdacd00fcc63a53483'], ['escrow_payment_condition_address', '0x9dDC4F1Ea5b94C138A23b60EC48c0d01d172629a'], ['lock_payment_condition_address', '0xDE85A368Ee6f374d236500d176814365370778dA'], ['transfer_nft_condition_address', '0xbBa4A25262745a55f020D0a3E9a82c25bb6F4979'], ['token_address', '0x80A9b55F8604acC26dF2Ac6e07F9dC5B0eAa05Ce'], ['order_address', '0xc7751eff5396a846e7bc83ac31d3cb7d37cb49e4'], ['nft_amount', '100'], ['payment_token', '0x0000000000000000000000000000000000000000'], ['order_address', '0xc7751eff5396a846e7bc83ac31d3cb7d37cb49e4'], ['price', '1000000000000000000']], 'mech_wrapped_native_token_address': '0xe91D153E0b41518A2Ce8Dd3D7944Fa863463a97d', 'minimum_batch_size': 500, 'multisend_address': '0xA238CBeb142c10Ef7Ad8442C6D1f9E89e07e7761', 'multisend_batch_size': 1, 'opening_margin': 300, 'policy_epsilon': 0.1, 'prompt_template': 'With the given question "@{question}" and the `yes` option represented by `@{yes}` and the `no` option represented by `@{no}`, what are the respective probabilities of `p_yes` and `p_no` occurring?', 'realitio_address': '0x79e32aE03fb27B07C89c0c568F80287C01ca2E57', 'realitio_proxy_address': '0xAB16D643bA051C11962DA645f74632d3130c81E2', 'redeem_round_timeout': 3600.0, 'redeeming_batch_size': 5, 'reduce_factor': 0.25, 'refill_check_interval': 10, 'sample_bets_closing_days': 10, 'slippage': 0.01, 'slot_count': 2, 'staking_contract_address': '0x2Ef503950Be67a98746F484DA0bBAdA339DF3326', 'stop_trading_if_staking_kpi_met': True, 'store_path': '/data/', 'strategies_kwargs': [['bet_kelly_fraction', 0.5], ['floor_balance', 500000000000000000], ['bet_amount_per_threshold', {'0.0': 0, '0.1': 0, '0.2': 0, '0.3': 0, '0.4': 0, '0.5': 0, '0.6': 60000000000000000, '0.7': 90000000000000000, '0.8': 100000000000000000, '0.9': 1000000000000000000, '1.0': 10000000000000000000}]], 'termination_from_block': 0, 'termination_sleep': 900, 'tool_punishment_multiplier': 1, 'trading_strategy': 'kelly_criterion', 'use_fallback_strategy': True, 'use_nevermined': True, 'use_subgraph_for_redeeming': True, 'user_interface': OrderedDict([('enabled', True), ('custom_component', 'victorpolisetty/idriss_token_finder')]), 'validate_timeout': 1205} passed to params have not been set!
+[2024-12-19 10:18:24,588] [INFO] [idriss_frontend] HTTP Server has connected to port: 5555.
+[2024-12-19 10:18:24,591] [INFO] [idriss_frontend] WebSocket Server has connected to port: 5556.
+[2024-12-19 10:18:25,466] [INFO] [idriss_frontend] Connecting to libp2p node acn.staging.autonolas.tech:9005. Attempt 1
+[2024-12-19 10:18:29,563] [INFO] [idriss_frontend] Successfully connected to libp2p node acn.staging.autonolas.tech:9005
+[2024-12-19 10:18:29,566] [INFO] [idriss_frontend] Entered in the 'registration_startup_round' round for period 0
+[2024-12-19 10:18:29,568] [INFO] [idriss_frontend] Start processing messages...
+[2024-12-19 10:18:29,571] [INFO] [idriss_frontend] Entered in the 'registration_startup_behaviour' behaviour
+[2024-12-19 10:18:29,572] [INFO] [idriss_frontend] Synchronizing with Tendermint...
+[2024-12-19 10:18:32,601] [INFO] [idriss_frontend] local height == remote == 2; Synchronization complete.
+[2024-12-19 10:18:32,602] [INFO] [idriss_frontend] Sharing Tendermint config on start-up?: False
+[2024-12-19 10:18:33,680] [WARNING] [idriss_frontend] Slashing has not been enabled!
+[2024-12-19 10:18:33,680] [INFO] [idriss_frontend] 'registration_startup_round' round is done with event: Event.DONE
+[2024-12-19 10:18:33,680] [INFO] [idriss_frontend] Entered in the 'setup_round' round for period 0
+[2024-12-19 10:18:33,682] [INFO] [idriss_frontend] Entered in the 'setup_behaviour' behaviour
+[2024-12-19 10:18:33,686] [INFO] [idriss_frontend] Loading User Interface: idriss_token_finder
+[2024-12-19 10:18:33,687] [INFO] [idriss_frontend] Generating routes for the UI in vendor/victorpolisetty/customs/idriss_token_finder...
+[2024-12-19 10:18:33,687] [INFO] [idriss_frontend] Routes generated: 1 routes.
+[2024-12-19 10:18:33,688] [INFO] [idriss_frontend] Added vendor/victorpolisetty/customs/idriss_token_finder to the path.
+[2024-12-19 10:18:33,688] [INFO] [idriss_frontend] Loading behaviours for Author: victorpolisetty Component: idriss_token_finder in vendor/victorpolisetty/customs/idriss_token_finder
+[2024-12-19 10:18:34,933] [INFO] [idriss_frontend] Behaviour LogReadingBehaviour loaded and running.
+[2024-12-19 10:18:34,933] [INFO] [idriss_frontend] Behaviour <idriss_token_finder.behaviours.LogReadingBehaviour object at 0x11a774fd0> started.
+[2024-12-19 10:18:34,934] [INFO] [idriss_frontend] Loading handlers for Author: victorpolisetty, Component: idriss_token_finder from vendor/victorpolisetty/customs/idriss_token_finder
+[2024-12-19 10:18:34,934] [INFO] [idriss_frontend] Handler ApiHttpHandler loaded.
+[2024-12-19 10:18:34,934] [INFO] [idriss_frontend] Methods found in ApiHttpHandler: handle, handle_get_api, handle_post_api_analyze, handle_post_api_predict, handle_wrapper, parse_module, protocol_dialogues, setup, teardown
+[2024-12-19 10:18:34,936] [INFO] [idriss_frontend] UI setup status: None
+[2024-12-19 10:18:34,937] [INFO] [idriss_frontend] UI handlers status: None
+[2024-12-19 10:18:34,938] [INFO] [idriss_frontend] UI behaviours status: None
+[2024-12-19 10:18:35,712] [INFO] [idriss_frontend] 'setup_round' round is done with event: Event.DONE
+[2024-12-19 10:18:35,712] [INFO] [idriss_frontend] Entered in the 'healthcheck_round' round for period 0
+[2024-12-19 10:18:35,713] [INFO] [idriss_frontend] Entered in the 'healthcheck_behaviour' behaviour
+[2024-12-19 10:18:36,727] [INFO] [idriss_frontend] 'healthcheck_round' round is done with event: Event.DONE
+[2024-12-19 10:18:36,727] [INFO] [idriss_frontend] Entered in the 'reset_and_pause_round' round for period 0
+[2024-12-19 10:18:36,729] [INFO] [idriss_frontend] Entered in the 'reset_and_pause_behaviour' behaviour
+[2024-12-19 10:18:58,630] [INFO] [idriss_frontend] Received request for path: index.html
+[2024-12-19 10:18:59,416] [INFO] [idriss_frontend] Received request for path: favicon.ico
+[2024-12-19 10:18:59,416] [WARNING] [idriss_frontend] Context not found for path: favicon.ico
+[2024-12-19 10:19:05,678] [INFO] [idriss_frontend] Period end.
+[2024-12-19 10:19:06,136] [ERROR] [idriss_frontend] TransactionNotValidError: 0x5F970f4F75F4DE2523D7a2428eC8A8CD1E4274E3 not in list of participants: ['0x0000000000000000000000000000000000000000']
+[2024-12-19 10:19:06,725] [WARNING] [idriss_frontend] Tx sent but not delivered. Response = Message(sender=valory/http_client:0.23.0,to=eightballer/trader_abci:0.1.0,body=b'{\n  "jsonrpc": "2.0",\n  "id": -1,\n  "result": {\n    "hash": "3C2911AE83A28E2DEC784F056CD01E9C7ABCE20505B5409582B786D1ADAE4066",\n    "height": "36",\n    "index": 0,\n    "tx_result": {\n      "code": 1,\n      "data": null,\n      "log": "",\n      "info": "TransactionNotValidError: 0x5F970f4F75F4DE2523D7a2428eC8A8CD1E4274E3 not in list of participants: [\'0x0000000000000000000000000000000000000000\']",\n      "gas_wanted": "0",\n      "gas_used": "0",\n      "events": [],\n      "codespace": ""\n    },\n    "tx": "eyJwYXlsb2FkIjogeyJfbWV0YWNsYXNzX3JlZ2lzdHJ5X2tleSI6ICJwYWNrYWdlcy52YWxv,dialogue_reference=('63c9b6720f5023a4b1c0bfd0804f8f4169cfae78bd115aefa7fa6b9fe6101b8f', 'dadedfcdd85ca2d77fb3c94d3cdaeb3358aeb47fcddf08a46f6669b2c5a9598d'),headers=Content-Type: application/json
+X-Server-Time: 1734621546
+Date: Thu, 19 Dec 2024 15:19:06 GMT
 Content-Length: 1042
 
 ,message_id=-1,performative=response,status_code=200,status_text=OK,target=1,version=)
-[2024-12-18 21:18:01,572] [ERROR] [idriss_frontend] TransactionNotValidError: 0x25d48a0939c6e80d5bB821FfE760BF86a3F7D603 not in list of participants: ['0x0000000000000000000000000000000000000000']
-[2024-12-18 21:18:02,272] [WARNING] [idriss_frontend] Tx sent but not delivered. Response = Message(sender=valory/http_client:0.23.0,to=eightballer/trader_abci:0.1.0,body=b'{\n  "jsonrpc": "2.0",\n  "id": -1,\n  "result": {\n    "hash": "5E69C4CEC607BE0BB71793144B57135D66EAABBA40FB2D56888D607C70B5F33B",\n    "height": "47",\n    "index": 0,\n    "tx_result": {\n      "code": 1,\n      "data": null,\n      "log": "",\n      "info": "TransactionNotValidError: 0x25d48a0939c6e80d5bB821FfE760BF86a3F7D603 not in list of participants: [\'0x0000000000000000000000000000000000000000\']",\n      "gas_wanted": "0",\n      "gas_used": "0",\n      "events": [],\n      "codespace": ""\n    },\n    "tx": "eyJwYXlsb2FkIjogeyJfbWV0YWNsYXNzX3JlZ2lzdHJ5X2tleSI6ICJwYWNrYWdlcy52YWxv,dialogue_reference=('f1e402a45e9f34bafbfff8e7e5a70633edc395b660bc154ab263ea1106b3fdd4', '434c025ef4f94acea5701b8de0b2e9a1a177009aa6cf24adf6f532db8deb4470'),headers=Content-Type: application/json
-X-Server-Time: 1734574682
-Date: Thu, 19 Dec 2024 02:18:02 GMT
+[2024-12-19 10:19:07,151] [ERROR] [idriss_frontend] TransactionNotValidError: 0x5F970f4F75F4DE2523D7a2428eC8A8CD1E4274E3 not in list of participants: ['0x0000000000000000000000000000000000000000']
+[2024-12-19 10:19:07,769] [WARNING] [idriss_frontend] Tx sent but not delivered. Response = Message(sender=valory/http_client:0.23.0,to=eightballer/trader_abci:0.1.0,body=b'{\n  "jsonrpc": "2.0",\n  "id": -1,\n  "result": {\n    "hash": "2219D5A3FA39E24CA9A68FDBFFAF33655FF92CEED2EF116F546B0B83356130B7",\n    "height": "37",\n    "index": 0,\n    "tx_result": {\n      "code": 1,\n      "data": null,\n      "log": "",\n      "info": "TransactionNotValidError: 0x5F970f4F75F4DE2523D7a2428eC8A8CD1E4274E3 not in list of participants: [\'0x0000000000000000000000000000000000000000\']",\n      "gas_wanted": "0",\n      "gas_used": "0",\n      "events": [],\n      "codespace": ""\n    },\n    "tx": "eyJwYXlsb2FkIjogeyJfbWV0YWNsYXNzX3JlZ2lzdHJ5X2tleSI6ICJwYWNrYWdlcy52YWxv,dialogue_reference=('1077ff7bf762a9dde38a6835d625d00fcdd2af669c1c9b31e8207717987183c0', 'c755ba7f7db6cda321644255cf4a1a2ff5203c3c73862708bf242900dee2b65a'),headers=Content-Type: application/json
+X-Server-Time: 1734621547
+Date: Thu, 19 Dec 2024 15:19:07 GMT
 Content-Length: 1042
 
 ,message_id=-1,performative=response,status_code=200,status_text=OK,target=1,version=)
-[2024-12-18 21:18:02,478] [INFO] [idriss_frontend] HTTP Client has shutdown on port: 8000.
-[2024-12-18 21:18:02,479] [INFO] [idriss_frontend] HTTP Server has shutdown on port: 5555.
-[2024-12-18 21:18:02,480] [INFO] [idriss_frontend] HTTP Server has shutdown on port: 5556.
-[2024-12-18 21:18:02,481] [INFO] [idriss_frontend] HTTP Client has shutdown on port: 8000.
-[2024-12-18 21:18:02,566] [ERROR] [idriss_frontend] Unhandled exception AttributeError: 'NoneType' object has no attribute 'put'
+[2024-12-19 10:19:08,167] [ERROR] [idriss_frontend] TransactionNotValidError: 0x5F970f4F75F4DE2523D7a2428eC8A8CD1E4274E3 not in list of participants: ['0x0000000000000000000000000000000000000000']
+[2024-12-19 10:19:08,650] [INFO] [idriss_frontend] API route detected: http://0.0.0.0:5555/api/predict
+[2024-12-19 10:19:08,650] [INFO] [idriss_frontend] Received POST request for /api/predict
+[2024-12-19 10:19:25,184] [INFO] [idriss_frontend] The result content is: As of my last update, Dogecoin is considered one of the most popular memecoins. However, the popularity of cryptocurrencies can fluctuate rapidly, so it's a good idea to do some current research.
+[2024-12-19 10:19:25,187] [INFO] [idriss_frontend] Successfully handled POST request for /api/predict
+[2024-12-19 10:19:25,191] [WARNING] [idriss_frontend] Timeout expired for wait until transaction delivered. Retrying in 1.0 seconds...
+[2024-12-19 10:19:26,260] [WARNING] [idriss_frontend] expired deadline 2024-12-19 10:19:10.677911 with event Event.RESET_AND_PAUSE_TIMEOUT at AbciApp time 2024-12-19 10:19:25.236179
+[2024-12-19 10:19:26,260] [WARNING] [idriss_frontend] current AbciApp time after expired deadline: 2024-12-19 10:19:25.236179
+[2024-12-19 10:19:26,261] [INFO] [idriss_frontend] 'reset_and_pause_round' round is done with event: Event.RESET_AND_PAUSE_TIMEOUT
+[2024-12-19 10:19:26,262] [INFO] [idriss_frontend] Entered in the 'reset_and_pause_round' round for period 0
+[2024-12-19 10:19:26,264] [INFO] [idriss_frontend] Entered in the 'reset_and_pause_behaviour' behaviour
+[2024-12-19 10:19:26,279] [ERROR] [idriss_frontend] TransactionNotValidError: Expected round count 4 and got 3.
+[2024-12-19 10:19:55,236] [INFO] [idriss_frontend] Period end.
+[2024-12-19 10:19:55,755] [ERROR] [idriss_frontend] TransactionNotValidError: 0x5F970f4F75F4DE2523D7a2428eC8A8CD1E4274E3 not in list of participants: ['0x0000000000000000000000000000000000000000']
+[2024-12-19 10:19:56,284] [WARNING] [idriss_frontend] Tx sent but not delivered. Response = Message(sender=valory/http_client:0.23.0,to=eightballer/trader_abci:0.1.0,body=b'{\n  "jsonrpc": "2.0",\n  "id": -1,\n  "result": {\n    "hash": "BE47596584C81764FA1CB46AEE3CEC09F8DFE960E197D95254E96936FF616222",\n    "height": "70",\n    "index": 0,\n    "tx_result": {\n      "code": 1,\n      "data": null,\n      "log": "",\n      "info": "TransactionNotValidError: 0x5F970f4F75F4DE2523D7a2428eC8A8CD1E4274E3 not in list of participants: [\'0x0000000000000000000000000000000000000000\']",\n      "gas_wanted": "0",\n      "gas_used": "0",\n      "events": [],\n      "codespace": ""\n    },\n    "tx": "eyJwYXlsb2FkIjogeyJfbWV0YWNsYXNzX3JlZ2lzdHJ5X2tleSI6ICJwYWNrYWdlcy52YWxv,dialogue_reference=('7c944729365a5d2d68e10bd859de3ceeb49d5634154259525c4404bcec3e2776', 'c74ef26877c06a85a3c37dde95731eae01757db4ed90a34dcbb1c74757e56ec5'),headers=Content-Type: application/json
+X-Server-Time: 1734621596
+Date: Thu, 19 Dec 2024 15:19:56 GMT
+Content-Length: 1042
+
+,message_id=-1,performative=response,status_code=200,status_text=OK,target=1,version=)
+[2024-12-19 10:19:56,770] [ERROR] [idriss_frontend] TransactionNotValidError: 0x5F970f4F75F4DE2523D7a2428eC8A8CD1E4274E3 not in list of participants: ['0x0000000000000000000000000000000000000000']
+[2024-12-19 10:19:57,331] [WARNING] [idriss_frontend] Tx sent but not delivered. Response = Message(sender=valory/http_client:0.23.0,to=eightballer/trader_abci:0.1.0,body=b'{\n  "jsonrpc": "2.0",\n  "id": -1,\n  "result": {\n    "hash": "3AF4F853235881F22A582DD3EB7EA082AAEB3AFB690E030AD05BD5A184DC97E6",\n    "height": "71",\n    "index": 0,\n    "tx_result": {\n      "code": 1,\n      "data": null,\n      "log": "",\n      "info": "TransactionNotValidError: 0x5F970f4F75F4DE2523D7a2428eC8A8CD1E4274E3 not in list of participants: [\'0x0000000000000000000000000000000000000000\']",\n      "gas_wanted": "0",\n      "gas_used": "0",\n      "events": [],\n      "codespace": ""\n    },\n    "tx": "eyJwYXlsb2FkIjogeyJfbWV0YWNsYXNzX3JlZ2lzdHJ5X2tleSI6ICJwYWNrYWdlcy52YWxv,dialogue_reference=('49e4aeb86d5ffea87f7b7f237ec20f09f9fcf48fa2a4279119ee989fcf3a0f82', '38d37552163b3179175db33ae812534b1db3831c201b56c08ae119df9a58bd98'),headers=Content-Type: application/json
+X-Server-Time: 1734621597
+Date: Thu, 19 Dec 2024 15:19:57 GMT
+Content-Length: 1042
+
+,message_id=-1,performative=response,status_code=200,status_text=OK,target=1,version=)
+[2024-12-19 10:19:57,784] [ERROR] [idriss_frontend] TransactionNotValidError: 0x5F970f4F75F4DE2523D7a2428eC8A8CD1E4274E3 not in list of participants: ['0x0000000000000000000000000000000000000000']
+[2024-12-19 10:19:58,376] [WARNING] [idriss_frontend] Tx sent but not delivered. Response = Message(sender=valory/http_client:0.23.0,to=eightballer/trader_abci:0.1.0,body=b'{\n  "jsonrpc": "2.0",\n  "id": -1,\n  "result": {\n    "hash": "AEBBA5A7AD7A84E5262F53836C62EA09395EC7D6FCDF9566992BDD83AD1D8568",\n    "height": "72",\n    "index": 0,\n    "tx_result": {\n      "code": 1,\n      "data": null,\n      "log": "",\n      "info": "TransactionNotValidError: 0x5F970f4F75F4DE2523D7a2428eC8A8CD1E4274E3 not in list of participants: [\'0x0000000000000000000000000000000000000000\']",\n      "gas_wanted": "0",\n      "gas_used": "0",\n      "events": [],\n      "codespace": ""\n    },\n    "tx": "eyJwYXlsb2FkIjogeyJfbWV0YWNsYXNzX3JlZ2lzdHJ5X2tleSI6ICJwYWNrYWdlcy52YWxv,dialogue_reference=('5a40348ff1403d6b60d47db008daf6743e6b86c1d02d0fa52a78c3650b7e963d', '486bf60bd9fdd7489388e9a39a841407c8943ae977d994b0608d4336c7b08ef7'),headers=Content-Type: application/json
+X-Server-Time: 1734621598
+Date: Thu, 19 Dec 2024 15:19:58 GMT
+Content-Length: 1042
+
+,message_id=-1,performative=response,status_code=200,status_text=OK,target=1,version=)
+[2024-12-19 10:19:58,797] [ERROR] [idriss_frontend] TransactionNotValidError: 0x5F970f4F75F4DE2523D7a2428eC8A8CD1E4274E3 not in list of participants: ['0x0000000000000000000000000000000000000000']
+[2024-12-19 10:19:59,420] [WARNING] [idriss_frontend] Tx sent but not delivered. Response = Message(sender=valory/http_client:0.23.0,to=eightballer/trader_abci:0.1.0,body=b'{\n  "jsonrpc": "2.0",\n  "id": -1,\n  "result": {\n    "hash": "2CEF8D6807CCD0E214279335F3133703E0B8BCB617103EDC7727BC32EF64C897",\n    "height": "73",\n    "index": 0,\n    "tx_result": {\n      "code": 1,\n      "data": null,\n      "log": "",\n      "info": "TransactionNotValidError: 0x5F970f4F75F4DE2523D7a2428eC8A8CD1E4274E3 not in list of participants: [\'0x0000000000000000000000000000000000000000\']",\n      "gas_wanted": "0",\n      "gas_used": "0",\n      "events": [],\n      "codespace": ""\n    },\n    "tx": "eyJwYXlsb2FkIjogeyJfbWV0YWNsYXNzX3JlZ2lzdHJ5X2tleSI6ICJwYWNrYWdlcy52YWxv,dialogue_reference=('541053e4d57e3daa641039f2ce9afd3d743487428fd4687298a553bf100e9e03', '57f22a1f2048d70b1ac62c2ee1f812b740e4061a3862720500659239190b71a3'),headers=Content-Type: application/json
+X-Server-Time: 1734621599
+Date: Thu, 19 Dec 2024 15:19:59 GMT
+Content-Length: 1042
+
+,message_id=-1,performative=response,status_code=200,status_text=OK,target=1,version=)
+[2024-12-19 10:19:59,811] [ERROR] [idriss_frontend] TransactionNotValidError: 0x5F970f4F75F4DE2523D7a2428eC8A8CD1E4274E3 not in list of participants: ['0x0000000000000000000000000000000000000000']
+[2024-12-19 10:20:00,478] [WARNING] [idriss_frontend] Tx sent but not delivered. Response = Message(sender=valory/http_client:0.23.0,to=eightballer/trader_abci:0.1.0,body=b'{\n  "jsonrpc": "2.0",\n  "id": -1,\n  "result": {\n    "hash": "BAEE74D50DAA51EC716C9ADBF0B8273D5D3C01ED1243FC2573740E3ECE0EDE24",\n    "height": "74",\n    "index": 0,\n    "tx_result": {\n      "code": 1,\n      "data": null,\n      "log": "",\n      "info": "TransactionNotValidError: 0x5F970f4F75F4DE2523D7a2428eC8A8CD1E4274E3 not in list of participants: [\'0x0000000000000000000000000000000000000000\']",\n      "gas_wanted": "0",\n      "gas_used": "0",\n      "events": [],\n      "codespace": ""\n    },\n    "tx": "eyJwYXlsb2FkIjogeyJfbWV0YWNsYXNzX3JlZ2lzdHJ5X2tleSI6ICJwYWNrYWdlcy52YWxv,dialogue_reference=('7e371ae47dd1cff3a6861950ccf9e5771d4b43dfa446e87c19c686291255de4a', 'd3f4e8b7cf656256840a90a270067e5dfa9b3e328b8d2efbf9e8b6f031c8755e'),headers=Content-Type: application/json
+X-Server-Time: 1734621600
+Date: Thu, 19 Dec 2024 15:20:00 GMT
+Content-Length: 1042
+
+,message_id=-1,performative=response,status_code=200,status_text=OK,target=1,version=)
+[2024-12-19 10:20:00,824] [ERROR] [idriss_frontend] TransactionNotValidError: 0x5F970f4F75F4DE2523D7a2428eC8A8CD1E4274E3 not in list of participants: ['0x0000000000000000000000000000000000000000']
+[2024-12-19 10:20:01,523] [WARNING] [idriss_frontend] Tx sent but not delivered. Response = Message(sender=valory/http_client:0.23.0,to=eightballer/trader_abci:0.1.0,body=b'{\n  "jsonrpc": "2.0",\n  "id": -1,\n  "result": {\n    "hash": "4702A134E11521C5E301C58C72A553C66DF379F89BA0EE26884A4B75337D5029",\n    "height": "75",\n    "index": 0,\n    "tx_result": {\n      "code": 1,\n      "data": null,\n      "log": "",\n      "info": "TransactionNotValidError: 0x5F970f4F75F4DE2523D7a2428eC8A8CD1E4274E3 not in list of participants: [\'0x0000000000000000000000000000000000000000\']",\n      "gas_wanted": "0",\n      "gas_used": "0",\n      "events": [],\n      "codespace": ""\n    },\n    "tx": "eyJwYXlsb2FkIjogeyJfbWV0YWNsYXNzX3JlZ2lzdHJ5X2tleSI6ICJwYWNrYWdlcy52YWxv,dialogue_reference=('5b37aa559cf4eef07bbf9111e9ccdda2c46fdd1c86b14759a67f30ef9a7b9db8', '28b98a020801dd9c8e66bd51a408dbfd50a08324fc881feb4de9a3440dc9e448'),headers=Content-Type: application/json
+X-Server-Time: 1734621601
+Date: Thu, 19 Dec 2024 15:20:01 GMT
+Content-Length: 1042
+
+,message_id=-1,performative=response,status_code=200,status_text=OK,target=1,version=)
+[2024-12-19 10:20:01,822] [WARNING] [idriss_frontend] expired deadline 2024-12-19 10:20:00.236179 with event Event.RESET_AND_PAUSE_TIMEOUT at AbciApp time 2024-12-19 10:20:00.800995
+[2024-12-19 10:20:01,822] [WARNING] [idriss_frontend] current AbciApp time after expired deadline: 2024-12-19 10:20:00.800995
+[2024-12-19 10:20:01,822] [INFO] [idriss_frontend] 'reset_and_pause_round' round is done with event: Event.RESET_AND_PAUSE_TIMEOUT
+[2024-12-19 10:20:01,823] [INFO] [idriss_frontend] Entered in the 'reset_and_pause_round' round for period 0
+[2024-12-19 10:20:01,824] [INFO] [idriss_frontend] Entered in the 'reset_and_pause_behaviour' behaviour
+[2024-12-19 10:20:01,840] [ERROR] [idriss_frontend] TransactionNotValidError: Expected round count 5 and got 4.

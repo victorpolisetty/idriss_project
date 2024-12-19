@@ -19,7 +19,12 @@
     <p>This is a simple HTML page served from your server.</p>
     
     <button id="call-analyze" onclick="callAnalyze()">Call /api/analyze</button>
-    <button id="call-predict" onclick="callPredict()">Call /api/predict</button>
+
+    <div>
+        <label for="prompt-input">Enter your prompt text:</label>
+        <input type="text" id="prompt-input" placeholder="Type your prompt here...">
+        <button id="call-predict" onclick="callPredict()">Call /api/predict</button>
+    </div>
 
     <div id="response-analyze">Response from /api/analyze will appear here...</div>
     <div id="response-predict">Response from /api/predict will appear here...</div>
@@ -60,8 +65,10 @@
 
         // Function to call /api/predict
         function callPredict() {
+            const promptInput = document.getElementById('prompt-input').value; // Get the value from the input box
+
             const payload = {
-                prompt_text: "Once upon a time"  // Example text prompt for GPT-4
+                prompt_text: promptInput  // Use the value from the input box
             };
 
             const formData = JSON.stringify(payload);
