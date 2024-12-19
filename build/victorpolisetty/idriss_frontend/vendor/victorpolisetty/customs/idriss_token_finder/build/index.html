@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Farcaster Agent</title>
     <style>
-        #response {
+        #response-analyze, #response-predict {
             margin-top: 20px;
             white-space: pre-wrap;
             background-color: #f4f4f4;
@@ -17,20 +17,24 @@
 <body>
     <h1>Welcome to the Farcaster Agent!</h1>
     <p>This is a simple HTML page served from your server.</p>
+    
     <button id="call-analyze" onclick="callAnalyze()">Call /api/analyze</button>
-    <div id="response">Response will appear here...</div>
+    <button id="call-predict" onclick="callPredict()">Call /api/predict</button>
+
+    <div id="response-analyze">Response from /api/analyze will appear here...</div>
+    <div id="response-predict">Response from /api/predict will appear here...</div>
 
     <script>
+        // Function to call /api/analyze
         function callAnalyze() {
             const payload = {
                 query: "test",  // You can change this query parameter as needed
-                max_results: 2
+                max_results: 1
             };
 
-            // Stringify the payload to send as plain text
             const formData = JSON.stringify(payload);
 
-            // Send the request as text/plain
+            // Send the request as application/json
             fetch('http://0.0.0.0:5555/api/analyze', {
                 method: 'POST',
                 headers: {
@@ -45,11 +49,43 @@
                 return response.json();
             })
             .then(data => {
-                const responseDiv = document.getElementById('response');
+                const responseDiv = document.getElementById('response-analyze');
                 responseDiv.textContent = JSON.stringify(data, null, 2);
             })
             .catch(error => {
-                const responseDiv = document.getElementById('response');
+                const responseDiv = document.getElementById('response-analyze');
+                responseDiv.textContent = `Error: ${error.message}`;
+            });
+        }
+
+        // Function to call /api/predict
+        function callPredict() {
+            const payload = {
+                prompt_text: "Once upon a time"  // Example text prompt for GPT-4
+            };
+
+            const formData = JSON.stringify(payload);
+
+            // Send the request as application/json
+            fetch('http://0.0.0.0:5555/api/predict', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'text/plain'  // Set Content-Type to text/plain
+                },
+                body: formData  // Send the stringified payload
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+                return response.json();
+            })
+            .then(data => {
+                const responseDiv = document.getElementById('response-predict');
+                responseDiv.textContent = `Prediction Result: ${data.message}`;
+            })
+            .catch(error => {
+                const responseDiv = document.getElementById('response-predict');
                 responseDiv.textContent = `Error: ${error.message}`;
             });
         }

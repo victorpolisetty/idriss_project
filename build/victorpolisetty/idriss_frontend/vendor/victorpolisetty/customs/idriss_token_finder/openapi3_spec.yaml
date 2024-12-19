@@ -92,4 +92,67 @@ paths:
                 properties:
                   error:
                     type: string
-                    description: Explanation of the error (e.g., missing `query`).
+                    description: Explanation of the error (e.g., missing `query`)
+ /api/predict:
+    post:
+      summary: Make a prediction based on the provided prompt using OpenAI GPT-4
+      description: Interacts with OpenAI's GPT-4 to analyze a prompt and return the result.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                prompt_text:
+                  type: string
+                  description: The prompt text for prediction (e.g., "Will Gnosis pay reach 100k cards in 2024?")
+                agent_id:
+                  type: integer
+                  description: The ID of the agent to use for the prediction. (Not used with OpenAI GPT-4 but kept for compatibility)
+                  default: 6
+                tool_name:
+                  type: string
+                  description: The name of the tool to use for the prediction. (Not used with OpenAI GPT-4 but kept for compatibility)
+                  default: "openai-gpt-4"
+                chain_config:
+                  type: string
+                  description: The chain configuration (not used with OpenAI GPT-4 but kept for compatibility)
+                  default: "gnosis"
+                private_key_path:
+                  type: string
+                  description: Path to the Ethereum private key file. (Not used with OpenAI GPT-4 but kept for compatibility)
+                  default: "ethereum_private_key.txt"
+              required:
+                - prompt_text
+      responses:
+        '200':
+          description: Prediction result from GPT-4
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: string
+                    description: The result of the prediction from GPT-4.
+        '400':
+          description: Bad request due to missing or incorrect input
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    description: Explanation of the error (e.g., missing `prompt_text`).
+        '500':
+          description: Internal server error due to unexpected issues
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    description: General error description.
