@@ -1,95 +1,885 @@
-[2024-12-19 18:03:49,624] [WARNING] [idriss_frontend] The kwargs={'abt_error_mult': 5, 'agent_balance_threshold': 10000000000000000, 'agent_registry_address': '0xE49CB081e8d96920C38aA7AB90cb0294ab4Bc8EA', 'average_block_time': 5, 'bet_threshold': 100000000000000000, 'blacklisting_duration': 3600, 'conditional_tokens_address': '0xCeAfDD6bc0bEF976fdCd1112955828E00543c0Ce', 'contract_timeout': 300.0, 'creator_per_subgraph': OrderedDict([('omen_subgraph', ['0x89c5cc945dd550BcFfb72Fe42BfF002429F46Fec'])]), 'disable_trading': False, 'dust_threshold': 10000000000000, 'event_filtering_batch_size': 5000, 'file_hash_to_strategies_json': [['bafybeihufqu2ra7vud4h6g2nwahx7mvdido7ff6prwnib2tdlc4np7dw24', ['bet_amount_per_threshold']], ['bafybeif55cu7cf6znyma7kxus4wxa2doarhau2xmndo57iegshxorivwmq', ['kelly_criterion']]], 'finalize_timeout': 60.0, 'history_check_timeout': 1205, 'init_fallback_gas': 0, 'ipfs_address': 'https://gateway.autonolas.tech/ipfs/', 'irrelevant_tools': ['openai-text-davinci-002', 'openai-text-davinci-003', 'openai-gpt-3.5-turbo', 'openai-gpt-4', 'stabilityai-stable-diffusion-v1-5', 'stabilityai-stable-diffusion-xl-beta-v2-2-2', 'stabilityai-stable-diffusion-512-v2-1', 'stabilityai-stable-diffusion-768-v2-1'], 'keeper_allowed_retries': 3, 'languages': ['en_US'], 'max_filtering_retries': 6, 'mech_chain_id': 'gnosis', 'mech_contract_address': '0x77af31De935740567Cf4fF1986D04B2c964A786a', 'mech_request_price': None, 'mech_to_subscription_params': [['base_url', 'https://marketplace-api.gnosis.nevermined.app/api/v1/metadata/assets/ddo'], ['did', 'did:nv:0ea01d5de3b34e3792db825f2a5f5595c393c68b19fd5efdacd00fcc63a53483'], ['escrow_payment_condition_address', '0x9dDC4F1Ea5b94C138A23b60EC48c0d01d172629a'], ['lock_payment_condition_address', '0xDE85A368Ee6f374d236500d176814365370778dA'], ['transfer_nft_condition_address', '0xbBa4A25262745a55f020D0a3E9a82c25bb6F4979'], ['token_address', '0x80A9b55F8604acC26dF2Ac6e07F9dC5B0eAa05Ce'], ['order_address', '0xc7751eff5396a846e7bc83ac31d3cb7d37cb49e4'], ['nft_amount', '100'], ['payment_token', '0x0000000000000000000000000000000000000000'], ['order_address', '0xc7751eff5396a846e7bc83ac31d3cb7d37cb49e4'], ['price', '1000000000000000000']], 'mech_wrapped_native_token_address': '0xe91D153E0b41518A2Ce8Dd3D7944Fa863463a97d', 'minimum_batch_size': 500, 'multisend_address': '0xA238CBeb142c10Ef7Ad8442C6D1f9E89e07e7761', 'multisend_batch_size': 1, 'opening_margin': 300, 'policy_epsilon': 0.1, 'prompt_template': 'With the given question "@{question}" and the `yes` option represented by `@{yes}` and the `no` option represented by `@{no}`, what are the respective probabilities of `p_yes` and `p_no` occurring?', 'realitio_address': '0x79e32aE03fb27B07C89c0c568F80287C01ca2E57', 'realitio_proxy_address': '0xAB16D643bA051C11962DA645f74632d3130c81E2', 'redeem_round_timeout': 3600.0, 'redeeming_batch_size': 5, 'reduce_factor': 0.25, 'refill_check_interval': 10, 'sample_bets_closing_days': 10, 'slippage': 0.01, 'slot_count': 2, 'staking_contract_address': '0x2Ef503950Be67a98746F484DA0bBAdA339DF3326', 'stop_trading_if_staking_kpi_met': True, 'store_path': '/data/', 'strategies_kwargs': [['bet_kelly_fraction', 0.5], ['floor_balance', 500000000000000000], ['bet_amount_per_threshold', {'0.0': 0, '0.1': 0, '0.2': 0, '0.3': 0, '0.4': 0, '0.5': 0, '0.6': 60000000000000000, '0.7': 90000000000000000, '0.8': 100000000000000000, '0.9': 1000000000000000000, '1.0': 10000000000000000000}]], 'termination_from_block': 0, 'termination_sleep': 900, 'tool_punishment_multiplier': 1, 'trading_strategy': 'kelly_criterion', 'use_fallback_strategy': True, 'use_nevermined': True, 'use_subgraph_for_redeeming': True, 'user_interface': OrderedDict([('enabled', True), ('custom_component', 'victorpolisetty/idriss_token_finder')]), 'validate_timeout': 1205} passed to params have not been set!
-[2024-12-19 18:03:49,793] [INFO] [idriss_frontend] HTTP Server has connected to port: 5555.
-[2024-12-19 18:03:49,794] [INFO] [idriss_frontend] WebSocket Server has connected to port: 5556.
-[2024-12-19 18:03:50,197] [INFO] [idriss_frontend] Connecting to libp2p node acn.staging.autonolas.tech:9005. Attempt 1
-[2024-12-19 18:03:54,185] [INFO] [idriss_frontend] Successfully connected to libp2p node acn.staging.autonolas.tech:9005
-[2024-12-19 18:03:54,187] [INFO] [idriss_frontend] Entered in the 'registration_startup_round' round for period 0
-[2024-12-19 18:03:54,190] [INFO] [idriss_frontend] Start processing messages...
-[2024-12-19 18:03:54,193] [INFO] [idriss_frontend] Entered in the 'registration_startup_behaviour' behaviour
-[2024-12-19 18:03:54,193] [INFO] [idriss_frontend] Synchronizing with Tendermint...
-[2024-12-19 18:03:57,217] [INFO] [idriss_frontend] local height == remote == 2; Synchronization complete.
-[2024-12-19 18:03:57,218] [INFO] [idriss_frontend] Sharing Tendermint config on start-up?: False
-[2024-12-19 18:03:58,306] [WARNING] [idriss_frontend] Slashing has not been enabled!
-[2024-12-19 18:03:58,307] [INFO] [idriss_frontend] 'registration_startup_round' round is done with event: Event.DONE
-[2024-12-19 18:03:58,307] [INFO] [idriss_frontend] Entered in the 'setup_round' round for period 0
-[2024-12-19 18:03:58,309] [INFO] [idriss_frontend] Entered in the 'setup_behaviour' behaviour
-[2024-12-19 18:03:58,314] [INFO] [idriss_frontend] Loading User Interface: idriss_token_finder
-[2024-12-19 18:03:58,315] [INFO] [idriss_frontend] Generating routes for the UI in vendor/victorpolisetty/customs/idriss_token_finder...
-[2024-12-19 18:03:58,315] [INFO] [idriss_frontend] Routes generated: 1 routes.
-[2024-12-19 18:03:58,316] [INFO] [idriss_frontend] Added vendor/victorpolisetty/customs/idriss_token_finder to the path.
-[2024-12-19 18:03:58,316] [INFO] [idriss_frontend] Loading behaviours for Author: victorpolisetty Component: idriss_token_finder in vendor/victorpolisetty/customs/idriss_token_finder
-[2024-12-19 18:03:59,404] [INFO] [idriss_frontend] Behaviour LogReadingBehaviour loaded and running.
-[2024-12-19 18:03:59,404] [INFO] [idriss_frontend] Behaviour <idriss_token_finder.behaviours.LogReadingBehaviour object at 0x11a8822d0> started.
-[2024-12-19 18:03:59,405] [INFO] [idriss_frontend] Loading handlers for Author: victorpolisetty, Component: idriss_token_finder from vendor/victorpolisetty/customs/idriss_token_finder
-[2024-12-19 18:03:59,405] [INFO] [idriss_frontend] Handler ApiHttpHandler loaded.
-[2024-12-19 18:03:59,405] [INFO] [idriss_frontend] Methods found in ApiHttpHandler: extract_first_ticker, filter_and_sort_by_age, handle, handle_get_api, handle_post_api_analyze, handle_wrapper, parse_module, parse_prompt_with_gpt, protocol_dialogues, setup, teardown
-[2024-12-19 18:03:59,406] [INFO] [idriss_frontend] API route detected: http://0.0.0.0:5555/api/analyze
-[2024-12-19 18:03:59,406] [INFO] [idriss_frontend] Received POST request for /api/analyze
-[2024-12-19 18:03:59,406] [INFO] [idriss_frontend] The prompt is: Find me memecoins that were created < 30 days ago and sort them by recasts.
-[2024-12-19 18:04:02,900] [INFO] [idriss_frontend] Parsed query parameters: {'text': 'memecoin', 'engagement': 'recasts', 'age_limit_days': 30}
-[2024-12-19 18:04:02,900] [INFO] [idriss_frontend] Suggestion from GPT: To improve the query, you may want to specify an amount, for example, the top 10 or 20 memecoins.
-[2024-12-19 18:04:02,900] [INFO] [idriss_frontend] Parameters after parsing: {'text': 'memecoin', 'engagement': 'recasts', 'age_limit_days': 30}
-[2024-12-19 18:04:08,606] [INFO] [idriss_frontend] Successfully handled POST request for /api/analyze
-[2024-12-19 18:04:08,611] [INFO] [idriss_frontend] UI setup status: None
-[2024-12-19 18:04:08,612] [INFO] [idriss_frontend] UI handlers status: None
-[2024-12-19 18:04:08,613] [INFO] [idriss_frontend] UI behaviours status: None
-[2024-12-19 18:04:09,719] [INFO] [idriss_frontend] 'setup_round' round is done with event: Event.DONE
-[2024-12-19 18:04:09,720] [INFO] [idriss_frontend] Entered in the 'healthcheck_round' round for period 0
-[2024-12-19 18:04:09,722] [INFO] [idriss_frontend] Entered in the 'healthcheck_behaviour' behaviour
-[2024-12-19 18:04:10,737] [INFO] [idriss_frontend] 'healthcheck_round' round is done with event: Event.DONE
-[2024-12-19 18:04:10,737] [INFO] [idriss_frontend] Entered in the 'reset_and_pause_round' round for period 0
-[2024-12-19 18:04:10,739] [INFO] [idriss_frontend] Entered in the 'reset_and_pause_behaviour' behaviour
-[2024-12-19 18:04:39,683] [INFO] [idriss_frontend] Period end.
-[2024-12-19 18:04:40,326] [ERROR] [idriss_frontend] TransactionNotValidError: 0xBe99F193D5e3d7F041be50153e3e8Cf3695865E1 not in list of participants: ['0x0000000000000000000000000000000000000000']
-[2024-12-19 18:04:40,750] [WARNING] [idriss_frontend] Tx sent but not delivered. Response = Message(sender=valory/http_client:0.23.0,to=eightballer/trader_abci:0.1.0,body=b'{\n  "jsonrpc": "2.0",\n  "id": -1,\n  "result": {\n    "hash": "E0C8237DCC5487741B84EB2EDFC1C612CC689FDE051834AF4E3E6DF15E506705",\n    "height": "37",\n    "index": 0,\n    "tx_result": {\n      "code": 1,\n      "data": null,\n      "log": "",\n      "info": "TransactionNotValidError: 0xBe99F193D5e3d7F041be50153e3e8Cf3695865E1 not in list of participants: [\'0x0000000000000000000000000000000000000000\']",\n      "gas_wanted": "0",\n      "gas_used": "0",\n      "events": [],\n      "codespace": ""\n    },\n    "tx": "eyJwYXlsb2FkIjogeyJfbWV0YWNsYXNzX3JlZ2lzdHJ5X2tleSI6ICJwYWNrYWdlcy52YWxv,dialogue_reference=('36b6d57336d7c6169d521beaf5671481a9c53f604c2bb8f4ee651797c2e4fb08', '4037d594acf091813825fe72b39c4a9f4bb3e7668452a4e95183382e86500a46'),headers=Content-Type: application/json
-X-Server-Time: 1734649480
-Date: Thu, 19 Dec 2024 23:04:40 GMT
+[2024-12-19 18:08:56,101] [WARNING] [idriss_frontend] The kwargs={'abt_error_mult': 5, 'agent_balance_threshold': 10000000000000000, 'agent_registry_address': '0xE49CB081e8d96920C38aA7AB90cb0294ab4Bc8EA', 'average_block_time': 5, 'bet_threshold': 100000000000000000, 'blacklisting_duration': 3600, 'conditional_tokens_address': '0xCeAfDD6bc0bEF976fdCd1112955828E00543c0Ce', 'contract_timeout': 300.0, 'creator_per_subgraph': OrderedDict([('omen_subgraph', ['0x89c5cc945dd550BcFfb72Fe42BfF002429F46Fec'])]), 'disable_trading': False, 'dust_threshold': 10000000000000, 'event_filtering_batch_size': 5000, 'file_hash_to_strategies_json': [['bafybeihufqu2ra7vud4h6g2nwahx7mvdido7ff6prwnib2tdlc4np7dw24', ['bet_amount_per_threshold']], ['bafybeif55cu7cf6znyma7kxus4wxa2doarhau2xmndo57iegshxorivwmq', ['kelly_criterion']]], 'finalize_timeout': 60.0, 'history_check_timeout': 1205, 'init_fallback_gas': 0, 'ipfs_address': 'https://gateway.autonolas.tech/ipfs/', 'irrelevant_tools': ['openai-text-davinci-002', 'openai-text-davinci-003', 'openai-gpt-3.5-turbo', 'openai-gpt-4', 'stabilityai-stable-diffusion-v1-5', 'stabilityai-stable-diffusion-xl-beta-v2-2-2', 'stabilityai-stable-diffusion-512-v2-1', 'stabilityai-stable-diffusion-768-v2-1'], 'keeper_allowed_retries': 3, 'languages': ['en_US'], 'max_filtering_retries': 6, 'mech_chain_id': 'gnosis', 'mech_contract_address': '0x77af31De935740567Cf4fF1986D04B2c964A786a', 'mech_request_price': None, 'mech_to_subscription_params': [['base_url', 'https://marketplace-api.gnosis.nevermined.app/api/v1/metadata/assets/ddo'], ['did', 'did:nv:0ea01d5de3b34e3792db825f2a5f5595c393c68b19fd5efdacd00fcc63a53483'], ['escrow_payment_condition_address', '0x9dDC4F1Ea5b94C138A23b60EC48c0d01d172629a'], ['lock_payment_condition_address', '0xDE85A368Ee6f374d236500d176814365370778dA'], ['transfer_nft_condition_address', '0xbBa4A25262745a55f020D0a3E9a82c25bb6F4979'], ['token_address', '0x80A9b55F8604acC26dF2Ac6e07F9dC5B0eAa05Ce'], ['order_address', '0xc7751eff5396a846e7bc83ac31d3cb7d37cb49e4'], ['nft_amount', '100'], ['payment_token', '0x0000000000000000000000000000000000000000'], ['order_address', '0xc7751eff5396a846e7bc83ac31d3cb7d37cb49e4'], ['price', '1000000000000000000']], 'mech_wrapped_native_token_address': '0xe91D153E0b41518A2Ce8Dd3D7944Fa863463a97d', 'minimum_batch_size': 500, 'multisend_address': '0xA238CBeb142c10Ef7Ad8442C6D1f9E89e07e7761', 'multisend_batch_size': 1, 'opening_margin': 300, 'policy_epsilon': 0.1, 'prompt_template': 'With the given question "@{question}" and the `yes` option represented by `@{yes}` and the `no` option represented by `@{no}`, what are the respective probabilities of `p_yes` and `p_no` occurring?', 'realitio_address': '0x79e32aE03fb27B07C89c0c568F80287C01ca2E57', 'realitio_proxy_address': '0xAB16D643bA051C11962DA645f74632d3130c81E2', 'redeem_round_timeout': 3600.0, 'redeeming_batch_size': 5, 'reduce_factor': 0.25, 'refill_check_interval': 10, 'sample_bets_closing_days': 10, 'slippage': 0.01, 'slot_count': 2, 'staking_contract_address': '0x2Ef503950Be67a98746F484DA0bBAdA339DF3326', 'stop_trading_if_staking_kpi_met': True, 'store_path': '/data/', 'strategies_kwargs': [['bet_kelly_fraction', 0.5], ['floor_balance', 500000000000000000], ['bet_amount_per_threshold', {'0.0': 0, '0.1': 0, '0.2': 0, '0.3': 0, '0.4': 0, '0.5': 0, '0.6': 60000000000000000, '0.7': 90000000000000000, '0.8': 100000000000000000, '0.9': 1000000000000000000, '1.0': 10000000000000000000}]], 'termination_from_block': 0, 'termination_sleep': 900, 'tool_punishment_multiplier': 1, 'trading_strategy': 'kelly_criterion', 'use_fallback_strategy': True, 'use_nevermined': True, 'use_subgraph_for_redeeming': True, 'user_interface': OrderedDict([('enabled', True), ('custom_component', 'victorpolisetty/idriss_token_finder')]), 'validate_timeout': 1205} passed to params have not been set!
+[2024-12-19 18:08:56,273] [INFO] [idriss_frontend] HTTP Server has connected to port: 5555.
+[2024-12-19 18:08:56,276] [INFO] [idriss_frontend] WebSocket Server has connected to port: 5556.
+[2024-12-19 18:08:57,102] [INFO] [idriss_frontend] Connecting to libp2p node acn.staging.autonolas.tech:9005. Attempt 1
+[2024-12-19 18:09:01,129] [INFO] [idriss_frontend] Successfully connected to libp2p node acn.staging.autonolas.tech:9005
+[2024-12-19 18:09:01,132] [INFO] [idriss_frontend] Entered in the 'registration_startup_round' round for period 0
+[2024-12-19 18:09:01,134] [INFO] [idriss_frontend] Start processing messages...
+[2024-12-19 18:09:01,137] [INFO] [idriss_frontend] Entered in the 'registration_startup_behaviour' behaviour
+[2024-12-19 18:09:01,138] [INFO] [idriss_frontend] Synchronizing with Tendermint...
+[2024-12-19 18:09:04,175] [INFO] [idriss_frontend] local height == remote == 2; Synchronization complete.
+[2024-12-19 18:09:04,176] [INFO] [idriss_frontend] Sharing Tendermint config on start-up?: False
+[2024-12-19 18:09:05,254] [WARNING] [idriss_frontend] Slashing has not been enabled!
+[2024-12-19 18:09:05,255] [INFO] [idriss_frontend] 'registration_startup_round' round is done with event: Event.DONE
+[2024-12-19 18:09:05,255] [INFO] [idriss_frontend] Entered in the 'setup_round' round for period 0
+[2024-12-19 18:09:05,257] [INFO] [idriss_frontend] Entered in the 'setup_behaviour' behaviour
+[2024-12-19 18:09:05,261] [INFO] [idriss_frontend] Loading User Interface: idriss_token_finder
+[2024-12-19 18:09:05,262] [INFO] [idriss_frontend] Generating routes for the UI in vendor/victorpolisetty/customs/idriss_token_finder...
+[2024-12-19 18:09:05,262] [INFO] [idriss_frontend] Routes generated: 1 routes.
+[2024-12-19 18:09:05,262] [INFO] [idriss_frontend] Added vendor/victorpolisetty/customs/idriss_token_finder to the path.
+[2024-12-19 18:09:05,263] [INFO] [idriss_frontend] Loading behaviours for Author: victorpolisetty Component: idriss_token_finder in vendor/victorpolisetty/customs/idriss_token_finder
+[2024-12-19 18:09:06,567] [INFO] [idriss_frontend] Behaviour LogReadingBehaviour loaded and running.
+[2024-12-19 18:09:06,567] [INFO] [idriss_frontend] Behaviour <idriss_token_finder.behaviours.LogReadingBehaviour object at 0x11077a990> started.
+[2024-12-19 18:09:06,568] [INFO] [idriss_frontend] Loading handlers for Author: victorpolisetty, Component: idriss_token_finder from vendor/victorpolisetty/customs/idriss_token_finder
+[2024-12-19 18:09:06,568] [INFO] [idriss_frontend] Handler ApiHttpHandler loaded.
+[2024-12-19 18:09:06,568] [INFO] [idriss_frontend] Methods found in ApiHttpHandler: extract_first_ticker, filter_and_sort_by_age, handle, handle_get_api, handle_post_api_analyze, handle_wrapper, parse_module, parse_prompt_with_gpt, protocol_dialogues, setup, teardown
+[2024-12-19 18:09:06,570] [INFO] [idriss_frontend] UI setup status: None
+[2024-12-19 18:09:06,571] [INFO] [idriss_frontend] UI handlers status: None
+[2024-12-19 18:09:06,572] [INFO] [idriss_frontend] UI behaviours status: None
+[2024-12-19 18:09:07,294] [INFO] [idriss_frontend] 'setup_round' round is done with event: Event.DONE
+[2024-12-19 18:09:07,294] [INFO] [idriss_frontend] Entered in the 'healthcheck_round' round for period 0
+[2024-12-19 18:09:07,296] [INFO] [idriss_frontend] Entered in the 'healthcheck_behaviour' behaviour
+[2024-12-19 18:09:08,307] [INFO] [idriss_frontend] 'healthcheck_round' round is done with event: Event.DONE
+[2024-12-19 18:09:08,307] [INFO] [idriss_frontend] Entered in the 'reset_and_pause_round' round for period 0
+[2024-12-19 18:09:08,309] [INFO] [idriss_frontend] Entered in the 'reset_and_pause_behaviour' behaviour
+[2024-12-19 18:09:37,259] [INFO] [idriss_frontend] Period end.
+[2024-12-19 18:09:37,725] [ERROR] [idriss_frontend] TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: ['0x0000000000000000000000000000000000000000']
+[2024-12-19 18:09:38,303] [WARNING] [idriss_frontend] Tx sent but not delivered. Response = Message(sender=valory/http_client:0.23.0,to=eightballer/trader_abci:0.1.0,body=b'{\n  "jsonrpc": "2.0",\n  "id": -1,\n  "result": {\n    "hash": "050EE2F0CC175D9FDBE5CE019AC2B0CF4A1877186775E60AF56F93277473F242",\n    "height": "36",\n    "index": 0,\n    "tx_result": {\n      "code": 1,\n      "data": null,\n      "log": "",\n      "info": "TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: [\'0x0000000000000000000000000000000000000000\']",\n      "gas_wanted": "0",\n      "gas_used": "0",\n      "events": [],\n      "codespace": ""\n    },\n    "tx": "eyJwYXlsb2FkIjogeyJfbWV0YWNsYXNzX3JlZ2lzdHJ5X2tleSI6ICJwYWNrYWdlcy52YWxv,dialogue_reference=('c80b981215a620c65660d728f65a3ba22416f594779d13fe31842446b1a5af47', 'f761730e1df6c0c44f74fdca1d4a41b6f70c635aaf1e5809d4f3efa6c2b05420'),headers=Content-Type: application/json
+X-Server-Time: 1734649778
+Date: Thu, 19 Dec 2024 23:09:38 GMT
 Content-Length: 1042
 
 ,message_id=-1,performative=response,status_code=200,status_text=OK,target=1,version=)
-[2024-12-19 18:04:41,324] [ERROR] [idriss_frontend] TransactionNotValidError: 0xBe99F193D5e3d7F041be50153e3e8Cf3695865E1 not in list of participants: ['0x0000000000000000000000000000000000000000']
-[2024-12-19 18:04:41,799] [WARNING] [idriss_frontend] Tx sent but not delivered. Response = Message(sender=valory/http_client:0.23.0,to=eightballer/trader_abci:0.1.0,body=b'{\n  "jsonrpc": "2.0",\n  "id": -1,\n  "result": {\n    "hash": "0140262967B6CAF1D4728726B615354508A1D7C43D9B2EB6E39DA0A94CB6AE9E",\n    "height": "38",\n    "index": 0,\n    "tx_result": {\n      "code": 1,\n      "data": null,\n      "log": "",\n      "info": "TransactionNotValidError: 0xBe99F193D5e3d7F041be50153e3e8Cf3695865E1 not in list of participants: [\'0x0000000000000000000000000000000000000000\']",\n      "gas_wanted": "0",\n      "gas_used": "0",\n      "events": [],\n      "codespace": ""\n    },\n    "tx": "eyJwYXlsb2FkIjogeyJfbWV0YWNsYXNzX3JlZ2lzdHJ5X2tleSI6ICJwYWNrYWdlcy52YWxv,dialogue_reference=('07b03b7a77d717f926e0ef61fa957e3581dcebbb16e2cb32cf635f9950be35d7', '542eb37dc5c4f0a021a2bf7434bf4d98bdcbd80f964e7f08559c4d165c27f18e'),headers=Content-Type: application/json
-X-Server-Time: 1734649481
-Date: Thu, 19 Dec 2024 23:04:41 GMT
+[2024-12-19 18:09:38,738] [ERROR] [idriss_frontend] TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: ['0x0000000000000000000000000000000000000000']
+[2024-12-19 18:09:39,350] [WARNING] [idriss_frontend] Tx sent but not delivered. Response = Message(sender=valory/http_client:0.23.0,to=eightballer/trader_abci:0.1.0,body=b'{\n  "jsonrpc": "2.0",\n  "id": -1,\n  "result": {\n    "hash": "B276A4D6E7A70589CA7DED81A615738E30958A5373540A8B82C5F4DA096F87EF",\n    "height": "37",\n    "index": 0,\n    "tx_result": {\n      "code": 1,\n      "data": null,\n      "log": "",\n      "info": "TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: [\'0x0000000000000000000000000000000000000000\']",\n      "gas_wanted": "0",\n      "gas_used": "0",\n      "events": [],\n      "codespace": ""\n    },\n    "tx": "eyJwYXlsb2FkIjogeyJfbWV0YWNsYXNzX3JlZ2lzdHJ5X2tleSI6ICJwYWNrYWdlcy52YWxv,dialogue_reference=('5acb5b58625ddb4c5e7fc9001aeebf150d706cef3c404ebc8b723b7af70bd40b', '34f90aac954690095e4e140842e31f811421d643782d20da6d06b3f4dd20bc4f'),headers=Content-Type: application/json
+X-Server-Time: 1734649779
+Date: Thu, 19 Dec 2024 23:09:39 GMT
 Content-Length: 1042
 
 ,message_id=-1,performative=response,status_code=200,status_text=OK,target=1,version=)
-[2024-12-19 18:04:42,345] [ERROR] [idriss_frontend] TransactionNotValidError: 0xBe99F193D5e3d7F041be50153e3e8Cf3695865E1 not in list of participants: ['0x0000000000000000000000000000000000000000']
-[2024-12-19 18:04:42,850] [WARNING] [idriss_frontend] Tx sent but not delivered. Response = Message(sender=valory/http_client:0.23.0,to=eightballer/trader_abci:0.1.0,body=b'{\n  "jsonrpc": "2.0",\n  "id": -1,\n  "result": {\n    "hash": "4E68A86322C277303E25B1467485746BAE590B8BEF803B4241F0A616A6C12D2E",\n    "height": "39",\n    "index": 0,\n    "tx_result": {\n      "code": 1,\n      "data": null,\n      "log": "",\n      "info": "TransactionNotValidError: 0xBe99F193D5e3d7F041be50153e3e8Cf3695865E1 not in list of participants: [\'0x0000000000000000000000000000000000000000\']",\n      "gas_wanted": "0",\n      "gas_used": "0",\n      "events": [],\n      "codespace": ""\n    },\n    "tx": "eyJwYXlsb2FkIjogeyJfbWV0YWNsYXNzX3JlZ2lzdHJ5X2tleSI6ICJwYWNrYWdlcy52YWxv,dialogue_reference=('45571691027711021697dc7b213006d5973d6ba137f3fe7d9c4c430eb4cf08e1', '564978c211bb448d26c465f9fb7ec9c1fd9ddbf16b56e79b5962b1fd685a6112'),headers=Content-Type: application/json
-X-Server-Time: 1734649482
-Date: Thu, 19 Dec 2024 23:04:42 GMT
+[2024-12-19 18:09:39,752] [ERROR] [idriss_frontend] TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: ['0x0000000000000000000000000000000000000000']
+[2024-12-19 18:09:40,395] [WARNING] [idriss_frontend] Tx sent but not delivered. Response = Message(sender=valory/http_client:0.23.0,to=eightballer/trader_abci:0.1.0,body=b'{\n  "jsonrpc": "2.0",\n  "id": -1,\n  "result": {\n    "hash": "2871561F84AC67EE2E2FB9ED1CFFA308853A411C96959D1F3B54670D31D9A3BF",\n    "height": "38",\n    "index": 0,\n    "tx_result": {\n      "code": 1,\n      "data": null,\n      "log": "",\n      "info": "TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: [\'0x0000000000000000000000000000000000000000\']",\n      "gas_wanted": "0",\n      "gas_used": "0",\n      "events": [],\n      "codespace": ""\n    },\n    "tx": "eyJwYXlsb2FkIjogeyJfbWV0YWNsYXNzX3JlZ2lzdHJ5X2tleSI6ICJwYWNrYWdlcy52YWxv,dialogue_reference=('d0d3a5868d4003bec0844d0e17ed05ef1d29ae151e4fc670f7768db2c6ea8503', '9ff49bba997653feaccbb8c183750c379267d624564b6a18d88b64e1cba7de3a'),headers=Content-Type: application/json
+X-Server-Time: 1734649780
+Date: Thu, 19 Dec 2024 23:09:40 GMT
 Content-Length: 1042
 
 ,message_id=-1,performative=response,status_code=200,status_text=OK,target=1,version=)
-[2024-12-19 18:04:43,359] [ERROR] [idriss_frontend] TransactionNotValidError: 0xBe99F193D5e3d7F041be50153e3e8Cf3695865E1 not in list of participants: ['0x0000000000000000000000000000000000000000']
-[2024-12-19 18:04:43,903] [WARNING] [idriss_frontend] Tx sent but not delivered. Response = Message(sender=valory/http_client:0.23.0,to=eightballer/trader_abci:0.1.0,body=b'{\n  "jsonrpc": "2.0",\n  "id": -1,\n  "result": {\n    "hash": "0A3760A2883A7E2D7AD1255D7D526044C5CB8C83D09F5116983B6E82D12DC09C",\n    "height": "40",\n    "index": 0,\n    "tx_result": {\n      "code": 1,\n      "data": null,\n      "log": "",\n      "info": "TransactionNotValidError: 0xBe99F193D5e3d7F041be50153e3e8Cf3695865E1 not in list of participants: [\'0x0000000000000000000000000000000000000000\']",\n      "gas_wanted": "0",\n      "gas_used": "0",\n      "events": [],\n      "codespace": ""\n    },\n    "tx": "eyJwYXlsb2FkIjogeyJfbWV0YWNsYXNzX3JlZ2lzdHJ5X2tleSI6ICJwYWNrYWdlcy52YWxv,dialogue_reference=('1487699bd97d4539972f13ff597967ef28df5843a0631c947fd92097c18daf78', '91ea931c902b9da1b82574c5d7e86188c009b237b0c8a39987beb1713e1d53b0'),headers=Content-Type: application/json
-X-Server-Time: 1734649483
-Date: Thu, 19 Dec 2024 23:04:43 GMT
+[2024-12-19 18:09:40,766] [ERROR] [idriss_frontend] TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: ['0x0000000000000000000000000000000000000000']
+[2024-12-19 18:09:41,438] [WARNING] [idriss_frontend] Tx sent but not delivered. Response = Message(sender=valory/http_client:0.23.0,to=eightballer/trader_abci:0.1.0,body=b'{\n  "jsonrpc": "2.0",\n  "id": -1,\n  "result": {\n    "hash": "A9BC08BC98E8604F98B76B68A2DB6427C2A184097CACFA58BB080AFEF727BE12",\n    "height": "39",\n    "index": 0,\n    "tx_result": {\n      "code": 1,\n      "data": null,\n      "log": "",\n      "info": "TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: [\'0x0000000000000000000000000000000000000000\']",\n      "gas_wanted": "0",\n      "gas_used": "0",\n      "events": [],\n      "codespace": ""\n    },\n    "tx": "eyJwYXlsb2FkIjogeyJfbWV0YWNsYXNzX3JlZ2lzdHJ5X2tleSI6ICJwYWNrYWdlcy52YWxv,dialogue_reference=('1b0f961d95427b82ab30bf552d42e19666d3e6bf854f653850492a69e72a2875', '51db85834f7ffde853c820fa0648cb6085130797ace3113942bb0407fd374e82'),headers=Content-Type: application/json
+X-Server-Time: 1734649781
+Date: Thu, 19 Dec 2024 23:09:41 GMT
 Content-Length: 1042
 
 ,message_id=-1,performative=response,status_code=200,status_text=OK,target=1,version=)
-[2024-12-19 18:04:44,379] [ERROR] [idriss_frontend] TransactionNotValidError: 0xBe99F193D5e3d7F041be50153e3e8Cf3695865E1 not in list of participants: ['0x0000000000000000000000000000000000000000']
-[2024-12-19 18:04:44,954] [WARNING] [idriss_frontend] Tx sent but not delivered. Response = Message(sender=valory/http_client:0.23.0,to=eightballer/trader_abci:0.1.0,body=b'{\n  "jsonrpc": "2.0",\n  "id": -1,\n  "result": {\n    "hash": "ED9A7498DFCC518D9BC3E3A06E1A40559E777B78391D65EDED192357760E9EAB",\n    "height": "41",\n    "index": 0,\n    "tx_result": {\n      "code": 1,\n      "data": null,\n      "log": "",\n      "info": "TransactionNotValidError: 0xBe99F193D5e3d7F041be50153e3e8Cf3695865E1 not in list of participants: [\'0x0000000000000000000000000000000000000000\']",\n      "gas_wanted": "0",\n      "gas_used": "0",\n      "events": [],\n      "codespace": ""\n    },\n    "tx": "eyJwYXlsb2FkIjogeyJfbWV0YWNsYXNzX3JlZ2lzdHJ5X2tleSI6ICJwYWNrYWdlcy52YWxv,dialogue_reference=('c56d66b641c7099860b1c5026f88e7a9115480a56223665611fe967ac49093ac', '7b1891ebe2d6b89fa6428cc6bf3e69806418a9dc737cc5372b85245de71d2a08'),headers=Content-Type: application/json
-X-Server-Time: 1734649484
-Date: Thu, 19 Dec 2024 23:04:44 GMT
+[2024-12-19 18:09:41,780] [ERROR] [idriss_frontend] TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: ['0x0000000000000000000000000000000000000000']
+[2024-12-19 18:09:42,482] [WARNING] [idriss_frontend] Tx sent but not delivered. Response = Message(sender=valory/http_client:0.23.0,to=eightballer/trader_abci:0.1.0,body=b'{\n  "jsonrpc": "2.0",\n  "id": -1,\n  "result": {\n    "hash": "F93FDED82F6F5B127ECD8C3789A13C131B809F9A36E289DA9A450D540747DDB5",\n    "height": "40",\n    "index": 0,\n    "tx_result": {\n      "code": 1,\n      "data": null,\n      "log": "",\n      "info": "TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: [\'0x0000000000000000000000000000000000000000\']",\n      "gas_wanted": "0",\n      "gas_used": "0",\n      "events": [],\n      "codespace": ""\n    },\n    "tx": "eyJwYXlsb2FkIjogeyJfbWV0YWNsYXNzX3JlZ2lzdHJ5X2tleSI6ICJwYWNrYWdlcy52YWxv,dialogue_reference=('a45486220b7078d00cf296b6fb622968fdd1fbbe001bf7888b5136020b8db11a', '03773bdd837935f6dd01a8499fc19086bec803bc4edb3f7e55f4a360bafd49e9'),headers=Content-Type: application/json
+X-Server-Time: 1734649782
+Date: Thu, 19 Dec 2024 23:09:42 GMT
 Content-Length: 1042
 
 ,message_id=-1,performative=response,status_code=200,status_text=OK,target=1,version=)
-[2024-12-19 18:04:45,399] [ERROR] [idriss_frontend] TransactionNotValidError: 0xBe99F193D5e3d7F041be50153e3e8Cf3695865E1 not in list of participants: ['0x0000000000000000000000000000000000000000']
-[2024-12-19 18:04:46,108] [WARNING] [idriss_frontend] Tx sent but not delivered. Response = Message(sender=valory/http_client:0.23.0,to=eightballer/trader_abci:0.1.0,body=b'{\n  "jsonrpc": "2.0",\n  "id": -1,\n  "result": {\n    "hash": "E6135153480209EBFDC1F9F701BDA4FA0E6897BDE45FC5E9029617806BF0A550",\n    "height": "42",\n    "index": 0,\n    "tx_result": {\n      "code": 1,\n      "data": null,\n      "log": "",\n      "info": "TransactionNotValidError: 0xBe99F193D5e3d7F041be50153e3e8Cf3695865E1 not in list of participants: [\'0x0000000000000000000000000000000000000000\']",\n      "gas_wanted": "0",\n      "gas_used": "0",\n      "events": [],\n      "codespace": ""\n    },\n    "tx": "eyJwYXlsb2FkIjogeyJfbWV0YWNsYXNzX3JlZ2lzdHJ5X2tleSI6ICJwYWNrYWdlcy52YWxv,dialogue_reference=('650d6c2ec4c9b5545baa30ec4d3764f9064cb22919e2726f26e43294b87e7586', 'cb702bdfea1c5837db53e48855eb447b6f73a8235219bb7e7d8fa3eb96d2760c'),headers=Content-Type: application/json
-X-Server-Time: 1734649486
-Date: Thu, 19 Dec 2024 23:04:46 GMT
+[2024-12-19 18:09:42,793] [ERROR] [idriss_frontend] TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: ['0x0000000000000000000000000000000000000000']
+[2024-12-19 18:09:43,528] [WARNING] [idriss_frontend] Tx sent but not delivered. Response = Message(sender=valory/http_client:0.23.0,to=eightballer/trader_abci:0.1.0,body=b'{\n  "jsonrpc": "2.0",\n  "id": -1,\n  "result": {\n    "hash": "6868C3FF207EE7541A49BE21B3869C845B8C62E178B6EE52BFE0A2F811BFC814",\n    "height": "41",\n    "index": 0,\n    "tx_result": {\n      "code": 1,\n      "data": null,\n      "log": "",\n      "info": "TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: [\'0x0000000000000000000000000000000000000000\']",\n      "gas_wanted": "0",\n      "gas_used": "0",\n      "events": [],\n      "codespace": ""\n    },\n    "tx": "eyJwYXlsb2FkIjogeyJfbWV0YWNsYXNzX3JlZ2lzdHJ5X2tleSI6ICJwYWNrYWdlcy52YWxv,dialogue_reference=('fedbdb82c6800145b3ecb9e630b281b9feaa4c60457de3596741305ce5296b36', '84d0c30fc43f8224f07b501c18432069da86ce084c33da56434f5fb3294e07d5'),headers=Content-Type: application/json
+X-Server-Time: 1734649783
+Date: Thu, 19 Dec 2024 23:09:43 GMT
 Content-Length: 1042
 
 ,message_id=-1,performative=response,status_code=200,status_text=OK,target=1,version=)
-[2024-12-19 18:04:46,404] [WARNING] [idriss_frontend] expired deadline 2024-12-19 18:04:44.683085 with event Event.RESET_AND_PAUSE_TIMEOUT at AbciApp time 2024-12-19 18:04:45.366670
-[2024-12-19 18:04:46,405] [WARNING] [idriss_frontend] current AbciApp time after expired deadline: 2024-12-19 18:04:45.366670
-[2024-12-19 18:04:46,407] [INFO] [idriss_frontend] 'reset_and_pause_round' round is done with event: Event.RESET_AND_PAUSE_TIMEOUT
-[2024-12-19 18:04:46,408] [INFO] [idriss_frontend] Entered in the 'reset_and_pause_round' round for period 0
-[2024-12-19 18:04:46,411] [INFO] [idriss_frontend] Entered in the 'reset_and_pause_behaviour' behaviour
-[2024-12-19 18:04:46,432] [ERROR] [idriss_frontend] TransactionNotValidError: Expected round count 4 and got 3.
-[2024-12-19 18:04:55,534] [INFO] [idriss_frontend] HTTP Client has shutdown on port: 8000.
-[2024-12-19 18:04:55,535] [INFO] [idriss_frontend] HTTP Server has shutdown on port: 5555.
-[2024-12-19 18:04:55,536] [INFO] [idriss_frontend] HTTP Server has shutdown on port: 5556.
-[2024-12-19 18:04:55,537] [INFO] [idriss_frontend] HTTP Client has shutdown on port: 8000.
-[2024-12-19 18:04:55,607] [ERROR] [idriss_frontend] Unhandled exception AttributeError: 'NoneType' object has no attribute 'put'
+[2024-12-19 18:09:43,792] [WARNING] [idriss_frontend] expired deadline 2024-12-19 18:09:42.258104 with event Event.RESET_AND_PAUSE_TIMEOUT at AbciApp time 2024-12-19 18:09:42.769062
+[2024-12-19 18:09:43,793] [WARNING] [idriss_frontend] current AbciApp time after expired deadline: 2024-12-19 18:09:42.769062
+[2024-12-19 18:09:43,793] [INFO] [idriss_frontend] 'reset_and_pause_round' round is done with event: Event.RESET_AND_PAUSE_TIMEOUT
+[2024-12-19 18:09:43,793] [INFO] [idriss_frontend] Entered in the 'reset_and_pause_round' round for period 0
+[2024-12-19 18:09:43,796] [INFO] [idriss_frontend] Entered in the 'reset_and_pause_behaviour' behaviour
+[2024-12-19 18:09:43,810] [ERROR] [idriss_frontend] TransactionNotValidError: Expected round count 4 and got 3.
+[2024-12-19 18:10:12,770] [INFO] [idriss_frontend] Period end.
+[2024-12-19 18:10:13,320] [ERROR] [idriss_frontend] TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: ['0x0000000000000000000000000000000000000000']
+[2024-12-19 18:10:13,816] [WARNING] [idriss_frontend] Tx sent but not delivered. Response = Message(sender=valory/http_client:0.23.0,to=eightballer/trader_abci:0.1.0,body=b'{\n  "jsonrpc": "2.0",\n  "id": -1,\n  "result": {\n    "hash": "6084CC7A410DC6D2FD59C7A36FDE61D01545C654648F349F0F8FA96547019E76",\n    "height": "71",\n    "index": 0,\n    "tx_result": {\n      "code": 1,\n      "data": null,\n      "log": "",\n      "info": "TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: [\'0x0000000000000000000000000000000000000000\']",\n      "gas_wanted": "0",\n      "gas_used": "0",\n      "events": [],\n      "codespace": ""\n    },\n    "tx": "eyJwYXlsb2FkIjogeyJfbWV0YWNsYXNzX3JlZ2lzdHJ5X2tleSI6ICJwYWNrYWdlcy52YWxv,dialogue_reference=('9f6b99f6bc11786cc7f587883a0f4af15a6b1c0d36de32264507c29fd5c65a0f', 'd983fba777d3a9a75633f90bdd6b79c46a24d02be214b783237892cca39df31d'),headers=Content-Type: application/json
+X-Server-Time: 1734649813
+Date: Thu, 19 Dec 2024 23:10:13 GMT
+Content-Length: 1042
+
+,message_id=-1,performative=response,status_code=200,status_text=OK,target=1,version=)
+[2024-12-19 18:10:14,331] [ERROR] [idriss_frontend] TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: ['0x0000000000000000000000000000000000000000']
+[2024-12-19 18:10:14,866] [WARNING] [idriss_frontend] Tx sent but not delivered. Response = Message(sender=valory/http_client:0.23.0,to=eightballer/trader_abci:0.1.0,body=b'{\n  "jsonrpc": "2.0",\n  "id": -1,\n  "result": {\n    "hash": "90468C4C3ED9F0237518AC0DBC1B0A9461856895F566AFE8FFE535C196AE9259",\n    "height": "72",\n    "index": 0,\n    "tx_result": {\n      "code": 1,\n      "data": null,\n      "log": "",\n      "info": "TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: [\'0x0000000000000000000000000000000000000000\']",\n      "gas_wanted": "0",\n      "gas_used": "0",\n      "events": [],\n      "codespace": ""\n    },\n    "tx": "eyJwYXlsb2FkIjogeyJfbWV0YWNsYXNzX3JlZ2lzdHJ5X2tleSI6ICJwYWNrYWdlcy52YWxv,dialogue_reference=('eac938050961369ade1fed3ad133a0e7a84b0ad63c9f1b9cd4d537ce2361fd75', '263f9a10f85165b227e9f23a22b9c9064ed8e9908828462295feb51edaee1423'),headers=Content-Type: application/json
+X-Server-Time: 1734649814
+Date: Thu, 19 Dec 2024 23:10:14 GMT
+Content-Length: 1042
+
+,message_id=-1,performative=response,status_code=200,status_text=OK,target=1,version=)
+[2024-12-19 18:10:15,346] [ERROR] [idriss_frontend] TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: ['0x0000000000000000000000000000000000000000']
+[2024-12-19 18:10:15,912] [WARNING] [idriss_frontend] Tx sent but not delivered. Response = Message(sender=valory/http_client:0.23.0,to=eightballer/trader_abci:0.1.0,body=b'{\n  "jsonrpc": "2.0",\n  "id": -1,\n  "result": {\n    "hash": "2D7343EEFF59C66ED3D7CA313AEE8A8F26D7235D54E54FCD2AC83183DB14721A",\n    "height": "73",\n    "index": 0,\n    "tx_result": {\n      "code": 1,\n      "data": null,\n      "log": "",\n      "info": "TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: [\'0x0000000000000000000000000000000000000000\']",\n      "gas_wanted": "0",\n      "gas_used": "0",\n      "events": [],\n      "codespace": ""\n    },\n    "tx": "eyJwYXlsb2FkIjogeyJfbWV0YWNsYXNzX3JlZ2lzdHJ5X2tleSI6ICJwYWNrYWdlcy52YWxv,dialogue_reference=('c73c6477b7bf0f64b83f32b8d05b7b52272fb794be09a45be5cd163728125b8d', '03473295c0918d5f74a2c2b1d0134af8fa83daec49e6d3c1a4c30131c2a92193'),headers=Content-Type: application/json
+X-Server-Time: 1734649815
+Date: Thu, 19 Dec 2024 23:10:15 GMT
+Content-Length: 1042
+
+,message_id=-1,performative=response,status_code=200,status_text=OK,target=1,version=)
+[2024-12-19 18:10:16,374] [ERROR] [idriss_frontend] TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: ['0x0000000000000000000000000000000000000000']
+[2024-12-19 18:10:16,956] [WARNING] [idriss_frontend] Tx sent but not delivered. Response = Message(sender=valory/http_client:0.23.0,to=eightballer/trader_abci:0.1.0,body=b'{\n  "jsonrpc": "2.0",\n  "id": -1,\n  "result": {\n    "hash": "507917B95BDD5DF05EA20A4BB96D37EFDCF43CAE563239202A9026EBF9363711",\n    "height": "74",\n    "index": 0,\n    "tx_result": {\n      "code": 1,\n      "data": null,\n      "log": "",\n      "info": "TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: [\'0x0000000000000000000000000000000000000000\']",\n      "gas_wanted": "0",\n      "gas_used": "0",\n      "events": [],\n      "codespace": ""\n    },\n    "tx": "eyJwYXlsb2FkIjogeyJfbWV0YWNsYXNzX3JlZ2lzdHJ5X2tleSI6ICJwYWNrYWdlcy52YWxv,dialogue_reference=('c436fb1863d8d0ecad8ed8bb544850138e752cebda45e0e167c79132b21dff88', '068b73cc8fb6441d839e10b4a216ccf5b216c01c6200da9f5cbe645da46f12b6'),headers=Content-Type: application/json
+X-Server-Time: 1734649816
+Date: Thu, 19 Dec 2024 23:10:16 GMT
+Content-Length: 1042
+
+,message_id=-1,performative=response,status_code=200,status_text=OK,target=1,version=)
+[2024-12-19 18:10:17,390] [ERROR] [idriss_frontend] TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: ['0x0000000000000000000000000000000000000000']
+[2024-12-19 18:10:18,000] [WARNING] [idriss_frontend] Tx sent but not delivered. Response = Message(sender=valory/http_client:0.23.0,to=eightballer/trader_abci:0.1.0,body=b'{\n  "jsonrpc": "2.0",\n  "id": -1,\n  "result": {\n    "hash": "FB577442B4A9CCA28E21C80BABDD383430764A93C6470069521A12D4BB39941D",\n    "height": "75",\n    "index": 0,\n    "tx_result": {\n      "code": 1,\n      "data": null,\n      "log": "",\n      "info": "TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: [\'0x0000000000000000000000000000000000000000\']",\n      "gas_wanted": "0",\n      "gas_used": "0",\n      "events": [],\n      "codespace": ""\n    },\n    "tx": "eyJwYXlsb2FkIjogeyJfbWV0YWNsYXNzX3JlZ2lzdHJ5X2tleSI6ICJwYWNrYWdlcy52YWxv,dialogue_reference=('4c9ccaaeefc7758c708235b7da9e201ad1649662a21ed4b75d0e2a27f4032b85', 'bc391e93e4c92407f1066085ec5460838ff932dc28849d977478bd0ec2fc47c3'),headers=Content-Type: application/json
+X-Server-Time: 1734649817
+Date: Thu, 19 Dec 2024 23:10:17 GMT
+Content-Length: 1042
+
+,message_id=-1,performative=response,status_code=200,status_text=OK,target=1,version=)
+[2024-12-19 18:10:18,405] [ERROR] [idriss_frontend] TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: ['0x0000000000000000000000000000000000000000']
+[2024-12-19 18:10:19,044] [WARNING] [idriss_frontend] Tx sent but not delivered. Response = Message(sender=valory/http_client:0.23.0,to=eightballer/trader_abci:0.1.0,body=b'{\n  "jsonrpc": "2.0",\n  "id": -1,\n  "result": {\n    "hash": "7281D92993592E0A8004BA15A7708C280A6E0D013176D92F7764FC0ABA8B9FFB",\n    "height": "76",\n    "index": 0,\n    "tx_result": {\n      "code": 1,\n      "data": null,\n      "log": "",\n      "info": "TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: [\'0x0000000000000000000000000000000000000000\']",\n      "gas_wanted": "0",\n      "gas_used": "0",\n      "events": [],\n      "codespace": ""\n    },\n    "tx": "eyJwYXlsb2FkIjogeyJfbWV0YWNsYXNzX3JlZ2lzdHJ5X2tleSI6ICJwYWNrYWdlcy52YWxv,dialogue_reference=('fb857bb943bbccfa456ebd81b19f1e3e78d8fc3dd66595cdecc356fcf9387187', 'fc1f3ed51e65a5c9452475d1fa9919a223f4b9ef0f173aed35d7bf3d9ef38c85'),headers=Content-Type: application/json
+X-Server-Time: 1734649819
+Date: Thu, 19 Dec 2024 23:10:19 GMT
+Content-Length: 1042
+
+,message_id=-1,performative=response,status_code=200,status_text=OK,target=1,version=)
+[2024-12-19 18:10:19,411] [WARNING] [idriss_frontend] expired deadline 2024-12-19 18:10:17.769062 with event Event.RESET_AND_PAUSE_TIMEOUT at AbciApp time 2024-12-19 18:10:18.380402
+[2024-12-19 18:10:19,412] [WARNING] [idriss_frontend] current AbciApp time after expired deadline: 2024-12-19 18:10:18.380402
+[2024-12-19 18:10:19,412] [INFO] [idriss_frontend] 'reset_and_pause_round' round is done with event: Event.RESET_AND_PAUSE_TIMEOUT
+[2024-12-19 18:10:19,412] [INFO] [idriss_frontend] Entered in the 'reset_and_pause_round' round for period 0
+[2024-12-19 18:10:19,415] [INFO] [idriss_frontend] Entered in the 'reset_and_pause_behaviour' behaviour
+[2024-12-19 18:10:19,431] [ERROR] [idriss_frontend] TransactionNotValidError: Expected round count 5 and got 4.
+[2024-12-19 18:10:26,370] [INFO] [idriss_frontend] Received request for path: index.html
+[2024-12-19 18:10:27,187] [INFO] [idriss_frontend] Received request for path: favicon.ico
+[2024-12-19 18:10:27,188] [WARNING] [idriss_frontend] Context not found for path: favicon.ico
+[2024-12-19 18:10:48,380] [INFO] [idriss_frontend] Period end.
+[2024-12-19 18:10:48,938] [ERROR] [idriss_frontend] TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: ['0x0000000000000000000000000000000000000000']
+[2024-12-19 18:10:49,426] [WARNING] [idriss_frontend] Tx sent but not delivered. Response = Message(sender=valory/http_client:0.23.0,to=eightballer/trader_abci:0.1.0,body=b'{\n  "jsonrpc": "2.0",\n  "id": -1,\n  "result": {\n    "hash": "11DC1AEAA7936D80E4A583E744BB17980DCE3159796ADA570AB36E3C5A2FF4C7",\n    "height": "106",\n    "index": 0,\n    "tx_result": {\n      "code": 1,\n      "data": null,\n      "log": "",\n      "info": "TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: [\'0x0000000000000000000000000000000000000000\']",\n      "gas_wanted": "0",\n      "gas_used": "0",\n      "events": [],\n      "codespace": ""\n    },\n    "tx": "eyJwYXlsb2FkIjogeyJfbWV0YWNsYXNzX3JlZ2lzdHJ5X2tleSI6ICJwYWNrYWdlcy52YWx,dialogue_reference=('1a8feb30ea240890fdec61279a9837c4f03699d5033f85507f0f212bcd905872', '71bd39db47272c7e23a04827952bb562acd1027d05c8e18c3cbd9fc3d831fb52'),headers=Content-Type: application/json
+X-Server-Time: 1734649849
+Date: Thu, 19 Dec 2024 23:10:49 GMT
+Content-Length: 1043
+
+,message_id=-1,performative=response,status_code=200,status_text=OK,target=1,version=)
+[2024-12-19 18:10:49,952] [ERROR] [idriss_frontend] TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: ['0x0000000000000000000000000000000000000000']
+[2024-12-19 18:10:50,477] [WARNING] [idriss_frontend] Tx sent but not delivered. Response = Message(sender=valory/http_client:0.23.0,to=eightballer/trader_abci:0.1.0,body=b'{\n  "jsonrpc": "2.0",\n  "id": -1,\n  "result": {\n    "hash": "C418217A402E37BB7B3B1DE96DC364364C5198B4FD2B954C6F1B4491A26B6903",\n    "height": "107",\n    "index": 0,\n    "tx_result": {\n      "code": 1,\n      "data": null,\n      "log": "",\n      "info": "TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: [\'0x0000000000000000000000000000000000000000\']",\n      "gas_wanted": "0",\n      "gas_used": "0",\n      "events": [],\n      "codespace": ""\n    },\n    "tx": "eyJwYXlsb2FkIjogeyJfbWV0YWNsYXNzX3JlZ2lzdHJ5X2tleSI6ICJwYWNrYWdlcy52YWx,dialogue_reference=('6fd423ef17146817d8b3d7533dd7bd84af1a1967c576a7e652c1c975ba1f546a', 'e982eac38bf13206235f686cab5e2b2dde29e465d86bd5c0af1e45755cdf389a'),headers=Content-Type: application/json
+X-Server-Time: 1734649850
+Date: Thu, 19 Dec 2024 23:10:50 GMT
+Content-Length: 1043
+
+,message_id=-1,performative=response,status_code=200,status_text=OK,target=1,version=)
+[2024-12-19 18:10:50,966] [ERROR] [idriss_frontend] TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: ['0x0000000000000000000000000000000000000000']
+[2024-12-19 18:10:51,526] [WARNING] [idriss_frontend] Tx sent but not delivered. Response = Message(sender=valory/http_client:0.23.0,to=eightballer/trader_abci:0.1.0,body=b'{\n  "jsonrpc": "2.0",\n  "id": -1,\n  "result": {\n    "hash": "D2A463915FD56537D00967E54774D214DD3FBE699836D97493F0C063B5FAF268",\n    "height": "108",\n    "index": 0,\n    "tx_result": {\n      "code": 1,\n      "data": null,\n      "log": "",\n      "info": "TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: [\'0x0000000000000000000000000000000000000000\']",\n      "gas_wanted": "0",\n      "gas_used": "0",\n      "events": [],\n      "codespace": ""\n    },\n    "tx": "eyJwYXlsb2FkIjogeyJfbWV0YWNsYXNzX3JlZ2lzdHJ5X2tleSI6ICJwYWNrYWdlcy52YWx,dialogue_reference=('cd8f9505698bc95661535ed232e79f4a81809f6274a48fe71ff6920028c99a42', '3e385e5130670f23337ff823f9d816c88fb957fccbf976cdd3a38b753ec7ca03'),headers=Content-Type: application/json
+X-Server-Time: 1734649851
+Date: Thu, 19 Dec 2024 23:10:51 GMT
+Content-Length: 1043
+
+,message_id=-1,performative=response,status_code=200,status_text=OK,target=1,version=)
+[2024-12-19 18:10:51,986] [ERROR] [idriss_frontend] TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: ['0x0000000000000000000000000000000000000000']
+[2024-12-19 18:10:52,572] [WARNING] [idriss_frontend] Tx sent but not delivered. Response = Message(sender=valory/http_client:0.23.0,to=eightballer/trader_abci:0.1.0,body=b'{\n  "jsonrpc": "2.0",\n  "id": -1,\n  "result": {\n    "hash": "45DB1902E78DDFA14F389546F493083491D49D94DE511A10B3D6A402678D1622",\n    "height": "109",\n    "index": 0,\n    "tx_result": {\n      "code": 1,\n      "data": null,\n      "log": "",\n      "info": "TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: [\'0x0000000000000000000000000000000000000000\']",\n      "gas_wanted": "0",\n      "gas_used": "0",\n      "events": [],\n      "codespace": ""\n    },\n    "tx": "eyJwYXlsb2FkIjogeyJfbWV0YWNsYXNzX3JlZ2lzdHJ5X2tleSI6ICJwYWNrYWdlcy52YWx,dialogue_reference=('32bb0e6b20770f9dbf49be9adf23885f39ec46d0a06c097f93d3f11676dd3f51', '49d3a98ee1944489ad1c6945cc876c0b849da5ca10d71a302591686ef30dbd44'),headers=Content-Type: application/json
+X-Server-Time: 1734649852
+Date: Thu, 19 Dec 2024 23:10:52 GMT
+Content-Length: 1043
+
+,message_id=-1,performative=response,status_code=200,status_text=OK,target=1,version=)
+[2024-12-19 18:10:52,999] [ERROR] [idriss_frontend] TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: ['0x0000000000000000000000000000000000000000']
+[2024-12-19 18:10:53,617] [WARNING] [idriss_frontend] Tx sent but not delivered. Response = Message(sender=valory/http_client:0.23.0,to=eightballer/trader_abci:0.1.0,body=b'{\n  "jsonrpc": "2.0",\n  "id": -1,\n  "result": {\n    "hash": "469212E871CE02FBBB3DED6297C0C94EF57E7DFC55DE86DDD442605579B90B25",\n    "height": "110",\n    "index": 0,\n    "tx_result": {\n      "code": 1,\n      "data": null,\n      "log": "",\n      "info": "TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: [\'0x0000000000000000000000000000000000000000\']",\n      "gas_wanted": "0",\n      "gas_used": "0",\n      "events": [],\n      "codespace": ""\n    },\n    "tx": "eyJwYXlsb2FkIjogeyJfbWV0YWNsYXNzX3JlZ2lzdHJ5X2tleSI6ICJwYWNrYWdlcy52YWx,dialogue_reference=('73095e57517dca70442b9b606441a3970a72a4d8699e6fc276ca756c54117e48', '99d7be6f6a5898df72d78bd510d5f4514692e0c2ef9cfffde9e7b7600fb6f002'),headers=Content-Type: application/json
+X-Server-Time: 1734649853
+Date: Thu, 19 Dec 2024 23:10:53 GMT
+Content-Length: 1043
+
+,message_id=-1,performative=response,status_code=200,status_text=OK,target=1,version=)
+[2024-12-19 18:10:54,012] [ERROR] [idriss_frontend] TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: ['0x0000000000000000000000000000000000000000']
+[2024-12-19 18:10:54,662] [WARNING] [idriss_frontend] Tx sent but not delivered. Response = Message(sender=valory/http_client:0.23.0,to=eightballer/trader_abci:0.1.0,body=b'{\n  "jsonrpc": "2.0",\n  "id": -1,\n  "result": {\n    "hash": "18D875CC02FA7143DD23F3D14D9C95CFDF72B77C9B486E5AFEE37E8439E0CC3D",\n    "height": "111",\n    "index": 0,\n    "tx_result": {\n      "code": 1,\n      "data": null,\n      "log": "",\n      "info": "TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: [\'0x0000000000000000000000000000000000000000\']",\n      "gas_wanted": "0",\n      "gas_used": "0",\n      "events": [],\n      "codespace": ""\n    },\n    "tx": "eyJwYXlsb2FkIjogeyJfbWV0YWNsYXNzX3JlZ2lzdHJ5X2tleSI6ICJwYWNrYWdlcy52YWx,dialogue_reference=('f5e5a87c4650e55750500b2a7e0dcf9f78fa24a3ef7227162a0186573203bfcb', 'c36696899446d28c7c829df786b5bdca541fb15c62778c9aadf81856dc780537'),headers=Content-Type: application/json
+X-Server-Time: 1734649854
+Date: Thu, 19 Dec 2024 23:10:54 GMT
+Content-Length: 1043
+
+,message_id=-1,performative=response,status_code=200,status_text=OK,target=1,version=)
+[2024-12-19 18:10:55,012] [WARNING] [idriss_frontend] expired deadline 2024-12-19 18:10:53.380402 with event Event.RESET_AND_PAUSE_TIMEOUT at AbciApp time 2024-12-19 18:10:53.988209
+[2024-12-19 18:10:55,013] [WARNING] [idriss_frontend] current AbciApp time after expired deadline: 2024-12-19 18:10:53.988209
+[2024-12-19 18:10:55,013] [INFO] [idriss_frontend] 'reset_and_pause_round' round is done with event: Event.RESET_AND_PAUSE_TIMEOUT
+[2024-12-19 18:10:55,013] [INFO] [idriss_frontend] Entered in the 'reset_and_pause_round' round for period 0
+[2024-12-19 18:10:55,015] [INFO] [idriss_frontend] Entered in the 'reset_and_pause_behaviour' behaviour
+[2024-12-19 18:10:55,030] [ERROR] [idriss_frontend] TransactionNotValidError: Expected round count 6 and got 5.
+[2024-12-19 18:10:59,666] [INFO] [idriss_frontend] API route detected: http://localhost:5555/api/analyze
+[2024-12-19 18:10:59,667] [INFO] [idriss_frontend] Received POST request for /api/analyze
+[2024-12-19 18:10:59,667] [INFO] [idriss_frontend] The prompt is: Find me a memecoin that is < 30 days old and sort by recasts
+[2024-12-19 18:11:03,424] [INFO] [idriss_frontend] Parsed query parameters: {'text': 'memecoin', 'engagement': 'recasts', 'age_limit_days': 30}
+[2024-12-19 18:11:03,424] [INFO] [idriss_frontend] Suggestion from GPT: You can further improve this search by specifying popularity, maximum or minimum price, or number of recasts.
+[2024-12-19 18:11:03,425] [INFO] [idriss_frontend] Parameters after parsing: {'text': 'memecoin', 'engagement': 'recasts', 'age_limit_days': 30}
+[2024-12-19 18:11:09,731] [INFO] [idriss_frontend] Successfully handled POST request for /api/analyze
+[2024-12-19 18:11:24,033] [INFO] [idriss_frontend] Period end.
+[2024-12-19 18:11:25,131] [ERROR] [idriss_frontend] TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: ['0x0000000000000000000000000000000000000000']
+[2024-12-19 18:11:26,157] [WARNING] [idriss_frontend] Tx sent but not delivered. Response = Message(sender=valory/http_client:0.23.0,to=eightballer/trader_abci:0.1.0,body=b'{\n  "jsonrpc": "2.0",\n  "id": -1,\n  "result": {\n    "hash": "EA1295206BB75E462093D9BFC8AA70598218F0395736725DFC6E457B910132E8",\n    "height": "133",\n    "index": 0,\n    "tx_result": {\n      "code": 1,\n      "data": null,\n      "log": "",\n      "info": "TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: [\'0x0000000000000000000000000000000000000000\']",\n      "gas_wanted": "0",\n      "gas_used": "0",\n      "events": [],\n      "codespace": ""\n    },\n    "tx": "eyJwYXlsb2FkIjogeyJfbWV0YWNsYXNzX3JlZ2lzdHJ5X2tleSI6ICJwYWNrYWdlcy52YWx,dialogue_reference=('10fd751a3cf387fc9aa0cfef40cd7bed6d22f26902d4d94a2878a72e43ce0764', 'b9b296562f669022f2a73467b7c0009024377ec714262dff2df9c4ce8f2c79aa'),headers=Content-Type: application/json
+X-Server-Time: 1734649886
+Date: Thu, 19 Dec 2024 23:11:26 GMT
+Content-Length: 1043
+
+,message_id=-1,performative=response,status_code=200,status_text=OK,target=1,version=)
+[2024-12-19 18:11:27,149] [ERROR] [idriss_frontend] TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: ['0x0000000000000000000000000000000000000000']
+[2024-12-19 18:11:27,205] [WARNING] [idriss_frontend] Tx sent but not delivered. Response = Message(sender=valory/http_client:0.23.0,to=eightballer/trader_abci:0.1.0,body=b'{\n  "jsonrpc": "2.0",\n  "id": -1,\n  "result": {\n    "hash": "01771BBF59355D1344DCC0E161962AFA1A333B70017F614F934B1881AEEBC77F",\n    "height": "135",\n    "index": 0,\n    "tx_result": {\n      "code": 1,\n      "data": null,\n      "log": "",\n      "info": "TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: [\'0x0000000000000000000000000000000000000000\']",\n      "gas_wanted": "0",\n      "gas_used": "0",\n      "events": [],\n      "codespace": ""\n    },\n    "tx": "eyJwYXlsb2FkIjogeyJfbWV0YWNsYXNzX3JlZ2lzdHJ5X2tleSI6ICJwYWNrYWdlcy52YWx,dialogue_reference=('ef8f626d5fc0825dd2c930742f84a652029f5fa2c000020acf5b980773176bd8', 'bd8b94f3352b7e1c61d4fff8aaaeced699bbb3a39a54dd710a9789359ea39b15'),headers=Content-Type: application/json
+X-Server-Time: 1734649887
+Date: Thu, 19 Dec 2024 23:11:27 GMT
+Content-Length: 1043
+
+,message_id=-1,performative=response,status_code=200,status_text=OK,target=1,version=)
+[2024-12-19 18:11:28,167] [ERROR] [idriss_frontend] TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: ['0x0000000000000000000000000000000000000000']
+[2024-12-19 18:11:28,256] [WARNING] [idriss_frontend] Tx sent but not delivered. Response = Message(sender=valory/http_client:0.23.0,to=eightballer/trader_abci:0.1.0,body=b'{\n  "jsonrpc": "2.0",\n  "id": -1,\n  "result": {\n    "hash": "41D0002ADBC9D818CB1FECD1FF808D8EDFE2F29B9695EE41632212562FBFEB01",\n    "height": "136",\n    "index": 0,\n    "tx_result": {\n      "code": 1,\n      "data": null,\n      "log": "",\n      "info": "TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: [\'0x0000000000000000000000000000000000000000\']",\n      "gas_wanted": "0",\n      "gas_used": "0",\n      "events": [],\n      "codespace": ""\n    },\n    "tx": "eyJwYXlsb2FkIjogeyJfbWV0YWNsYXNzX3JlZ2lzdHJ5X2tleSI6ICJwYWNrYWdlcy52YWx,dialogue_reference=('b47074408b97dbd69fd6dc5033da957953f46e4e9744908ddd9c7928d1e5b628', '8378b952b66bef3801d5b31578dfcd95197861dd0dee3a8b976408304bf0f272'),headers=Content-Type: application/json
+X-Server-Time: 1734649888
+Date: Thu, 19 Dec 2024 23:11:28 GMT
+Content-Length: 1043
+
+,message_id=-1,performative=response,status_code=200,status_text=OK,target=1,version=)
+[2024-12-19 18:11:29,183] [ERROR] [idriss_frontend] TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: ['0x0000000000000000000000000000000000000000']
+[2024-12-19 18:11:29,307] [WARNING] [idriss_frontend] Tx sent but not delivered. Response = Message(sender=valory/http_client:0.23.0,to=eightballer/trader_abci:0.1.0,body=b'{\n  "jsonrpc": "2.0",\n  "id": -1,\n  "result": {\n    "hash": "29F8037AAC799AE9795E2ACDCC0798BA325957E42ACF19041A36FC74D9B54BD4",\n    "height": "137",\n    "index": 0,\n    "tx_result": {\n      "code": 1,\n      "data": null,\n      "log": "",\n      "info": "TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: [\'0x0000000000000000000000000000000000000000\']",\n      "gas_wanted": "0",\n      "gas_used": "0",\n      "events": [],\n      "codespace": ""\n    },\n    "tx": "eyJwYXlsb2FkIjogeyJfbWV0YWNsYXNzX3JlZ2lzdHJ5X2tleSI6ICJwYWNrYWdlcy52YWx,dialogue_reference=('ab287b42b4d7baed7cfe3d3e0656b43479e7aeb56d332cc0d318432344dc7dec', 'fdd97e59e877e4978fe536371ad3bc45b3cc01541897ace035edaaa9fdc4e598'),headers=Content-Type: application/json
+X-Server-Time: 1734649889
+Date: Thu, 19 Dec 2024 23:11:29 GMT
+Content-Length: 1043
+
+,message_id=-1,performative=response,status_code=200,status_text=OK,target=1,version=)
+[2024-12-19 18:11:30,181] [WARNING] [idriss_frontend] expired deadline 2024-12-19 18:11:28.988209 with event Event.RESET_AND_PAUSE_TIMEOUT at AbciApp time 2024-12-19 18:11:29.156923
+[2024-12-19 18:11:30,182] [WARNING] [idriss_frontend] current AbciApp time after expired deadline: 2024-12-19 18:11:29.156923
+[2024-12-19 18:11:30,182] [INFO] [idriss_frontend] 'reset_and_pause_round' round is done with event: Event.RESET_AND_PAUSE_TIMEOUT
+[2024-12-19 18:11:30,182] [INFO] [idriss_frontend] Entered in the 'reset_and_pause_round' round for period 0
+[2024-12-19 18:11:30,184] [INFO] [idriss_frontend] Entered in the 'reset_and_pause_behaviour' behaviour
+[2024-12-19 18:11:30,199] [ERROR] [idriss_frontend] TransactionNotValidError: Expected round count 7 and got 6.
+[2024-12-19 18:11:59,157] [INFO] [idriss_frontend] Period end.
+[2024-12-19 18:11:59,632] [ERROR] [idriss_frontend] TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: ['0x0000000000000000000000000000000000000000']
+[2024-12-19 18:12:00,202] [WARNING] [idriss_frontend] Tx sent but not delivered. Response = Message(sender=valory/http_client:0.23.0,to=eightballer/trader_abci:0.1.0,body=b'{\n  "jsonrpc": "2.0",\n  "id": -1,\n  "result": {\n    "hash": "70C52660F0E4016D58E99247D90EAB8116F25C8FCA3857FDA6907BF8BB81ADC5",\n    "height": "167",\n    "index": 0,\n    "tx_result": {\n      "code": 1,\n      "data": null,\n      "log": "",\n      "info": "TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: [\'0x0000000000000000000000000000000000000000\']",\n      "gas_wanted": "0",\n      "gas_used": "0",\n      "events": [],\n      "codespace": ""\n    },\n    "tx": "eyJwYXlsb2FkIjogeyJfbWV0YWNsYXNzX3JlZ2lzdHJ5X2tleSI6ICJwYWNrYWdlcy52YWx,dialogue_reference=('d21f7d1d1dc9ef15f3173803df91ac2a176cc780dc56dd343ef609bccb957574', 'dd70607509e846fc559ac2f250db3319d95ca4453b350c5e082eab4f217ec9d0'),headers=Content-Type: application/json
+X-Server-Time: 1734649920
+Date: Thu, 19 Dec 2024 23:12:00 GMT
+Content-Length: 1043
+
+,message_id=-1,performative=response,status_code=200,status_text=OK,target=1,version=)
+[2024-12-19 18:12:00,646] [ERROR] [idriss_frontend] TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: ['0x0000000000000000000000000000000000000000']
+[2024-12-19 18:12:01,249] [WARNING] [idriss_frontend] Tx sent but not delivered. Response = Message(sender=valory/http_client:0.23.0,to=eightballer/trader_abci:0.1.0,body=b'{\n  "jsonrpc": "2.0",\n  "id": -1,\n  "result": {\n    "hash": "9D57EDA9EDEB9E5C21B479F401EFC1C0DFE2A334042F81DE9701899FF55F3863",\n    "height": "168",\n    "index": 0,\n    "tx_result": {\n      "code": 1,\n      "data": null,\n      "log": "",\n      "info": "TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: [\'0x0000000000000000000000000000000000000000\']",\n      "gas_wanted": "0",\n      "gas_used": "0",\n      "events": [],\n      "codespace": ""\n    },\n    "tx": "eyJwYXlsb2FkIjogeyJfbWV0YWNsYXNzX3JlZ2lzdHJ5X2tleSI6ICJwYWNrYWdlcy52YWx,dialogue_reference=('924c3a1d1fefef0fd4f91a26fff323a0f2389433222c590b436bed94e68d8337', '5cad371b47a8d45200bd946bfbece517b403f4311cee828ca5a5325e37e1d28d'),headers=Content-Type: application/json
+X-Server-Time: 1734649921
+Date: Thu, 19 Dec 2024 23:12:01 GMT
+Content-Length: 1043
+
+,message_id=-1,performative=response,status_code=200,status_text=OK,target=1,version=)
+[2024-12-19 18:12:01,662] [ERROR] [idriss_frontend] TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: ['0x0000000000000000000000000000000000000000']
+[2024-12-19 18:12:02,293] [WARNING] [idriss_frontend] Tx sent but not delivered. Response = Message(sender=valory/http_client:0.23.0,to=eightballer/trader_abci:0.1.0,body=b'{\n  "jsonrpc": "2.0",\n  "id": -1,\n  "result": {\n    "hash": "8D971C7FC116547E2C3992196F21507F008C17772CB4402D037F3798F17E7C42",\n    "height": "169",\n    "index": 0,\n    "tx_result": {\n      "code": 1,\n      "data": null,\n      "log": "",\n      "info": "TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: [\'0x0000000000000000000000000000000000000000\']",\n      "gas_wanted": "0",\n      "gas_used": "0",\n      "events": [],\n      "codespace": ""\n    },\n    "tx": "eyJwYXlsb2FkIjogeyJfbWV0YWNsYXNzX3JlZ2lzdHJ5X2tleSI6ICJwYWNrYWdlcy52YWx,dialogue_reference=('aeb1312828257c23bd28e86f8db9d44a950e70bc90da841edbd8ebaf3a3a164a', 'cd1762042d4a2a5f3f25d1f09020427cb97cee94270928fa744cade879c3e3a8'),headers=Content-Type: application/json
+X-Server-Time: 1734649922
+Date: Thu, 19 Dec 2024 23:12:02 GMT
+Content-Length: 1043
+
+,message_id=-1,performative=response,status_code=200,status_text=OK,target=1,version=)
+[2024-12-19 18:12:02,674] [ERROR] [idriss_frontend] TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: ['0x0000000000000000000000000000000000000000']
+[2024-12-19 18:12:03,338] [WARNING] [idriss_frontend] Tx sent but not delivered. Response = Message(sender=valory/http_client:0.23.0,to=eightballer/trader_abci:0.1.0,body=b'{\n  "jsonrpc": "2.0",\n  "id": -1,\n  "result": {\n    "hash": "4DCA2B1781F1C66DBBD0AE9BC7B13101FD74F34EB9407F909700ACD0D7D5D243",\n    "height": "170",\n    "index": 0,\n    "tx_result": {\n      "code": 1,\n      "data": null,\n      "log": "",\n      "info": "TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: [\'0x0000000000000000000000000000000000000000\']",\n      "gas_wanted": "0",\n      "gas_used": "0",\n      "events": [],\n      "codespace": ""\n    },\n    "tx": "eyJwYXlsb2FkIjogeyJfbWV0YWNsYXNzX3JlZ2lzdHJ5X2tleSI6ICJwYWNrYWdlcy52YWx,dialogue_reference=('1e6db97a2cdc1ba0e604043a4e8f0fdf07d1cffcfc6e197982ea1be2222a90e9', '476906f29a151899a58688bd9e499fca9e3da719c6fba27c6006f4fc8436ff4a'),headers=Content-Type: application/json
+X-Server-Time: 1734649923
+Date: Thu, 19 Dec 2024 23:12:03 GMT
+Content-Length: 1043
+
+,message_id=-1,performative=response,status_code=200,status_text=OK,target=1,version=)
+[2024-12-19 18:12:03,686] [ERROR] [idriss_frontend] TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: ['0x0000000000000000000000000000000000000000']
+[2024-12-19 18:12:04,384] [WARNING] [idriss_frontend] Tx sent but not delivered. Response = Message(sender=valory/http_client:0.23.0,to=eightballer/trader_abci:0.1.0,body=b'{\n  "jsonrpc": "2.0",\n  "id": -1,\n  "result": {\n    "hash": "FBAEECB5BAC95EAF37B507CFB4702F97C8F6DED1A549CBE29C601BA10BB6E5A8",\n    "height": "171",\n    "index": 0,\n    "tx_result": {\n      "code": 1,\n      "data": null,\n      "log": "",\n      "info": "TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: [\'0x0000000000000000000000000000000000000000\']",\n      "gas_wanted": "0",\n      "gas_used": "0",\n      "events": [],\n      "codespace": ""\n    },\n    "tx": "eyJwYXlsb2FkIjogeyJfbWV0YWNsYXNzX3JlZ2lzdHJ5X2tleSI6ICJwYWNrYWdlcy52YWx,dialogue_reference=('a3f7fc57749b89bbba1c251c9d00fe74c1d465e334b4a22bf06eaffbd6a60e01', '76c64582e8ea49bfa56bdc24deacfd67d810ceebd31382bab9ad486826dd7880'),headers=Content-Type: application/json
+X-Server-Time: 1734649924
+Date: Thu, 19 Dec 2024 23:12:04 GMT
+Content-Length: 1043
+
+,message_id=-1,performative=response,status_code=200,status_text=OK,target=1,version=)
+[2024-12-19 18:12:04,699] [ERROR] [idriss_frontend] TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: ['0x0000000000000000000000000000000000000000']
+[2024-12-19 18:12:05,427] [WARNING] [idriss_frontend] Tx sent but not delivered. Response = Message(sender=valory/http_client:0.23.0,to=eightballer/trader_abci:0.1.0,body=b'{\n  "jsonrpc": "2.0",\n  "id": -1,\n  "result": {\n    "hash": "2EA469D190AECB5CF6239B736BFBD794371EE9FBB265D17ECFB8722CEBB533D9",\n    "height": "172",\n    "index": 0,\n    "tx_result": {\n      "code": 1,\n      "data": null,\n      "log": "",\n      "info": "TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: [\'0x0000000000000000000000000000000000000000\']",\n      "gas_wanted": "0",\n      "gas_used": "0",\n      "events": [],\n      "codespace": ""\n    },\n    "tx": "eyJwYXlsb2FkIjogeyJfbWV0YWNsYXNzX3JlZ2lzdHJ5X2tleSI6ICJwYWNrYWdlcy52YWx,dialogue_reference=('58b6ae4364865c4e7a016ca80e2801fbc38c19c4bb3ba9bcb22577530a00ed73', '56f816bde6e3b6186f5988e89d928f57598719e91d991aac0a36a0798f657311'),headers=Content-Type: application/json
+X-Server-Time: 1734649925
+Date: Thu, 19 Dec 2024 23:12:05 GMT
+Content-Length: 1043
+
+,message_id=-1,performative=response,status_code=200,status_text=OK,target=1,version=)
+[2024-12-19 18:12:05,697] [WARNING] [idriss_frontend] expired deadline 2024-12-19 18:12:04.156923 with event Event.RESET_AND_PAUSE_TIMEOUT at AbciApp time 2024-12-19 18:12:04.675559
+[2024-12-19 18:12:05,697] [WARNING] [idriss_frontend] current AbciApp time after expired deadline: 2024-12-19 18:12:04.675559
+[2024-12-19 18:12:05,697] [INFO] [idriss_frontend] 'reset_and_pause_round' round is done with event: Event.RESET_AND_PAUSE_TIMEOUT
+[2024-12-19 18:12:05,697] [INFO] [idriss_frontend] Entered in the 'reset_and_pause_round' round for period 0
+[2024-12-19 18:12:05,699] [INFO] [idriss_frontend] Entered in the 'reset_and_pause_behaviour' behaviour
+[2024-12-19 18:12:05,714] [ERROR] [idriss_frontend] TransactionNotValidError: Expected round count 8 and got 7.
+[2024-12-19 18:12:34,675] [INFO] [idriss_frontend] Period end.
+[2024-12-19 18:12:35,223] [ERROR] [idriss_frontend] TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: ['0x0000000000000000000000000000000000000000']
+[2024-12-19 18:12:35,723] [WARNING] [idriss_frontend] Tx sent but not delivered. Response = Message(sender=valory/http_client:0.23.0,to=eightballer/trader_abci:0.1.0,body=b'{\n  "jsonrpc": "2.0",\n  "id": -1,\n  "result": {\n    "hash": "F36E9C65100759A53CB00E8DAE1998B2AB2FC8A26D09C1B5F9695B21DB8C3274",\n    "height": "202",\n    "index": 0,\n    "tx_result": {\n      "code": 1,\n      "data": null,\n      "log": "",\n      "info": "TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: [\'0x0000000000000000000000000000000000000000\']",\n      "gas_wanted": "0",\n      "gas_used": "0",\n      "events": [],\n      "codespace": ""\n    },\n    "tx": "eyJwYXlsb2FkIjogeyJfbWV0YWNsYXNzX3JlZ2lzdHJ5X2tleSI6ICJwYWNrYWdlcy52YWx,dialogue_reference=('0440eca3a149189bf99c78debd626ccc6bbc4e24df17a2524810527f8121e809', '4b88dd2d9b1f6d6a72368f1987e0fd6442148e7f4f3bab0f5698c9b2a1da461e'),headers=Content-Type: application/json
+X-Server-Time: 1734649955
+Date: Thu, 19 Dec 2024 23:12:35 GMT
+Content-Length: 1043
+
+,message_id=-1,performative=response,status_code=200,status_text=OK,target=1,version=)
+[2024-12-19 18:12:36,102] [INFO] [idriss_frontend] API route detected: http://localhost:5555/api/analyze
+[2024-12-19 18:12:36,102] [INFO] [idriss_frontend] Received POST request for /api/analyze
+[2024-12-19 18:12:36,102] [INFO] [idriss_frontend] The prompt is: Find me a social coin that is < 30 days old and sort by recasts
+[2024-12-19 18:12:38,209] [INFO] [idriss_frontend] Parsed query parameters: {'text': 'social coin', 'engagement': 'recasts', 'age_limit_days': 30}
+[2024-12-19 18:12:38,209] [INFO] [idriss_frontend] Suggestion from GPT: Specify a count limit to retrieve specific number of results.
+[2024-12-19 18:12:38,209] [INFO] [idriss_frontend] Parameters after parsing: {'text': 'social coin', 'engagement': 'recasts', 'age_limit_days': 30}
+[2024-12-19 18:12:39,256] [INFO] [idriss_frontend] Successfully handled POST request for /api/analyze
+[2024-12-19 18:12:39,278] [ERROR] [idriss_frontend] TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: ['0x0000000000000000000000000000000000000000']
+[2024-12-19 18:12:40,292] [WARNING] [idriss_frontend] Tx sent but not delivered. Response = Message(sender=valory/http_client:0.23.0,to=eightballer/trader_abci:0.1.0,body=b'{\n  "jsonrpc": "2.0",\n  "id": -1,\n  "result": {\n    "hash": "2B28BD16FD6FDC17247CBFAE9FF2BB1C9562055A2FC14D4371CF9725D083BD3C",\n    "height": "203",\n    "index": 0,\n    "tx_result": {\n      "code": 1,\n      "data": null,\n      "log": "",\n      "info": "TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: [\'0x0000000000000000000000000000000000000000\']",\n      "gas_wanted": "0",\n      "gas_used": "0",\n      "events": [],\n      "codespace": ""\n    },\n    "tx": "eyJwYXlsb2FkIjogeyJfbWV0YWNsYXNzX3JlZ2lzdHJ5X2tleSI6ICJwYWNrYWdlcy52YWx,dialogue_reference=('4371714eaf87c67394c1f31741f83c7dd71eae6bffbee015727c7eac599b5254', '2ee96574d800682b25bf29493e2363c2c470e0293655f14f34e62b15bfc3aef7'),headers=Content-Type: application/json
+X-Server-Time: 1734649960
+Date: Thu, 19 Dec 2024 23:12:40 GMT
+Content-Length: 1043
+
+,message_id=-1,performative=response,status_code=200,status_text=OK,target=1,version=)
+[2024-12-19 18:12:41,356] [WARNING] [idriss_frontend] expired deadline 2024-12-19 18:12:39.675559 with event Event.RESET_AND_PAUSE_TIMEOUT at AbciApp time 2024-12-19 18:12:40.329300
+[2024-12-19 18:12:41,356] [WARNING] [idriss_frontend] current AbciApp time after expired deadline: 2024-12-19 18:12:40.329300
+[2024-12-19 18:12:41,356] [INFO] [idriss_frontend] 'reset_and_pause_round' round is done with event: Event.RESET_AND_PAUSE_TIMEOUT
+[2024-12-19 18:12:41,357] [INFO] [idriss_frontend] Entered in the 'reset_and_pause_round' round for period 0
+[2024-12-19 18:12:41,358] [INFO] [idriss_frontend] Entered in the 'reset_and_pause_behaviour' behaviour
+[2024-12-19 18:12:41,373] [ERROR] [idriss_frontend] TransactionNotValidError: Expected round count 9 and got 8.
+[2024-12-19 18:13:10,329] [INFO] [idriss_frontend] Period end.
+[2024-12-19 18:13:10,823] [ERROR] [idriss_frontend] TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: ['0x0000000000000000000000000000000000000000']
+[2024-12-19 18:13:11,375] [WARNING] [idriss_frontend] Tx sent but not delivered. Response = Message(sender=valory/http_client:0.23.0,to=eightballer/trader_abci:0.1.0,body=b'{\n  "jsonrpc": "2.0",\n  "id": -1,\n  "result": {\n    "hash": "C96E50FD13728B4064E29EED6B15FE5D565F4AD663629052D4EE5465DE8CCBBB",\n    "height": "235",\n    "index": 0,\n    "tx_result": {\n      "code": 1,\n      "data": null,\n      "log": "",\n      "info": "TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: [\'0x0000000000000000000000000000000000000000\']",\n      "gas_wanted": "0",\n      "gas_used": "0",\n      "events": [],\n      "codespace": ""\n    },\n    "tx": "eyJwYXlsb2FkIjogeyJfbWV0YWNsYXNzX3JlZ2lzdHJ5X2tleSI6ICJwYWNrYWdlcy52YWx,dialogue_reference=('fbabe4bf75ddead6f968fbacc7651622b368e4ea7a983561c10cd42c3c44f65d', '3e74e85945e6713470f9208f2edf130d65a3b3a51b78d3fb58b6680938f1991d'),headers=Content-Type: application/json
+X-Server-Time: 1734649991
+Date: Thu, 19 Dec 2024 23:13:11 GMT
+Content-Length: 1043
+
+,message_id=-1,performative=response,status_code=200,status_text=OK,target=1,version=)
+[2024-12-19 18:13:11,837] [ERROR] [idriss_frontend] TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: ['0x0000000000000000000000000000000000000000']
+[2024-12-19 18:13:12,426] [WARNING] [idriss_frontend] Tx sent but not delivered. Response = Message(sender=valory/http_client:0.23.0,to=eightballer/trader_abci:0.1.0,body=b'{\n  "jsonrpc": "2.0",\n  "id": -1,\n  "result": {\n    "hash": "0A883B190A8FE331EF306450181477E19BD9281FF76156F423CC076F0583360D",\n    "height": "236",\n    "index": 0,\n    "tx_result": {\n      "code": 1,\n      "data": null,\n      "log": "",\n      "info": "TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: [\'0x0000000000000000000000000000000000000000\']",\n      "gas_wanted": "0",\n      "gas_used": "0",\n      "events": [],\n      "codespace": ""\n    },\n    "tx": "eyJwYXlsb2FkIjogeyJfbWV0YWNsYXNzX3JlZ2lzdHJ5X2tleSI6ICJwYWNrYWdlcy52YWx,dialogue_reference=('df7c5edf4b0fe5acacc004cc08a7f3812323d140604302b17d0409b7d7f44b6e', '5af3173196974cdccca08e97c5116e13b56b36cc2b2232979e505eaeb4d8d740'),headers=Content-Type: application/json
+X-Server-Time: 1734649992
+Date: Thu, 19 Dec 2024 23:13:12 GMT
+Content-Length: 1043
+
+,message_id=-1,performative=response,status_code=200,status_text=OK,target=1,version=)
+[2024-12-19 18:13:12,867] [ERROR] [idriss_frontend] TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: ['0x0000000000000000000000000000000000000000']
+[2024-12-19 18:13:13,472] [WARNING] [idriss_frontend] Tx sent but not delivered. Response = Message(sender=valory/http_client:0.23.0,to=eightballer/trader_abci:0.1.0,body=b'{\n  "jsonrpc": "2.0",\n  "id": -1,\n  "result": {\n    "hash": "C18A124D3A3E128C6E88527A6AD31A424CE31C1AA5CCC0621CDE3195FBB04AFF",\n    "height": "237",\n    "index": 0,\n    "tx_result": {\n      "code": 1,\n      "data": null,\n      "log": "",\n      "info": "TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: [\'0x0000000000000000000000000000000000000000\']",\n      "gas_wanted": "0",\n      "gas_used": "0",\n      "events": [],\n      "codespace": ""\n    },\n    "tx": "eyJwYXlsb2FkIjogeyJfbWV0YWNsYXNzX3JlZ2lzdHJ5X2tleSI6ICJwYWNrYWdlcy52YWx,dialogue_reference=('0087f16428a9860847ac2688f1115affc417fefb3e9aaaf83c111ea490bb34f5', '32634c778637c309234ff374abfdb242105c8abcc34520fed1aeec78b7a6ca6f'),headers=Content-Type: application/json
+X-Server-Time: 1734649993
+Date: Thu, 19 Dec 2024 23:13:13 GMT
+Content-Length: 1043
+
+,message_id=-1,performative=response,status_code=200,status_text=OK,target=1,version=)
+[2024-12-19 18:13:13,881] [ERROR] [idriss_frontend] TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: ['0x0000000000000000000000000000000000000000']
+[2024-12-19 18:13:14,516] [WARNING] [idriss_frontend] Tx sent but not delivered. Response = Message(sender=valory/http_client:0.23.0,to=eightballer/trader_abci:0.1.0,body=b'{\n  "jsonrpc": "2.0",\n  "id": -1,\n  "result": {\n    "hash": "78C12E671202B8FBE4EED8F4EAE7A2C6F9352D34D1094A94E02F6443309954C0",\n    "height": "238",\n    "index": 0,\n    "tx_result": {\n      "code": 1,\n      "data": null,\n      "log": "",\n      "info": "TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: [\'0x0000000000000000000000000000000000000000\']",\n      "gas_wanted": "0",\n      "gas_used": "0",\n      "events": [],\n      "codespace": ""\n    },\n    "tx": "eyJwYXlsb2FkIjogeyJfbWV0YWNsYXNzX3JlZ2lzdHJ5X2tleSI6ICJwYWNrYWdlcy52YWx,dialogue_reference=('ae1ec5f85540577929a7142ca29ca2d07d1e5bd4d0a419bfe0a4e5401fcf9675', '55d1b6155cc793da60410b7608b4edbc2b8b383f5b9145e0a33345ee5e3d2c4d'),headers=Content-Type: application/json
+X-Server-Time: 1734649994
+Date: Thu, 19 Dec 2024 23:13:14 GMT
+Content-Length: 1043
+
+,message_id=-1,performative=response,status_code=200,status_text=OK,target=1,version=)
+[2024-12-19 18:13:14,895] [ERROR] [idriss_frontend] TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: ['0x0000000000000000000000000000000000000000']
+[2024-12-19 18:13:15,560] [WARNING] [idriss_frontend] Tx sent but not delivered. Response = Message(sender=valory/http_client:0.23.0,to=eightballer/trader_abci:0.1.0,body=b'{\n  "jsonrpc": "2.0",\n  "id": -1,\n  "result": {\n    "hash": "57BD0E9633086B48528D192BEC24985A00ABFBBAE9D254A3D3160061FCF2704D",\n    "height": "239",\n    "index": 0,\n    "tx_result": {\n      "code": 1,\n      "data": null,\n      "log": "",\n      "info": "TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: [\'0x0000000000000000000000000000000000000000\']",\n      "gas_wanted": "0",\n      "gas_used": "0",\n      "events": [],\n      "codespace": ""\n    },\n    "tx": "eyJwYXlsb2FkIjogeyJfbWV0YWNsYXNzX3JlZ2lzdHJ5X2tleSI6ICJwYWNrYWdlcy52YWx,dialogue_reference=('9f09551aba685823c4a1ae655ef04bf11af2a92004f788bf74936f1a8bc2aabf', '539413f3a9919fbfa68d687f500f8995d9adcf00719db3c5756df68c2cdec673'),headers=Content-Type: application/json
+X-Server-Time: 1734649995
+Date: Thu, 19 Dec 2024 23:13:15 GMT
+Content-Length: 1043
+
+,message_id=-1,performative=response,status_code=200,status_text=OK,target=1,version=)
+[2024-12-19 18:13:15,909] [ERROR] [idriss_frontend] TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: ['0x0000000000000000000000000000000000000000']
+[2024-12-19 18:13:16,605] [WARNING] [idriss_frontend] Tx sent but not delivered. Response = Message(sender=valory/http_client:0.23.0,to=eightballer/trader_abci:0.1.0,body=b'{\n  "jsonrpc": "2.0",\n  "id": -1,\n  "result": {\n    "hash": "E83568DFB086A240D0BA2A5D450474498C34DF9D11B374B040AB44F3FC66499B",\n    "height": "240",\n    "index": 0,\n    "tx_result": {\n      "code": 1,\n      "data": null,\n      "log": "",\n      "info": "TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: [\'0x0000000000000000000000000000000000000000\']",\n      "gas_wanted": "0",\n      "gas_used": "0",\n      "events": [],\n      "codespace": ""\n    },\n    "tx": "eyJwYXlsb2FkIjogeyJfbWV0YWNsYXNzX3JlZ2lzdHJ5X2tleSI6ICJwYWNrYWdlcy52YWx,dialogue_reference=('47af9d163a49a160e5f842863dbe03eff8c5445e7a7b77a73642e212fc207d48', 'b6ef4cb1fc65128b8f7d19982b3364c74cb487e14983d0a4b652470040473737'),headers=Content-Type: application/json
+X-Server-Time: 1734649996
+Date: Thu, 19 Dec 2024 23:13:16 GMT
+Content-Length: 1043
+
+,message_id=-1,performative=response,status_code=200,status_text=OK,target=1,version=)
+[2024-12-19 18:13:16,906] [WARNING] [idriss_frontend] expired deadline 2024-12-19 18:13:15.329300 with event Event.RESET_AND_PAUSE_TIMEOUT at AbciApp time 2024-12-19 18:13:15.884745
+[2024-12-19 18:13:16,906] [WARNING] [idriss_frontend] current AbciApp time after expired deadline: 2024-12-19 18:13:15.884745
+[2024-12-19 18:13:16,906] [INFO] [idriss_frontend] 'reset_and_pause_round' round is done with event: Event.RESET_AND_PAUSE_TIMEOUT
+[2024-12-19 18:13:16,906] [INFO] [idriss_frontend] Entered in the 'reset_and_pause_round' round for period 0
+[2024-12-19 18:13:16,908] [INFO] [idriss_frontend] Entered in the 'reset_and_pause_behaviour' behaviour
+[2024-12-19 18:13:16,923] [ERROR] [idriss_frontend] TransactionNotValidError: Expected round count 10 and got 9.
+[2024-12-19 18:13:45,885] [INFO] [idriss_frontend] Period end.
+[2024-12-19 18:13:46,347] [ERROR] [idriss_frontend] TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: ['0x0000000000000000000000000000000000000000']
+[2024-12-19 18:13:46,930] [WARNING] [idriss_frontend] Tx sent but not delivered. Response = Message(sender=valory/http_client:0.23.0,to=eightballer/trader_abci:0.1.0,body=b'{\n  "jsonrpc": "2.0",\n  "id": -1,\n  "result": {\n    "hash": "AF75CB3BCC9872916CC6BF920AF0B7CD4F700E846D7F8DDD1ECC913F0ACC9F2D",\n    "height": "270",\n    "index": 0,\n    "tx_result": {\n      "code": 1,\n      "data": null,\n      "log": "",\n      "info": "TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: [\'0x0000000000000000000000000000000000000000\']",\n      "gas_wanted": "0",\n      "gas_used": "0",\n      "events": [],\n      "codespace": ""\n    },\n    "tx": "eyJwYXlsb2FkIjogeyJfbWV0YWNsYXNzX3JlZ2lzdHJ5X2tleSI6ICJwYWNrYWdlcy52YWx,dialogue_reference=('f509eef7beadbfca82b9509cf2de3bf6efcbeb11318ba5e466639e12b9d9ed0b', '888e05cbecb458a6311b118e2861f0af8a5ac5b938c46e9c5021685de5b7ea68'),headers=Content-Type: application/json
+X-Server-Time: 1734650026
+Date: Thu, 19 Dec 2024 23:13:46 GMT
+Content-Length: 1043
+
+,message_id=-1,performative=response,status_code=200,status_text=OK,target=1,version=)
+[2024-12-19 18:13:47,358] [ERROR] [idriss_frontend] TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: ['0x0000000000000000000000000000000000000000']
+[2024-12-19 18:13:47,976] [WARNING] [idriss_frontend] Tx sent but not delivered. Response = Message(sender=valory/http_client:0.23.0,to=eightballer/trader_abci:0.1.0,body=b'{\n  "jsonrpc": "2.0",\n  "id": -1,\n  "result": {\n    "hash": "2C3E5C59C6DB946BC2540F61CEAF7E8C5B33D0A435A357F49668B6091078B165",\n    "height": "271",\n    "index": 0,\n    "tx_result": {\n      "code": 1,\n      "data": null,\n      "log": "",\n      "info": "TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: [\'0x0000000000000000000000000000000000000000\']",\n      "gas_wanted": "0",\n      "gas_used": "0",\n      "events": [],\n      "codespace": ""\n    },\n    "tx": "eyJwYXlsb2FkIjogeyJfbWV0YWNsYXNzX3JlZ2lzdHJ5X2tleSI6ICJwYWNrYWdlcy52YWx,dialogue_reference=('7799fa73ccf49f916156d0cb6c6d0ef0768692f7c78bb55e51b80821453a4625', 'ec3974e633e34fbf780e6c448acdcc548c8eb1fd630af270dffa971607afa5f1'),headers=Content-Type: application/json
+X-Server-Time: 1734650027
+Date: Thu, 19 Dec 2024 23:13:47 GMT
+Content-Length: 1043
+
+,message_id=-1,performative=response,status_code=200,status_text=OK,target=1,version=)
+[2024-12-19 18:13:48,374] [ERROR] [idriss_frontend] TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: ['0x0000000000000000000000000000000000000000']
+[2024-12-19 18:13:49,025] [WARNING] [idriss_frontend] Tx sent but not delivered. Response = Message(sender=valory/http_client:0.23.0,to=eightballer/trader_abci:0.1.0,body=b'{\n  "jsonrpc": "2.0",\n  "id": -1,\n  "result": {\n    "hash": "68CDE9AE313569FCD858552F2C9F2AF58316AC038A9C0C9D2E4B275B6ABDA2E6",\n    "height": "272",\n    "index": 0,\n    "tx_result": {\n      "code": 1,\n      "data": null,\n      "log": "",\n      "info": "TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: [\'0x0000000000000000000000000000000000000000\']",\n      "gas_wanted": "0",\n      "gas_used": "0",\n      "events": [],\n      "codespace": ""\n    },\n    "tx": "eyJwYXlsb2FkIjogeyJfbWV0YWNsYXNzX3JlZ2lzdHJ5X2tleSI6ICJwYWNrYWdlcy52YWx,dialogue_reference=('2e30e47981a1b43ab80f21b2fb916265fe59a8b96748658c6e76bf4a5a100bfe', '10eef7b9d445441dcc7206fef6c55e790ac8f2f0fa4c3c2bb93c96f2b625271d'),headers=Content-Type: application/json
+X-Server-Time: 1734650029
+Date: Thu, 19 Dec 2024 23:13:49 GMT
+Content-Length: 1043
+
+,message_id=-1,performative=response,status_code=200,status_text=OK,target=1,version=)
+[2024-12-19 18:13:49,390] [ERROR] [idriss_frontend] TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: ['0x0000000000000000000000000000000000000000']
+[2024-12-19 18:13:50,068] [WARNING] [idriss_frontend] Tx sent but not delivered. Response = Message(sender=valory/http_client:0.23.0,to=eightballer/trader_abci:0.1.0,body=b'{\n  "jsonrpc": "2.0",\n  "id": -1,\n  "result": {\n    "hash": "1ED3192C5F43DF9B7E8095D8ECA0BAD317D2C9FC8D4AA646E9B2BBE208FBBFF4",\n    "height": "273",\n    "index": 0,\n    "tx_result": {\n      "code": 1,\n      "data": null,\n      "log": "",\n      "info": "TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: [\'0x0000000000000000000000000000000000000000\']",\n      "gas_wanted": "0",\n      "gas_used": "0",\n      "events": [],\n      "codespace": ""\n    },\n    "tx": "eyJwYXlsb2FkIjogeyJfbWV0YWNsYXNzX3JlZ2lzdHJ5X2tleSI6ICJwYWNrYWdlcy52YWx,dialogue_reference=('8ffa2b6ab41363354ea191448de57d9a828b24878f780f4cb75718441b16c497', '5c1a14e5698f9aefc85a1910411dc332ff303774165f62ae9294140b38bc1e65'),headers=Content-Type: application/json
+X-Server-Time: 1734650030
+Date: Thu, 19 Dec 2024 23:13:50 GMT
+Content-Length: 1043
+
+,message_id=-1,performative=response,status_code=200,status_text=OK,target=1,version=)
+[2024-12-19 18:13:50,402] [ERROR] [idriss_frontend] TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: ['0x0000000000000000000000000000000000000000']
+[2024-12-19 18:13:51,112] [WARNING] [idriss_frontend] Tx sent but not delivered. Response = Message(sender=valory/http_client:0.23.0,to=eightballer/trader_abci:0.1.0,body=b'{\n  "jsonrpc": "2.0",\n  "id": -1,\n  "result": {\n    "hash": "4ED8C83D6C25431B0C53E7D6A248F7DD18ACAA124499E4694527D43AF1EB5FCF",\n    "height": "274",\n    "index": 0,\n    "tx_result": {\n      "code": 1,\n      "data": null,\n      "log": "",\n      "info": "TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: [\'0x0000000000000000000000000000000000000000\']",\n      "gas_wanted": "0",\n      "gas_used": "0",\n      "events": [],\n      "codespace": ""\n    },\n    "tx": "eyJwYXlsb2FkIjogeyJfbWV0YWNsYXNzX3JlZ2lzdHJ5X2tleSI6ICJwYWNrYWdlcy52YWx,dialogue_reference=('bd0ae52a4dcc7dc911dd8a8d84bac28c828df228a62c97f8329e29aad48dbea4', '841988cbc52d1bc1481862db3ae15be99ff007e71472a37178cc892bca06a463'),headers=Content-Type: application/json
+X-Server-Time: 1734650031
+Date: Thu, 19 Dec 2024 23:13:51 GMT
+Content-Length: 1043
+
+,message_id=-1,performative=response,status_code=200,status_text=OK,target=1,version=)
+[2024-12-19 18:13:51,418] [ERROR] [idriss_frontend] TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: ['0x0000000000000000000000000000000000000000']
+[2024-12-19 18:13:52,155] [WARNING] [idriss_frontend] Tx sent but not delivered. Response = Message(sender=valory/http_client:0.23.0,to=eightballer/trader_abci:0.1.0,body=b'{\n  "jsonrpc": "2.0",\n  "id": -1,\n  "result": {\n    "hash": "385742CFC3C873A27FB5C4AB4EE6D770F24A7653511BDBBB6EA479132A288D5B",\n    "height": "275",\n    "index": 0,\n    "tx_result": {\n      "code": 1,\n      "data": null,\n      "log": "",\n      "info": "TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: [\'0x0000000000000000000000000000000000000000\']",\n      "gas_wanted": "0",\n      "gas_used": "0",\n      "events": [],\n      "codespace": ""\n    },\n    "tx": "eyJwYXlsb2FkIjogeyJfbWV0YWNsYXNzX3JlZ2lzdHJ5X2tleSI6ICJwYWNrYWdlcy52YWx,dialogue_reference=('e86d934e5ad7b1fa1b9b325c9304a86ada4c8ce1fc2d0e7ab128d375cfff8924', '129f596c810bb9300a4b78c3ec456de0cea7c953bd768b64ccdfbcc2ebaaaa73'),headers=Content-Type: application/json
+X-Server-Time: 1734650032
+Date: Thu, 19 Dec 2024 23:13:52 GMT
+Content-Length: 1043
+
+,message_id=-1,performative=response,status_code=200,status_text=OK,target=1,version=)
+[2024-12-19 18:13:52,417] [WARNING] [idriss_frontend] expired deadline 2024-12-19 18:13:50.884745 with event Event.RESET_AND_PAUSE_TIMEOUT at AbciApp time 2024-12-19 18:13:51.393453
+[2024-12-19 18:13:52,417] [WARNING] [idriss_frontend] current AbciApp time after expired deadline: 2024-12-19 18:13:51.393453
+[2024-12-19 18:13:52,417] [INFO] [idriss_frontend] 'reset_and_pause_round' round is done with event: Event.RESET_AND_PAUSE_TIMEOUT
+[2024-12-19 18:13:52,417] [INFO] [idriss_frontend] Entered in the 'reset_and_pause_round' round for period 0
+[2024-12-19 18:13:52,419] [INFO] [idriss_frontend] Entered in the 'reset_and_pause_behaviour' behaviour
+[2024-12-19 18:13:52,434] [ERROR] [idriss_frontend] TransactionNotValidError: Expected round count 11 and got 10.
+[2024-12-19 18:14:21,393] [INFO] [idriss_frontend] Period end.
+[2024-12-19 18:14:21,864] [ERROR] [idriss_frontend] TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: ['0x0000000000000000000000000000000000000000']
+[2024-12-19 18:14:22,445] [WARNING] [idriss_frontend] Tx sent but not delivered. Response = Message(sender=valory/http_client:0.23.0,to=eightballer/trader_abci:0.1.0,body=b'{\n  "jsonrpc": "2.0",\n  "id": -1,\n  "result": {\n    "hash": "89E9630A227FB82B4B724C405200CE5B1948127B572D4750F8B3B977E882BE6D",\n    "height": "305",\n    "index": 0,\n    "tx_result": {\n      "code": 1,\n      "data": null,\n      "log": "",\n      "info": "TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: [\'0x0000000000000000000000000000000000000000\']",\n      "gas_wanted": "0",\n      "gas_used": "0",\n      "events": [],\n      "codespace": ""\n    },\n    "tx": "eyJwYXlsb2FkIjogeyJfbWV0YWNsYXNzX3JlZ2lzdHJ5X2tleSI6ICJwYWNrYWdlcy52YWx,dialogue_reference=('92c56c78741644dbc2a04cafd9fe4b48b1c984111b627e580fb3e7782a920388', 'd134feda338fc908a740e7b5770aa6822eefab707ab1a8e49f6e3b8e28be604e'),headers=Content-Type: application/json
+X-Server-Time: 1734650062
+Date: Thu, 19 Dec 2024 23:14:22 GMT
+Content-Length: 1043
+
+,message_id=-1,performative=response,status_code=200,status_text=OK,target=1,version=)
+[2024-12-19 18:14:22,879] [ERROR] [idriss_frontend] TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: ['0x0000000000000000000000000000000000000000']
+[2024-12-19 18:14:23,496] [WARNING] [idriss_frontend] Tx sent but not delivered. Response = Message(sender=valory/http_client:0.23.0,to=eightballer/trader_abci:0.1.0,body=b'{\n  "jsonrpc": "2.0",\n  "id": -1,\n  "result": {\n    "hash": "C18CF47DF7CD99BA1E504BC9CF0438D35A51899BF880ABE95460D75B8D6F3132",\n    "height": "306",\n    "index": 0,\n    "tx_result": {\n      "code": 1,\n      "data": null,\n      "log": "",\n      "info": "TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: [\'0x0000000000000000000000000000000000000000\']",\n      "gas_wanted": "0",\n      "gas_used": "0",\n      "events": [],\n      "codespace": ""\n    },\n    "tx": "eyJwYXlsb2FkIjogeyJfbWV0YWNsYXNzX3JlZ2lzdHJ5X2tleSI6ICJwYWNrYWdlcy52YWx,dialogue_reference=('90c72ab23937ef0c7bb0d7418c2af702ed62dbaec12d3bae83085d285f4b4c25', '3dee3938a897e3fbe68292dde6049552cb87ecc22bc269f2946b681c2b6d7810'),headers=Content-Type: application/json
+X-Server-Time: 1734650063
+Date: Thu, 19 Dec 2024 23:14:23 GMT
+Content-Length: 1043
+
+,message_id=-1,performative=response,status_code=200,status_text=OK,target=1,version=)
+[2024-12-19 18:14:23,892] [ERROR] [idriss_frontend] TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: ['0x0000000000000000000000000000000000000000']
+[2024-12-19 18:14:24,538] [WARNING] [idriss_frontend] Tx sent but not delivered. Response = Message(sender=valory/http_client:0.23.0,to=eightballer/trader_abci:0.1.0,body=b'{\n  "jsonrpc": "2.0",\n  "id": -1,\n  "result": {\n    "hash": "BDE42F32D86B7AE630188677E8378A59067B361AD41FE1B34359C10187CF0A0D",\n    "height": "307",\n    "index": 0,\n    "tx_result": {\n      "code": 1,\n      "data": null,\n      "log": "",\n      "info": "TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: [\'0x0000000000000000000000000000000000000000\']",\n      "gas_wanted": "0",\n      "gas_used": "0",\n      "events": [],\n      "codespace": ""\n    },\n    "tx": "eyJwYXlsb2FkIjogeyJfbWV0YWNsYXNzX3JlZ2lzdHJ5X2tleSI6ICJwYWNrYWdlcy52YWx,dialogue_reference=('6016acd3f30113f6b691a5a1c22b90028b27908a7dfdc967bbd789dc60da9170', 'd2331c2f78bcb897490f68173643342861e0ec7aa300feec4ea48a6f58d54a72'),headers=Content-Type: application/json
+X-Server-Time: 1734650064
+Date: Thu, 19 Dec 2024 23:14:24 GMT
+Content-Length: 1043
+
+,message_id=-1,performative=response,status_code=200,status_text=OK,target=1,version=)
+[2024-12-19 18:14:24,907] [ERROR] [idriss_frontend] TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: ['0x0000000000000000000000000000000000000000']
+[2024-12-19 18:14:25,581] [WARNING] [idriss_frontend] Tx sent but not delivered. Response = Message(sender=valory/http_client:0.23.0,to=eightballer/trader_abci:0.1.0,body=b'{\n  "jsonrpc": "2.0",\n  "id": -1,\n  "result": {\n    "hash": "6BB5576B8E4F6FFC01C6D7524720909E0CF45D4230831D0A8405AD62D4FB6082",\n    "height": "308",\n    "index": 0,\n    "tx_result": {\n      "code": 1,\n      "data": null,\n      "log": "",\n      "info": "TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: [\'0x0000000000000000000000000000000000000000\']",\n      "gas_wanted": "0",\n      "gas_used": "0",\n      "events": [],\n      "codespace": ""\n    },\n    "tx": "eyJwYXlsb2FkIjogeyJfbWV0YWNsYXNzX3JlZ2lzdHJ5X2tleSI6ICJwYWNrYWdlcy52YWx,dialogue_reference=('a8f843d5d4937171330a4c1790eef87b2d140c819a5cd58427b8113e3fbe216a', 'e2d92d880975b85b60a546047ab5c229acbda456e5581e09343cf696107a0761'),headers=Content-Type: application/json
+X-Server-Time: 1734650065
+Date: Thu, 19 Dec 2024 23:14:25 GMT
+Content-Length: 1043
+
+,message_id=-1,performative=response,status_code=200,status_text=OK,target=1,version=)
+[2024-12-19 18:14:25,919] [ERROR] [idriss_frontend] TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: ['0x0000000000000000000000000000000000000000']
+[2024-12-19 18:14:26,624] [WARNING] [idriss_frontend] Tx sent but not delivered. Response = Message(sender=valory/http_client:0.23.0,to=eightballer/trader_abci:0.1.0,body=b'{\n  "jsonrpc": "2.0",\n  "id": -1,\n  "result": {\n    "hash": "AD6252C6890C4145AC7EFA9DA37BEB249BC7154472747AEC781DC1FD2F92B34A",\n    "height": "309",\n    "index": 0,\n    "tx_result": {\n      "code": 1,\n      "data": null,\n      "log": "",\n      "info": "TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: [\'0x0000000000000000000000000000000000000000\']",\n      "gas_wanted": "0",\n      "gas_used": "0",\n      "events": [],\n      "codespace": ""\n    },\n    "tx": "eyJwYXlsb2FkIjogeyJfbWV0YWNsYXNzX3JlZ2lzdHJ5X2tleSI6ICJwYWNrYWdlcy52YWx,dialogue_reference=('f0b615b638495e8d4d5be14a5bcfdc1ea0245a0733b879908564f62703701d54', '01f862233c38dd4a9ebedbd4ccc8fc49993ff14c59b138c8208384492506a97e'),headers=Content-Type: application/json
+X-Server-Time: 1734650066
+Date: Thu, 19 Dec 2024 23:14:26 GMT
+Content-Length: 1043
+
+,message_id=-1,performative=response,status_code=200,status_text=OK,target=1,version=)
+[2024-12-19 18:14:26,933] [ERROR] [idriss_frontend] TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: ['0x0000000000000000000000000000000000000000']
+[2024-12-19 18:14:27,670] [WARNING] [idriss_frontend] Tx sent but not delivered. Response = Message(sender=valory/http_client:0.23.0,to=eightballer/trader_abci:0.1.0,body=b'{\n  "jsonrpc": "2.0",\n  "id": -1,\n  "result": {\n    "hash": "81F8E32823C45F7B13114CE7FF389CB384CE1E5EDABC6DBCBB99346BAD5C6892",\n    "height": "310",\n    "index": 0,\n    "tx_result": {\n      "code": 1,\n      "data": null,\n      "log": "",\n      "info": "TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: [\'0x0000000000000000000000000000000000000000\']",\n      "gas_wanted": "0",\n      "gas_used": "0",\n      "events": [],\n      "codespace": ""\n    },\n    "tx": "eyJwYXlsb2FkIjogeyJfbWV0YWNsYXNzX3JlZ2lzdHJ5X2tleSI6ICJwYWNrYWdlcy52YWx,dialogue_reference=('c6c8a4c2d7e9d12e298f1ee22fa112c9604dbb06204c1136f908eee80736ea32', '3a73494cf67f5789244c82c3aa7408d6561a069c88701b1c0bdda17a914026f7'),headers=Content-Type: application/json
+X-Server-Time: 1734650067
+Date: Thu, 19 Dec 2024 23:14:27 GMT
+Content-Length: 1043
+
+,message_id=-1,performative=response,status_code=200,status_text=OK,target=1,version=)
+[2024-12-19 18:14:27,939] [WARNING] [idriss_frontend] expired deadline 2024-12-19 18:14:26.393453 with event Event.RESET_AND_PAUSE_TIMEOUT at AbciApp time 2024-12-19 18:14:26.908790
+[2024-12-19 18:14:27,939] [WARNING] [idriss_frontend] current AbciApp time after expired deadline: 2024-12-19 18:14:26.908790
+[2024-12-19 18:14:27,939] [INFO] [idriss_frontend] 'reset_and_pause_round' round is done with event: Event.RESET_AND_PAUSE_TIMEOUT
+[2024-12-19 18:14:27,939] [INFO] [idriss_frontend] Entered in the 'reset_and_pause_round' round for period 0
+[2024-12-19 18:14:27,941] [INFO] [idriss_frontend] Entered in the 'reset_and_pause_behaviour' behaviour
+[2024-12-19 18:14:27,956] [ERROR] [idriss_frontend] TransactionNotValidError: Expected round count 12 and got 11.
+[2024-12-19 18:14:56,909] [INFO] [idriss_frontend] Period end.
+[2024-12-19 18:14:57,412] [ERROR] [idriss_frontend] TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: ['0x0000000000000000000000000000000000000000']
+[2024-12-19 18:14:57,962] [WARNING] [idriss_frontend] Tx sent but not delivered. Response = Message(sender=valory/http_client:0.23.0,to=eightballer/trader_abci:0.1.0,body=b'{\n  "jsonrpc": "2.0",\n  "id": -1,\n  "result": {\n    "hash": "59C5DFBC4497731FAE379FCEA3C97281E4BC929F44072CFF61A1A2A3B1F5B204",\n    "height": "340",\n    "index": 0,\n    "tx_result": {\n      "code": 1,\n      "data": null,\n      "log": "",\n      "info": "TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: [\'0x0000000000000000000000000000000000000000\']",\n      "gas_wanted": "0",\n      "gas_used": "0",\n      "events": [],\n      "codespace": ""\n    },\n    "tx": "eyJwYXlsb2FkIjogeyJfbWV0YWNsYXNzX3JlZ2lzdHJ5X2tleSI6ICJwYWNrYWdlcy52YWx,dialogue_reference=('97f886a44be15ea661aad18fb493ca196e66136bc3c41e9db42c4b7fe556da33', 'ab0e425bf23afa3ab94d0d82f4178561a432db5f4b7eb54c559e72408a20cae6'),headers=Content-Type: application/json
+X-Server-Time: 1734650097
+Date: Thu, 19 Dec 2024 23:14:57 GMT
+Content-Length: 1043
+
+,message_id=-1,performative=response,status_code=200,status_text=OK,target=1,version=)
+[2024-12-19 18:14:58,433] [ERROR] [idriss_frontend] TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: ['0x0000000000000000000000000000000000000000']
+[2024-12-19 18:14:59,007] [WARNING] [idriss_frontend] Tx sent but not delivered. Response = Message(sender=valory/http_client:0.23.0,to=eightballer/trader_abci:0.1.0,body=b'{\n  "jsonrpc": "2.0",\n  "id": -1,\n  "result": {\n    "hash": "5DAA6437D47D71490FA7B8F1060DAC4593A15747356C99EB337CD17BCFF59861",\n    "height": "341",\n    "index": 0,\n    "tx_result": {\n      "code": 1,\n      "data": null,\n      "log": "",\n      "info": "TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: [\'0x0000000000000000000000000000000000000000\']",\n      "gas_wanted": "0",\n      "gas_used": "0",\n      "events": [],\n      "codespace": ""\n    },\n    "tx": "eyJwYXlsb2FkIjogeyJfbWV0YWNsYXNzX3JlZ2lzdHJ5X2tleSI6ICJwYWNrYWdlcy52YWx,dialogue_reference=('3590f5852d1d99513dbf10229154b82f95aef2627c490d837ff8be5bd467154e', '80e2474281bf33a125f1c5aa5706640d335354795c9957ca26f759b56d8ed885'),headers=Content-Type: application/json
+X-Server-Time: 1734650099
+Date: Thu, 19 Dec 2024 23:14:59 GMT
+Content-Length: 1043
+
+,message_id=-1,performative=response,status_code=200,status_text=OK,target=1,version=)
+[2024-12-19 18:14:59,451] [ERROR] [idriss_frontend] TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: ['0x0000000000000000000000000000000000000000']
+[2024-12-19 18:15:00,052] [WARNING] [idriss_frontend] Tx sent but not delivered. Response = Message(sender=valory/http_client:0.23.0,to=eightballer/trader_abci:0.1.0,body=b'{\n  "jsonrpc": "2.0",\n  "id": -1,\n  "result": {\n    "hash": "0317360B66B3DDE8220FD22FA8829EBB6B3AFFDCA9D849F126FB768EFF7D575C",\n    "height": "342",\n    "index": 0,\n    "tx_result": {\n      "code": 1,\n      "data": null,\n      "log": "",\n      "info": "TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: [\'0x0000000000000000000000000000000000000000\']",\n      "gas_wanted": "0",\n      "gas_used": "0",\n      "events": [],\n      "codespace": ""\n    },\n    "tx": "eyJwYXlsb2FkIjogeyJfbWV0YWNsYXNzX3JlZ2lzdHJ5X2tleSI6ICJwYWNrYWdlcy52YWx,dialogue_reference=('edb678199f986a0eb8fe6d392b62d667c839d702b9a41da9bb4c29abffa62b38', 'a5287ade2cc774a720af94c7d4a8fe719690d23d6415b47ed32733a978415f69'),headers=Content-Type: application/json
+X-Server-Time: 1734650100
+Date: Thu, 19 Dec 2024 23:15:00 GMT
+Content-Length: 1043
+
+,message_id=-1,performative=response,status_code=200,status_text=OK,target=1,version=)
+[2024-12-19 18:15:00,471] [ERROR] [idriss_frontend] TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: ['0x0000000000000000000000000000000000000000']
+[2024-12-19 18:15:01,097] [WARNING] [idriss_frontend] Tx sent but not delivered. Response = Message(sender=valory/http_client:0.23.0,to=eightballer/trader_abci:0.1.0,body=b'{\n  "jsonrpc": "2.0",\n  "id": -1,\n  "result": {\n    "hash": "7F1A955E722096B05AB2C5F89FFDE81397AFBF9B5BD2F822EC9113737838451E",\n    "height": "343",\n    "index": 0,\n    "tx_result": {\n      "code": 1,\n      "data": null,\n      "log": "",\n      "info": "TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: [\'0x0000000000000000000000000000000000000000\']",\n      "gas_wanted": "0",\n      "gas_used": "0",\n      "events": [],\n      "codespace": ""\n    },\n    "tx": "eyJwYXlsb2FkIjogeyJfbWV0YWNsYXNzX3JlZ2lzdHJ5X2tleSI6ICJwYWNrYWdlcy52YWx,dialogue_reference=('2fd97174f19b20cd4683d485126580f5aa0dd7f8461461278a0b154a6a4bcdbc', 'f8dee2a94159415fe6d3ba5f3ae1f69de67fcb2e0eb867bdf1a72457f450b748'),headers=Content-Type: application/json
+X-Server-Time: 1734650101
+Date: Thu, 19 Dec 2024 23:15:01 GMT
+Content-Length: 1043
+
+,message_id=-1,performative=response,status_code=200,status_text=OK,target=1,version=)
+[2024-12-19 18:15:01,487] [ERROR] [idriss_frontend] TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: ['0x0000000000000000000000000000000000000000']
+[2024-12-19 18:15:02,141] [WARNING] [idriss_frontend] Tx sent but not delivered. Response = Message(sender=valory/http_client:0.23.0,to=eightballer/trader_abci:0.1.0,body=b'{\n  "jsonrpc": "2.0",\n  "id": -1,\n  "result": {\n    "hash": "F8CBCD16AC7D83775D1B123027D2F8F5C8575DC4E6AC50A23FF79A53051247DF",\n    "height": "344",\n    "index": 0,\n    "tx_result": {\n      "code": 1,\n      "data": null,\n      "log": "",\n      "info": "TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: [\'0x0000000000000000000000000000000000000000\']",\n      "gas_wanted": "0",\n      "gas_used": "0",\n      "events": [],\n      "codespace": ""\n    },\n    "tx": "eyJwYXlsb2FkIjogeyJfbWV0YWNsYXNzX3JlZ2lzdHJ5X2tleSI6ICJwYWNrYWdlcy52YWx,dialogue_reference=('95d344f908d973745250413f92e4db2dfb14dfab7b3b60eb8d588cad708b1264', 'edc8d288e773d4826fe6f8d93c174eb9c5cd707bbd6793e1da89c2959fc40371'),headers=Content-Type: application/json
+X-Server-Time: 1734650102
+Date: Thu, 19 Dec 2024 23:15:02 GMT
+Content-Length: 1043
+
+,message_id=-1,performative=response,status_code=200,status_text=OK,target=1,version=)
+[2024-12-19 18:15:02,504] [ERROR] [idriss_frontend] TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: ['0x0000000000000000000000000000000000000000']
+[2024-12-19 18:15:03,184] [WARNING] [idriss_frontend] Tx sent but not delivered. Response = Message(sender=valory/http_client:0.23.0,to=eightballer/trader_abci:0.1.0,body=b'{\n  "jsonrpc": "2.0",\n  "id": -1,\n  "result": {\n    "hash": "C6BA1A02B295E4E5AF1C733FB0A7308E54D53081A4A93A3CC6A769E1C8440194",\n    "height": "345",\n    "index": 0,\n    "tx_result": {\n      "code": 1,\n      "data": null,\n      "log": "",\n      "info": "TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: [\'0x0000000000000000000000000000000000000000\']",\n      "gas_wanted": "0",\n      "gas_used": "0",\n      "events": [],\n      "codespace": ""\n    },\n    "tx": "eyJwYXlsb2FkIjogeyJfbWV0YWNsYXNzX3JlZ2lzdHJ5X2tleSI6ICJwYWNrYWdlcy52YWx,dialogue_reference=('0ba9910a3802e0a9cbd385cc91ee88b6724ad208afe8f14d748fd9f1e78f0062', '780871ea8523ef27626234582cd3cb460d73d5ce8ceb358e6a5be75aabe5778a'),headers=Content-Type: application/json
+X-Server-Time: 1734650103
+Date: Thu, 19 Dec 2024 23:15:03 GMT
+Content-Length: 1043
+
+,message_id=-1,performative=response,status_code=200,status_text=OK,target=1,version=)
+[2024-12-19 18:15:03,510] [WARNING] [idriss_frontend] expired deadline 2024-12-19 18:15:01.908790 with event Event.RESET_AND_PAUSE_TIMEOUT at AbciApp time 2024-12-19 18:15:02.479437
+[2024-12-19 18:15:03,510] [WARNING] [idriss_frontend] current AbciApp time after expired deadline: 2024-12-19 18:15:02.479437
+[2024-12-19 18:15:03,511] [INFO] [idriss_frontend] 'reset_and_pause_round' round is done with event: Event.RESET_AND_PAUSE_TIMEOUT
+[2024-12-19 18:15:03,511] [INFO] [idriss_frontend] Entered in the 'reset_and_pause_round' round for period 0
+[2024-12-19 18:15:03,514] [INFO] [idriss_frontend] Entered in the 'reset_and_pause_behaviour' behaviour
+[2024-12-19 18:15:03,529] [ERROR] [idriss_frontend] TransactionNotValidError: Expected round count 13 and got 12.
+[2024-12-19 18:15:32,479] [INFO] [idriss_frontend] Period end.
+[2024-12-19 18:15:32,984] [ERROR] [idriss_frontend] TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: ['0x0000000000000000000000000000000000000000']
+[2024-12-19 18:15:33,524] [WARNING] [idriss_frontend] Tx sent but not delivered. Response = Message(sender=valory/http_client:0.23.0,to=eightballer/trader_abci:0.1.0,body=b'{\n  "jsonrpc": "2.0",\n  "id": -1,\n  "result": {\n    "hash": "140FA44868C960434A4BE5821C107431867590E7C3EC7DFF9B459C15312F095E",\n    "height": "375",\n    "index": 0,\n    "tx_result": {\n      "code": 1,\n      "data": null,\n      "log": "",\n      "info": "TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: [\'0x0000000000000000000000000000000000000000\']",\n      "gas_wanted": "0",\n      "gas_used": "0",\n      "events": [],\n      "codespace": ""\n    },\n    "tx": "eyJwYXlsb2FkIjogeyJfbWV0YWNsYXNzX3JlZ2lzdHJ5X2tleSI6ICJwYWNrYWdlcy52YWx,dialogue_reference=('0045e5a1c60a64ae5860039a66bbbaf637e919a4d40a82d57d82d85610637754', '1f4a5842c37818b2e62508600a89a2d4dc92ed9541f9fecd03ec728fcc4b5216'),headers=Content-Type: application/json
+X-Server-Time: 1734650133
+Date: Thu, 19 Dec 2024 23:15:33 GMT
+Content-Length: 1043
+
+,message_id=-1,performative=response,status_code=200,status_text=OK,target=1,version=)
+[2024-12-19 18:15:33,995] [ERROR] [idriss_frontend] TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: ['0x0000000000000000000000000000000000000000']
+[2024-12-19 18:15:34,568] [WARNING] [idriss_frontend] Tx sent but not delivered. Response = Message(sender=valory/http_client:0.23.0,to=eightballer/trader_abci:0.1.0,body=b'{\n  "jsonrpc": "2.0",\n  "id": -1,\n  "result": {\n    "hash": "57E5CA6804DA3A81445CE385C223544BBFFFA8D47A0AE5828A9BE5D203B02DCE",\n    "height": "376",\n    "index": 0,\n    "tx_result": {\n      "code": 1,\n      "data": null,\n      "log": "",\n      "info": "TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: [\'0x0000000000000000000000000000000000000000\']",\n      "gas_wanted": "0",\n      "gas_used": "0",\n      "events": [],\n      "codespace": ""\n    },\n    "tx": "eyJwYXlsb2FkIjogeyJfbWV0YWNsYXNzX3JlZ2lzdHJ5X2tleSI6ICJwYWNrYWdlcy52YWx,dialogue_reference=('d63fc4341cf50b80831f7d2e182ecfa15b895fa244714384d43481f508a35f5a', '1b0f12bb3cd985c88fe9276048c6e74623ebbc6329109957dc4de5d0fa4867f1'),headers=Content-Type: application/json
+X-Server-Time: 1734650134
+Date: Thu, 19 Dec 2024 23:15:34 GMT
+Content-Length: 1043
+
+,message_id=-1,performative=response,status_code=200,status_text=OK,target=1,version=)
+[2024-12-19 18:15:35,009] [ERROR] [idriss_frontend] TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: ['0x0000000000000000000000000000000000000000']
+[2024-12-19 18:15:35,610] [WARNING] [idriss_frontend] Tx sent but not delivered. Response = Message(sender=valory/http_client:0.23.0,to=eightballer/trader_abci:0.1.0,body=b'{\n  "jsonrpc": "2.0",\n  "id": -1,\n  "result": {\n    "hash": "1052143D9C1C6690F09298E05892A58C945C0E3B788D27205D39339B7BEE0AC3",\n    "height": "377",\n    "index": 0,\n    "tx_result": {\n      "code": 1,\n      "data": null,\n      "log": "",\n      "info": "TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: [\'0x0000000000000000000000000000000000000000\']",\n      "gas_wanted": "0",\n      "gas_used": "0",\n      "events": [],\n      "codespace": ""\n    },\n    "tx": "eyJwYXlsb2FkIjogeyJfbWV0YWNsYXNzX3JlZ2lzdHJ5X2tleSI6ICJwYWNrYWdlcy52YWx,dialogue_reference=('afa9428af31c9ce0b81a36a553ff7a3ce345613a06b11fce77cab8f6f64f071c', '5b099fabc2680273296a438f9ad7123b2347e4f39cc7b9405d4c84f64f5d0632'),headers=Content-Type: application/json
+X-Server-Time: 1734650135
+Date: Thu, 19 Dec 2024 23:15:35 GMT
+Content-Length: 1043
+
+,message_id=-1,performative=response,status_code=200,status_text=OK,target=1,version=)
+[2024-12-19 18:15:36,046] [ERROR] [idriss_frontend] TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: ['0x0000000000000000000000000000000000000000']
+[2024-12-19 18:15:36,662] [WARNING] [idriss_frontend] Tx sent but not delivered. Response = Message(sender=valory/http_client:0.23.0,to=eightballer/trader_abci:0.1.0,body=b'{\n  "jsonrpc": "2.0",\n  "id": -1,\n  "result": {\n    "hash": "94BBE855684A29425E345CF1106D420AEA9386EF37F134B82B82426E0919C2B9",\n    "height": "378",\n    "index": 0,\n    "tx_result": {\n      "code": 1,\n      "data": null,\n      "log": "",\n      "info": "TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: [\'0x0000000000000000000000000000000000000000\']",\n      "gas_wanted": "0",\n      "gas_used": "0",\n      "events": [],\n      "codespace": ""\n    },\n    "tx": "eyJwYXlsb2FkIjogeyJfbWV0YWNsYXNzX3JlZ2lzdHJ5X2tleSI6ICJwYWNrYWdlcy52YWx,dialogue_reference=('f92ea623f7bc9f8d3005b520581f565c4e17d8b081a70dff5dfb03cd7ce940d4', '18af21d2dc86cf4eda59e41cc8e2cc01a34f118c23c1f03bcf320c6b792fbd83'),headers=Content-Type: application/json
+X-Server-Time: 1734650136
+Date: Thu, 19 Dec 2024 23:15:36 GMT
+Content-Length: 1043
+
+,message_id=-1,performative=response,status_code=200,status_text=OK,target=1,version=)
+[2024-12-19 18:15:37,056] [ERROR] [idriss_frontend] TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: ['0x0000000000000000000000000000000000000000']
+[2024-12-19 18:15:37,706] [WARNING] [idriss_frontend] Tx sent but not delivered. Response = Message(sender=valory/http_client:0.23.0,to=eightballer/trader_abci:0.1.0,body=b'{\n  "jsonrpc": "2.0",\n  "id": -1,\n  "result": {\n    "hash": "8D95EA2F3472E2BC7ED63A794AAD6F6543EFD6AAB98D6D322B3FDE0C63E40F6A",\n    "height": "379",\n    "index": 0,\n    "tx_result": {\n      "code": 1,\n      "data": null,\n      "log": "",\n      "info": "TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: [\'0x0000000000000000000000000000000000000000\']",\n      "gas_wanted": "0",\n      "gas_used": "0",\n      "events": [],\n      "codespace": ""\n    },\n    "tx": "eyJwYXlsb2FkIjogeyJfbWV0YWNsYXNzX3JlZ2lzdHJ5X2tleSI6ICJwYWNrYWdlcy52YWx,dialogue_reference=('6f51c3dc45851e085fad260826dab836c16803badaf580bac82faab13a90b989', 'c40b2ef681d4d18ada02c95876b75ab37019502b06475b675c32904e2eec5beb'),headers=Content-Type: application/json
+X-Server-Time: 1734650137
+Date: Thu, 19 Dec 2024 23:15:37 GMT
+Content-Length: 1043
+
+,message_id=-1,performative=response,status_code=200,status_text=OK,target=1,version=)
+[2024-12-19 18:15:38,071] [ERROR] [idriss_frontend] TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: ['0x0000000000000000000000000000000000000000']
+[2024-12-19 18:15:38,750] [WARNING] [idriss_frontend] Tx sent but not delivered. Response = Message(sender=valory/http_client:0.23.0,to=eightballer/trader_abci:0.1.0,body=b'{\n  "jsonrpc": "2.0",\n  "id": -1,\n  "result": {\n    "hash": "434024FAD5E245E406AD4CB57FE72135B26C23F80A22672E8FD5C8D36CDA06D1",\n    "height": "380",\n    "index": 0,\n    "tx_result": {\n      "code": 1,\n      "data": null,\n      "log": "",\n      "info": "TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: [\'0x0000000000000000000000000000000000000000\']",\n      "gas_wanted": "0",\n      "gas_used": "0",\n      "events": [],\n      "codespace": ""\n    },\n    "tx": "eyJwYXlsb2FkIjogeyJfbWV0YWNsYXNzX3JlZ2lzdHJ5X2tleSI6ICJwYWNrYWdlcy52YWx,dialogue_reference=('660d43003ab91f8a821619646894137e5675a54982ba16a6b49fd9d6f13fc652', 'fa5e5a89f2401cdc23bab4fdb6f68111da7176ee2432101ef128b6b1afad6323'),headers=Content-Type: application/json
+X-Server-Time: 1734650138
+Date: Thu, 19 Dec 2024 23:15:38 GMT
+Content-Length: 1043
+
+,message_id=-1,performative=response,status_code=200,status_text=OK,target=1,version=)
+[2024-12-19 18:15:39,074] [WARNING] [idriss_frontend] expired deadline 2024-12-19 18:15:37.479437 with event Event.RESET_AND_PAUSE_TIMEOUT at AbciApp time 2024-12-19 18:15:38.046578
+[2024-12-19 18:15:39,074] [WARNING] [idriss_frontend] current AbciApp time after expired deadline: 2024-12-19 18:15:38.046578
+[2024-12-19 18:15:39,075] [INFO] [idriss_frontend] 'reset_and_pause_round' round is done with event: Event.RESET_AND_PAUSE_TIMEOUT
+[2024-12-19 18:15:39,075] [INFO] [idriss_frontend] Entered in the 'reset_and_pause_round' round for period 0
+[2024-12-19 18:15:39,076] [INFO] [idriss_frontend] Entered in the 'reset_and_pause_behaviour' behaviour
+[2024-12-19 18:15:39,096] [ERROR] [idriss_frontend] TransactionNotValidError: Expected round count 14 and got 13.
+[2024-12-19 18:16:08,046] [INFO] [idriss_frontend] Period end.
+[2024-12-19 18:16:08,632] [ERROR] [idriss_frontend] TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: ['0x0000000000000000000000000000000000000000']
+[2024-12-19 18:16:09,091] [WARNING] [idriss_frontend] Tx sent but not delivered. Response = Message(sender=valory/http_client:0.23.0,to=eightballer/trader_abci:0.1.0,body=b'{\n  "jsonrpc": "2.0",\n  "id": -1,\n  "result": {\n    "hash": "052C701C10159C18307CBB9E9B3AC8FDF20F6A67580398BDC7FDC9F0E88DFF3B",\n    "height": "410",\n    "index": 0,\n    "tx_result": {\n      "code": 1,\n      "data": null,\n      "log": "",\n      "info": "TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: [\'0x0000000000000000000000000000000000000000\']",\n      "gas_wanted": "0",\n      "gas_used": "0",\n      "events": [],\n      "codespace": ""\n    },\n    "tx": "eyJwYXlsb2FkIjogeyJfbWV0YWNsYXNzX3JlZ2lzdHJ5X2tleSI6ICJwYWNrYWdlcy52YWx,dialogue_reference=('60fe5708f5ffd211e0faa03d03c2ae142911ecfcaac72033b38f0d6dc3c3fed3', '9e0f768c3421c96160cfe4291b6a83352e42a7ef109abacbdf89cda03dafdaca'),headers=Content-Type: application/json
+X-Server-Time: 1734650169
+Date: Thu, 19 Dec 2024 23:16:09 GMT
+Content-Length: 1043
+
+,message_id=-1,performative=response,status_code=200,status_text=OK,target=1,version=)
+[2024-12-19 18:16:09,666] [ERROR] [idriss_frontend] TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: ['0x0000000000000000000000000000000000000000']
+[2024-12-19 18:16:10,135] [WARNING] [idriss_frontend] Tx sent but not delivered. Response = Message(sender=valory/http_client:0.23.0,to=eightballer/trader_abci:0.1.0,body=b'{\n  "jsonrpc": "2.0",\n  "id": -1,\n  "result": {\n    "hash": "BDACDAC15F8EAEA803ECB71BB9E25DF5B4C9BD484068C67936D3D6B54FD6F9DF",\n    "height": "411",\n    "index": 0,\n    "tx_result": {\n      "code": 1,\n      "data": null,\n      "log": "",\n      "info": "TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: [\'0x0000000000000000000000000000000000000000\']",\n      "gas_wanted": "0",\n      "gas_used": "0",\n      "events": [],\n      "codespace": ""\n    },\n    "tx": "eyJwYXlsb2FkIjogeyJfbWV0YWNsYXNzX3JlZ2lzdHJ5X2tleSI6ICJwYWNrYWdlcy52YWx,dialogue_reference=('935c70da7957ec885dbf5a3521148ac29b2a6bc2e9fb37fdfb3df253c73061ba', '40ede56d5a391fa7b126d1b5af6496d7cfeacb9e89c949bd3116e1d71babe0c7'),headers=Content-Type: application/json
+X-Server-Time: 1734650170
+Date: Thu, 19 Dec 2024 23:16:10 GMT
+Content-Length: 1043
+
+,message_id=-1,performative=response,status_code=200,status_text=OK,target=1,version=)
+[2024-12-19 18:16:10,678] [ERROR] [idriss_frontend] TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: ['0x0000000000000000000000000000000000000000']
+[2024-12-19 18:16:11,178] [WARNING] [idriss_frontend] Tx sent but not delivered. Response = Message(sender=valory/http_client:0.23.0,to=eightballer/trader_abci:0.1.0,body=b'{\n  "jsonrpc": "2.0",\n  "id": -1,\n  "result": {\n    "hash": "4FFBED8A5D013041DB4652E3EBE5712F1C0271002F53D11DF7CE1EF9F99F8FB9",\n    "height": "412",\n    "index": 0,\n    "tx_result": {\n      "code": 1,\n      "data": null,\n      "log": "",\n      "info": "TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: [\'0x0000000000000000000000000000000000000000\']",\n      "gas_wanted": "0",\n      "gas_used": "0",\n      "events": [],\n      "codespace": ""\n    },\n    "tx": "eyJwYXlsb2FkIjogeyJfbWV0YWNsYXNzX3JlZ2lzdHJ5X2tleSI6ICJwYWNrYWdlcy52YWx,dialogue_reference=('f112d103a42fe89257bb308ea9e8aa6f54fa6b1c602d6e408a96a9d36a05c624', '4e7b3916dba91ed90c4f6e9d99fc42d7780d1659db6281f1fc89272c7de16373'),headers=Content-Type: application/json
+X-Server-Time: 1734650171
+Date: Thu, 19 Dec 2024 23:16:11 GMT
+Content-Length: 1043
+
+,message_id=-1,performative=response,status_code=200,status_text=OK,target=1,version=)
+[2024-12-19 18:16:11,697] [ERROR] [idriss_frontend] TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: ['0x0000000000000000000000000000000000000000']
+[2024-12-19 18:16:12,220] [WARNING] [idriss_frontend] Tx sent but not delivered. Response = Message(sender=valory/http_client:0.23.0,to=eightballer/trader_abci:0.1.0,body=b'{\n  "jsonrpc": "2.0",\n  "id": -1,\n  "result": {\n    "hash": "B3E5A835A38BA6B4D2A1A41D637799E1E9AE30209930E63BB70BF8AEC46E7D70",\n    "height": "413",\n    "index": 0,\n    "tx_result": {\n      "code": 1,\n      "data": null,\n      "log": "",\n      "info": "TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: [\'0x0000000000000000000000000000000000000000\']",\n      "gas_wanted": "0",\n      "gas_used": "0",\n      "events": [],\n      "codespace": ""\n    },\n    "tx": "eyJwYXlsb2FkIjogeyJfbWV0YWNsYXNzX3JlZ2lzdHJ5X2tleSI6ICJwYWNrYWdlcy52YWx,dialogue_reference=('1e8ba622fadb13b066da072e35f701cb2239e21148224f3f9d0eeb129f8d60ff', '96427f0999f85c7b42b837338ca2e2cdc814e88a459c649c2ecf00315ea96622'),headers=Content-Type: application/json
+X-Server-Time: 1734650172
+Date: Thu, 19 Dec 2024 23:16:12 GMT
+Content-Length: 1043
+
+,message_id=-1,performative=response,status_code=200,status_text=OK,target=1,version=)
+[2024-12-19 18:16:12,708] [ERROR] [idriss_frontend] TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: ['0x0000000000000000000000000000000000000000']
+[2024-12-19 18:16:13,264] [WARNING] [idriss_frontend] Tx sent but not delivered. Response = Message(sender=valory/http_client:0.23.0,to=eightballer/trader_abci:0.1.0,body=b'{\n  "jsonrpc": "2.0",\n  "id": -1,\n  "result": {\n    "hash": "E63A5DAC33E8C4D6B677C0504ECF5635CFC7312877C663A93FD54A47570822A8",\n    "height": "414",\n    "index": 0,\n    "tx_result": {\n      "code": 1,\n      "data": null,\n      "log": "",\n      "info": "TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: [\'0x0000000000000000000000000000000000000000\']",\n      "gas_wanted": "0",\n      "gas_used": "0",\n      "events": [],\n      "codespace": ""\n    },\n    "tx": "eyJwYXlsb2FkIjogeyJfbWV0YWNsYXNzX3JlZ2lzdHJ5X2tleSI6ICJwYWNrYWdlcy52YWx,dialogue_reference=('499508c65ad06a0e6c4bd43101aa113af04cf634f2f2e14dc76e0878cb75b0f4', 'b7a1ac741a188dbe1e0d6c27fffc7afc797e933a4516dca700910f6d5d93369f'),headers=Content-Type: application/json
+X-Server-Time: 1734650173
+Date: Thu, 19 Dec 2024 23:16:13 GMT
+Content-Length: 1043
+
+,message_id=-1,performative=response,status_code=200,status_text=OK,target=1,version=)
+[2024-12-19 18:16:13,721] [ERROR] [idriss_frontend] TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: ['0x0000000000000000000000000000000000000000']
+[2024-12-19 18:16:14,307] [WARNING] [idriss_frontend] Tx sent but not delivered. Response = Message(sender=valory/http_client:0.23.0,to=eightballer/trader_abci:0.1.0,body=b'{\n  "jsonrpc": "2.0",\n  "id": -1,\n  "result": {\n    "hash": "B1EC43709A7B15180CDAF8B32B61924FFBC22640B3685340F4F219D8F7106D3C",\n    "height": "415",\n    "index": 0,\n    "tx_result": {\n      "code": 1,\n      "data": null,\n      "log": "",\n      "info": "TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: [\'0x0000000000000000000000000000000000000000\']",\n      "gas_wanted": "0",\n      "gas_used": "0",\n      "events": [],\n      "codespace": ""\n    },\n    "tx": "eyJwYXlsb2FkIjogeyJfbWV0YWNsYXNzX3JlZ2lzdHJ5X2tleSI6ICJwYWNrYWdlcy52YWx,dialogue_reference=('7e6d583d44b32c39deca0b2f629cd5dfc1c41b031bceac51abe7dd49e6571686', '890de11b41b3a4e25489a331981b6b3cbddc72937caf911efb1c37d34831a149'),headers=Content-Type: application/json
+X-Server-Time: 1734650174
+Date: Thu, 19 Dec 2024 23:16:14 GMT
+Content-Length: 1043
+
+,message_id=-1,performative=response,status_code=200,status_text=OK,target=1,version=)
+[2024-12-19 18:16:14,740] [WARNING] [idriss_frontend] expired deadline 2024-12-19 18:16:13.046578 with event Event.RESET_AND_PAUSE_TIMEOUT at AbciApp time 2024-12-19 18:16:13.697329
+[2024-12-19 18:16:14,740] [WARNING] [idriss_frontend] current AbciApp time after expired deadline: 2024-12-19 18:16:13.697329
+[2024-12-19 18:16:14,740] [INFO] [idriss_frontend] 'reset_and_pause_round' round is done with event: Event.RESET_AND_PAUSE_TIMEOUT
+[2024-12-19 18:16:14,741] [INFO] [idriss_frontend] Entered in the 'reset_and_pause_round' round for period 0
+[2024-12-19 18:16:14,742] [INFO] [idriss_frontend] Entered in the 'reset_and_pause_behaviour' behaviour
+[2024-12-19 18:16:14,757] [ERROR] [idriss_frontend] TransactionNotValidError: Expected round count 15 and got 14.
+[2024-12-19 18:16:43,698] [INFO] [idriss_frontend] Period end.
+[2024-12-19 18:16:44,191] [ERROR] [idriss_frontend] TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: ['0x0000000000000000000000000000000000000000']
+[2024-12-19 18:16:44,744] [WARNING] [idriss_frontend] Tx sent but not delivered. Response = Message(sender=valory/http_client:0.23.0,to=eightballer/trader_abci:0.1.0,body=b'{\n  "jsonrpc": "2.0",\n  "id": -1,\n  "result": {\n    "hash": "CA535D3C904C734ACA1D873338BD65E43C29958382318271AABF64413CAA689B",\n    "height": "445",\n    "index": 0,\n    "tx_result": {\n      "code": 1,\n      "data": null,\n      "log": "",\n      "info": "TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: [\'0x0000000000000000000000000000000000000000\']",\n      "gas_wanted": "0",\n      "gas_used": "0",\n      "events": [],\n      "codespace": ""\n    },\n    "tx": "eyJwYXlsb2FkIjogeyJfbWV0YWNsYXNzX3JlZ2lzdHJ5X2tleSI6ICJwYWNrYWdlcy52YWx,dialogue_reference=('ee1e2cf1da3cd7e18929dc506daec5c6f7495bd2e5139704b99b31f6d938115b', '436cd3962a84ed822e214adc97c623e97d0c6ffa5064e82d6d12ae55d0b96b74'),headers=Content-Type: application/json
+X-Server-Time: 1734650204
+Date: Thu, 19 Dec 2024 23:16:44 GMT
+Content-Length: 1043
+
+,message_id=-1,performative=response,status_code=200,status_text=OK,target=1,version=)
+[2024-12-19 18:16:45,204] [ERROR] [idriss_frontend] TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: ['0x0000000000000000000000000000000000000000']
+[2024-12-19 18:16:45,788] [WARNING] [idriss_frontend] Tx sent but not delivered. Response = Message(sender=valory/http_client:0.23.0,to=eightballer/trader_abci:0.1.0,body=b'{\n  "jsonrpc": "2.0",\n  "id": -1,\n  "result": {\n    "hash": "1E904C8611A593DEE41A054198324F5E2053C0B9E338C9F5E69F0EFDF0D7D22C",\n    "height": "446",\n    "index": 0,\n    "tx_result": {\n      "code": 1,\n      "data": null,\n      "log": "",\n      "info": "TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: [\'0x0000000000000000000000000000000000000000\']",\n      "gas_wanted": "0",\n      "gas_used": "0",\n      "events": [],\n      "codespace": ""\n    },\n    "tx": "eyJwYXlsb2FkIjogeyJfbWV0YWNsYXNzX3JlZ2lzdHJ5X2tleSI6ICJwYWNrYWdlcy52YWx,dialogue_reference=('d589e3b00c5c3b164c7258fdaae15e23b1955d641dd0cf3079de2a9e200dd2ef', 'ab8c9d42324c0e74a283785ccc2a2b7c776eafe2e28f87fb0b60a765d1a87a30'),headers=Content-Type: application/json
+X-Server-Time: 1734650205
+Date: Thu, 19 Dec 2024 23:16:45 GMT
+Content-Length: 1043
+
+,message_id=-1,performative=response,status_code=200,status_text=OK,target=1,version=)
+[2024-12-19 18:16:46,218] [ERROR] [idriss_frontend] TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: ['0x0000000000000000000000000000000000000000']
+[2024-12-19 18:16:46,831] [WARNING] [idriss_frontend] Tx sent but not delivered. Response = Message(sender=valory/http_client:0.23.0,to=eightballer/trader_abci:0.1.0,body=b'{\n  "jsonrpc": "2.0",\n  "id": -1,\n  "result": {\n    "hash": "FEE7FDFBDE00247FC9D7FA8900385C1DFAD447C3B16B6BA8775287C6A6DA14D5",\n    "height": "447",\n    "index": 0,\n    "tx_result": {\n      "code": 1,\n      "data": null,\n      "log": "",\n      "info": "TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: [\'0x0000000000000000000000000000000000000000\']",\n      "gas_wanted": "0",\n      "gas_used": "0",\n      "events": [],\n      "codespace": ""\n    },\n    "tx": "eyJwYXlsb2FkIjogeyJfbWV0YWNsYXNzX3JlZ2lzdHJ5X2tleSI6ICJwYWNrYWdlcy52YWx,dialogue_reference=('21c7b052794af60415977750a29dad423395d45bc0d8e67368a376a298a09cc5', 'afdff2ce53e33ca96f0c9cf4fd8476f7559b16f56604ef64961817e8ee03b0cb'),headers=Content-Type: application/json
+X-Server-Time: 1734650206
+Date: Thu, 19 Dec 2024 23:16:46 GMT
+Content-Length: 1043
+
+,message_id=-1,performative=response,status_code=200,status_text=OK,target=1,version=)
+[2024-12-19 18:16:47,231] [ERROR] [idriss_frontend] TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: ['0x0000000000000000000000000000000000000000']
+[2024-12-19 18:16:47,874] [WARNING] [idriss_frontend] Tx sent but not delivered. Response = Message(sender=valory/http_client:0.23.0,to=eightballer/trader_abci:0.1.0,body=b'{\n  "jsonrpc": "2.0",\n  "id": -1,\n  "result": {\n    "hash": "018F7A7674814606E5EA8E72A2B6856817CF1ED8114F8B8E019D224025860789",\n    "height": "448",\n    "index": 0,\n    "tx_result": {\n      "code": 1,\n      "data": null,\n      "log": "",\n      "info": "TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: [\'0x0000000000000000000000000000000000000000\']",\n      "gas_wanted": "0",\n      "gas_used": "0",\n      "events": [],\n      "codespace": ""\n    },\n    "tx": "eyJwYXlsb2FkIjogeyJfbWV0YWNsYXNzX3JlZ2lzdHJ5X2tleSI6ICJwYWNrYWdlcy52YWx,dialogue_reference=('56ba0f2dd84467d8b12461fea1fcc732bfe906231be44714d2d57bf8e3fe40a3', 'c2469787e06fd356dd6611d75968d3d747d11f5f9fef1997f01abafc330652b5'),headers=Content-Type: application/json
+X-Server-Time: 1734650207
+Date: Thu, 19 Dec 2024 23:16:47 GMT
+Content-Length: 1043
+
+,message_id=-1,performative=response,status_code=200,status_text=OK,target=1,version=)
+[2024-12-19 18:16:48,243] [ERROR] [idriss_frontend] TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: ['0x0000000000000000000000000000000000000000']
+[2024-12-19 18:16:48,919] [WARNING] [idriss_frontend] Tx sent but not delivered. Response = Message(sender=valory/http_client:0.23.0,to=eightballer/trader_abci:0.1.0,body=b'{\n  "jsonrpc": "2.0",\n  "id": -1,\n  "result": {\n    "hash": "16AF9484290B411723258CF97EC292A0569864673A34DD225BCB63A927836918",\n    "height": "449",\n    "index": 0,\n    "tx_result": {\n      "code": 1,\n      "data": null,\n      "log": "",\n      "info": "TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: [\'0x0000000000000000000000000000000000000000\']",\n      "gas_wanted": "0",\n      "gas_used": "0",\n      "events": [],\n      "codespace": ""\n    },\n    "tx": "eyJwYXlsb2FkIjogeyJfbWV0YWNsYXNzX3JlZ2lzdHJ5X2tleSI6ICJwYWNrYWdlcy52YWx,dialogue_reference=('a1fc52c4f25772a104a4e218b99704cb6a4552884c2483bddf9de2c4175630ec', '2e969847eaed8310cad85c978c138ef032a60fc753158fe494da67b52b676d6c'),headers=Content-Type: application/json
+X-Server-Time: 1734650208
+Date: Thu, 19 Dec 2024 23:16:48 GMT
+Content-Length: 1043
+
+,message_id=-1,performative=response,status_code=200,status_text=OK,target=1,version=)
+[2024-12-19 18:16:49,258] [ERROR] [idriss_frontend] TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: ['0x0000000000000000000000000000000000000000']
+[2024-12-19 18:16:49,963] [WARNING] [idriss_frontend] Tx sent but not delivered. Response = Message(sender=valory/http_client:0.23.0,to=eightballer/trader_abci:0.1.0,body=b'{\n  "jsonrpc": "2.0",\n  "id": -1,\n  "result": {\n    "hash": "F0DDEF8E6AD5AB35F46C0B94DAD99473A21C84815FDF66F785BB866D308E07BB",\n    "height": "450",\n    "index": 0,\n    "tx_result": {\n      "code": 1,\n      "data": null,\n      "log": "",\n      "info": "TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: [\'0x0000000000000000000000000000000000000000\']",\n      "gas_wanted": "0",\n      "gas_used": "0",\n      "events": [],\n      "codespace": ""\n    },\n    "tx": "eyJwYXlsb2FkIjogeyJfbWV0YWNsYXNzX3JlZ2lzdHJ5X2tleSI6ICJwYWNrYWdlcy52YWx,dialogue_reference=('b050c15fee52c641e89bb250495f6af046b537d78e4f3e78d5a8f11d88fa7df6', '7ee2e04607b9f533432a717db0bc123a4999033cdfddf1ab6b8cd17bcf6db77d'),headers=Content-Type: application/json
+X-Server-Time: 1734650209
+Date: Thu, 19 Dec 2024 23:16:49 GMT
+Content-Length: 1043
+
+,message_id=-1,performative=response,status_code=200,status_text=OK,target=1,version=)
+[2024-12-19 18:16:50,255] [WARNING] [idriss_frontend] expired deadline 2024-12-19 18:16:48.697329 with event Event.RESET_AND_PAUSE_TIMEOUT at AbciApp time 2024-12-19 18:16:49.233443
+[2024-12-19 18:16:50,255] [WARNING] [idriss_frontend] current AbciApp time after expired deadline: 2024-12-19 18:16:49.233443
+[2024-12-19 18:16:50,255] [INFO] [idriss_frontend] 'reset_and_pause_round' round is done with event: Event.RESET_AND_PAUSE_TIMEOUT
+[2024-12-19 18:16:50,255] [INFO] [idriss_frontend] Entered in the 'reset_and_pause_round' round for period 0
+[2024-12-19 18:16:50,257] [INFO] [idriss_frontend] Entered in the 'reset_and_pause_behaviour' behaviour
+[2024-12-19 18:16:50,272] [ERROR] [idriss_frontend] TransactionNotValidError: Expected round count 16 and got 15.
+[2024-12-19 18:17:19,234] [INFO] [idriss_frontend] Period end.
+[2024-12-19 18:17:19,692] [ERROR] [idriss_frontend] TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: ['0x0000000000000000000000000000000000000000']
+[2024-12-19 18:17:20,280] [WARNING] [idriss_frontend] Tx sent but not delivered. Response = Message(sender=valory/http_client:0.23.0,to=eightballer/trader_abci:0.1.0,body=b'{\n  "jsonrpc": "2.0",\n  "id": -1,\n  "result": {\n    "hash": "07C53846A0846B078EB95FE619676BDD68F38EA36B892A9B2D2B6B3452F67273",\n    "height": "480",\n    "index": 0,\n    "tx_result": {\n      "code": 1,\n      "data": null,\n      "log": "",\n      "info": "TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: [\'0x0000000000000000000000000000000000000000\']",\n      "gas_wanted": "0",\n      "gas_used": "0",\n      "events": [],\n      "codespace": ""\n    },\n    "tx": "eyJwYXlsb2FkIjogeyJfbWV0YWNsYXNzX3JlZ2lzdHJ5X2tleSI6ICJwYWNrYWdlcy52YWx,dialogue_reference=('6472f99e66a5775bac334a76e58ea3bbccd189359581d5137c2935b18245bc68', '7481c53ddfbef540e2c1c5059030a15d045974823d65ddd159f663efedc252eb'),headers=Content-Type: application/json
+X-Server-Time: 1734650240
+Date: Thu, 19 Dec 2024 23:17:20 GMT
+Content-Length: 1043
+
+,message_id=-1,performative=response,status_code=200,status_text=OK,target=1,version=)
+[2024-12-19 18:17:20,705] [ERROR] [idriss_frontend] TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: ['0x0000000000000000000000000000000000000000']
+[2024-12-19 18:17:21,335] [WARNING] [idriss_frontend] Tx sent but not delivered. Response = Message(sender=valory/http_client:0.23.0,to=eightballer/trader_abci:0.1.0,body=b'{\n  "jsonrpc": "2.0",\n  "id": -1,\n  "result": {\n    "hash": "BAA07BB35E49B5E5AA942D86F7F08D69D118B82CED0C32CD032A4632FCDDBC35",\n    "height": "481",\n    "index": 0,\n    "tx_result": {\n      "code": 1,\n      "data": null,\n      "log": "",\n      "info": "TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: [\'0x0000000000000000000000000000000000000000\']",\n      "gas_wanted": "0",\n      "gas_used": "0",\n      "events": [],\n      "codespace": ""\n    },\n    "tx": "eyJwYXlsb2FkIjogeyJfbWV0YWNsYXNzX3JlZ2lzdHJ5X2tleSI6ICJwYWNrYWdlcy52YWx,dialogue_reference=('e9dc0725760c003573ea48d30076cffad8aa953c1cd548d353f46ad6a7119157', '02a463f91b38c72c8f8878e7ba1e3f2be208cd7042e8ffb590e8059e9c353d48'),headers=Content-Type: application/json
+X-Server-Time: 1734650241
+Date: Thu, 19 Dec 2024 23:17:21 GMT
+Content-Length: 1043
+
+,message_id=-1,performative=response,status_code=200,status_text=OK,target=1,version=)
+[2024-12-19 18:17:21,718] [ERROR] [idriss_frontend] TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: ['0x0000000000000000000000000000000000000000']
+[2024-12-19 18:17:22,378] [WARNING] [idriss_frontend] Tx sent but not delivered. Response = Message(sender=valory/http_client:0.23.0,to=eightballer/trader_abci:0.1.0,body=b'{\n  "jsonrpc": "2.0",\n  "id": -1,\n  "result": {\n    "hash": "20F1D54583EB630494BCFB44E85D291D7E87659831FB4433AF5AEC7979A8B80D",\n    "height": "482",\n    "index": 0,\n    "tx_result": {\n      "code": 1,\n      "data": null,\n      "log": "",\n      "info": "TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: [\'0x0000000000000000000000000000000000000000\']",\n      "gas_wanted": "0",\n      "gas_used": "0",\n      "events": [],\n      "codespace": ""\n    },\n    "tx": "eyJwYXlsb2FkIjogeyJfbWV0YWNsYXNzX3JlZ2lzdHJ5X2tleSI6ICJwYWNrYWdlcy52YWx,dialogue_reference=('7d132a65e4685aec1d5db90232417c801e58ec70e1ca098ba5840eed9e71b0c9', '52f06bcb22feab30cd9cbe0bb8aedb1abf4652ca26e2e02251a4d5e700f05bec'),headers=Content-Type: application/json
+X-Server-Time: 1734650242
+Date: Thu, 19 Dec 2024 23:17:22 GMT
+Content-Length: 1043
+
+,message_id=-1,performative=response,status_code=200,status_text=OK,target=1,version=)
+[2024-12-19 18:17:22,733] [ERROR] [idriss_frontend] TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: ['0x0000000000000000000000000000000000000000']
+[2024-12-19 18:17:23,422] [WARNING] [idriss_frontend] Tx sent but not delivered. Response = Message(sender=valory/http_client:0.23.0,to=eightballer/trader_abci:0.1.0,body=b'{\n  "jsonrpc": "2.0",\n  "id": -1,\n  "result": {\n    "hash": "58E3B5C38F5DBBFC2E6C0271CFD16346E15DD53D2F073DDACCB368C180DAA1E0",\n    "height": "483",\n    "index": 0,\n    "tx_result": {\n      "code": 1,\n      "data": null,\n      "log": "",\n      "info": "TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: [\'0x0000000000000000000000000000000000000000\']",\n      "gas_wanted": "0",\n      "gas_used": "0",\n      "events": [],\n      "codespace": ""\n    },\n    "tx": "eyJwYXlsb2FkIjogeyJfbWV0YWNsYXNzX3JlZ2lzdHJ5X2tleSI6ICJwYWNrYWdlcy52YWx,dialogue_reference=('a5f0cc881f91f27de1fc38c4b2adbcd73787c19ea773b62bc39fa30e3899b7e5', '9de36799c01d14cae5202f8b367a4ce242b57347bd285739bb37620f900f28cc'),headers=Content-Type: application/json
+X-Server-Time: 1734650243
+Date: Thu, 19 Dec 2024 23:17:23 GMT
+Content-Length: 1043
+
+,message_id=-1,performative=response,status_code=200,status_text=OK,target=1,version=)
+[2024-12-19 18:17:23,745] [ERROR] [idriss_frontend] TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: ['0x0000000000000000000000000000000000000000']
+[2024-12-19 18:17:24,466] [WARNING] [idriss_frontend] Tx sent but not delivered. Response = Message(sender=valory/http_client:0.23.0,to=eightballer/trader_abci:0.1.0,body=b'{\n  "jsonrpc": "2.0",\n  "id": -1,\n  "result": {\n    "hash": "C08A3BB007B1AE04716D7A6C7B752712E210836F13D62A9FECCE83859344F252",\n    "height": "484",\n    "index": 0,\n    "tx_result": {\n      "code": 1,\n      "data": null,\n      "log": "",\n      "info": "TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: [\'0x0000000000000000000000000000000000000000\']",\n      "gas_wanted": "0",\n      "gas_used": "0",\n      "events": [],\n      "codespace": ""\n    },\n    "tx": "eyJwYXlsb2FkIjogeyJfbWV0YWNsYXNzX3JlZ2lzdHJ5X2tleSI6ICJwYWNrYWdlcy52YWx,dialogue_reference=('b99a0806d4f35000f603f786a8eb8a04512b817bf2679d5df8853e8dc8ee8ec7', '7dbad13e06c1d51ecb799a65d8c6190e332122a29263ff6dacbc8ecab4a35c5b'),headers=Content-Type: application/json
+X-Server-Time: 1734650244
+Date: Thu, 19 Dec 2024 23:17:24 GMT
+Content-Length: 1043
+
+,message_id=-1,performative=response,status_code=200,status_text=OK,target=1,version=)
+[2024-12-19 18:17:24,761] [ERROR] [idriss_frontend] TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: ['0x0000000000000000000000000000000000000000']
+[2024-12-19 18:17:25,513] [WARNING] [idriss_frontend] Tx sent but not delivered. Response = Message(sender=valory/http_client:0.23.0,to=eightballer/trader_abci:0.1.0,body=b'{\n  "jsonrpc": "2.0",\n  "id": -1,\n  "result": {\n    "hash": "4A8942913220FD737D0CC589324F35F1FEEAD903C85B4A9EF9B74E1C5D5A21EB",\n    "height": "485",\n    "index": 0,\n    "tx_result": {\n      "code": 1,\n      "data": null,\n      "log": "",\n      "info": "TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: [\'0x0000000000000000000000000000000000000000\']",\n      "gas_wanted": "0",\n      "gas_used": "0",\n      "events": [],\n      "codespace": ""\n    },\n    "tx": "eyJwYXlsb2FkIjogeyJfbWV0YWNsYXNzX3JlZ2lzdHJ5X2tleSI6ICJwYWNrYWdlcy52YWx,dialogue_reference=('66a27346726add8f2d9352de74179bf6ec2f81a49c67cb7b4c3dee07874dd417', '3cf6fb9dc1b8eecee32821fb681923844536d7543a4126065393ad3363501493'),headers=Content-Type: application/json
+X-Server-Time: 1734650245
+Date: Thu, 19 Dec 2024 23:17:25 GMT
+Content-Length: 1043
+
+,message_id=-1,performative=response,status_code=200,status_text=OK,target=1,version=)
+[2024-12-19 18:17:25,758] [WARNING] [idriss_frontend] expired deadline 2024-12-19 18:17:24.233443 with event Event.RESET_AND_PAUSE_TIMEOUT at AbciApp time 2024-12-19 18:17:24.736600
+[2024-12-19 18:17:25,758] [WARNING] [idriss_frontend] current AbciApp time after expired deadline: 2024-12-19 18:17:24.736600
+[2024-12-19 18:17:25,758] [INFO] [idriss_frontend] 'reset_and_pause_round' round is done with event: Event.RESET_AND_PAUSE_TIMEOUT
+[2024-12-19 18:17:25,758] [INFO] [idriss_frontend] Entered in the 'reset_and_pause_round' round for period 0
+[2024-12-19 18:17:25,760] [INFO] [idriss_frontend] Entered in the 'reset_and_pause_behaviour' behaviour
+[2024-12-19 18:17:25,775] [ERROR] [idriss_frontend] TransactionNotValidError: Expected round count 17 and got 16.
+[2024-12-19 18:17:54,737] [INFO] [idriss_frontend] Period end.
+[2024-12-19 18:17:55,236] [ERROR] [idriss_frontend] TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: ['0x0000000000000000000000000000000000000000']
+[2024-12-19 18:17:55,791] [WARNING] [idriss_frontend] Tx sent but not delivered. Response = Message(sender=valory/http_client:0.23.0,to=eightballer/trader_abci:0.1.0,body=b'{\n  "jsonrpc": "2.0",\n  "id": -1,\n  "result": {\n    "hash": "532338242A16357D995324193ACDA53897AF08496682122B27D1C0BB819A7C34",\n    "height": "515",\n    "index": 0,\n    "tx_result": {\n      "code": 1,\n      "data": null,\n      "log": "",\n      "info": "TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: [\'0x0000000000000000000000000000000000000000\']",\n      "gas_wanted": "0",\n      "gas_used": "0",\n      "events": [],\n      "codespace": ""\n    },\n    "tx": "eyJwYXlsb2FkIjogeyJfbWV0YWNsYXNzX3JlZ2lzdHJ5X2tleSI6ICJwYWNrYWdlcy52YWx,dialogue_reference=('a3e12f7a12312420fc3eafa2d1f2c37261ce461cffd61cc433e8f0ab92ca8adb', '136b02b8f1b2ac3d628f0751e67056083d213d2c85fb180d69b853581e55a01c'),headers=Content-Type: application/json
+X-Server-Time: 1734650275
+Date: Thu, 19 Dec 2024 23:17:55 GMT
+Content-Length: 1043
+
+,message_id=-1,performative=response,status_code=200,status_text=OK,target=1,version=)
+[2024-12-19 18:17:56,259] [ERROR] [idriss_frontend] TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: ['0x0000000000000000000000000000000000000000']
+[2024-12-19 18:17:56,837] [WARNING] [idriss_frontend] Tx sent but not delivered. Response = Message(sender=valory/http_client:0.23.0,to=eightballer/trader_abci:0.1.0,body=b'{\n  "jsonrpc": "2.0",\n  "id": -1,\n  "result": {\n    "hash": "6F65EA9C6AE860B6435ECE960EE0AE3114E275F0CD03D3FBEC20F8EE4DC590CB",\n    "height": "516",\n    "index": 0,\n    "tx_result": {\n      "code": 1,\n      "data": null,\n      "log": "",\n      "info": "TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: [\'0x0000000000000000000000000000000000000000\']",\n      "gas_wanted": "0",\n      "gas_used": "0",\n      "events": [],\n      "codespace": ""\n    },\n    "tx": "eyJwYXlsb2FkIjogeyJfbWV0YWNsYXNzX3JlZ2lzdHJ5X2tleSI6ICJwYWNrYWdlcy52YWx,dialogue_reference=('14ce6216238ac574410a7b7069fff950e80fe7a56a0912ba0a1eb12498ed4506', '14c01f22e98db750943f4eaab2854006b3a08aa7ea6ccbd12a77a71376589386'),headers=Content-Type: application/json
+X-Server-Time: 1734650276
+Date: Thu, 19 Dec 2024 23:17:56 GMT
+Content-Length: 1043
+
+,message_id=-1,performative=response,status_code=200,status_text=OK,target=1,version=)
+[2024-12-19 18:17:57,273] [ERROR] [idriss_frontend] TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: ['0x0000000000000000000000000000000000000000']
+[2024-12-19 18:17:57,882] [WARNING] [idriss_frontend] Tx sent but not delivered. Response = Message(sender=valory/http_client:0.23.0,to=eightballer/trader_abci:0.1.0,body=b'{\n  "jsonrpc": "2.0",\n  "id": -1,\n  "result": {\n    "hash": "D270FE7429FB0623015CE6585AEF5F7117E1C87808BF2912F700E68BE3726F22",\n    "height": "517",\n    "index": 0,\n    "tx_result": {\n      "code": 1,\n      "data": null,\n      "log": "",\n      "info": "TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: [\'0x0000000000000000000000000000000000000000\']",\n      "gas_wanted": "0",\n      "gas_used": "0",\n      "events": [],\n      "codespace": ""\n    },\n    "tx": "eyJwYXlsb2FkIjogeyJfbWV0YWNsYXNzX3JlZ2lzdHJ5X2tleSI6ICJwYWNrYWdlcy52YWx,dialogue_reference=('ec37dd7cc15173cbaa8c0e2efe5bfc53246c253eabcf8e86803b9185705921e6', '8092530a4f3234ec4df9ecf132d258fc42bcdbb5e20bd5d94b5bfdae5e113049'),headers=Content-Type: application/json
+X-Server-Time: 1734650277
+Date: Thu, 19 Dec 2024 23:17:57 GMT
+Content-Length: 1043
+
+,message_id=-1,performative=response,status_code=200,status_text=OK,target=1,version=)
+[2024-12-19 18:17:58,288] [ERROR] [idriss_frontend] TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: ['0x0000000000000000000000000000000000000000']
+[2024-12-19 18:17:58,925] [WARNING] [idriss_frontend] Tx sent but not delivered. Response = Message(sender=valory/http_client:0.23.0,to=eightballer/trader_abci:0.1.0,body=b'{\n  "jsonrpc": "2.0",\n  "id": -1,\n  "result": {\n    "hash": "A804437ACCA68681E3071AA8AB3EC4CF5266741A956D5D4F090CB8B1415A09E1",\n    "height": "518",\n    "index": 0,\n    "tx_result": {\n      "code": 1,\n      "data": null,\n      "log": "",\n      "info": "TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: [\'0x0000000000000000000000000000000000000000\']",\n      "gas_wanted": "0",\n      "gas_used": "0",\n      "events": [],\n      "codespace": ""\n    },\n    "tx": "eyJwYXlsb2FkIjogeyJfbWV0YWNsYXNzX3JlZ2lzdHJ5X2tleSI6ICJwYWNrYWdlcy52YWx,dialogue_reference=('f2aa5fa5bdd730c99836568de9a26f80d4054a15ee4b51e8de038537569aca74', '6013e13a52f6f7c6c21fa20a7020aa326c48262f437198097e284d19329f213f'),headers=Content-Type: application/json
+X-Server-Time: 1734650278
+Date: Thu, 19 Dec 2024 23:17:58 GMT
+Content-Length: 1043
+
+,message_id=-1,performative=response,status_code=200,status_text=OK,target=1,version=)
+[2024-12-19 18:17:59,303] [ERROR] [idriss_frontend] TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: ['0x0000000000000000000000000000000000000000']
+[2024-12-19 18:17:59,973] [WARNING] [idriss_frontend] Tx sent but not delivered. Response = Message(sender=valory/http_client:0.23.0,to=eightballer/trader_abci:0.1.0,body=b'{\n  "jsonrpc": "2.0",\n  "id": -1,\n  "result": {\n    "hash": "54116B2EC4FB8F434B6DD401938A62F0465A53DEA74EB12516A1D9724807760F",\n    "height": "519",\n    "index": 0,\n    "tx_result": {\n      "code": 1,\n      "data": null,\n      "log": "",\n      "info": "TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: [\'0x0000000000000000000000000000000000000000\']",\n      "gas_wanted": "0",\n      "gas_used": "0",\n      "events": [],\n      "codespace": ""\n    },\n    "tx": "eyJwYXlsb2FkIjogeyJfbWV0YWNsYXNzX3JlZ2lzdHJ5X2tleSI6ICJwYWNrYWdlcy52YWx,dialogue_reference=('71d3555ff062a9e67d379eb45b7bb9a13d75c15aa9577f1bd0e669cc02b00756', 'dff2d47b243d44ffd6d946302653b05673c104d905a02744f17bb45284af64f7'),headers=Content-Type: application/json
+X-Server-Time: 1734650279
+Date: Thu, 19 Dec 2024 23:17:59 GMT
+Content-Length: 1043
+
+,message_id=-1,performative=response,status_code=200,status_text=OK,target=1,version=)
+[2024-12-19 18:18:00,316] [ERROR] [idriss_frontend] TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: ['0x0000000000000000000000000000000000000000']
+[2024-12-19 18:18:01,017] [WARNING] [idriss_frontend] Tx sent but not delivered. Response = Message(sender=valory/http_client:0.23.0,to=eightballer/trader_abci:0.1.0,body=b'{\n  "jsonrpc": "2.0",\n  "id": -1,\n  "result": {\n    "hash": "8730E2645C71370248A08F283A38B80B4D9152DD65F4E790D7F908DD3034DC4B",\n    "height": "520",\n    "index": 0,\n    "tx_result": {\n      "code": 1,\n      "data": null,\n      "log": "",\n      "info": "TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: [\'0x0000000000000000000000000000000000000000\']",\n      "gas_wanted": "0",\n      "gas_used": "0",\n      "events": [],\n      "codespace": ""\n    },\n    "tx": "eyJwYXlsb2FkIjogeyJfbWV0YWNsYXNzX3JlZ2lzdHJ5X2tleSI6ICJwYWNrYWdlcy52YWx,dialogue_reference=('24163c0559b3c17da76418930ba5f31daa5c2e9e9d6f7d331a9a692b633ce010', 'a12b79bf73ab06cc9a22c8990d014c9178ef9962e1af191e42bf4949c1c0a417'),headers=Content-Type: application/json
+X-Server-Time: 1734650281
+Date: Thu, 19 Dec 2024 23:18:01 GMT
+Content-Length: 1043
+
+,message_id=-1,performative=response,status_code=200,status_text=OK,target=1,version=)
+[2024-12-19 18:18:01,314] [WARNING] [idriss_frontend] expired deadline 2024-12-19 18:17:59.736600 with event Event.RESET_AND_PAUSE_TIMEOUT at AbciApp time 2024-12-19 18:18:00.292853
+[2024-12-19 18:18:01,315] [WARNING] [idriss_frontend] current AbciApp time after expired deadline: 2024-12-19 18:18:00.292853
+[2024-12-19 18:18:01,315] [INFO] [idriss_frontend] 'reset_and_pause_round' round is done with event: Event.RESET_AND_PAUSE_TIMEOUT
+[2024-12-19 18:18:01,315] [INFO] [idriss_frontend] Entered in the 'reset_and_pause_round' round for period 0
+[2024-12-19 18:18:01,316] [INFO] [idriss_frontend] Entered in the 'reset_and_pause_behaviour' behaviour
+[2024-12-19 18:18:01,332] [ERROR] [idriss_frontend] TransactionNotValidError: Expected round count 18 and got 17.
+[2024-12-19 18:18:30,293] [INFO] [idriss_frontend] Period end.
+[2024-12-19 18:18:30,778] [ERROR] [idriss_frontend] TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: ['0x0000000000000000000000000000000000000000']
+[2024-12-19 18:18:31,338] [WARNING] [idriss_frontend] Tx sent but not delivered. Response = Message(sender=valory/http_client:0.23.0,to=eightballer/trader_abci:0.1.0,body=b'{\n  "jsonrpc": "2.0",\n  "id": -1,\n  "result": {\n    "hash": "519413F3466F810285194848CCE6F8F15275C7295C5FCE61C04D8C7BF1A393AC",\n    "height": "550",\n    "index": 0,\n    "tx_result": {\n      "code": 1,\n      "data": null,\n      "log": "",\n      "info": "TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: [\'0x0000000000000000000000000000000000000000\']",\n      "gas_wanted": "0",\n      "gas_used": "0",\n      "events": [],\n      "codespace": ""\n    },\n    "tx": "eyJwYXlsb2FkIjogeyJfbWV0YWNsYXNzX3JlZ2lzdHJ5X2tleSI6ICJwYWNrYWdlcy52YWx,dialogue_reference=('aae02079906aefb158e91a63298dd6b1108edaa10ad2b3202f4172421afc99cf', '6a92fe78ded0f04798c24e47ce74c5f21c024f7f1065a6fae00c9ca8732467b5'),headers=Content-Type: application/json
+X-Server-Time: 1734650311
+Date: Thu, 19 Dec 2024 23:18:31 GMT
+Content-Length: 1043
+
+,message_id=-1,performative=response,status_code=200,status_text=OK,target=1,version=)
+[2024-12-19 18:18:31,791] [ERROR] [idriss_frontend] TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: ['0x0000000000000000000000000000000000000000']
+[2024-12-19 18:18:32,385] [WARNING] [idriss_frontend] Tx sent but not delivered. Response = Message(sender=valory/http_client:0.23.0,to=eightballer/trader_abci:0.1.0,body=b'{\n  "jsonrpc": "2.0",\n  "id": -1,\n  "result": {\n    "hash": "20E47582F1B6DFC60E2CF1C2A05FF41855F9DEBA14B500520D7A087B626F5550",\n    "height": "551",\n    "index": 0,\n    "tx_result": {\n      "code": 1,\n      "data": null,\n      "log": "",\n      "info": "TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: [\'0x0000000000000000000000000000000000000000\']",\n      "gas_wanted": "0",\n      "gas_used": "0",\n      "events": [],\n      "codespace": ""\n    },\n    "tx": "eyJwYXlsb2FkIjogeyJfbWV0YWNsYXNzX3JlZ2lzdHJ5X2tleSI6ICJwYWNrYWdlcy52YWx,dialogue_reference=('e7e3a27838cdc151656c90a314497b3e783adab743b8aea182e52184f1181ef8', '074fe6399678c607064eaa62ee0c3907438005a9e7c9066ab234276152f64eb9'),headers=Content-Type: application/json
+X-Server-Time: 1734650312
+Date: Thu, 19 Dec 2024 23:18:32 GMT
+Content-Length: 1043
+
+,message_id=-1,performative=response,status_code=200,status_text=OK,target=1,version=)
+[2024-12-19 18:18:32,804] [ERROR] [idriss_frontend] TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: ['0x0000000000000000000000000000000000000000']
+[2024-12-19 18:18:33,435] [WARNING] [idriss_frontend] Tx sent but not delivered. Response = Message(sender=valory/http_client:0.23.0,to=eightballer/trader_abci:0.1.0,body=b'{\n  "jsonrpc": "2.0",\n  "id": -1,\n  "result": {\n    "hash": "0DDB908BC6C11B10B69CBDFA052ABAAB0DEAAC566A5803E0F4DC09A75D1C0DAE",\n    "height": "552",\n    "index": 0,\n    "tx_result": {\n      "code": 1,\n      "data": null,\n      "log": "",\n      "info": "TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: [\'0x0000000000000000000000000000000000000000\']",\n      "gas_wanted": "0",\n      "gas_used": "0",\n      "events": [],\n      "codespace": ""\n    },\n    "tx": "eyJwYXlsb2FkIjogeyJfbWV0YWNsYXNzX3JlZ2lzdHJ5X2tleSI6ICJwYWNrYWdlcy52YWx,dialogue_reference=('16dfc5f7af1afa56eb1cb2cd3b747ac2990eeb7c77a695e9bd9b1111440f1a1e', 'a11f1412b406b4a89cefd27a598c2bc1a67196cf416b8c4b878307fc14ff024e'),headers=Content-Type: application/json
+X-Server-Time: 1734650313
+Date: Thu, 19 Dec 2024 23:18:33 GMT
+Content-Length: 1043
+
+,message_id=-1,performative=response,status_code=200,status_text=OK,target=1,version=)
+[2024-12-19 18:18:33,817] [ERROR] [idriss_frontend] TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: ['0x0000000000000000000000000000000000000000']
+[2024-12-19 18:18:34,478] [WARNING] [idriss_frontend] Tx sent but not delivered. Response = Message(sender=valory/http_client:0.23.0,to=eightballer/trader_abci:0.1.0,body=b'{\n  "jsonrpc": "2.0",\n  "id": -1,\n  "result": {\n    "hash": "CA1760B15E3F9F06854770584ADCE1FE2C62A1CCCE15DC594B8FA116465A9A69",\n    "height": "553",\n    "index": 0,\n    "tx_result": {\n      "code": 1,\n      "data": null,\n      "log": "",\n      "info": "TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: [\'0x0000000000000000000000000000000000000000\']",\n      "gas_wanted": "0",\n      "gas_used": "0",\n      "events": [],\n      "codespace": ""\n    },\n    "tx": "eyJwYXlsb2FkIjogeyJfbWV0YWNsYXNzX3JlZ2lzdHJ5X2tleSI6ICJwYWNrYWdlcy52YWx,dialogue_reference=('28a477b9cfba69db02e3f57c1c7215ad553774e59a2e0f92984616a1ae6f9e97', 'e55d6359cbdc0b5172d3553a173effabf5543add99bc1ddf95e5d4bb499ac0d3'),headers=Content-Type: application/json
+X-Server-Time: 1734650314
+Date: Thu, 19 Dec 2024 23:18:34 GMT
+Content-Length: 1043
+
+,message_id=-1,performative=response,status_code=200,status_text=OK,target=1,version=)
+[2024-12-19 18:18:34,829] [ERROR] [idriss_frontend] TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: ['0x0000000000000000000000000000000000000000']
+[2024-12-19 18:18:35,522] [WARNING] [idriss_frontend] Tx sent but not delivered. Response = Message(sender=valory/http_client:0.23.0,to=eightballer/trader_abci:0.1.0,body=b'{\n  "jsonrpc": "2.0",\n  "id": -1,\n  "result": {\n    "hash": "6E8B0D00DCFE4242F5A0FCF696A450DC4B2A164329F1922B21FCAA5CF4EC4A5B",\n    "height": "554",\n    "index": 0,\n    "tx_result": {\n      "code": 1,\n      "data": null,\n      "log": "",\n      "info": "TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: [\'0x0000000000000000000000000000000000000000\']",\n      "gas_wanted": "0",\n      "gas_used": "0",\n      "events": [],\n      "codespace": ""\n    },\n    "tx": "eyJwYXlsb2FkIjogeyJfbWV0YWNsYXNzX3JlZ2lzdHJ5X2tleSI6ICJwYWNrYWdlcy52YWx,dialogue_reference=('6fdc9cb3e5e16b5cb8a5721fd5391c7d1414cd04e5a77df510bc711f8827baf0', '56a39a3f2b989826f7f7774668fa0f2551d97db7921949a597b31035ef463c08'),headers=Content-Type: application/json
+X-Server-Time: 1734650315
+Date: Thu, 19 Dec 2024 23:18:35 GMT
+Content-Length: 1043
+
+,message_id=-1,performative=response,status_code=200,status_text=OK,target=1,version=)
+[2024-12-19 18:18:35,842] [ERROR] [idriss_frontend] TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: ['0x0000000000000000000000000000000000000000']
+[2024-12-19 18:18:36,565] [WARNING] [idriss_frontend] Tx sent but not delivered. Response = Message(sender=valory/http_client:0.23.0,to=eightballer/trader_abci:0.1.0,body=b'{\n  "jsonrpc": "2.0",\n  "id": -1,\n  "result": {\n    "hash": "DBF453080AA10FE6BB26B2BCCCBC4D1AE0A97520689553DD3697135FD394D5C1",\n    "height": "555",\n    "index": 0,\n    "tx_result": {\n      "code": 1,\n      "data": null,\n      "log": "",\n      "info": "TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: [\'0x0000000000000000000000000000000000000000\']",\n      "gas_wanted": "0",\n      "gas_used": "0",\n      "events": [],\n      "codespace": ""\n    },\n    "tx": "eyJwYXlsb2FkIjogeyJfbWV0YWNsYXNzX3JlZ2lzdHJ5X2tleSI6ICJwYWNrYWdlcy52YWx,dialogue_reference=('c541c85aaa641f0ae4325c6a7428c8055c5d11ef1e058449ab017012536871f6', 'd8bd098e3238f2767d96c23527a637e15e7b6de43b641a53316ea8b34842c156'),headers=Content-Type: application/json
+X-Server-Time: 1734650316
+Date: Thu, 19 Dec 2024 23:18:36 GMT
+Content-Length: 1043
+
+,message_id=-1,performative=response,status_code=200,status_text=OK,target=1,version=)
+[2024-12-19 18:18:36,849] [WARNING] [idriss_frontend] expired deadline 2024-12-19 18:18:35.292853 with event Event.RESET_AND_PAUSE_TIMEOUT at AbciApp time 2024-12-19 18:18:35.818014
+[2024-12-19 18:18:36,849] [WARNING] [idriss_frontend] current AbciApp time after expired deadline: 2024-12-19 18:18:35.818014
+[2024-12-19 18:18:36,849] [INFO] [idriss_frontend] 'reset_and_pause_round' round is done with event: Event.RESET_AND_PAUSE_TIMEOUT
+[2024-12-19 18:18:36,849] [INFO] [idriss_frontend] Entered in the 'reset_and_pause_round' round for period 0
+[2024-12-19 18:18:36,851] [INFO] [idriss_frontend] Entered in the 'reset_and_pause_behaviour' behaviour
+[2024-12-19 18:18:36,866] [ERROR] [idriss_frontend] TransactionNotValidError: Expected round count 19 and got 18.
+[2024-12-19 18:19:05,818] [INFO] [idriss_frontend] Period end.
+[2024-12-19 18:19:06,357] [ERROR] [idriss_frontend] TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: ['0x0000000000000000000000000000000000000000']
+[2024-12-19 18:19:06,865] [WARNING] [idriss_frontend] Tx sent but not delivered. Response = Message(sender=valory/http_client:0.23.0,to=eightballer/trader_abci:0.1.0,body=b'{\n  "jsonrpc": "2.0",\n  "id": -1,\n  "result": {\n    "hash": "37BC48A45FE43CC80C34D1248F1CBB8C8F99F5BE1FB2EE95AC800D9574D9B0E0",\n    "height": "585",\n    "index": 0,\n    "tx_result": {\n      "code": 1,\n      "data": null,\n      "log": "",\n      "info": "TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: [\'0x0000000000000000000000000000000000000000\']",\n      "gas_wanted": "0",\n      "gas_used": "0",\n      "events": [],\n      "codespace": ""\n    },\n    "tx": "eyJwYXlsb2FkIjogeyJfbWV0YWNsYXNzX3JlZ2lzdHJ5X2tleSI6ICJwYWNrYWdlcy52YWx,dialogue_reference=('01abd3e36c2e2eab0ef281fd0933a86a6df52e5786bbb98b38073796207e0d5d', '393e0ca7540e480d10b6118b1f78dc614d567eeb37f01fa999700d8f874fa089'),headers=Content-Type: application/json
+X-Server-Time: 1734650346
+Date: Thu, 19 Dec 2024 23:19:06 GMT
+Content-Length: 1043
+
+,message_id=-1,performative=response,status_code=200,status_text=OK,target=1,version=)
+[2024-12-19 18:19:07,370] [ERROR] [idriss_frontend] TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: ['0x0000000000000000000000000000000000000000']
+[2024-12-19 18:19:07,912] [WARNING] [idriss_frontend] Tx sent but not delivered. Response = Message(sender=valory/http_client:0.23.0,to=eightballer/trader_abci:0.1.0,body=b'{\n  "jsonrpc": "2.0",\n  "id": -1,\n  "result": {\n    "hash": "D070E974B0FB80F38DB3CDD72C311A86D05BEAD36A188BDFF252CF273EF7E056",\n    "height": "586",\n    "index": 0,\n    "tx_result": {\n      "code": 1,\n      "data": null,\n      "log": "",\n      "info": "TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: [\'0x0000000000000000000000000000000000000000\']",\n      "gas_wanted": "0",\n      "gas_used": "0",\n      "events": [],\n      "codespace": ""\n    },\n    "tx": "eyJwYXlsb2FkIjogeyJfbWV0YWNsYXNzX3JlZ2lzdHJ5X2tleSI6ICJwYWNrYWdlcy52YWx,dialogue_reference=('89203d521b668c7b17a2502594f3f3fd5369cdf4f88ebf1dbabb33b7660cd885', '392ef8ca778d93a359f163d562c12ae5d7d7b72d9cba512df30040203f931a1b'),headers=Content-Type: application/json
+X-Server-Time: 1734650347
+Date: Thu, 19 Dec 2024 23:19:07 GMT
+Content-Length: 1043
+
+,message_id=-1,performative=response,status_code=200,status_text=OK,target=1,version=)
+[2024-12-19 18:19:08,465] [ERROR] [idriss_frontend] TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: ['0x0000000000000000000000000000000000000000']
+[2024-12-19 18:19:08,964] [WARNING] [idriss_frontend] Tx sent but not delivered. Response = Message(sender=valory/http_client:0.23.0,to=eightballer/trader_abci:0.1.0,body=b'{\n  "jsonrpc": "2.0",\n  "id": -1,\n  "result": {\n    "hash": "1A0C986553BE92494CB2653358A4C02E5A8E2E23C79DC86616624F9F3E08DD40",\n    "height": "587",\n    "index": 0,\n    "tx_result": {\n      "code": 1,\n      "data": null,\n      "log": "",\n      "info": "TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: [\'0x0000000000000000000000000000000000000000\']",\n      "gas_wanted": "0",\n      "gas_used": "0",\n      "events": [],\n      "codespace": ""\n    },\n    "tx": "eyJwYXlsb2FkIjogeyJfbWV0YWNsYXNzX3JlZ2lzdHJ5X2tleSI6ICJwYWNrYWdlcy52YWx,dialogue_reference=('651306e2ec67b8e4570572f6165ea665d78c1fda64f7ac1e48a1e7b57ce80ea2', 'd8007b3cb5481ffb011dcca86f2d1e7c625bd24a3c2898b564c38b3da9eb480e'),headers=Content-Type: application/json
+X-Server-Time: 1734650348
+Date: Thu, 19 Dec 2024 23:19:08 GMT
+Content-Length: 1043
+
+,message_id=-1,performative=response,status_code=200,status_text=OK,target=1,version=)
+[2024-12-19 18:19:09,477] [ERROR] [idriss_frontend] TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: ['0x0000000000000000000000000000000000000000']
+[2024-12-19 18:19:10,009] [WARNING] [idriss_frontend] Tx sent but not delivered. Response = Message(sender=valory/http_client:0.23.0,to=eightballer/trader_abci:0.1.0,body=b'{\n  "jsonrpc": "2.0",\n  "id": -1,\n  "result": {\n    "hash": "D9A9FE4411D626EDCB4F8F690B4C4D26C96285970EC53F003464E13CC2806BA4",\n    "height": "588",\n    "index": 0,\n    "tx_result": {\n      "code": 1,\n      "data": null,\n      "log": "",\n      "info": "TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: [\'0x0000000000000000000000000000000000000000\']",\n      "gas_wanted": "0",\n      "gas_used": "0",\n      "events": [],\n      "codespace": ""\n    },\n    "tx": "eyJwYXlsb2FkIjogeyJfbWV0YWNsYXNzX3JlZ2lzdHJ5X2tleSI6ICJwYWNrYWdlcy52YWx,dialogue_reference=('fc05297fb68f7cba611ecfd5052a13e7df0aa144b117fa1305d027d83269b27b', 'e1b69ac9d1c72c3fc4ebc100d84787bde97a8958b481787dc46ec99123261896'),headers=Content-Type: application/json
+X-Server-Time: 1734650350
+Date: Thu, 19 Dec 2024 23:19:10 GMT
+Content-Length: 1043
+
+,message_id=-1,performative=response,status_code=200,status_text=OK,target=1,version=)
+[2024-12-19 18:19:10,509] [ERROR] [idriss_frontend] TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: ['0x0000000000000000000000000000000000000000']
+[2024-12-19 18:19:11,057] [WARNING] [idriss_frontend] Tx sent but not delivered. Response = Message(sender=valory/http_client:0.23.0,to=eightballer/trader_abci:0.1.0,body=b'{\n  "jsonrpc": "2.0",\n  "id": -1,\n  "result": {\n    "hash": "9AFB92E720ED292B448B58C8D021CA7978B307CB04D7BD7B65EBDC127E0F3175",\n    "height": "589",\n    "index": 0,\n    "tx_result": {\n      "code": 1,\n      "data": null,\n      "log": "",\n      "info": "TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: [\'0x0000000000000000000000000000000000000000\']",\n      "gas_wanted": "0",\n      "gas_used": "0",\n      "events": [],\n      "codespace": ""\n    },\n    "tx": "eyJwYXlsb2FkIjogeyJfbWV0YWNsYXNzX3JlZ2lzdHJ5X2tleSI6ICJwYWNrYWdlcy52YWx,dialogue_reference=('64655227bfcc6bf5fbc74f044027d193d6a382ff34bf4aa0316a69deffd8d8fb', '1d9ab42ae90d5c1630d616d5e434d26cb608e23e8e7f30a9a19e83bd66c85a67'),headers=Content-Type: application/json
+X-Server-Time: 1734650351
+Date: Thu, 19 Dec 2024 23:19:11 GMT
+Content-Length: 1043
+
+,message_id=-1,performative=response,status_code=200,status_text=OK,target=1,version=)
+[2024-12-19 18:19:11,514] [ERROR] [idriss_frontend] TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: ['0x0000000000000000000000000000000000000000']
+[2024-12-19 18:19:12,108] [WARNING] [idriss_frontend] Tx sent but not delivered. Response = Message(sender=valory/http_client:0.23.0,to=eightballer/trader_abci:0.1.0,body=b'{\n  "jsonrpc": "2.0",\n  "id": -1,\n  "result": {\n    "hash": "970B28F2994038A35FC564B10F4ADD995821446F6C392E3CB21267009C9F0BF8",\n    "height": "590",\n    "index": 0,\n    "tx_result": {\n      "code": 1,\n      "data": null,\n      "log": "",\n      "info": "TransactionNotValidError: 0xb6618d897dD60dA9a765ccCbeb5A34641BD8179D not in list of participants: [\'0x0000000000000000000000000000000000000000\']",\n      "gas_wanted": "0",\n      "gas_used": "0",\n      "events": [],\n      "codespace": ""\n    },\n    "tx": "eyJwYXlsb2FkIjogeyJfbWV0YWNsYXNzX3JlZ2lzdHJ5X2tleSI6ICJwYWNrYWdlcy52YWx,dialogue_reference=('0543239f97fe44b4902eb3a0c0568675515a98b2fced560677fe15d34bc7c886', 'bb35ebdac75b70fc1283d44a2b0b20239026f5215e262693417a867440f39bdf'),headers=Content-Type: application/json
+X-Server-Time: 1734650352
+Date: Thu, 19 Dec 2024 23:19:12 GMT
+Content-Length: 1043
+
+,message_id=-1,performative=response,status_code=200,status_text=OK,target=1,version=)
+[2024-12-19 18:19:12,512] [WARNING] [idriss_frontend] expired deadline 2024-12-19 18:19:10.818014 with event Event.RESET_AND_PAUSE_TIMEOUT at AbciApp time 2024-12-19 18:19:11.487870
+[2024-12-19 18:19:12,512] [WARNING] [idriss_frontend] current AbciApp time after expired deadline: 2024-12-19 18:19:11.487870
+[2024-12-19 18:19:12,512] [INFO] [idriss_frontend] 'reset_and_pause_round' round is done with event: Event.RESET_AND_PAUSE_TIMEOUT
+[2024-12-19 18:19:12,513] [INFO] [idriss_frontend] Entered in the 'reset_and_pause_round' round for period 0
+[2024-12-19 18:19:12,515] [INFO] [idriss_frontend] Entered in the 'reset_and_pause_behaviour' behaviour
+[2024-12-19 18:19:12,536] [ERROR] [idriss_frontend] TransactionNotValidError: Expected round count 20 and got 19.
+[2024-12-19 18:19:13,580] [INFO] [idriss_frontend] HTTP Client has shutdown on port: 8000.
+[2024-12-19 18:19:13,580] [INFO] [idriss_frontend] HTTP Server has shutdown on port: 5555.
+[2024-12-19 18:19:13,581] [INFO] [idriss_frontend] HTTP Server has shutdown on port: 5556.
+[2024-12-19 18:19:13,581] [INFO] [idriss_frontend] HTTP Client has shutdown on port: 8000.
+[2024-12-19 18:19:13,704] [ERROR] [idriss_frontend] exception on node client close
+Traceback (most recent call last):
+  File "/Users/victorpolisetty/olasdev/visualisation_station/build/victorpolisetty/idriss_frontend/vendor/valory/connections/p2p_libp2p_client/connection.py", line 501, in disconnect
+    await self._node_client.close()
+  File "/Users/victorpolisetty/olasdev/visualisation_station/build/victorpolisetty/idriss_frontend/vendor/valory/connections/p2p_libp2p_client/connection.py", line 268, in close
+    await self.pipe.close()
+  File "/Users/victorpolisetty/Library/Caches/pypoetry/virtualenvs/visualisation-station-HBAG-syM-py3.11/lib/python3.11/site-packages/aea/helpers/pipe.py", line 600, in close
+    await self._sock.close()
+  File "/Users/victorpolisetty/Library/Caches/pypoetry/virtualenvs/visualisation-station-HBAG-syM-py3.11/lib/python3.11/site-packages/aea/helpers/pipe.py", line 327, in close
+    await self._writer.wait_closed()
+  File "/Users/victorpolisetty/.pyenv/versions/3.11.10/lib/python3.11/asyncio/streams.py", line 364, in wait_closed
+    await self._protocol._get_close_waiter(self)
+  File "/Users/victorpolisetty/.pyenv/versions/3.11.10/lib/python3.11/asyncio/selector_events.py", line 974, in _read_ready__get_buffer
+    nbytes = self._sock.recv_into(buf)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [Errno 54] Connection reset by peer
+[2024-12-19 18:19:13,709] [ERROR] [idriss_frontend] Error while disconnecting <class 'connection_module.P2PLibp2pClientConnection'>: [Errno 54] Connection reset by peer
+Traceback (most recent call last):
+  File "/Users/victorpolisetty/Library/Caches/pypoetry/virtualenvs/visualisation-station-HBAG-syM-py3.11/lib/python3.11/site-packages/aea/multiplexer.py", line 454, in _disconnect_all
+    await asyncio.wait_for(
+  File "/Users/victorpolisetty/.pyenv/versions/3.11.10/lib/python3.11/asyncio/tasks.py", line 489, in wait_for
+    return fut.result()
+           ^^^^^^^^^^^^
+  File "/Users/victorpolisetty/Library/Caches/pypoetry/virtualenvs/visualisation-station-HBAG-syM-py3.11/lib/python3.11/site-packages/aea/multiplexer.py", line 481, in _disconnect_one
+    await connection.disconnect()
+  File "/Users/victorpolisetty/olasdev/visualisation_station/build/victorpolisetty/idriss_frontend/vendor/valory/connections/p2p_libp2p_client/connection.py", line 501, in disconnect
+    await self._node_client.close()
+  File "/Users/victorpolisetty/olasdev/visualisation_station/build/victorpolisetty/idriss_frontend/vendor/valory/connections/p2p_libp2p_client/connection.py", line 268, in close
+    await self.pipe.close()
+  File "/Users/victorpolisetty/Library/Caches/pypoetry/virtualenvs/visualisation-station-HBAG-syM-py3.11/lib/python3.11/site-packages/aea/helpers/pipe.py", line 600, in close
+    await self._sock.close()
+  File "/Users/victorpolisetty/Library/Caches/pypoetry/virtualenvs/visualisation-station-HBAG-syM-py3.11/lib/python3.11/site-packages/aea/helpers/pipe.py", line 327, in close
+    await self._writer.wait_closed()
+  File "/Users/victorpolisetty/.pyenv/versions/3.11.10/lib/python3.11/asyncio/streams.py", line 364, in wait_closed
+    await self._protocol._get_close_waiter(self)
+  File "/Users/victorpolisetty/.pyenv/versions/3.11.10/lib/python3.11/asyncio/selector_events.py", line 974, in _read_ready__get_buffer
+    nbytes = self._sock.recv_into(buf)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [Errno 54] Connection reset by peer

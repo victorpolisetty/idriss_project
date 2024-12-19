@@ -3,99 +3,98 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Farcaster Agent</title>
+    <title>Analyze Prompt</title>
     <style>
-        #response-analyze, #response-predict {
-            margin-top: 20px;
-            white-space: pre-wrap;
-            background-color: #f4f4f4;
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #f4f4f9;
+        }
+        .container {
+            text-align: center;
+            max-width: 600px;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        input[type="text"] {
+            width: 80%;
             padding: 10px;
+            margin: 10px 0;
             border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            color: white;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .results {
+            margin-top: 20px;
+            text-align: left;
+        }
+        .results p {
+            margin: 5px 0;
+            font-size: 16px;
         }
     </style>
 </head>
 <body>
-    <h1>Welcome to the Farcaster Agent!</h1>
-    <p>This is a simple HTML page served from your server.</p>
-    
-    <button id="call-analyze" onclick="callAnalyze()">Call /api/analyze</button>
+    <div class="container">
+        <h1>Analyze Your Prompt</h1>
+        <input type="text" id="promptInput" placeholder="Enter your prompt here">
+        <button id="analyzeButton">Analyze</button>
 
-    <div>
-        <label for="prompt-input">Enter your prompt text:</label>
-        <input type="text" id="prompt-input" placeholder="Type your prompt here...">
-        <button id="call-predict" onclick="callPredict()">Call /api/predict</button>
+        <div class="results" id="results">
+            <h2>Results</h2>
+            <p><strong>Suggestion:</strong> <span id="suggestion"></span></p>
+            <p><strong>Ticker Suggestion:</strong> <span id="firstTicker"></span></p>
+        </div>
     </div>
 
-    <div id="response-analyze">Response from /api/analyze will appear here...</div>
-    <div id="response-predict">Response from /api/predict will appear here...</div>
-
     <script>
-        // Function to call /api/analyze
-        function callAnalyze() {
-            const payload = {
-                query: "test",  // You can change this query parameter as needed
-                max_results: 1
-            };
+        document.getElementById('analyzeButton').addEventListener('click', async () => {
+            const prompt = document.getElementById('promptInput').value;
 
-            const formData = JSON.stringify(payload);
+            if (!prompt) {
+                alert('Please enter a prompt.');
+                return;
+            }
 
-            // Send the request as application/json
-            fetch('http://0.0.0.0:5555/api/analyze', {
+            const response = await fetch('/api/analyze', {
                 method: 'POST',
                 headers: {
-                    'Content-Type': 'text/plain'  // Set Content-Type to text/plain
+                    'Content-Type': 'text/plain',
                 },
-                body: formData  // Send the stringified payload
-            })
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error(`HTTP error! Status: ${response.status}`);
-                }
-                return response.json();
-            })
-            .then(data => {
-                const responseDiv = document.getElementById('response-analyze');
-                responseDiv.textContent = JSON.stringify(data, null, 2);
-            })
-            .catch(error => {
-                const responseDiv = document.getElementById('response-analyze');
-                responseDiv.textContent = `Error: ${error.message}`;
+                body: JSON.stringify({ query: prompt }),
             });
-        }
 
-        // Function to call /api/predict
-        function callPredict() {
-            const promptInput = document.getElementById('prompt-input').value; // Get the value from the input box
+            const resultsDiv = document.getElementById('results');
 
-            const payload = {
-                prompt_text: promptInput  // Use the value from the input box
-            };
-
-            const formData = JSON.stringify(payload);
-
-            // Send the request as application/json
-            fetch('http://0.0.0.0:5555/api/predict', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'text/plain'  // Set Content-Type to text/plain
-                },
-                body: formData  // Send the stringified payload
-            })
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error(`HTTP error! Status: ${response.status}`);
-                }
-                return response.json();
-            })
-            .then(data => {
-                const responseDiv = document.getElementById('response-predict');
-                responseDiv.textContent = `Prediction Result: ${data.message}`;
-            })
-            .catch(error => {
-                const responseDiv = document.getElementById('response-predict');
-                responseDiv.textContent = `Error: ${error.message}`;
-            });
-        }
+            if (response.ok) {
+                const data = await response.json();
+                document.getElementById('suggestion').textContent = data.suggestion || 'No suggestion provided';
+                document.getElementById('firstTicker').textContent = data.first_ticker || 'No ticker found';
+            } else {
+                const errorData = await response.json();
+                alert(`Error: ${errorData.error}`);
+            }
+        });
     </script>
 </body>
 </html>
