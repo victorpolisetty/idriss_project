@@ -18,6 +18,7 @@
 
 """This package contains a scaffold of a handler."""
 
+import re
 import os
 import requests
 import json
@@ -27,6 +28,7 @@ from urllib.parse import unquote, urlparse
 from aea.skills.base import Handler
 from packages.eightballer.protocols.http.message import HttpMessage as ApiHttpMessage
 from mech_client.interact import interact, ConfirmationType
+from datetime import datetime, timedelta, timezone
 
 
 
@@ -117,129 +119,211 @@ class ApiHttpHandler(Handler):
                 status_code=500,
                 status_text="Internal Server Error"
             )
+        
+    def filter_and_sort_by_age(self, posts, max_age_days):
+        """Filter and sort posts by their age in days."""
+        if not max_age_days:
+            return posts  # No filtering if max_age_days is not provided
 
-    def handle_post_api_analyze(self, message: ApiHttpMessage, body):
-        """Handle POST request for /api/analyze."""
-        self.context.logger.debug(f"Request body: {body}")
+        # Calculate the cutoff timestamp
+        cutoff_date = datetime.now(timezone.utc) - timedelta(days=max_age_days)
+        cutoff_timestamp = int(cutoff_date.timestamp() * 1000)  # Convert to milliseconds
 
-        try:
-            # Decode the body from bytes to string and parse it as JSON
-            decoded_body = body.decode('utf-8')
-            body_dict = json.loads(decoded_body)
+        # Filter posts based on age
+        filtered_posts = [
+            post for post in posts
+            if post["body"]["publishedAt"] >= cutoff_timestamp
+        ]
 
-            # Now you can safely use `.get()` on the dictionary
-            query = body_dict.get("query", "test")  # Default to "test" if 'query' is not in the body
-            max_results = body_dict.get("max_results", 1)
+        # Optionally sort the filtered posts by published date
+        sorted_posts = sorted(
+            filtered_posts,
+            key=lambda post: post["body"]["publishedAt"],
+            reverse=True  # Latest posts first
+        )
 
-            # Prepare the parameters for the SearchCaster API
-            params = {
-                "count": max_results,
-                "text": query,  # Use text search based on the query
-            }
+        return sorted_posts
+    
+    def extract_first_ticker(self, casts):
+        """Extract the first ticker (symbol) from the casts."""
+        ticker_pattern = r'\$[A-Za-z0-9]+'  # Regex pattern to find tickers like $SOCIAL
+        for cast in casts:
+            text = cast.get("body", {}).get("data", {}).get("text", "")
+            match = re.search(ticker_pattern, text)
+            if match:
+                return match.group()  # Return the first match
+        return None
 
-            # Make the API call to SearchCaster
-            searchcaster_url = "https://searchcaster.xyz/api/search"
-            response = requests.get(searchcaster_url, params=params)
-            print('The response is:',response)
-
-            # Check if the response from SearchCaster is successful
-            if response.status_code == 200:
-                result = response.json()  # Assuming the response is JSON
-                self.context.logger.info("Successfully processed POST request for /api/analyze")
-                self.context.logger.debug(f"Result from SearchCaster: {result}")
-
-                return ApiResponse(
-                    headers={},
-                    content=json.dumps(result).encode("utf-8"),
-                    status_code=200,
-                    status_text="Successful analysis"
-                )
-            else:
-                self.context.logger.error(f"Error from SearchCaster API: {response.status_code} - {response.text}")
-                return ApiResponse(
-                    headers={},
-                    content=json.dumps({"error": "Error from SearchCaster API"}).encode("utf-8"),
-                    status_code=500,
-                    status_text="Internal Server Error"
-                )
-
-        except BadRequestError:
-            self.context.logger.exception("Bad request")
-            return ApiResponse(
-                headers={},
-                content=json.dumps({"error": "Bad request"}).encode("utf-8"),
-                status_code=400,
-                status_text="Bad Request"
-            )
-
-        except Exception as e:
-            self.context.logger.exception("Unhandled exception")
-            return ApiResponse(
-                headers={},
-                content=json.dumps({"error": str(e)}).encode("utf-8"),
-                status_code=500,
-                status_text="Internal Server Error"
-            )
-
-    def handle_post_api_predict(self, message: ApiHttpMessage, body):
-        """Handle POST request for /api/predict."""
-        self.context.logger.debug(f"Request body: {body}")
+        
+    def parse_prompt_with_gpt(self, prompt: str) -> dict:
+        """Parse a natural language prompt using GPT and double-check parameters."""
         client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
+        # GPT-4 system prompt to guide its output
+        system_prompt = (
+            "You are an assistant that translates natural language prompts into API query parameters. "
+            "Parse the input prompt and return a JSON object with keys: text, engagement, count, username, and age_limit_days. "
+            "The engagement key must be one of: reactions, recasts, replies, watches. "
+            "The count key must be a number. Only explicitly set count if the user mentions it. "
+            "The text key should specify the coin type (e.g., memecoin, social coin, etc.). "
+            "The age_limit_days key should be included if the prompt specifies a time frame (e.g., less than 10 days old). "
+            "Additionally, provide a suggestion to improve the query if needed."
+        )
+
+        messages = [
+            {"role": "system", "content": system_prompt},
+            {"role": "user", "content": prompt}
+        ]
+
         try:
-            # Decode the body from bytes to string and parse it as JSON
-            decoded_body = body.decode('utf-8')
-            body_dict = json.loads(decoded_body)
-
-            # Extract parameters from the body
-            prompt_text = body_dict.get("prompt_text", "")
-
-            if not prompt_text:
-                raise BadRequestError("The 'prompt_text' parameter is required.")
-
-            # Ensure the OpenAI API key is set
-            if not client.api_key:
-                raise BadRequestError("OpenAI API key not found in environment variables.")
-
-            # Prepare the messages parameter for the ChatCompletion API
-            messages = [
-                {"role": "system", "content": "You are a helpful assistant."},
-                {"role": "user", "content": prompt_text}
-            ]
-
-            # Call the OpenAI GPT-4 API to generate the result
             response = client.chat.completions.create(
-                model="gpt-4",  # Use GPT-4
-                messages=messages  # Provide the conversation history
+                model="gpt-4",
+                messages=messages
             )
+            gpt_result = response.choices[0].message.content
 
-            # Extract the content from the ChatCompletionMessage object
-            result_content = response.choices[0].message.content
+            # Use regex to extract JSON and suggestion (if separate text is returned)
+            json_match = re.search(r'\{.*\}', gpt_result, re.DOTALL)
+            if json_match:
+                gpt_json = json_match.group()
+                query_params = json.loads(gpt_json)
 
-            self.context.logger.info('The result content is: ' + result_content)
+                # Look for a suggestion (optional, if GPT includes one)
+                suggestion_match = re.search(r'Suggestion:(.*)', gpt_result, re.DOTALL)
+                suggestion = suggestion_match.group(1).strip() if suggestion_match else None
 
-            # Return the result as a JSON response
-            return ApiResponse(
-                headers={},
-                content=json.dumps({"message": result_content}).encode("utf-8"),
-                status_code=200,
-                status_text="Prediction result"
-            )
+                # Log parsed parameters and suggestions
+                self.context.logger.info(f"Parsed query parameters: {query_params}")
+                if suggestion:
+                    self.context.logger.info(f"Suggestion from GPT: {suggestion}")
 
-        except BadRequestError as e:
-            self.context.logger.exception("Bad request")
-            return ApiResponse(
-                headers={},
-                content=json.dumps({"error": str(e)}).encode("utf-8"),
-                status_code=400,
-                status_text="Bad Request"
-            )
+                # Double-check the parsed parameters
+                if "age_limit_days" in query_params and not isinstance(query_params["age_limit_days"], int):
+                    self.context.logger.warning("The 'age_limit_days' parameter is not an integer. Please verify.")
+                if "age_limit_days" not in query_params:
+                    self.context.logger.info("No 'age_limit_days' specified. Results will include all dates.")
 
+                return query_params, suggestion
+            
+        except json.JSONDecodeError as e:
+            raise ValueError(f"GPT returned invalid JSON: {e}")
+        
         except Exception as e:
-            self.context.logger.exception("Unhandled exception")
+            raise ValueError(f"Error parsing prompt with GPT: {e}")
+
+    def handle_post_api_analyze(self, message: ApiHttpMessage, body):
+        """Handle POST request for /api/analyze with parameter interaction."""
+        body_dict = json.loads(body.decode("utf-8"))
+        prompt = body_dict.get("query", "")
+
+        try:
+            # Parse and confirm parameters
+            self.context.logger.info(f"The prompt is: {prompt}")
+            query_params, suggestion = self.parse_prompt_with_gpt(prompt)
+            self.context.logger.info(f"Parameters after parsing: {query_params}")
+
+            # Make the API request to SearchCaster
+            searchcaster_url = "https://searchcaster.xyz/api/search"
+            response = requests.get(searchcaster_url, params=query_params)
+
+            if response.status_code == 200:
+                results = response.json()
+
+                 # Extract the first ticker from the results
+                first_ticker = self.extract_first_ticker(results.get("casts", []))
+
+
+                max_age_days = query_params.get("age_limit_days")
+                if max_age_days:
+                    results["casts"] = self.filter_and_sort_by_age(results["casts"], max_age_days)
+
+                return ApiResponse(
+                    headers={},
+                    content=json.dumps({
+                        "message": "Query processed successfully.",
+                        "parameters": query_params,
+                        "suggestion": suggestion,
+                        "first_ticker": first_ticker,
+                        "results": results
+                    }).encode("utf-8"),
+                    status_code=200,
+                    status_text="Success"
+                )
+            else:
+                return ApiResponse(
+                    headers={},
+                    content=json.dumps({"error": response.text}).encode("utf-8"),
+                    status_code=500,
+                    status_text="SearchCaster API Error"
+                )
+        except Exception as e:
+            self.context.logger.exception(f"Error handling analyze request: {e}")
             return ApiResponse(
                 headers={},
                 content=json.dumps({"error": str(e)}).encode("utf-8"),
                 status_code=500,
                 status_text="Internal Server Error"
             )
+
+    # def handle_post_api_predict(self, message: ApiHttpMessage, body):
+    #     """Handle POST request for /api/predict."""
+    #     self.context.logger.debug(f"Request body: {body}")
+    #     client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+
+    #     try:
+    #         # Decode the body from bytes to string and parse it as JSON
+    #         decoded_body = body.decode('utf-8')
+    #         body_dict = json.loads(decoded_body)
+
+    #         # Extract parameters from the body
+    #         prompt_text = body_dict.get("prompt_text", "")
+
+    #         if not prompt_text:
+    #             raise BadRequestError("The 'prompt_text' parameter is required.")
+
+    #         # Ensure the OpenAI API key is set
+    #         if not client.api_key:
+    #             raise BadRequestError("OpenAI API key not found in environment variables.")
+
+    #         # Prepare the messages parameter for the ChatCompletion API
+    #         messages = [
+    #             {"role": "system", "content": "You are a helpful assistant."},
+    #             {"role": "user", "content": prompt_text}
+    #         ]
+
+    #         # Call the OpenAI GPT-4 API to generate the result
+    #         response = client.chat.completions.create(
+    #             model="gpt-4",  # Use GPT-4
+    #             messages=messages  # Provide the conversation history
+    #         )
+
+    #         # Extract the content from the ChatCompletionMessage object
+    #         result_content = response.choices[0].message.content
+
+    #         self.context.logger.info('The result content is: ' + result_content)
+
+    #         # Return the result as a JSON response
+    #         return ApiResponse(
+    #             headers={},
+    #             content=json.dumps({"message": result_content}).encode("utf-8"),
+    #             status_code=200,
+    #             status_text="Prediction result"
+    #         )
+
+    #     except BadRequestError as e:
+    #         self.context.logger.exception("Bad request")
+    #         return ApiResponse(
+    #             headers={},
+    #             content=json.dumps({"error": str(e)}).encode("utf-8"),
+    #             status_code=400,
+    #             status_text="Bad Request"
+    #         )
+
+    #     except Exception as e:
+    #         self.context.logger.exception("Unhandled exception")
+    #         return ApiResponse(
+    #             headers={},
+    #             content=json.dumps({"error": str(e)}).encode("utf-8"),
+    #             status_code=500,
+    #             status_text="Internal Server Error"
+    #         )
