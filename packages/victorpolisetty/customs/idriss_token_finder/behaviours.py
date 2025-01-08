@@ -57,21 +57,22 @@ class LogReadingBehaviour(Behaviour):
         Listen for 'ping' messages from WebSocket clients and handle them.
         """
         for _, dialogue in self.strategy.clients.items():
-            self.context.logger.info(f"Dialogue attributes: {dir(dialogue)}")
-            # if last_message:
-            #     try:
-            #         # Parse the 'data' field as JSON
-            #         message_content = json.loads(last_message.data)
-                    
-            #         # Check for nested 'type' and 'query'
-            #         if message_content.get("type") == "ping" and message_content.get("query") == "Keep-alive ping":
-            #             self.context.logger.info("Received 'ping' message. Calling analyze endpoint.")
-            #             self.call_analyze_endpoint(dialogue)
-            #         else:
-            #             self.context.logger.info("Received a non-ping message.")
-            #     except json.JSONDecodeError:
-            #         self.context.logger.error("Failed to parse 'data' field as JSON.")
-
+            try:
+                last_message = dialogue.last_incoming_message
+                if not last_message or not hasattr(last_message, 'data'):
+                    continue
+                
+                message_content = json.loads(last_message.data)
+                
+                if message_content.get("type") == "ping" and message_content.get("query") == "Keep-alive ping":
+                    self.context.logger.info("Received 'ping' message. Calling analyze endpoint.")
+                    self.call_analyze_endpoint(dialogue)
+                    self.send_message({"type": "pong", "status": "ok"}, dialogue)
+                else:
+                    self.context.logger.info("Received a non-ping message.")
+            except (json.JSONDecodeError, AttributeError) as e:
+                self.context.logger.debug(f"Skipping message processing: {e}")
+                continue
 
     def call_analyze_endpoint(self, dialogue):
         """

@@ -146,7 +146,30 @@ class UserInterfaceHttpHandler(BaseHandler):
 
         parts = message.url.split("/")
 
+        if parts[-1] == "agent-info":
+            data = {
+                "service-id": self.context.params.on_chain_service_id,
+                "safe-address": self.context.params.setup_params[
+                    "safe_contract_address"
+                ],
+                "agent-address": self.context.agent_address,
+                "agent-status": "active" if self.context.is_active else "inactive",
+            }
+            content = json.dumps(data).encode(DEFAULT_ENCODING)
+            return UiHttpMessage(
+                performative=UiHttpMessage.Performative.RESPONSE,
+                status_code=200,
+                status_text="OK",
+                headers=CONTENT_TYPE_JSON,
+                version=message.version,
+                body=content,
+            )
+
         for handler in self.strategy.handlers:
+            self.context.logger.info(f"Protocol ID: {message.protocol_id}")
+            if message.protocol_id != handler.SUPPORTED_PROTOCOL:
+                continue
+
             result = handler.handle(message)
             self.context.logger.debug(f"Received result: {result}")
             if result is not None:
@@ -169,25 +192,6 @@ class UserInterfaceHttpHandler(BaseHandler):
                     version=message.version,
                     body=content,
                 )
-
-        if parts[-1] == "agent-info":
-            data = {
-                "service-id": self.context.params.on_chain_service_id,
-                "safe-address": self.context.params.setup_params[
-                    "safe_contract_address"
-                ],
-                "agent-address": self.context.agent_address,
-                "agent-status": "active" if self.context.is_active else "inactive",
-            }
-            content = json.dumps(data).encode(DEFAULT_ENCODING)
-            return UiHttpMessage(
-                performative=UiHttpMessage.Performative.RESPONSE,
-                status_code=200,
-                status_text="OK",
-                headers=CONTENT_TYPE_JSON,
-                version=message.version,
-                body=content,
-            )
 
         headers = CONTENT_TYPE_JSON
         content = json.dumps(ERROR_RESPONSE).encode(DEFAULT_ENCODING)
@@ -334,9 +338,11 @@ class UserInterfaceWsHandler(UserInterfaceHttpHandler):
         # and then call the handle method on them.
 
         for handler_func in self.strategy.handlers:
+            if message.protocol_id != handler_func.SUPPORTED_PROTOCOL:  # Add this line to check protocol_id
+                continue                                             # Add this line to continue the loop
             response_data = handler_func.handle(message)
             if response_data is not None:
-                self.context.logger.info("Handling message in skill: {message.data}")
+                self.context.logger.info(f"Handling message in skill: {message.data}")
                 response_message = dialogue.reply(
                     performative=WebsocketsMessage.Performative.SEND,
                     target_message=dialogue.last_message,

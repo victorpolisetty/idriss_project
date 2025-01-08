@@ -27,24 +27,9 @@ from dataclasses import dataclass
 from urllib.parse import unquote, urlparse
 from aea.skills.base import Handler
 from packages.eightballer.protocols.http.message import HttpMessage as ApiHttpMessage
+from packages.eightballer.protocols.websockets.message import WebsocketsMessage
 from mech_client.interact import interact, ConfirmationType
 from datetime import datetime, timedelta, timezone
-
-
-
-
-from .exceptions import (
-    BadRequestError,
-    UnauthorizedError,
-    ForbiddenError,
-    NotFoundError,
-    ConflictError,
-    ValidationError,
-    InternalServerError,
-    ServiceUnavailableError
-)
-
-
 
 
 @dataclass
@@ -264,3 +249,34 @@ class ApiHttpHandler(Handler):
                 status_code=500,
                 status_text="Internal Server Error"
             )
+
+
+class PingPongHandler(Handler):
+    """Handles ping-pong websocket messages."""
+
+    SUPPORTED_PROTOCOL = WebsocketsMessage.protocol_id
+
+    def setup(self) -> None:
+        """Set up the handler."""
+
+    def teardown(self) -> None:
+        """Tear down the handler."""
+
+    def handle(self, message: WebsocketsMessage) -> None:
+        """Handle websocket messages."""
+        if not isinstance(message, WebsocketsMessage):
+            self.context.logger.error(f"Got unexpected message type: {type(message)}")
+            return json.dumps({"error": "Invalid message type"})
+
+        if message.performative != WebsocketsMessage.Performative.SEND:
+            self.context.logger.debug(f"Ignoring non-SEND performative: {message.performative}")
+            return json.dumps({"error": "Invalid performative"})
+
+        try:
+            data = json.loads(message.data)
+            if isinstance(data, dict) and data.get("type") == "ping":
+                return json.dumps({"type": "pong", "data": "Keep-alive pong"})
+            return json.dumps({"error": "Unhandled message type"})
+        except (json.JSONDecodeError, AttributeError) as e:
+            self.context.logger.error(f"Error handling message: {e}")
+            return json.dumps({"error": str(e)})

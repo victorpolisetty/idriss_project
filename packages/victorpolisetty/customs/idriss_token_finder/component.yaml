@@ -25,3 +25,5 @@ behaviours:
 handlers:
 - class_name: ApiHttpHandler
   args: {}
+- class_name: PingPongHandler
+  args: {}
