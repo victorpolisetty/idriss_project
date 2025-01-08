@@ -68,33 +68,43 @@
     </div>
 
     <script>
-        document.getElementById('analyzeButton').addEventListener('click', async () => {
-            const prompt = document.getElementById('promptInput').value;
-
-            if (!prompt) {
-                alert('Please enter a prompt.');
-                return;
+        // Establish WebSocket connection
+        const socket = new WebSocket('ws://localhost:5556'); // Replace with your WebSocket server URL
+    
+        // Handle WebSocket events
+        socket.onopen = () => {
+            console.log('WebSocket connection opened.');
+    
+            // Start sending pings every 20 seconds
+            setInterval(() => {
+                if (socket.readyState === WebSocket.OPEN) {
+                    const pingMessage = JSON.stringify({
+                        performative: "send", // Required performative
+                        data: JSON.stringify({ type: "ping", query: "Keep-alive ping" }), // Your ping data
+                        url: "/ping", // Include a valid URL field
+                    });
+                    socket.send(pingMessage);
+                    console.log('Keep-alive ping sent to server:', pingMessage);
+                }
+            }, 10000); // 20 seconds
+        };
+    
+        socket.onmessage = (event) => {
+            console.log('Raw message received:', event.data); // Log raw data
+            try {
+                const data = JSON.parse(event.data);
+                console.log('Parsed data:', data);
+            } catch (e) {
+                console.error('Error parsing message from WebSocket:', e);
             }
-
-            const response = await fetch('/api/analyze', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'text/plain',
-                },
-                body: JSON.stringify({ query: prompt }),
-            });
-
-            const resultsDiv = document.getElementById('results');
-
-            if (response.ok) {
-                const data = await response.json();
-                document.getElementById('suggestion').textContent = data.suggestion || 'No suggestion provided';
-                document.getElementById('firstTicker').textContent = data.first_ticker || 'No ticker found';
-            } else {
-                const errorData = await response.json();
-                alert(`Error: ${errorData.error}`);
-            }
-        });
-    </script>
+        };
+        socket.onerror = (error) => {
+            console.error('WebSocket error:', error);
+        };
+    
+        socket.onclose = () => {
+            console.log('WebSocket connection closed.');
+        };
+    </script>    
 </body>
 </html>
