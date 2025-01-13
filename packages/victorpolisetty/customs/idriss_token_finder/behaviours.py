@@ -2,11 +2,12 @@
 Behaviours for the simple react skill.
 """
 
-import json
 import os
+from pathlib import Path
 from typing import Optional, cast
-import requests
+
 from aea.skills.base import Behaviour
+
 from packages.eightballer.protocols.websockets.message import WebsocketsMessage
 from packages.eightballer.skills.ui_loader_abci.models import (
     UserInterfaceClientStrategy,
@@ -14,20 +15,11 @@ from packages.eightballer.skills.ui_loader_abci.models import (
 
 
 class LogReadingBehaviour(Behaviour):
-    """Handles WebSocket interactions and API calls."""
+    """Reads in the log file and sends the new lines to the client."""
 
-    def setup(self):
-        """
-        Setup the behaviour.
-        """
-        # self.log_file = os.environ.get("LOG_FILE", "log.txt")
-        self.context.logger.info("IdrissBrowserConnectionBehviour initialized.")
-
-    def teardown(self):
-        """
-        Teardown the behaviour.
-        """
-        self.context.logger.info("IdrissBrowserConnectionBehviour stopped.")
+    lines: int = 0
+    client_to_lines: dict = {}
+    log_file: str = ""
 
     @property
     def strategy(self) -> Optional[str]:
@@ -36,11 +28,14 @@ class LogReadingBehaviour(Behaviour):
             UserInterfaceClientStrategy, self.context.user_interface_client_strategy
         )
 
-    def act(self):
+    def setup(self):
         """
-        Periodically check for pings and handle them.
+        Implement the setup.
         """
-        self.check_for_ping()
+        super().setup()
+        self.lines = 0
+        self.client_to_lines = {}
+        self.log_file = os.environ.get("LOG_FILE", "log.txt")
 
     def send_message(self, data, dialogue):
         """
@@ -52,50 +47,27 @@ class LogReadingBehaviour(Behaviour):
         )
         self.context.outbox.put_message(message=msg)
 
-    def check_for_ping(self):
+    def teardown(self):
         """
-        Listen for 'ping' messages from WebSocket clients and handle them.
+        Implement the handler teardown.
         """
-        for _, dialogue in self.strategy.clients.items():
-            self.context.logger.info(f"Dialogue attributes: {dir(dialogue)}")
-            # if last_message:
-            #     try:
-            #         # Parse the 'data' field as JSON
-            #         message_content = json.loads(last_message.data)
-                    
-            #         # Check for nested 'type' and 'query'
-            #         if message_content.get("type") == "ping" and message_content.get("query") == "Keep-alive ping":
-            #             self.context.logger.info("Received 'ping' message. Calling analyze endpoint.")
-            #             self.call_analyze_endpoint(dialogue)
-            #         else:
-            #             self.context.logger.info("Received a non-ping message.")
-            #     except json.JSONDecodeError:
-            #         self.context.logger.error("Failed to parse 'data' field as JSON.")
 
-
-    def call_analyze_endpoint(self, dialogue):
+    def act(self):
         """
-        Make a call to the /api/analyze endpoint or external API.
+        We read in the log file and send the new lines to the client.
+        We do so in an efficent manner, only reading the new lines.
+        we make sure to send a message to all clients.
         """
-        api_url = "https://searchcaster.xyz/api/search?text=memecoins"  # Replace with your API URL
-        headers = {"Content-Type": "application/json"}
+        self.read_log()
 
-        try:
-            # Call the external API
-            response = requests.get(api_url, headers=headers, timeout=10)
-
-            if response.status_code == 200:
-                self.context.logger.info("API call successful.")
-                # Send the API response back to the WebSocket client
-                self.send_message(response.text, dialogue)
-            else:
-                self.context.logger.error(f"API call failed with status {response.status_code}: {response.text}")
-                self.send_message(
-                    f"API call failed with status {response.status_code}.",
-                    dialogue,
-                )
-        except requests.RequestException as e:
-            self.context.logger.error(f"Error while calling the API: {e}")
-            self.send_message(
-                f"Error while calling the API: {str(e)}", dialogue
-            )
+    def read_log(self):
+        """Read in each log line."""
+        with open(
+            Path(self.log_file),
+            "r",
+            encoding="utf-8",
+        ) as f:
+            for line in f.readlines()[self.lines :]:
+                self.lines += 1
+                for _, dialogue in self.strategy.clients.items():
+                    self.send_message(line, dialogue)
