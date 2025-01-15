@@ -1,0 +1,10 @@
+{
+  "AnalyzeRequest": {
+    "1": {
+      "walletAddress": "STRING_VALUE",
+      "count": 42,
+      "text": "STRING_VALUE",
+      "engagement": "STRING_VALUE"
+    }
+  }
+}

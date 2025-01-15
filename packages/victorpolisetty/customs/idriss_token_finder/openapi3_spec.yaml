@@ -25,64 +25,14 @@ paths:
         content:
           application/json:
             schema:
-              type: object
-              properties:
-                query:
-                  type: string
-                  description: Specify what you want to search for. For example, memecoin.
-                max_results:
-                  type: integer
-                  description: Maximum number of results to analyze.
-                  default: 3
-              required:
-                - query
+              $ref: '#/components/schemas/AnalyzeRequest'  # Reference to schema defined below
       responses:
         '200':
           description: Successful analysis
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  results:
-                    type: array
-                    items:
-                      type: object
-                      properties:
-                        post_id:
-                          type: string
-                          description: Unique ID of the analyzed post.
-                        text:
-                          type: string
-                          description: Content of the post.
-                        username:
-                          type: string
-                          description: Username of the post author.
-                        displayName:
-                          type: string
-                          description: Display name of the post author.
-                        engagement:
-                          type: object
-                          properties:
-                            reactions:
-                              type: integer
-                              description: Number of reactions to the post.
-                            recasts:
-                              type: integer
-                              description: Number of recasts of the post.
-                            watches:
-                              type: integer
-                              description: Number of watches of the post.
-                        tags:
-                          type: array
-                          items:
-                            type: string
-                          description: Tags associated with the post.
-                        mentions:
-                          type: array
-                          items:
-                            type: string
-                          description: Mentions in the post.
+                $ref: '#/components/schemas/AnalyzeResponse'  # Reference to schema defined below
         '400':
           description: Bad request
           content:
@@ -93,3 +43,27 @@ paths:
                   error:
                     type: string
                     description: Explanation of the error (e.g., missing `query`)
+
+components:
+  schemas:
+    AnalyzeRequest:
+      x-persistent: true  # Marking the schema as persistent
+      type: object
+      properties:
+        walletAddress:
+          type: string
+          description: The unique wallet address of the user.
+        count:
+          type: integer
+          description: Optional count value associated with the user.
+          nullable: true
+        text:
+          type: string
+          description: Optional text (e.g., a post or message).
+          nullable: true
+        engagement:
+          type: string  # Change engagement to a simple string in the request body
+          description: Optional engagement data (e.g., "100 reactions, 5 recasts").
+          nullable: true
+      required:
+        - walletAddress  # walletAddress is mandatory for the request

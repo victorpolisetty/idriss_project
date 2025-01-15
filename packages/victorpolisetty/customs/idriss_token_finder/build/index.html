@@ -71,6 +71,8 @@
         document.getElementById('analyzeButton').addEventListener('click', async () => {
             const prompt = document.getElementById('promptInput').value;
 
+            const walletAddress = "0x1234567890abcdef1234567890abcdef12345678";  // Example wallet address
+
             if (!prompt) {
                 alert('Please enter a prompt.');
                 return;
@@ -81,7 +83,10 @@
                 headers: {
                     'Content-Type': 'text/plain',
                 },
-                body: JSON.stringify({ query: prompt }),
+                body: JSON.stringify({
+                    query: prompt,
+                    wallet_address: walletAddress  // Hardcoded wallet address
+                }),
             });
 
             const resultsDiv = document.getElementById('results');

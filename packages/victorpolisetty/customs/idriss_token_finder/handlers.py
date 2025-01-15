@@ -29,6 +29,7 @@ from aea.skills.base import Handler
 from packages.eightballer.protocols.http.message import HttpMessage as ApiHttpMessage
 from mech_client.interact import interact, ConfirmationType
 from datetime import datetime, timedelta, timezone
+from daos.analyze_request_dao import AnalyzeRequestDAO
 
 
 
@@ -63,6 +64,9 @@ class ApiHttpHandler(Handler):
 
     def setup(self) -> None:
         """Set up the handler."""
+        self.analyze_request_dao = AnalyzeRequestDAO()  # Initialize the DAO to interact with the database
+
+
 
     def teardown(self) -> None:
         """Tear down the handler."""
@@ -215,6 +219,7 @@ class ApiHttpHandler(Handler):
         """Handle POST request for /api/analyze with parameter interaction."""
         body_dict = json.loads(body.decode("utf-8"))
         prompt = body_dict.get("query", "")
+        wallet_address = body_dict.get("wallet_address", "")
 
         try:
             # Parse and confirm parameters
@@ -222,16 +227,40 @@ class ApiHttpHandler(Handler):
             query_params, suggestion = self.parse_prompt_with_gpt(prompt)
             self.context.logger.info(f"Parameters after parsing: {query_params}")
 
-            # Make the API request to SearchCaster
+            # Check if the wallet_address exists in the database
+            existing_request = self.analyze_request_dao.get_by_wallet_address(wallet_address)
+
+            if existing_request:
+                # If wallet_address exists, update the query parameters
+                self.context.logger.info(f"Updating existing request for wallet_address: {wallet_address}")
+                updated_data = {
+                    "count": query_params.get("count"),
+                    "text": prompt,
+                    "engagement": query_params.get("engagement"),
+                }
+                updated_request = self.analyze_request_dao.update(wallet_address, **updated_data)
+                self.context.logger.info(f"Updated request: {updated_request}")
+            else:
+                # If wallet_address doesn't exist, insert a new request
+                self.context.logger.info(f"Inserting new request for wallet_address: {wallet_address}")
+                new_data = {
+                    "wallet_address": wallet_address,
+                    "count": query_params.get("count"),
+                    "text": prompt,
+                    "engagement": query_params.get("engagement"),
+                }
+                inserted_request = self.analyze_request_dao.insert(new_data)
+                self.context.logger.info(f"Inserted new request: {inserted_request}")
+
+            # Make the API request to SearchCaster (external API)
             searchcaster_url = "https://searchcaster.xyz/api/search"
             response = requests.get(searchcaster_url, params=query_params)
 
             if response.status_code == 200:
                 results = response.json()
 
-                 # Extract the first ticker from the results
+                # Extract the first ticker from the results
                 first_ticker = self.extract_first_ticker(results.get("casts", []))
-
 
                 max_age_days = query_params.get("age_limit_days")
                 if max_age_days:
