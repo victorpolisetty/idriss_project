@@ -3,11 +3,11 @@
         "custom/asiyaasha/simple_svelte/0.1.0": "bafybeibalwvhzkaeirfuyjcso2wncnlieike6veuzf5fh2iuseu4nwnbci",
         "custom/eightballer/simple_react/0.1.0": "bafybeigkrh2k5xlinbb2amkpyxbozy7c6qxqfow27wgmn7i4ltnqqunqc4",
         "custom/eightballer/simple_html/0.1.0": "bafybeig6yg632o4bc2lra5rzzlbjux32caktbvgb5e3fohi5huynyfx44m",
-        "custom/victorpolisetty/idriss_token_finder/0.1.0": "bafybeiag44vgbec7d77gjc6sqwpg5jfchkrbrnfk266asrzgieecbymxvm",
-        "skill/eightballer/ui_loader_abci/0.1.0": "bafybeigteu2brkpd43ughsqll2rzppalryjhdyezbhow3sn2tj4wa372wm",
-        "skill/eightballer/trader_abci/0.1.0": "bafybeifzlsexwzuglfvpkxf2u4pw7ovwqlzq35z73vhmtjioe7l4mjorce",
-        "agent/eightballer/frontend_agent/0.1.0": "bafybeiel4vimlyesxvyg3pr6erkxzahhhwbhbvfvq3wk7luegwijvn5esa",
-        "agent/victorpolisetty/idriss_frontend/0.1.0": "bafybeicwf3qbyi4v5hb3enxax7yqz52wpjqslmetubir4druskasowpaxi"
+        "custom/victorpolisetty/idriss_token_finder/0.1.0": "bafybeid7kf4xoup6wqcsx4g2pk45xqyje6bub7bn7n2qm2f46y4hgtlhf4",
+        "skill/eightballer/ui_loader_abci/0.1.0": "bafybeih73zdh2cqmsfelgfsvtiykox7bjq3ow7ek4hoqes2qqy7nasfwim",
+        "skill/eightballer/trader_abci/0.1.0": "bafybeicsyjztwfvljmruhntnubvtmzcbc4jhhu5gfd563kfozf26ilqdlq",
+        "agent/eightballer/frontend_agent/0.1.0": "bafybeiabqchtm5nm5xz5hv7bfrabz3fsalu4vtijnilydujfac2qshyyde",
+        "agent/victorpolisetty/idriss_frontend/0.1.0": "bafybeif2co3f5qqvlabvmuz5pqzt5rgsqhh7gu2i2hgt4xtdymyfvmrkzm"
     },
     "third_party": {
         "protocol/eightballer/http/0.1.0": "bafybeieoom2ajzvurwsjbivx23dwilarfzkihgqpgqp43ypowpr5xdyjr4",

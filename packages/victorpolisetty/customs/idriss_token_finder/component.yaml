@@ -10,11 +10,18 @@ aea_version: '>=1.0.0, <2.0.0'
 fingerprint:
   __init__.py: bafybeigmqr3prabvpfwu6z76ddivxv4i2vi7zco76mn2xmw42d4gc4osnu
   behaviours.py: bafybeiaaus62cenwoozj7vbbygsq42bkjvqkq6yykat6dglpbi576ro7wm
-  build/index.html: bafybeifp4mcczwjztlckjow2vn5g5pbuqjwscqey4b25jaqzpj435tdhli
+  build/index.html: bafybeidxdaeh5r45dpvgefmyhthff7vem27d4jauimrxkr54s3vol6thly
+  daos/__init__.py: bafybeiar4ecahdvr6loqv4ucjcrzsorvxxx4w6pplkkftmr47iyvmuw7w4
+  daos/aggregated_data.json: bafybeieyog6tyw7ag6yhcpu3a7r5egbcsmxhoaefiyicuen3bcdqxpu6oe
+  daos/analyze_request_dao.py: bafybeiaixjcw2xezfjjlqdopco6ufatlr4ko67sfxv3g6oazjbts3wkpoy
+  daos/base_dao.py: bafybeigziwu2trd24m6ri44jppka623hhzpyw7tlzrvn743yyszcccy3tq
+  database/db_setup.py: bafybeieazs577v3u4aaec4vws5lqw7qjebv3suhakel2gd5miz5t3ogmlm
+  database/mydatabase.db: bafybeih2iw7pmjnmzr74msxbqweeu5rpbz5v6mihwzosznvavnpfpztfgu
   dialogues.py: bafybeiezt7kpl4bqoetx64agnzv65z5hizh25wx4aqlv7ehmxbdiwxtwfq
   exceptions.py: bafybeiex7psq7vdq7gs3pqpcaxqavom2xxadp5bfvrluz2ghoupl44p7ly
-  handlers.py: bafybeicagddnuacfhe5lqn6sewk54y5h7q3twftqxsxwil2vokfm4ubxcm
-  openapi3_spec.yaml: bafybeihrperebhyl5r52zmou6kqogfnalqsd62wfe3wmg6lps4v6gngg5m
+  handlers.py: bafybeidxdvv5mwweah6yiss4t5f5zgheweilfbgbipw7k7nm7j26yfxlsa
+  openapi3_spec.yaml: bafybeiduor76wgsmwth6yhr3t52gyggowolm5x3knm7gn4i6ib2flixjte
+  tests/test_dao.py: bafybeidozyhys67j33jld4oefu6xttvkke53gglgscclpawyij335rxeq4
 fingerprint_ignore_patterns: []
 dependencies: {}
 api_spec: openapi3_spec.yaml
