@@ -12,8 +12,6 @@ DAOS_PATH = Path(__file__).parent.parent / "daos"
 sys.path.append(str(DAOS_PATH.parent))
 
 from daos.analyze_request_dao import AnalyzeRequestDAO
-from daos.analyze_response_dao import AnalyzeResponseDAO
-
 
 @pytest.fixture(scope="module")
 def _test_context():
@@ -40,13 +38,6 @@ def _test_context():
             "engagement": "STRING_VALUE",
             "max_results": 42,
             "query": "STRING_VALUE",
-            "text": "STRING_VALUE",
-            "walletAddress": "STRING_VALUE"
-}),
-    (AnalyzeResponseDAO,
-        {
-            "count": 42,
-            "engagement": "STRING_VALUE",
             "text": "STRING_VALUE",
             "walletAddress": "STRING_VALUE"
 }),
