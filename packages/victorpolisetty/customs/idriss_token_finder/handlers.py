@@ -18,8 +18,10 @@
 
 """This package contains a scaffold of a handler."""
 
+from pathlib import Path
 import re
 import os
+import sys
 import requests
 import json
 from openai import OpenAI
@@ -29,9 +31,10 @@ from aea.skills.base import Handler
 from packages.eightballer.protocols.http.message import HttpMessage as ApiHttpMessage
 from mech_client.interact import interact, ConfirmationType
 from datetime import datetime, timedelta, timezone
+current_dir = Path(__file__).parent
+sys.path.append(str(current_dir.resolve()))
+
 from daos.analyze_request_dao import AnalyzeRequestDAO
-
-
 
 
 from .exceptions import (
@@ -62,10 +65,12 @@ class ApiHttpHandler(Handler):
 
     SUPPORTED_PROTOCOL = ApiHttpMessage.protocol_id  # type: Optional[str]
 
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.analyze_request_dao = AnalyzeRequestDAO()
+
     def setup(self) -> None:
         """Set up the handler."""
-        self.analyze_request_dao = AnalyzeRequestDAO()  # Initialize the DAO to interact with the database
-
 
 
     def teardown(self) -> None:
@@ -235,22 +240,22 @@ class ApiHttpHandler(Handler):
                 self.context.logger.info(f"Updating existing request for wallet_address: {wallet_address}")
                 updated_data = {
                     "count": query_params.get("count"),
-                    "text": prompt,
+                    "text": query_params.get("text"),
                     "engagement": query_params.get("engagement"),
                 }
                 updated_request = self.analyze_request_dao.update(wallet_address, **updated_data)
                 self.context.logger.info(f"Updated request: {updated_request}")
             else:
                 # If wallet_address doesn't exist, insert a new request
-                self.context.logger.info(f"Inserting new request for wallet_address: {wallet_address}")
+                self.context.logger.info(f"Attempting to insert new request for wallet_address: {wallet_address}")
                 new_data = {
                     "wallet_address": wallet_address,
                     "count": query_params.get("count"),
-                    "text": prompt,
+                    "text": query_params.get("text"),
                     "engagement": query_params.get("engagement"),
                 }
                 inserted_request = self.analyze_request_dao.insert(new_data)
-                self.context.logger.info(f"Inserted new request: {inserted_request}")
+                self.context.logger.info(f"Inserted new request SUCCESSFULLY: {inserted_request}")
 
             # Make the API request to SearchCaster (external API)
             searchcaster_url = "https://searchcaster.xyz/api/search"

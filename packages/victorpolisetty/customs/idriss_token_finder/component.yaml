@@ -16,10 +16,9 @@ fingerprint:
   daos/analyze_request_dao.py: bafybeiaixjcw2xezfjjlqdopco6ufatlr4ko67sfxv3g6oazjbts3wkpoy
   daos/base_dao.py: bafybeigziwu2trd24m6ri44jppka623hhzpyw7tlzrvn743yyszcccy3tq
   database/db_setup.py: bafybeieazs577v3u4aaec4vws5lqw7qjebv3suhakel2gd5miz5t3ogmlm
-  database/mydatabase.db: bafybeih2iw7pmjnmzr74msxbqweeu5rpbz5v6mihwzosznvavnpfpztfgu
   dialogues.py: bafybeiezt7kpl4bqoetx64agnzv65z5hizh25wx4aqlv7ehmxbdiwxtwfq
   exceptions.py: bafybeiex7psq7vdq7gs3pqpcaxqavom2xxadp5bfvrluz2ghoupl44p7ly
-  handlers.py: bafybeidxdvv5mwweah6yiss4t5f5zgheweilfbgbipw7k7nm7j26yfxlsa
+  handlers.py: bafybeif46uovcpa2pxxknwhuydmyxj2rzqnabvcqn2egxpbunx4lxnn7ii
   openapi3_spec.yaml: bafybeiduor76wgsmwth6yhr3t52gyggowolm5x3knm7gn4i6ib2flixjte
   tests/test_dao.py: bafybeidozyhys67j33jld4oefu6xttvkke53gglgscclpawyij335rxeq4
 fingerprint_ignore_patterns: []
