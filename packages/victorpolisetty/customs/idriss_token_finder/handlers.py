@@ -299,11 +299,8 @@ class ApiHttpHandler(Handler):
                 status_text="Internal Server Error"
             )
 
-    def handle_get_api_user_by_wallet_address(self, message: ApiHttpMessage, wallet_address: str):
-        """
-        Handle GET request for /api/user/{walletAddress}.
-        Retrieves user data for the specified wallet address.
-        """
+    def handle_get_api_user_by_wallet_address(self, message: ApiHttpMessage, wallet_address):
+        """Handle GET request for /api/user/{walletAddress}."""
         self.context.logger.debug(f"Path parameters: wallet_address={wallet_address}")
         try:
             # Retrieve user data by wallet address from the DAO
@@ -311,7 +308,7 @@ class ApiHttpHandler(Handler):
 
             if user_data:
                 # If user data exists, return it as a JSON response
-                response_body = dumps(user_data).encode("utf-8")
+                response_body = json.dumps(user_data).encode("utf-8")
                 return ApiHttpMessage(
                     performative=ApiHttpMessage.Performative.RESPONSE,
                     status_code=200,
@@ -329,7 +326,7 @@ class ApiHttpHandler(Handler):
                     status_text="Not Found",
                     headers="Content-Type: application/json",
                     version=message.version,
-                    body=dumps(error_message).encode("utf-8")
+                    body=json.dumps(error_message).encode("utf-8")
                 )
 
         except Exception as e:
