@@ -32,7 +32,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/AnalyzeResponse'  # Reference to schema defined below
+                type: string # Reference to schema defined below
         '400':
           description: Bad request
           content:
@@ -43,6 +43,57 @@ paths:
                   error:
                     type: string
                     description: Explanation of the error (e.g., missing `query`)
+  /api/user/{walletAddress}:
+      get:
+        summary: Retrieve user information by wallet address
+        description: Returns the user's information if it exists in the database.
+        parameters:
+          - name: walletAddress
+            in: path
+            required: true
+            description: The unique wallet address of the user.
+            schema:
+              type: string
+        responses:
+          '200':
+            description: User information retrieved successfully
+            content:
+              application/json:
+                schema:
+                  type: object
+                  properties:
+                    walletAddress:
+                      type: string
+                      description: The wallet address of the user.
+                    count:
+                      type: integer
+                      description: Count value associated with the user.
+                    text:
+                      type: string
+                      description: Text or post associated with the user.
+                    engagement:
+                      type: string
+                      description: Engagement data (e.g., "reactions, recasts").
+          '404':
+            description: User not found
+            content:
+              application/json:
+                schema:
+                  type: object
+                  properties:
+                    error:
+                      type: string
+                      description: Error message indicating the user was not found.
+          '400':
+            description: Bad request
+            content:
+              application/json:
+                schema:
+                  type: object
+                  properties:
+                    error:
+                      type: string
+                      description: Explanation of the error.
 
 components:
   schemas:

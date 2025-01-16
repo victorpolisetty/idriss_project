@@ -172,9 +172,9 @@ class ApiHttpHandler(Handler):
         system_prompt = (
             "You are an assistant that translates natural language prompts into API query parameters. "
             "Parse the input prompt and return a JSON object with keys: text, engagement, count, username, and age_limit_days. "
-            "The engagement key must be one of: reactions, recasts, replies, watches. "
+            "The engagement key must be one of: reactions, recasts, replies, watches. Use your best judgement to pick one of these based on the prompt."
             "The count key must be a number. Only explicitly set count if the user mentions it. "
-            "The text key should specify the coin type (e.g., memecoin, social coin, etc.). "
+            "The text key should specify the coin type (e.g., memecoin, social coin, ai coin, etc.). "
             "The age_limit_days key should be included if the prompt specifies a time frame (e.g., less than 10 days old). "
             "Additionally, provide a suggestion to improve the query if needed."
         )
@@ -297,4 +297,49 @@ class ApiHttpHandler(Handler):
                 content=json.dumps({"error": str(e)}).encode("utf-8"),
                 status_code=500,
                 status_text="Internal Server Error"
+            )
+
+    def handle_get_api_user_by_wallet_address(self, message: ApiHttpMessage, wallet_address: str):
+        """
+        Handle GET request for /api/user/{walletAddress}.
+        Retrieves user data for the specified wallet address.
+        """
+        self.context.logger.debug(f"Path parameters: wallet_address={wallet_address}")
+        try:
+            # Retrieve user data by wallet address from the DAO
+            user_data = self.analyze_request_dao.get_by_wallet_address(wallet_address)
+
+            if user_data:
+                # If user data exists, return it as a JSON response
+                response_body = dumps(user_data).encode("utf-8")
+                return ApiHttpMessage(
+                    performative=ApiHttpMessage.Performative.RESPONSE,
+                    status_code=200,
+                    status_text="Success",
+                    headers="Content-Type: application/json",
+                    version=message.version,
+                    body=response_body
+                )
+            else:
+                # If no user data found, return a 404 response
+                error_message = {"error": f"User with wallet_address '{wallet_address}' not found."}
+                return ApiHttpMessage(
+                    performative=ApiHttpMessage.Performative.RESPONSE,
+                    status_code=404,
+                    status_text="Not Found",
+                    headers="Content-Type: application/json",
+                    version=message.version,
+                    body=dumps(error_message).encode("utf-8")
+                )
+
+        except Exception as e:
+            # Handle any unexpected errors and log the exception
+            self.context.logger.exception(f"Error handling GET request for wallet_address={wallet_address}: {e}")
+            return ApiHttpMessage(
+                performative=ApiHttpMessage.Performative.RESPONSE,
+                status_code=500,
+                status_text="Internal Server Error",
+                headers="Content-Type: application/json",
+                version=message.version,
+                body=json.dumps({"error": str(e)}).encode("utf-8")
             )
