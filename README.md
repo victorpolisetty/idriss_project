@@ -1,35 +1,46 @@
-# visualisation_station
-
-
-
-## Table of Contents
-
-- [Getting Started](#getting-started)
-  - [Installation](#installation)
-  - [Setup for Development](#setup-for-development)
-- [Usage](#usage)
-- [Commands](#commands)
-  - [Testing](#testing)
-  - [Linting](#linting)
-  - [Formatting](#formatting)
-  - [Releasing](#releasing)
-- [License](#license)
+# IDRISS AI Token Finder for Farcaster
 
 ## Getting Started
 
+- Make sure you have Python 3.11.10
+- Make sure you have Poetry installed
+
 ### Installation and Setup for Development
 
-If you're looking to contribute or develop with `visualisation_station`, get the source code and set up the environment:
-
 ```shell
-git clone https://github.com/StationsStation/visualisation_station
+git clone https://github.com/victorpolisetty/idriss_project.git
 cd visualisation_station
+poetry env use 3.11.10
+poetry install && poetry shell
 make install
 ```
+
+## How to run agent
+
+```shell
+./scripts/run_single_agent.sh victorpolisetty/idriss_frontend --force
+```
+Warning: Docker must be running
+
+## How to run frontend (tested using Brave Browser)
+
+```shell
+http://localhost:5555/
+```
+
+## How to deploy
+
+Work in progress...
 
 ## Commands
 
 Here are common commands you might need while working with the project:
+
+### Resetting Docker
+
+```shell
+curl localhost:8080/hard_reset
+```
 
 ### Formatting
 
