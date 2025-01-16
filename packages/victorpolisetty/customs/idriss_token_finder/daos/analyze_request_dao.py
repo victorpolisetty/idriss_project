@@ -2,11 +2,16 @@ import sqlite3
 from typing import Optional, Dict, Any, List
 import os
 from pathlib import Path
-# Define the database path (persistent across script runs)
-current_dir = Path(__file__).parent
-DATABASE_PATH = current_dir.parent / "database" / "mydatabase.db"
-DATABASE_PATH.parent.mkdir(parents=True, exist_ok=True)  # Ensure the directory exists
-print(f"The database path is: {DATABASE_PATH.resolve()}")  # Debugging: Print the absolute path
+# Define the base project directory (static)
+BASE_DIR = Path("/Users/victorpolisetty/olasdev/visualisation_station")
+
+# Resolve the database path relative to the base directory
+DATABASE_PATH = BASE_DIR / "packages" / "victorpolisetty" / "customs" / "idriss_token_finder" / "database" / "mydatabase.db"
+
+# Ensure the database directory exists
+DATABASE_PATH.parent.mkdir(parents=True, exist_ok=True)
+
+print(f"Resolved database path: {DATABASE_PATH}")
 
 class AnalyzeRequestDAO:
     """AnalyzeRequestDAO is a class that provides methods to interact with the AnalyzeRequest data."""
@@ -16,7 +21,7 @@ class AnalyzeRequestDAO:
         self._ensure_table_exists()
 
     def _create_connection(self) -> sqlite3.Connection:
-        """Create and return a connection to the SQLite database."""
+        """Create and return a connection to the SQLite dataase."""
         return sqlite3.connect(DATABASE_PATH)
     
 
