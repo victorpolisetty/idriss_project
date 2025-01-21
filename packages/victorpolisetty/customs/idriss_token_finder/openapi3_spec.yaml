@@ -6,16 +6,6 @@ info:
 servers:
   - url: http://0.0.0.0:5555
 paths:
-  /api:
-    get:
-      summary: Returns the main HTML page
-      responses:
-        '200':
-          description: HTML response
-          content:
-            text/html:
-              schema:
-                type: string
   /api/analyze:
     post:
       summary: Analyze Farcaster data for search results
@@ -94,6 +84,52 @@ paths:
                     error:
                       type: string
                       description: Explanation of the error.
+  /api/wallet/{walletAddress}:
+    get:
+      summary: Check Wallet and Query SearchCaster
+      description: Checks if the specified wallet address exists in the database. If it exists, calls the SearchCaster API with the parameters associated with the wallet address.
+      parameters:
+        - name: walletAddress
+          in: path
+          required: true
+          description: The wallet address to look up in the database.
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response with the SearchCaster API results.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                  parameters:
+                    type: object
+                  first_ticker:
+                    type: string
+                    example: $SOCIAL
+        '404':
+          description: Wallet address not found in the database.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: Wallet address not found.
+        '500':
+          description: Internal server error.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: Internal Server Error
 
 components:
   schemas:

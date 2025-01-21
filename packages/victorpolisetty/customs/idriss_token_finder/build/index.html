@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Analyze Prompt</title>
+    <title>Test APIs</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -24,7 +24,7 @@
             border-radius: 10px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
-        input[type="text"] {
+        input, select {
             width: 80%;
             padding: 10px;
             margin: 10px 0;
@@ -56,48 +56,70 @@
 </head>
 <body>
     <div class="container">
-        <h1>Analyze Your Prompt</h1>
-        <input type="text" id="promptInput" placeholder="Enter your prompt here">
-        <button id="analyzeButton">Analyze</button>
+        <h1>Test APIs</h1>
+        <select id="apiSelect">
+            <option value="analyze">Analyze Prompt (POST /api/analyze)</option>
+            <option value="walletSearch">Wallet Search (GET /api/wallet/{walletAddress}/search)</option>
+            <option value="userSearch">User Search (GET /api/user/{walletAddress})</option>
+        </select>
+        <input type="text" id="inputField" placeholder="Enter input (prompt or wallet address)">
+        <button id="testButton">Test API</button>
 
         <div class="results" id="results">
             <h2>Results</h2>
-            <p><strong>Suggestion:</strong> <span id="suggestion"></span></p>
-            <p><strong>Ticker Suggestion:</strong> <span id="firstTicker"></span></p>
+            <p><strong>Status:</strong> <span id="status"></span></p>
+            <p><strong>Response:</strong> <pre id="response"></pre></p>
         </div>
     </div>
 
     <script>
-        document.getElementById('analyzeButton').addEventListener('click', async () => {
-            const prompt = document.getElementById('promptInput').value;
+        document.getElementById('testButton').addEventListener('click', async () => {
+            const apiType = document.getElementById('apiSelect').value;
+            const input = document.getElementById('inputField').value;
+            const resultsDiv = document.getElementById('results');
 
-            const walletAddress = "0x1234567890abcdef1234567890abcdef0000";  // Example wallet address
-
-            if (!prompt) {
-                alert('Please enter a prompt.');
+            if (!input) {
+                alert('Please enter a valid input.');
                 return;
             }
 
-            const response = await fetch('/api/analyze', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'text/plain',
-                },
-                body: JSON.stringify({
-                    query: prompt,
-                    wallet_address: walletAddress  // Hardcoded wallet address
-                }),
-            });
+            let url, options;
 
-            const resultsDiv = document.getElementById('results');
+            switch (apiType) {
+                case 'analyze':
+                    url = '/api/analyze';
+                    options = {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'text/plain',
+                        },
+                        body: JSON.stringify({
+                            query: input,
+                            wallet_address: "0x1234567890abcdef1234567890abcdef0000"
+                        }),
+                    };
+                    break;
+                case 'walletSearch':
+                    url = `/api/wallet/${input}`;
+                    options = { method: 'GET' };
+                    break;
+                case 'userSearch':
+                    url = `/api/user/${input}`;
+                    options = { method: 'GET' };
+                    break;
+                default:
+                    return;
+            }
 
-            if (response.ok) {
+            try {
+                const response = await fetch(url, options);
+                const status = response.status;
                 const data = await response.json();
-                document.getElementById('suggestion').textContent = data.suggestion || 'No suggestion provided';
-                document.getElementById('firstTicker').textContent = data.first_ticker || 'No ticker found';
-            } else {
-                const errorData = await response.json();
-                alert(`Error: ${errorData.error}`);
+                document.getElementById('status').textContent = status;
+                document.getElementById('response').textContent = JSON.stringify(data, null, 2);
+            } catch (error) {
+                document.getElementById('status').textContent = 'Error';
+                document.getElementById('response').textContent = error.message;
             }
         });
     </script>

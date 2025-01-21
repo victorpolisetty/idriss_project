@@ -31,6 +31,7 @@ from aea.skills.base import Handler
 from packages.eightballer.protocols.http.message import HttpMessage as ApiHttpMessage
 from mech_client.interact import interact, ConfirmationType
 from datetime import datetime, timedelta, timezone
+from dotenv import load_dotenv
 current_dir = Path(__file__).parent
 sys.path.append(str(current_dir.resolve()))
 
@@ -48,7 +49,11 @@ from .exceptions import (
     ServiceUnavailableError
 )
 
+# Load environment variables from .env file
+load_dotenv()
 
+# Access environment variables
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 
 
 @dataclass
@@ -85,73 +90,56 @@ class ApiHttpHandler(Handler):
 
         self.context.logger.info(f"Received {method.upper()} request for {path}")
 
-        normalized_path = path.rstrip("/")
+        normalized_path = self.normalize_path(path)
 
-        handler_name = f"handle_{method}_{normalized_path.lstrip('/').replace('/', '_')}"
+        handler_name, kwargs = self.get_handler_name_and_kwargs(method, normalized_path, path, body)
 
         handler_method = getattr(self, handler_name, None)
 
         if handler_method:
             self.context.logger.debug(f"Found handler method: {handler_name}")
-            kwargs = {"body": body} if method in {"post", "put", "patch", "delete"} else {}
-
-            try:
-                result = handler_method(message, **kwargs)
-                self.context.logger.info(f"Successfully handled {method.upper()} request for {path}")
-                return result
-            except Exception as e:
-                self.context.logger.exception(f"Error handling {method.upper()} request for {path}: {e!s}")
-                raise
-        else:
-            self.context.logger.warning(f"No handler found for {method.upper()} request to {path}")
-            return self.handle_unexpected_message(message)
-
-    def handle_get_api(self, _message: ApiHttpMessage):
-        """Handle GET request for /api."""
-        try:
-            result = none_dao.get_all()
-
-            self.context.logger.info("Successfully processed GET request for /api")
-            self.context.logger.debug(f"Result: {result}")
-            return ApiResponse(
-                headers={},
-                content=result,
-                status_code=200,
-                status_text="HTML response"
-            )
-
-        except Exception as e:
-            self.context.logger.exception("Unhandled exception")
-            return ApiResponse(
-                headers={},
-                content=json.dumps({"error": str(e)}).encode("utf-8"),
-                status_code=500,
-                status_text="Internal Server Error"
-            )
+            return handler_method(message, **kwargs)
+        self.context.logger.warning(f"No handler found for {method.upper()} request to {path}")
+        return self.handle_unexpected_message(message)
         
-    def filter_and_sort_by_age(self, posts, max_age_days):
-        """Filter and sort posts by their age in days."""
-        if not max_age_days:
-            return posts  # No filtering if max_age_days is not provided
+    def normalize_path(self, path: str) -> str:                                                                                                                                                                                                                                                      
+        """Normalize the path using regex substitution."""                                                                                                                                                                                                                                           
+        normalized_path = path.rstrip("/")
+        self.context.logger.debug(f"Normalized path: {normalized_path}")
 
-        # Calculate the cutoff timestamp
-        cutoff_date = datetime.now(timezone.utc) - timedelta(days=max_age_days)
-        cutoff_timestamp = int(cutoff_date.timestamp() * 1000)  # Convert to milliseconds
+        substitutions = {
+            r"^/api/user/(?P<wallet_address>[^/]+)$": "/api/user/walletAddress",
+            r"^/api/wallet/(?P<wallet_address>[^/]+)$": "/api/wallet/walletAddress",
+        }
 
-        # Filter posts based on age
-        filtered_posts = [
-            post for post in posts
-            if post["body"]["publishedAt"] >= cutoff_timestamp
+        for pattern, replacement in substitutions.items():
+            normalized_path = re.sub(pattern, replacement, normalized_path)
+        
+        self.context.logger.debug(f"After regex substitutions: {normalized_path}")
+        return normalized_path
+    
+    def get_handler_name_and_kwargs(self, method: str, normalized_path: str, original_path: str, body: bytes) -> tuple:
+        """Get the handler name and kwargs for the given method and path."""
+        handler_name = f"handle_{method}_{normalized_path.lstrip('/').replace('/', '_')}"
+
+        self.context.logger.debug(f"Initial handler name: {handler_name}")
+        handler_name = handler_name.replace("walletAddress", "by_wallet_address")
+        self.context.logger.debug(f"Final handler name: {handler_name}")
+
+        kwargs = {"body": body} if method in {"post", "put", "patch"} else {}
+        patterns = [
+            (r"^/api/user/(?P<wallet_address>[^/]+)$", ["wallet_address"]),
+            (r"^/api/wallet/(?P<wallet_address>[^/]+)$", ["wallet_address"]),
         ]
 
-        # Optionally sort the filtered posts by published date
-        sorted_posts = sorted(
-            filtered_posts,
-            key=lambda post: post["body"]["publishedAt"],
-            reverse=True  # Latest posts first
-        )
-
-        return sorted_posts
+        for pattern, param_names in patterns:
+            match = re.search(pattern, original_path)
+            if match:
+                for param_name in param_names:
+                    kwargs[param_name] = match.group(param_name)
+                break
+        self.context.logger.debug(f"Final kwargs: {kwargs}")
+        return handler_name, kwargs
     
     def extract_first_ticker(self, casts):
         """Extract the first ticker (symbol) from the casts."""
@@ -267,10 +255,6 @@ class ApiHttpHandler(Handler):
                 # Extract the first ticker from the results
                 first_ticker = self.extract_first_ticker(results.get("casts", []))
 
-                max_age_days = query_params.get("age_limit_days")
-                if max_age_days:
-                    results["casts"] = self.filter_and_sort_by_age(results["casts"], max_age_days)
-
                 return ApiResponse(
                     headers={},
                     content=json.dumps({
@@ -339,4 +323,87 @@ class ApiHttpHandler(Handler):
                 headers="Content-Type: application/json",
                 version=message.version,
                 body=json.dumps({"error": str(e)}).encode("utf-8")
+            )
+    def handle_get_api_wallet_by_wallet_address(self, message: ApiHttpMessage, wallet_address):
+        """Handle GET request for /api/wallet/{walletAddress}"""
+        self.context.logger.debug(f"Path parameters: wallet_address={wallet_address}")
+        try:
+            # Check if wallet address exists in the database
+            wallet_data = self.analyze_request_dao.get_by_wallet_address(wallet_address)
+
+            if not wallet_data:
+                response_body = json.dumps({
+                    "error": f"No wallet found for the provided address: {wallet_address}.",
+                    "status_code": 404
+                }).encode("utf-8")
+                return ApiHttpMessage(
+                    performative=ApiHttpMessage.Performative.RESPONSE,
+                    status_code=404,
+                    status_text="Not Found",
+                    headers="Content-Type: application/json",
+                    version=message.version,
+                    body=response_body
+                )
+            # Extract query parameters from the wallet data
+            query_params = {
+                "count": wallet_data.get("count"),
+                "text": wallet_data.get("text"),
+                "engagement": wallet_data.get("engagement")
+            }
+
+            # Make the API request to SearchCaster
+            searchcaster_url = "https://searchcaster.xyz/api/search"
+            response = requests.get(searchcaster_url, params=query_params)
+
+            if response.status_code == 200:
+                results = response.json()
+
+                # Extract the first ticker from the results
+                ticker_pattern = r'\$[A-Za-z0-9]+'  # Regex pattern to find tickers like $SOCIAL
+                first_ticker = None
+
+                for cast in results.get("casts", []):
+                    text = cast.get("body", {}).get("data", {}).get("text", "")
+                    match = re.search(ticker_pattern, text)
+                    if match:
+                        first_ticker = match.group()
+                        break
+
+                response_body = json.dumps({
+                    "status": "success",
+                    "parameters": query_params,
+                    "first_ticker": first_ticker,
+                }).encode("utf-8")
+                return ApiHttpMessage(
+                    performative=ApiHttpMessage.Performative.RESPONSE,
+                    status_code=200,
+                    status_text="Success",
+                    headers="Content-Type: application/json",
+                    version=message.version,
+                    body=response_body
+                )
+            else:
+                response_body = json.dumps({
+                    "error": f"SearchCaster API error: {response.text}",
+                    "status_code": response.status_code
+                }).encode("utf-8")
+                return ApiHttpMessage(
+                    performative=ApiHttpMessage.Performative.RESPONSE,
+                    status_code=500,
+                    status_text="SearchCaster API Error",
+                    headers="Content-Type: application/json",
+                    version=message.version,
+                    body=response_body
+                )
+
+        except Exception as e:
+            self.context.logger.exception(f"Error handling GET request for wallet_address={wallet_address}: {e}")
+            response_body = json.dumps({"error": str(e)}).encode("utf-8")
+            return ApiHttpMessage(
+                performative=ApiHttpMessage.Performative.RESPONSE,
+                status_code=500,
+                status_text="Internal Server Error",
+                headers="Content-Type: application/json",
+                version=message.version,
+                body=response_body
             )
