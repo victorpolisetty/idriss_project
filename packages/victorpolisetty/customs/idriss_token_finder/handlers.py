@@ -158,12 +158,12 @@ class ApiHttpHandler(Handler):
 
         # GPT-4 system prompt to guide its output
         system_prompt = (
-            "You are an assistant that translates natural language prompts into API query parameters. "
-            "Parse the input prompt and return a JSON object with keys: text, engagement, count, username, and age_limit_days. "
+            "You are an assistant that translates natural language prompts into API query parameters."
+            "Parse the input prompt and return a JSON object with keys: text, engagement, count, username, and age_limit_days."
             "The engagement key must be one of: reactions, recasts, replies, watches. Use your best judgement to pick one of these based on the prompt."
-            "The count key must be a number. Only explicitly set count if the user mentions it. "
-            "The text key should specify the coin type (e.g., memecoin, social coin, ai coin, etc.). "
-            "The age_limit_days key should be included if the prompt specifies a time frame (e.g., less than 10 days old). "
+            "The count key must be a number. Only explicitly set count if the user mentions it."
+            "The text key should specify the coin type (e.g., memecoin, social coin, ai coin, etc.)."
+            "The age_limit_days key should be included if the prompt specifies a time frame (e.g., less than 10 days old)."
             "Additionally, provide a suggestion to improve the query if needed."
         )
 
