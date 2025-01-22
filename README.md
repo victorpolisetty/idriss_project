@@ -28,6 +28,13 @@ Warning: Docker must be running
 http://localhost:5555/
 ```
 
+## How to generate DB file
+
+```shell
+cd packages/victorpolisetty/customs/idriss_token_finder/database
+python db_setup.db
+```
+
 ## How to deploy
 
 Work in progress...
