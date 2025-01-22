@@ -141,15 +141,51 @@ class ApiHttpHandler(Handler):
         self.context.logger.debug(f"Final kwargs: {kwargs}")
         return handler_name, kwargs
     
-    def extract_first_ticker(self, casts):
-        """Extract the first ticker (symbol) from the casts."""
-        ticker_pattern = r'\$[A-Za-z0-9]+'  # Regex pattern to find tickers like $SOCIAL
-        for cast in casts:
-            text = cast.get("body", {}).get("data", {}).get("text", "")
-            match = re.search(ticker_pattern, text)
-            if match:
-                return match.group()  # Return the first match
-        return None
+    def extract_best_ticker_with_gpt(self, casts, prompt) -> str:
+        """
+        Use GPT to determine the best-matching ticker from the casts based on the prompt.
+
+        :param prompt: The user's natural language prompt.
+        :param casts: The list of casts to analyze.
+        :return: The best-matching ticker as determined by GPT.
+        """
+        client = OpenAI(api_key=OPENAI_API_KEY)
+
+        # Build the context with the prompt and casts
+        system_prompt = (
+            "You are a financial assistant tasked with analyzing text data to find the best-matching ticker symbol "
+            "based on a user's natural language query. The user will provide a prompt, and you will analyze the provided "
+            "list of texts (casts) to find the most relevant ticker symbol."
+            "If no ticker symbol is relevant, return the most relevant one you can find."
+        )
+
+        user_message = (
+            f"Prompt: {prompt}\n\n"
+            f"Here are the casts:\n{casts}\n\n"
+            "Please provide the best-matching ticker symbol"
+        )
+
+        try:
+            # Call the GPT API
+            response = client.chat.completions.create(
+                model="gpt-4",
+                messages=[
+                    {"role": "system", "content": system_prompt},
+                    {"role": "user", "content": user_message}
+                ]
+            )
+
+            # Extract GPT's response
+            gpt_response = response.choices[0].message.content.strip()
+
+            # Log and return the result
+            self.context.logger.info(f"GPT determined best-matching ticker: {gpt_response}")
+            return gpt_response if gpt_response else "No match found"
+
+        except Exception as e:
+            self.context.logger.error(f"Error using GPT to extract ticker: {str(e)}")
+            return "Error: Unable to determine ticker"
+
 
         
     def parse_prompt_with_gpt(self, prompt: str) -> dict:
@@ -230,6 +266,7 @@ class ApiHttpHandler(Handler):
                     "count": query_params.get("count"),
                     "text": query_params.get("text"),
                     "engagement": query_params.get("engagement"),
+                    "prompt": prompt
                 }
                 updated_request = self.analyze_request_dao.update(wallet_address, **updated_data)
                 self.context.logger.info(f"Updated request: {updated_request}")
@@ -241,6 +278,7 @@ class ApiHttpHandler(Handler):
                     "count": query_params.get("count"),
                     "text": query_params.get("text"),
                     "engagement": query_params.get("engagement"),
+                    "prompt": prompt
                 }
                 inserted_request = self.analyze_request_dao.insert(new_data)
                 self.context.logger.info(f"Inserted new request SUCCESSFULLY: {inserted_request}")
@@ -251,9 +289,20 @@ class ApiHttpHandler(Handler):
 
             if response.status_code == 200:
                 results = response.json()
+                texts = []  # List to store all text values
+                for cast in results.get("casts", []):
+                    text = cast.get("body", {}).get("data", {}).get("text", "")
+                    self.context.logger.info("NEW CAST TEXT")
+                    self.context.logger.info(text)
+                    if text:  # Only add non-empty text
+                        texts.append(text)
 
-                # Extract the first ticker from the results
-                first_ticker = self.extract_first_ticker(results.get("casts", []))
+                # Join all texts with commas
+                combined_texts = ", ".join(texts)
+                self.context.logger.info("Combined Texts:")
+                self.context.logger.info(combined_texts)
+
+                best_matching_ticker = self.extract_best_ticker_with_gpt(combined_texts, prompt)
 
                 return ApiResponse(
                     headers={},
@@ -261,7 +310,7 @@ class ApiHttpHandler(Handler):
                         "message": "Query processed successfully.",
                         "parameters": query_params,
                         "suggestion": suggestion,
-                        "first_ticker": first_ticker,
+                        "first_ticker": best_matching_ticker,
                         "results": results
                     }).encode("utf-8"),
                     status_code=200,
@@ -357,22 +406,25 @@ class ApiHttpHandler(Handler):
 
             if response.status_code == 200:
                 results = response.json()
-
-                # Extract the first ticker from the results
-                ticker_pattern = r'\$[A-Za-z0-9]+'  # Regex pattern to find tickers like $SOCIAL
-                first_ticker = None
-
+                texts = []  # List to store all text values
                 for cast in results.get("casts", []):
                     text = cast.get("body", {}).get("data", {}).get("text", "")
-                    match = re.search(ticker_pattern, text)
-                    if match:
-                        first_ticker = match.group()
-                        break
+                    self.context.logger.info("NEW CAST TEXT")
+                    self.context.logger.info(text)
+                    if text:  # Only add non-empty text
+                        texts.append(text)
+
+                # Join all texts with commas
+                combined_texts = ", ".join(texts)
+                self.context.logger.info("Combined Texts:")
+                self.context.logger.info(combined_texts)
+
+                best_matching_ticker = self.extract_best_ticker_with_gpt(combined_texts, wallet_data.get("prompt"))
 
                 response_body = json.dumps({
                     "status": "success",
                     "parameters": query_params,
-                    "first_ticker": first_ticker,
+                    "first_ticker": best_matching_ticker,
                 }).encode("utf-8")
                 return ApiHttpMessage(
                     performative=ApiHttpMessage.Performative.RESPONSE,

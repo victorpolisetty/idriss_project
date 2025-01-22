@@ -34,7 +34,8 @@ class AnalyzeRequestDAO:
                 wallet_address TEXT PRIMARY KEY,
                 count INTEGER,
                 text TEXT,
-                engagement TEXT
+                engagement TEXT,
+                prompt TEXT
             )
         ''')
         conn.commit()
