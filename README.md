@@ -129,6 +129,12 @@ prompt -> Prompt that the user inputted STRING
 
   ![Screenshot 2025-01-21 at 8 41 54 PM](https://github.com/user-attachments/assets/874cc8ce-b937-4676-80b8-63afa4e62e16)
 
+### When to use API's
+
+Use the /api/analyze (POST) endpoint when a user is using natural language to search for a new coin.
+
+Use the /api/wallet/{walletAddress} (GET) endpoint when we want to retain the users original query and just rescan for any updates.
+
 ### Formatting
 
 ```shell
