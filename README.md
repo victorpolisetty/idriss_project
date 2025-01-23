@@ -49,23 +49,11 @@ Here are common commands you might need while working with the project:
 curl localhost:8080/hard_reset
 ```
 
-### Database Structure
+## When to use API's
 
-Table Name: AnalyzeRequest
+Use the /api/analyze (POST) endpoint when a user is using natural language to search for a new coin.
 
-Table Columns:
-
-wallet_address -> A unique wallet address which identifies the user STRING
-
-count -> How many casts you want the SearchCaster API to search through INT
-
-text -> What keywords you want the SearchCaster API to look for STRING
-
-engagement -> What filters you want the SearchCaster API to sort by (one of: ["reactions","recasts","replies","watches"]) STRING
-
-prompt -> Prompt that the user inputted STRING
-
-![Screenshot 2025-01-23 at 1 33 49 PM](https://github.com/user-attachments/assets/a2c65f52-5dc7-4574-9b21-eb9bb02bc30f)
+Use the /api/wallet/{walletAddress} (GET) endpoint when we want to retain the users original query and just rescan for any updates.
 
 ## API Endpoints
 
@@ -129,41 +117,23 @@ prompt -> Prompt that the user inputted STRING
 
   ![Screenshot 2025-01-21 at 8 41 54 PM](https://github.com/user-attachments/assets/874cc8ce-b937-4676-80b8-63afa4e62e16)
 
-### When to use API's
+### Database Structure
 
-Use the /api/analyze (POST) endpoint when a user is using natural language to search for a new coin.
+Table Name: AnalyzeRequest
 
-Use the /api/wallet/{walletAddress} (GET) endpoint when we want to retain the users original query and just rescan for any updates.
+Table Columns:
 
-### Formatting
+wallet_address -> A unique wallet address which identifies the user STRING
 
-```shell
-make fmt
-```
+count -> How many casts you want the SearchCaster API to search through INT
 
-### Linting
+text -> What keywords you want the SearchCaster API to look for STRING
 
-```shell
-make lint
-```
+engagement -> What filters you want the SearchCaster API to sort by (one of: ["reactions","recasts","replies","watches"]) STRING
 
-### Testing
+prompt -> Prompt that the user inputted STRING
 
-```shell
-make test
-```
-
-### Locking
-
-```shell
-make hashes
-```
-
-### all
-
-```shell
-make all
-```
+![Screenshot 2025-01-23 at 1 33 49 PM](https://github.com/user-attachments/assets/a2c65f52-5dc7-4574-9b21-eb9bb02bc30f)
 
 ## License
 
