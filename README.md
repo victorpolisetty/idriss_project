@@ -49,6 +49,24 @@ Here are common commands you might need while working with the project:
 curl localhost:8080/hard_reset
 ```
 
+### Database Structure
+
+Table Name: AnalyzeRequest
+
+Table Columns:
+
+wallet_address -> A unique wallet address which identifies the user STRING
+
+count -> How many casts you want the SearchCaster API to search through INT
+
+text -> What keywords you want the SearchCaster API to look for STRING
+
+engagement -> What filters you want the SearchCaster API to sort by (one of: ["reactions","recasts","replies","watches"]) STRING
+
+prompt -> Prompt that the user inputted STRING
+
+![Screenshot 2025-01-23 at 1 33 49 PM](https://github.com/user-attachments/assets/a2c65f52-5dc7-4574-9b21-eb9bb02bc30f)
+
 ## API Endpoints
 
 - /api/analyze (POST)
