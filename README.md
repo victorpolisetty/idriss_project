@@ -95,6 +95,7 @@ prompt -> Prompt that the user inputted STRING
 
   ![Screenshot 2025-01-23 at 10 59 12 AM](https://github.com/user-attachments/assets/d2dc9b19-c598-43ad-a85e-51f15a97d53a)
 
+  ![Screenshot 2025-01-23 at 1 59 01 PM](https://github.com/user-attachments/assets/9a211614-b97e-4709-ae0f-14d9cafcaf3b)
 
 - /api/user/{walletAddress} (GET)
   
