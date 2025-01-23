@@ -75,6 +75,9 @@ curl localhost:8080/hard_reset
 
   ![Screenshot 2025-01-21 at 8 43 43 PM](https://github.com/user-attachments/assets/d2159bd8-3217-4185-b696-45a3e11151ab)
 
+  ![Screenshot 2025-01-23 at 10 59 12 AM](https://github.com/user-attachments/assets/d2dc9b19-c598-43ad-a85e-51f15a97d53a)
+
+
 - /api/user/{walletAddress} (GET)
   
   Path Parameter:
