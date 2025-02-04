@@ -126,7 +126,7 @@ public_id: eightballer/http_server:0.1.0:bafybeib4t4ay6kfjokq3cydparpzs4zllyl2yu
 type: connection
 config:
   host: 0.0.0.0
-  port: 5555
+  port: ${int:PORT}
   target_skill_id: eightballer/trader_abci:0.1.0
 ---
 public_id: eightballer/websocket_server:0.1.0:bafybeib4t4ay6kfjokq3cydparpzs4zllyl2yujvfsbc24xogwyxsswaqy
