@@ -180,7 +180,7 @@ models:
       request_retry_delay: ${float:1.0}
       request_timeout: ${float:10.0}
       service_id: ${str:trader}
-      tendermint_url: ${str:http://host.docker.internal:26657}
+      tendermint_url: ${str:http://localhost:26657}
       tendermint_com_url: ${str:http://localhost:8080}
       tendermint_check_sleep_delay: ${int:3}
       tendermint_max_retries: ${int:5}
