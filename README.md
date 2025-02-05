@@ -37,6 +37,32 @@ python db_setup.db
 
 ## How to deploy
 
+Setup Droplet on Digital Ocean:
+
+1. Go to Digital Ocean
+
+2. Click "Create Droplets"
+
+3. Choose Region -> Default (San Francisco for me)
+
+4. Choose Datacenter -> Default (San Francisco - Datacenter 3 - SF03)
+
+5. VPC Network - Default
+
+6. Choose an image -> Marketplace -> Search "Docker"
+
+7. Choose Size -> Basic
+
+8. CPU options -> Regular Disk type: SSD + $6/mo
+
+9. Choose Authentication Method => Password (ShadowDog88@a)
+
+10. Hostname -> Idriss Olas Token Finder
+
+11. Create Droplet
+
+Go Inside the console for the droplet:
+
 Clone the project:
 ```shell
 git clone https://github.com/victorpolisetty/idriss_project.git
