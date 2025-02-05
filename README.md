@@ -37,7 +37,67 @@ python db_setup.db
 
 ## How to deploy
 
-Work in progress...
+Clone the project:
+```shell
+git clone https://github.com/victorpolisetty/idriss_project.git
+cd idriss_project
+```
+
+Update Ubuntu system:
+```shell
+sudo apt update && sudo apt upgrade -y
+sudo apt install -y build-essential zlib1g-dev libssl-dev libffi-dev \
+    libsqlite3-dev libbz2-dev libreadline-dev libncursesw5-dev libgdbm-dev \
+    liblzma-dev libffi-dev uuid-dev wget
+```
+
+Install Python 3.11.10
+```shell
+cd /usr/src
+sudo wget https://www.python.org/ftp/python/3.11.10/Python-3.11.10.tgz
+sudo tar xvf Python-3.11.10.tgz
+cd Python-3.11.10
+sudo ./configure --enable-optimizations
+sudo make -j$(nproc)
+sudo make altinstall
+```
+
+Verify Python 3.11.10 is installed:
+```shell
+python3.11 --version  # Should output Python 3.11.10
+```
+
+Set Python 3.11.10 as default:
+```shell
+sudo update-alternatives --install /usr/bin/python3 python3 /usr/local/bin/python3.11 1
+sudo update-alternatives --config python3  # Select Python 3.11.10
+python3 --version  # Should now be 3.11.10
+```
+
+Install Poetry
+```shell
+curl -sSL https://install.python-poetry.org | python3.11 -
+export PATH="$HOME/.local/bin:$PATH"
+echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.bashrc
+source ~/.bashrc
+```
+
+Check poetry is installed correctly:
+```shell
+poetry --version
+```
+
+Setup project virtual env:
+```shell
+cd ~/idriss_project
+poetry env use 3.11.10
+poetry install --no-root
+```
+
+Run project:
+```shell
+poetry run ./scripts/run_single_agent.sh victorpolisetty/idriss_frontend --force
+```
 
 ## Commands
 
