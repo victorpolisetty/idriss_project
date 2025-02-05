@@ -118,7 +118,23 @@ Setup project virtual env:
 cd ~/idriss_project
 poetry env use 3.11.10
 poetry install --no-root
+poetry run autonomy packages sync
 ```
+
+Install Tendermint:
+```shell
+wget https://github.com/tendermint/tendermint/releases/download/v0.34.24/tendermint_0.34.24_linux_amd64.tar.gz
+tar -xvf tendermint_0.34.24_linux_amd64.tar.gz
+sudo mv tendermint /usr/local/bin/
+tendermint version  # Verify installation
+tendermint init --home /root/.tendermint
+tendermint start --home /root/.tendermint
+docker run -d --name tendermint \
+  -p 26656:26656 \
+  -p 26657:26657 \
+  tendermint/tendermint start
+```
+
 
 Run project:
 ```shell
