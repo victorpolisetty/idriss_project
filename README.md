@@ -109,7 +109,6 @@ tar -xvf tendermint_0.34.24_linux_amd64.tar.gz
 sudo mv tendermint /usr/local/bin/
 tendermint version  # Verify installation
 tendermint init --home /root/.tendermint
-tendermint start --home /root/.tendermint
 docker run -d --name tendermint \
   -p 26656:26656 \
   -p 26657:26657 \
@@ -121,7 +120,7 @@ Configure Nginx Reverse Proxy
 #Install Nginx:
 sudo apt install nginx -y
 #Edit the Nginx config:
-sudo nano /etc/nginx/sites-available/default
+sudo vim /etc/nginx/sites-available/default
 #Replace contents with:
 server {
     listen 80;
@@ -139,14 +138,12 @@ server {
 
 #Restart Nginx:
 sudo systemctl restart nginx
-#Check if Nginx is running:
+#Check if Nginx is running (should say active (running):
 sudo systemctl status nginx
 ```
 
 Set Up and Configure UFW Firewall
 ```shell
-#Reinstall UFW (if needed)
-sudo apt install --reinstall ufw -y
 #Enable UFW:
 sudo ufw enable
 #Allow necessary ports:
@@ -156,7 +153,7 @@ sudo ufw allow 443/tcp    # HTTPS (if using SSL)
 sudo ufw allow 5555/tcp   # API service
 #Reload UFW to apply changes:
 sudo ufw reload
-#Check firewall rules:
+#Check firewall rules (make sure 5555 is ALLOW Anywhere:
 sudo ufw status
 ```
 
