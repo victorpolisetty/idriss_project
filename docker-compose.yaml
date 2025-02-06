@@ -12,7 +12,7 @@ services:
     network_mode: host
     environment:
       - ID=0
-      - PROXY_APP=tcp://host.docker.internal:26658
+      - PROXY_APP=tcp://127.0.0.1:26658
       - TMHOME=/tendermint/node0
       - CREATE_EMPTY_BLOCKS=true
       - DEV_MODE=0
