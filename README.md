@@ -173,7 +173,7 @@ poetry install --no-root
 
 Run the project
 ```shell
-export OPENAI_API_KEY = YOUR_API_KEY
+export OPENAI_API_KEY=YOUR_API_KEY
 poetry run ./scripts/run_single_agent.sh victorpolisetty/idriss_frontend --force
 ```
 
