@@ -49,19 +49,19 @@ Setup Droplet on Digital Ocean:
 
 5. VPC Network - Default
 
-6. Choose an image -> Marketplace -> Search "Docker"
+6. Choose an image -> Marketplace -> Search "Docker" -> Choose "Docker latest on Ubuntu 22.04"
 
 7. Choose Size -> Basic
 
 8. CPU options -> Regular Disk type: SSD + $6/mo
 
-9. Choose Authentication Method => Password (ShadowDog88@a)
+9. Choose Authentication Method => Password or SSH
 
 10. Hostname -> Idriss Olas Token Finder
 
 11. Create Droplet
 
-## How to run inside Digital Ocean Droplet
+## How to run inside Digital Ocean Droplet inside Console
 
 Install System Updates:
 ```shell
@@ -73,43 +73,32 @@ Install Required Dependencies
 sudo apt install -y git curl build-essential
 ```
 
-Install Python 3.11 and Set It as Default
+Install Python 3.11
 ```shell
 #Install Python 3.11
 sudo apt install -y python3.11 python3.11-venv python3.11-dev
-#Verify Installation
-python3.11 --version
-#Set Python 3.10 as the Default for System (APT & UFW):
+#Verify installation:
+python3.11 --version  # Should output Python 3.11.x
+```
+
+Set Default Python to 3.10 (For System)
+```shell
+#Since APT & UFW require Python 3.10, set it as the default system version:
 sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.10 100
-sudo update-alternatives --install /usr/bin/python3 python3 /usr/local/bin/python3.11 110
-#Select Python 3.11 as Default (Choose Python 3.11 from the list.):
+sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.11 110
+#Now explicitly CHOOSE Python 3.10 for system-wide use:
 sudo update-alternatives --config python3
-#Verify the Default Python Version:
-python3 --version
-```
-
-Verify Python 3.11.10 is installed:
-```shell
-python3.11 --version  # Should output Python 3.11.10
-```
-
-Set Python 3.11.10 as default:
-```shell
-sudo update-alternatives --install /usr/bin/python3 python3 /usr/local/bin/python3.11 1
-sudo update-alternatives --config python3  # Select Python 3.11.10
-python3 --version  # Should now be 3.11.10
+#Verify:
+python3 --version  # Should output Python 3.10.x
 ```
 
 Install Poetry
 ```shell
 #Install Poetry for package management:
 curl -sSL https://install.python-poetry.org | python3 -
+echo 'export PATH="/root/.local/bin:$PATH"' >> ~/.bashrc
+source ~/.bashrc
 #Verify Poetry installation:
-poetry --version
-```
-
-Check poetry is installed correctly:
-```shell
 poetry --version
 ```
 
