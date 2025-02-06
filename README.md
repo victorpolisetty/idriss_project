@@ -168,7 +168,7 @@ Set Up the Virtual Environment with Poetry:
 #Create a new Poetry environment with Python 3.11:
 poetry env use python3.11
 #Install project dependencies:
-poetry install
+poetry install --no-root
 ```
 
 Run the project
