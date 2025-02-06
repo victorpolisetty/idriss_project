@@ -169,6 +169,10 @@ Set Up the Virtual Environment with Poetry:
 poetry env use python3.11
 #Install project dependencies:
 poetry install --no-root
+#sync Olas packages
+poetry run autonomy packages sync
+#start docker tendermint
+docker-compose up -d
 ```
 
 Run the project
