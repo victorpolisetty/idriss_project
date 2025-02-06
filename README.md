@@ -61,31 +61,31 @@ Setup Droplet on Digital Ocean:
 
 11. Create Droplet
 
-Go Inside the console for the droplet:
+## How to run inside Digital Ocean Droplet
 
-Clone the project:
-```shell
-git clone https://github.com/victorpolisetty/idriss_project.git
-cd idriss_project
-```
-
-Update Ubuntu system:
+Install System Updates:
 ```shell
 sudo apt update && sudo apt upgrade -y
-sudo apt install -y build-essential zlib1g-dev libssl-dev libffi-dev \
-    libsqlite3-dev libbz2-dev libreadline-dev libncursesw5-dev libgdbm-dev \
-    liblzma-dev libffi-dev uuid-dev wget
 ```
 
-Install Python 3.11.10
+Install Required Dependencies
 ```shell
-cd /usr/src
-sudo wget https://www.python.org/ftp/python/3.11.10/Python-3.11.10.tgz
-sudo tar xvf Python-3.11.10.tgz
-cd Python-3.11.10
-sudo ./configure --enable-optimizations
-sudo make -j$(nproc)
-sudo make altinstall
+sudo apt install -y git curl build-essential
+```
+
+Install Python 3.11 and Set It as Default
+```shell
+#Install Python 3.11
+sudo apt install -y python3.11 python3.11-venv python3.11-dev
+#Verify Installation
+python3.11 --version
+#Set Python 3.10 as the Default for System (APT & UFW):
+sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.10 100
+sudo update-alternatives --install /usr/bin/python3 python3 /usr/local/bin/python3.11 110
+#Select Python 3.11 as Default (Choose Python 3.11 from the list.):
+sudo update-alternatives --config python3
+#Verify the Default Python Version:
+python3 --version
 ```
 
 Verify Python 3.11.10 is installed:
@@ -102,23 +102,15 @@ python3 --version  # Should now be 3.11.10
 
 Install Poetry
 ```shell
-curl -sSL https://install.python-poetry.org | python3.11 -
-export PATH="$HOME/.local/bin:$PATH"
-echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.bashrc
-source ~/.bashrc
+#Install Poetry for package management:
+curl -sSL https://install.python-poetry.org | python3 -
+#Verify Poetry installation:
+poetry --version
 ```
 
 Check poetry is installed correctly:
 ```shell
 poetry --version
-```
-
-Setup project virtual env:
-```shell
-cd ~/idriss_project
-poetry env use 3.11.10
-poetry install --no-root
-poetry run autonomy packages sync
 ```
 
 Install Tendermint:
@@ -135,9 +127,67 @@ docker run -d --name tendermint \
   tendermint/tendermint start
 ```
 
-
-Run project:
+Configure Nginx Reverse Proxy
 ```shell
+#Install Nginx:
+sudo apt install nginx -y
+#Edit the Nginx config:
+sudo nano /etc/nginx/sites-available/default
+#Replace contents with:
+server {
+    listen 80;
+    server_name YOUR_SERVER_IP;
+
+    location / {
+        proxy_pass http://127.0.0.1:5555;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+    }
+}
+# You can get YOUR_SERVER_IP by running: curl ifconfig.me
+
+#Restart Nginx:
+sudo systemctl restart nginx
+#Check if Nginx is running:
+sudo systemctl status nginx
+```
+
+Set Up and Configure UFW Firewall
+```shell
+#Reinstall UFW (if needed)
+sudo apt install --reinstall ufw -y
+#Enable UFW:
+sudo ufw enable
+#Allow necessary ports:
+sudo ufw allow 22/tcp     # SSH access
+sudo ufw allow 80/tcp     # HTTP (if using a web service)
+sudo ufw allow 443/tcp    # HTTPS (if using SSL)
+sudo ufw allow 5555/tcp   # API service
+#Reload UFW to apply changes:
+sudo ufw reload
+#Check firewall rules:
+sudo ufw status
+```
+
+Clone the Project Repository:
+```shell
+git clone https://github.com/victorpolisetty/idriss_project.git
+cd idriss_project
+```
+
+Set Up the Virtual Environment with Poetry:
+```shell
+#Create a new Poetry environment with Python 3.11:
+poetry env use python3.11
+#Install project dependencies:
+poetry install
+```
+
+Run the project
+```shell
+export OPENAI_API_KEY = YOUR_API_KEY
 poetry run ./scripts/run_single_agent.sh victorpolisetty/idriss_frontend --force
 ```
 
