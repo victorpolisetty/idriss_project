@@ -22,6 +22,7 @@ from pathlib import Path
 import re
 import os
 import sys
+from typing import Optional
 import requests
 import json
 from openai import OpenAI
@@ -32,6 +33,8 @@ from packages.eightballer.protocols.http.message import HttpMessage as ApiHttpMe
 from mech_client.interact import interact, ConfirmationType
 from datetime import datetime, timedelta, timezone
 from dotenv import load_dotenv
+from aea.protocols.base import Message
+
 current_dir = Path(__file__).parent
 sys.path.append(str(current_dir.resolve()))
 
@@ -81,27 +84,43 @@ class ApiHttpHandler(Handler):
     def teardown(self) -> None:
         """Tear down the handler."""
 
-    def handle(self, message: ApiHttpMessage) -> None:
+    def handle(self, message: ApiHttpMessage) -> Optional[Message]:
         """Handle incoming API HTTP messages."""
-        method = message.method.lower()
-        parsed_url = urlparse(unquote(message.url))
-        path = parsed_url.path
-        body = message.body
+        try:
+            method = message.method.lower()
+            parsed_url = urlparse(unquote(message.url))
+            path = parsed_url.path
+            body = message.body
 
-        self.context.logger.info(f"Received {method.upper()} request for {path}")
+            self.context.logger.info(f"Received {method.upper()} request for {path}")
 
-        normalized_path = self.normalize_path(path)
+            normalized_path = self.normalize_path(path)
 
-        handler_name, kwargs = self.get_handler_name_and_kwargs(method, normalized_path, path, body)
+            handler_name, kwargs = self.get_handler_name_and_kwargs(method, normalized_path, path, body)
 
-        handler_method = getattr(self, handler_name, None)
+            handler_method = getattr(self, handler_name, None)
 
-        if handler_method:
-            self.context.logger.debug(f"Found handler method: {handler_name}")
-            return handler_method(message, **kwargs)
-        self.context.logger.warning(f"No handler found for {method.upper()} request to {path}")
-        return self.handle_unexpected_message(message)
-        
+            if handler_method:
+                self.context.logger.debug(f"Found handler method: {handler_name}")
+                return handler_method(message, **kwargs)
+
+            # Log warning but prevent crash
+            self.context.logger.warning(f"No handler found for {method.upper()} request to {path}")
+            return self.handle_unknown_message(message)
+
+        except AttributeError as e:
+            self.context.logger.error(f"AttributeError in API handler: {e}")
+            return None  # Prevent process termination
+
+        except Exception as e:
+            self.context.logger.error(f"Unexpected error in API handler: {e}")
+            return None  # Prevent process termination
+
+    def handle_unknown_message(self, message: ApiHttpMessage) -> None:
+        """Handle unknown messages safely without crashing."""
+        self.context.logger.warning(f"Unhandled message received: {message}")
+        return None  # Do nothing instead of raising an error
+
     def normalize_path(self, path: str) -> str:                                                                                                                                                                                                                                                      
         """Normalize the path using regex substitution."""                                                                                                                                                                                                                                           
         normalized_path = path.rstrip("/")
