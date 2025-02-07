@@ -181,6 +181,23 @@ export OPENAI_API_KEY=YOUR_API_KEY
 poetry run ./scripts/run_single_agent.sh victorpolisetty/idriss_frontend --force
 ```
 
+Common Issues
+
+- Tendermint not syncing
+```shell
+[2025-02-06 20:03:49,243][ERROR] [idriss_frontend] Could not synchronize with Tendermint!
+[2025-02-06 20:03:49,244] [INFO] [idriss_frontend] Synchronizing with Tendermint...
+```
+Fix:
+```shell
+ps aux | grep tendermint
+#Find process which is defunkt and kill it
+sudo kill -9 <4 digit process number>
+#Restart Tendermint
+tendermint unsafe-reset-all --home /root/.tendermint
+tendermint start --home /root/.tendermint &
+```
+
 ## Commands
 
 Here are common commands you might need while working with the project:
