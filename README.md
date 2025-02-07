@@ -200,7 +200,7 @@ tendermint start --home /root/.tendermint &
 
 ## How to run API from Digital Ocean
 
-http://<ipv4 address>:5555/
+http://<ipv4_address>:5555/
 
 This can be found in Droplet dashboard and is the same one you put in NGINX
 
