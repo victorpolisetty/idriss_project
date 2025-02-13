@@ -3,7 +3,7 @@ from typing import Optional, Dict, Any, List
 import os
 from pathlib import Path
 # Define the base project directory (static)
-BASE_DIR = Path("~/idriss_project")
+BASE_DIR = Path("~/idriss_project").expanduser()
 
 # Resolve the database path relative to the base directory
 DATABASE_PATH = BASE_DIR / "packages" / "victorpolisetty" / "customs" / "idriss_token_finder" / "database" / "mydatabase.db"
